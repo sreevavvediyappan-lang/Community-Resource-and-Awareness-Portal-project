@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Government Schemes — CommunityConnect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">🌿</span>
+      <span class="brand-text">
+        <div class="name">CommunityConnect</div>
+        <div class="tagline">Connect. Discover. Empower.</div>
+      </span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="community-profile.html">Community Profile</a>
+      <a href="government-schemes.html" aria-current="page">Government Schemes</a>
+      <a href="resources.html">Resources</a>
+      <a href="awareness.html">Awareness</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Search">🔍</button>
+      <button class="btn-login">Login</button>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="container page-header">
+  <h1>Government Schemes</h1>
+  <p>Find government schemes and benefits you may be eligible for.</p>
+</div>
+
+<div class="container">
+  <div class="toolbar">
+    <div class="search-box">
+      <span>🔍</span>
+      <input type="text" placeholder="Search schemes...">
+    </div>
+    <select class="filter-select">
+      <option>All Categories</option>
+      <option>Housing</option>
+      <option>Health</option>
+      <option>Education</option>
+    </select>
+  </div>
+
+  <div class="list-card">
+    <div class="thumb" style="background:#FFF3DA;">🏠</div>
+    <div class="content">
+      <h3>Pradhan Mantri Awas Yojana</h3>
+      <p style="margin:0;">Housing for all eligible beneficiaries.</p>
+      <div class="meta"><span class="tag">Housing</span><span class="tag gov">Central Government</span></div>
+    </div>
+    <a href="#" class="btn btn-outline small">View Details</a>
+  </div>
+
+  <div class="list-card">
+    <div class="thumb" style="background:#E9F0FE;">💙</div>
+    <div class="content">
+      <h3>Ayushman Bharat Yojana</h3>
+      <p style="margin:0;">Health insurance coverage for families.</p>
+      <div class="meta"><span class="tag">Health</span><span class="tag gov">Central Government</span></div>
+    </div>
+    <a href="#" class="btn btn-outline small">View Details</a>
+  </div>
+
+  <div class="list-card">
+    <div class="thumb" style="background:#FDE9EC;">👧</div>
+    <div class="content">
+      <h3>Beti Bachao Beti Padhao</h3>
+      <p style="margin:0;">Promoting education and safety for girls.</p>
+      <div class="meta"><span class="tag">Education</span><span class="tag gov">Central Government</span></div>
+    </div>
+    <a href="#" class="btn btn-outline small">View Details</a>
+  </div>
+
+  <div style="text-align:center; margin: 24px 0 48px;">
+    <a href="#" class="btn btn-primary">View All Schemes</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-brand">
+        <span class="brand-mark">🌿</span>
+        <div class="brand-text">
+          <div class="name">CommunityConnect</div>
+          <div class="tagline">Connect. Discover. Empower.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="community-profile.html">Community Profile</a></li>
+        <li><a href="government-schemes.html">Government Schemes</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="awareness.html">Awareness</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Useful Links</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+        <li><a href="#">Disclaimer</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact Us</h4>
+      <ul>
+        <li>info@communityconnect.org</li>
+        <li>+91 12345 67890</li>
+        <li>123 Community Street, Your City, India</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <div class="social-row">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Twitter">𝕏</a>
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 CommunityConnect. All rights reserved.</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
