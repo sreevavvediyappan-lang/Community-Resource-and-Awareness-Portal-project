@@ -1,0 +1,48 @@
+# GitHub Pages Website
+
+## OVERVIEW
+
+The GitHub Pages Website feature provides an online platform for the Community Resource and Awareness Portal. It allows users to access community information, resources, awareness materials, government schemes, and emergency contacts through a web browser.
+
+---
+
+## Description
+
+Create and publish the Community Resource and Awareness Portal as a website using GitHub Pages.
+
+---
+
+## Features
+
+- Website hosted using GitHub Pages
+- Community information pages
+- Government schemes section
+- Health awareness resources
+- Educational resources
+- Environmental initiatives
+- Emergency contacts
+- Easy navigation between pages
+
+---
+
+## Contents
+
+- 🏘️ Community Profile
+- 🏛️ Government Schemes
+- 🏥 Health Awareness Materials
+- 📚 Educational Resources
+- 🌱 Environmental Initiatives
+- 🚨 Emergency Contacts
+- 📞 Contact Information
+
+---
+ 
+
+## Acceptance Criteria
+
+1. GitHub repository is created for the project.
+2. Website files are uploaded to the repository.
+3. GitHub Pages is enabled successfully.
+4. All required portal sections are accessible from the website.
+5. Navigation links work correctly.
+6. Website is simple, responsive, and user-friendly.
