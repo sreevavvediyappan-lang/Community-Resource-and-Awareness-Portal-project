@@ -1,0 +1,45 @@
+# Emergency Contacts
+
+## OVERVIEW
+
+The Emergency Contacts feature provides quick access to important emergency service numbers. It helps community members find the right contact during urgent situations such as accidents, medical emergencies, fire, or safety-related incidents.
+
+---
+
+## Description
+
+Create an emergency contacts page that displays important emergency services and their contact numbers in a clear and easy-to-use format.
+
+---
+
+## Features
+
+- Police emergency contact
+- Ambulance and medical emergency contact
+- Fire and rescue contact
+- Women helpline
+- Child helpline
+- Unified emergency number
+- Railway helpline
+
+---
+
+## Contents
+  
+- 👮 **Police** – 100
+- 🚑 **Ambulance** – 108
+- 🚒 **Fire and Rescue** – 101
+- 🆘 **Emergency Services** – 112
+- 👩 **Women Helpline** – 181
+- 🧒 **Child Helpline** – 1098
+- 🚆 **Railway Helpline** – 139
+
+---
+
+## Acceptance Criteria
+
+1. Emergency contacts page is created.
+2. Emergency service names and contact numbers are displayed clearly.
+3. Different emergency services are organized properly.
+4. Users can quickly find the required emergency contact.
+5. The page is simple and user-friendly.
