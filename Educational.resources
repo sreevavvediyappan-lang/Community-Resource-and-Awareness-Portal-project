@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Education | CommunityConnect</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="container navbar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    👥
+                </div>
+
+                <div>
+                    <h2>CommunityConnect</h2>
+                    <p>Connect. Discover. Empower.</p>
+                </div>
+
+            </div>
+
+            <nav>
+
+                <a href="../index.html">Home</a>
+                <a href="community.html">Community</a>
+                <a href="government.html">Government</a>
+                <a href="health.html">Health</a>
+                <a href="education.html">Education</a>
+                <a href="environment.html">Environment</a>
+                <a href="emergency.html">Emergency</a>
+                <a href="contact.html">Contact</a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="container hero-content">
+
+            <div class="hero-text">
+
+                <h1>
+                    Education <span>Resources</span>
+                </h1>
+
+                <p>
+                    Discover educational institutions,
+                    learning opportunities and useful resources
+                    for students and the community.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Education Resources -->
+    <section class="topics">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Education Information</h2>
+
+                <div class="title-line"></div>
+
+            </div>
+
+
+            <div class="topic-grid">
+
+
+                <!-- Schools -->
+                <div class="topic-card">
+
+                    <div class="topic-icon education-icon">
+                        🏫
+                    </div>
+
+                    <h3>Schools</h3>
+
+                    <p>
+                        Find information about schools and
+                        educational facilities available in
+                        the community.
+                    </p>
+
+                </div>
+
+
+                <!-- Colleges -->
+                <div class="topic-card">
+
+                    <div class="topic-icon community-icon">
+                        🎓
+                    </div>
+
+                    <h3>Colleges</h3>
+
+                    <p>
+                        Explore nearby colleges and higher
+                        education opportunities for students.
+                    </p>
+
+                </div>
+
+
+                <!-- Scholarships -->
+                <div class="topic-card">
+
+                    <div class="topic-icon government-icon">
+                        💰
+                    </div>
+
+                    <h3>Scholarships</h3>
+
+                    <p>
+                        Learn about scholarships and financial
+                        assistance available for students.
+                    </p>
+
+                </div>
+
+
+                <!-- Digital Learning -->
+                <div class="topic-card">
+
+                    <div class="topic-icon health-icon">
+                        💻
+                    </div>
+
+                    <h3>Digital Learning</h3>
+
+                    <p>
+                        Discover online learning platforms,
+                        digital courses and educational materials.
+                    </p>
+
+                </div>
+
+
+                <!-- Libraries -->
+                <div class="topic-card">
+
+                    <div class="topic-icon environment-icon">
+                        📚
+                    </div>
+
+                    <h3>Libraries</h3>
+
+                    <p>
+                        Find information about libraries and
+                        other places that support learning.
+                    </p>
+
+                </div>
+
+
+                <!-- Skill Development -->
+                <div class="topic-card">
+
+                    <div class="topic-icon emergency-icon">
+                        🧑‍💻
+                    </div>
+
+                    <h3>Skill Development</h3>
+
+                    <p>
+                        Explore skill development programs,
+                        training opportunities and career learning.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About Education -->
+    <section class="about">
+
+        <div class="container about-content">
+
+            <div class="about-image">
+                📖
+            </div>
+
+            <div class="about-text">
+
+                <h2>About Education</h2>
+
+                <p>
+                    Education provides people with knowledge,
+                    skills and opportunities to build a better
+                    future.
+                </p>
+
+                <p>
+                    CommunityConnect brings useful information
+                    about schools, colleges, scholarships,
+                    libraries, digital learning and skill
+                    development resources together in one place.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="container footer-grid">
+
+            <div>
+
+                <h3>CommunityConnect</h3>
+
+                <p>
+                    Connect. Discover. Empower.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>Quick Links</h4>
+
+                <a href="../index.html">Home</a>
+                <a href="community.html">Community</a>
+                <a href="government.html">Government</a>
+
+            </div>
+
+
+            <div>
+
+                <h4>Resources</h4>
+
+                <a href="health.html">Health</a>
+                <a href="education.html">Education</a>
+                <a href="environment.html">Environment</a>
+
+            </div>
+
+
+            <div>
+
+                <h4>Contact</h4>
+
+                <p>
+                    info@communityconnect.org
+                </p>
+
+                <p>
+                    Chennai, Tamil Nadu
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 CommunityConnect.
+            All rights reserved.
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
+
+On Sat, Aug 29, 2026 at 1:47 PM Sreeva. V Vediyappan <sreevavvediyappan@gmail.com> wrote:
