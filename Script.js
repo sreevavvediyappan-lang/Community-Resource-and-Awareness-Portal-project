@@ -1,39 +1,21 @@
-// ========================================
-// COMMUNITYCONNECT JAVASCRIPT
-// ========================================
+// Contact Form
 
-console.log("CommunityConnect loaded successfully!");
+const contactForm = document.getElementById("contactForm");
 
+if (contactForm) {
 
-// ========================================
-// LOGIN BUTTON
-// ========================================
+    contactForm.addEventListener("submit", function (event) {
 
-const loginButton = document.querySelector(".login-btn");
+        event.preventDefault();
 
-if (loginButton) {
+        const name = document.getElementById("name").value;
 
-    loginButton.addEventListener("click", function () {
+        alert(
+            "Thank you, " + name +
+            "! Your message has been submitted successfully."
+        );
 
-        alert("Login feature will be added soon!");
-
-    });
-
-}
-
-
-// ========================================
-// EXPLORE RESOURCES BUTTON
-// ========================================
-
-const exploreButton =
-    document.querySelector(".primary-btn");
-
-if (exploreButton) {
-
-    exploreButton.addEventListener("click", function () {
-
-        console.log("Exploring community resources...");
+        contactForm.reset();
 
     });
 
