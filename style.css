@@ -1,6 +1,22 @@
-/* =========================================
-   COMMUNITYCONNECT - MAIN STYLESHEET
-========================================= */
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Community Resource and Awareness Portal
+</title>
+
+<style>
+
+/* =====================================================
+   GENERAL
+===================================================== */
 
 * {
     margin: 0;
@@ -14,505 +30,3556 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f6faf8;
-    color: #1f2937;
-    line-height: 1.6;
+    background: #f8fffb;
+    color: #172033;
 }
 
 a {
     text-decoration: none;
-    color: inherit;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
 
-/* =========================================
-   HEADER
-========================================= */
+/* =====================================================
+   NAVBAR
+===================================================== */
 
-.header {
-    background: #ffffff;
-    border-bottom: 1px solid #e5e7eb;
+.navbar {
+
     position: sticky;
     top: 0;
     z-index: 1000;
-}
 
-.navbar {
-    min-height: 80px;
+    height: 76px;
+
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 25px;
+
+    padding: 0 5%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #006b3c,
+            #008f55,
+            #00a66a
+        );
+
+    box-shadow:
+        0 4px 20px rgba(0,0,0,0.12);
+
+    color: white;
 }
+
 
 .logo {
+
     display: flex;
     align-items: center;
+
     gap: 12px;
+
+    min-width: 245px;
 }
 
+
 .logo-icon {
+
     width: 48px;
     height: 48px;
-    border-radius: 12px;
-    background: #087443;
-    color: white;
+
+    border-radius: 50%;
+
+    background: white;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
-}
 
-.logo h2 {
-    color: #087443;
-    font-size: 22px;
-}
+    color: #00834a;
 
-.logo p {
-    font-size: 12px;
-    color: #667085;
-}
+    font-size: 23px;
 
-nav {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-nav a {
-    color: #344054;
-    font-size: 15px;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: #087443;
-}
-
-.login-btn {
-    background: #087443;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 7px;
     font-weight: bold;
-    cursor: pointer;
 }
 
-.login-btn:hover {
-    background: #055b34;
-}
 
-/* =========================================
-   HERO
-========================================= */
-
-.hero {
-    background: linear-gradient(135deg, #e9f8f0, #ffffff);
-    padding: 80px 0;
-}
-
-.hero-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 50px;
-}
-
-.hero-text h1 {
-    font-size: 52px;
-    line-height: 1.15;
-    color: #173b2d;
-    margin-bottom: 20px;
-}
-
-.hero-text h1 span {
-    color: #087443;
-}
-
-.hero-text p {
+.logo-text h2 {
     font-size: 18px;
-    color: #667085;
-    max-width: 600px;
-    margin-bottom: 30px;
 }
 
-.hero-buttons {
+
+.logo-text p {
+
+    font-size: 9px;
+
+    margin-top: 3px;
+
+    color: #d9fff0;
+}
+
+
+.nav-links {
+
+    flex: 1;
+
     display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 22px;
 }
 
-.primary-btn,
-.secondary-btn {
-    display: inline-block;
-    padding: 13px 24px;
-    border-radius: 8px;
-    font-weight: bold;
+
+.nav-links a {
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
     transition: 0.3s;
 }
 
-.primary-btn {
-    background: #087443;
-    color: white;
-}
 
-.primary-btn:hover {
-    background: #055b34;
+.nav-links a:hover {
+
+    color: #ffe36e;
+
     transform: translateY(-2px);
 }
 
-.secondary-btn {
+
+.login-btn {
+
     background: white;
-    color: #087443;
-    border: 1px solid #087443;
-}
 
-.secondary-btn:hover {
-    background: #e9f8f0;
-}
+    color: #00733f;
 
-.hero-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    border: none;
 
-.community-art {
-    width: 100%;
-    min-height: 280px;
-    border-radius: 25px;
-    background: #dff4e8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 55px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-}
+    padding: 10px 19px;
 
-/* =========================================
-   TOPICS
-========================================= */
+    border-radius: 8px;
 
-.topics {
-    padding: 80px 0;
-    background: #ffffff;
-}
+    font-weight: bold;
 
-.section-title {
-    text-align: center;
-    margin-bottom: 45px;
-}
+    cursor: pointer;
 
-.section-title h2 {
-    font-size: 36px;
-    color: #173b2d;
-}
-
-.title-line {
-    width: 60px;
-    height: 4px;
-    background: #087443;
-    margin: 12px auto;
-    border-radius: 5px;
-}
-
-.topic-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.topic-card {
-    background: #ffffff;
-    padding: 28px;
-    border-radius: 15px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
     transition: 0.3s;
 }
 
-.topic-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+
+.login-btn:hover {
+
+    transform: scale(1.05);
+
+    background: #fff3b0;
 }
 
-.topic-icon {
-    width: 55px;
-    height: 55px;
-    border-radius: 14px;
-    display: flex;
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+    min-height: 500px;
+
+    padding: 65px 7%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
     align-items: center;
-    justify-content: center;
-    font-size: 28px;
+
+    gap: 30px;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 20%,
+            #fff0a8 0,
+            transparent 25%
+        ),
+
+        linear-gradient(
+            120deg,
+            #effff6,
+            #ffffff,
+            #f2fff9
+        );
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.hero-tag {
+
+    display: inline-block;
+
+    padding: 8px 15px;
+
+    border-radius: 30px;
+
+    background: #dff8ea;
+
+    color: #00743f;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
     margin-bottom: 18px;
 }
 
-.community-icon {
-    background: #e8f4ff;
+
+.hero h1 {
+
+    font-size: 47px;
+
+    line-height: 1.12;
+
+    margin-bottom: 20px;
 }
 
-.government-icon {
-    background: #f1edff;
+
+.hero h1 span {
+
+    color: #00834a;
 }
 
-.health-icon {
-    background: #ffecef;
+
+.hero-description {
+
+    max-width: 570px;
+
+    color: #596273;
+
+    line-height: 1.8;
+
+    font-size: 15px;
+
+    margin-bottom: 27px;
 }
 
-.education-icon {
-    background: #fff4d9;
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
 }
 
-.environment-icon {
-    background: #e4f7e9;
+
+.primary-btn {
+
+    display: inline-block;
+
+    padding: 13px 22px;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00763f,
+            #00aa61
+        );
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 13px;
+
+    border: none;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,120,65,0.22);
+
+    transition: 0.3s;
 }
 
-.emergency-icon {
-    background: #ffe4e4;
+
+.primary-btn:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(0,120,65,0.3);
 }
 
-.topic-card h3 {
-    color: #173b2d;
-    font-size: 21px;
+
+.secondary-btn {
+
+    display: inline-block;
+
+    padding: 12px 22px;
+
+    border-radius: 8px;
+
+    border: 1px solid #00834a;
+
+    color: #00743f;
+
+    background: white;
+
+    font-weight: bold;
+
+    font-size: 13px;
+}
+
+
+.hero-checks {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 17px;
+
+    color: #087443;
+
+    font-size: 11px;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   HERO VISUAL
+===================================================== */
+
+.hero-visual {
+
+    height: 380px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 30px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #dff9e8,
+            #efffff,
+            #fff4ca
+        );
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,80,50,0.1);
+}
+
+
+.sun {
+
+    position: absolute;
+
+    width: 145px;
+    height: 145px;
+
+    right: 20%;
+    top: 30px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe66d,
+            #ffbd22
+        );
+}
+
+
+.hill {
+
+    position: absolute;
+
+    bottom: -100px;
+
+    width: 650px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #75c96a,
+            #248c4a
+        );
+
+    left: -50px;
+}
+
+
+.house {
+
+    position: absolute;
+
+    bottom: 75px;
+
+    width: 90px;
+    height: 70px;
+
+    background: #fff4ce;
+
+    border: 3px solid #8d6b3c;
+
+    z-index: 3;
+}
+
+
+.house:before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -12px;
+
+    top: -42px;
+
+    border-left: 57px solid transparent;
+
+    border-right: 57px solid transparent;
+
+    border-bottom: 45px solid #d85d46;
+}
+
+
+.house-one {
+
+    left: 20%;
+
+    transform: scale(0.85);
+}
+
+
+.house-two {
+
+    right: 18%;
+
+    transform: scale(0.7);
+}
+
+
+.tree {
+
+    position: absolute;
+
+    bottom: 55px;
+
+    width: 25px;
+
+    height: 75px;
+
+    background: #76512c;
+
+    z-index: 3;
+}
+
+
+.tree:before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 75px;
+
+    height: 75px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #62bd5d,
+            #278b46
+        );
+
+    left: -25px;
+
+    top: -55px;
+}
+
+
+.tree-one {
+    left: 10%;
+}
+
+
+.tree-two {
+    right: 8%;
+}
+
+
+.people {
+
+    position: absolute;
+
+    z-index: 5;
+
+    bottom: 55px;
+
+    left: 42%;
+
+    font-size: 75px;
+
+    letter-spacing: -18px;
+
+    filter:
+        drop-shadow(
+            0 5px 4px
+            rgba(0,0,0,0.1)
+        );
+}
+
+
+.float-card {
+
+    position: absolute;
+
+    z-index: 10;
+
+    padding: 13px 17px;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.93);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.1);
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+
+.float-card span {
+
+    display: block;
+
+    font-size: 22px;
+
+    margin-bottom: 4px;
+}
+
+
+.float-one {
+
+    top: 35px;
+
+    left: 25px;
+
+    color: #16864b;
+}
+
+
+.float-two {
+
+    right: 20px;
+
+    top: 140px;
+
+    color: #4771dc;
+
+    animation-delay: 0.8s;
+}
+
+
+.float-three {
+
+    left: 35px;
+
+    bottom: 35px;
+
+    color: #e08b00;
+
+    animation-delay: 1.3s;
+}
+
+
+@keyframes floating {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+
+/* =====================================================
+   SECTION COMMON
+===================================================== */
+
+section {
+    scroll-margin-top: 80px;
+}
+
+
+.section-heading {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+
+.section-heading small {
+
+    color: #00834a;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+
+.section-heading h2 {
+
+    font-size: 32px;
+
+    margin: 9px 0;
+}
+
+
+.section-heading p {
+
+    color: #687384;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   EXPLORE
+===================================================== */
+
+.explore {
+
+    padding: 70px 6%;
+
+    background: white;
+}
+
+
+.feature-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 18px;
+}
+
+
+.feature-card {
+
+    position: relative;
+
+    padding: 25px 20px;
+
+    text-align: center;
+
+    border-radius: 15px;
+
+    background: white;
+
+    border: 1px solid #e9edf1;
+
+    box-shadow:
+        0 7px 25px
+        rgba(0,0,0,0.06);
+
+    transition: 0.35s;
+
+    overflow: hidden;
+}
+
+
+.feature-card:before {
+
+    content: "";
+
+    position: absolute;
+
+    height: 5px;
+
+    width: 100%;
+
+    top: 0;
+
+    left: 0;
+}
+
+
+.feature-card:hover {
+
+    transform:
+        translateY(-10px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,0.12);
+}
+
+
+.feature-icon {
+
+    width: 65px;
+    height: 65px;
+
+    margin: 5px auto 15px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 27px;
+}
+
+
+.green .feature-icon {
+    background: #def7e8;
+}
+
+.blue .feature-icon {
+    background: #e4efff;
+}
+
+.purple .feature-icon {
+    background: #eee7ff;
+}
+
+.orange .feature-icon {
+    background: #fff0d4;
+}
+
+
+.green:before {
+    background: #16a05a;
+}
+
+.blue:before {
+    background: #3f7ee8;
+}
+
+.purple:before {
+    background: #8564df;
+}
+
+.orange:before {
+    background: #f2a000;
+}
+
+
+.feature-card h3 {
+
+    font-size: 15px;
+
     margin-bottom: 10px;
 }
 
-.topic-card p {
-    color: #667085;
-    margin-bottom: 18px;
+
+.feature-card p {
+
+    color: #687384;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    min-height: 62px;
+
+    margin-bottom: 13px;
 }
 
-.topic-card a {
-    color: #087443;
+
+.explore-link {
+
+    color: #007843;
+
     font-weight: bold;
+
+    font-size: 12px;
 }
 
-.topic-card a:hover {
-    text-decoration: underline;
-}
 
-/* =========================================
-   STATISTICS
-========================================= */
+/* =====================================================
+   STATS
+===================================================== */
 
-.statistics {
-    background: #087443;
-    color: white;
-    padding: 45px 0;
-}
+.stats {
 
-.stats-grid {
+    margin: 0 5% 70px;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 10px;
+
+    background:
+
+        linear-gradient(
+            100deg,
+            #e9fff1,
+            #effbff,
+            #fff7e5
+        );
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.05);
 }
+
 
 .stat {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
 
-.stat > span {
-    font-size: 35px;
-}
-
-.stat strong {
-    display: block;
-    font-size: 28px;
-}
-
-.stat small {
-    font-size: 14px;
-}
-
-/* =========================================
-   ABOUT
-========================================= */
-
-.about {
-    padding: 80px 0;
-    background: #f6faf8;
-}
-
-.about-content {
-    max-width: 850px;
-    margin: auto;
     text-align: center;
+
+    border-right:
+        1px solid #d8e9df;
 }
 
-.about h2 {
-    font-size: 36px;
-    color: #173b2d;
-    margin-bottom: 20px;
+
+.stat:last-child {
+    border: none;
 }
 
-.about p {
-    color: #667085;
-    font-size: 17px;
-}
 
-/* =========================================
-   FOOTER
-========================================= */
+.stat-icon {
 
-.footer,
-footer {
-    background: #173b2d;
-    color: white;
-    padding: 30px 0;
-    text-align: center;
-}
+    font-size: 25px;
 
-footer p {
-    margin: 0;
-    font-size: 14px;
-}
-
-/* =========================================
-   CONTACT FORM
-========================================= */
-
-#contactForm {
-    margin-top: 20px;
-}
-
-#contactForm p {
     margin-bottom: 5px;
 }
 
-#contactForm label {
+
+.stat-number {
+
+    display: block;
+
+    font-size: 25px;
+
+    color: #007840;
+
     font-weight: bold;
-    color: #344054;
+}
+
+
+.stat-name {
+
+    font-size: 11px;
+
+    color: #687384;
+}
+
+
+/* =====================================================
+   COMMUNITY
+===================================================== */
+
+.community {
+
+    padding: 75px 8%;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 60px;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            120deg,
+            #f1fff6,
+            #ffffff
+        );
+}
+
+
+.community-visual {
+
+    height: 320px;
+
+    border-radius: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #9bdd8c,
+            #4cae63,
+            #16854c
+        );
+}
+
+
+.community-symbol {
+
+    font-size: 125px;
+
+    z-index: 2;
+
+    filter:
+        drop-shadow(
+            0 10px 5px
+            rgba(0,0,0,.15)
+        );
+}
+
+
+.community-badge {
+
+    position: absolute;
+
+    bottom: 20px;
+
+    left: 20px;
+
+    background: white;
+
+    padding: 10px 15px;
+
+    border-radius: 8px;
+
+    color: #007840;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+.community-content h2 {
+
+    font-size: 32px;
+
+    margin: 8px 0 15px;
+}
+
+
+.community-content p {
+
+    color: #596273;
+
+    line-height: 1.8;
+
     font-size: 14px;
 }
 
-#contactForm input,
-#contactForm textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #d0d5dd;
-    border-radius: 7px;
-    font-family: inherit;
-    font-size: 14px;
+
+.checks {
+
+    margin: 20px 0;
+
+    display: grid;
+
+    gap: 10px;
+
+    color: #087443;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   GOVERNMENT SCHEMES
+===================================================== */
+
+.schemes {
+
+    padding: 75px 6%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7fbff,
+            #f2fff8
+        );
+}
+
+
+.scheme-search {
+
+    max-width: 850px;
+
+    margin: 0 auto 30px;
+
+    display: flex;
+
+    gap: 10px;
+}
+
+
+.scheme-search input {
+
+    flex: 1;
+
+    padding: 13px 16px;
+
+    border: 1px solid #dce4e8;
+
+    border-radius: 8px;
+
     outline: none;
-    margin-bottom: 8px;
+
+    font-size: 13px;
 }
 
-#contactForm input:focus,
-#contactForm textarea:focus {
-    border-color: #087443;
+
+.scheme-search select {
+
+    padding: 13px;
+
+    border: 1px solid #dce4e8;
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: #444;
 }
 
-#contactForm textarea {
-    resize: vertical;
+
+.scheme-grid {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 20px;
 }
 
-#contactForm button {
-    background: #087443;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 7px;
-    font-weight: bold;
-    cursor: pointer;
+
+.scheme-card {
+
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 18px;
+
+    box-shadow:
+        0 7px 25px
+        rgba(0,0,0,.07);
+
     transition: 0.3s;
 }
 
-#contactForm button:hover {
-    background: #055b34;
-    transform: translateY(-2px);
+
+.scheme-card:hover {
+
+    transform:
+        translateY(-8px);
 }
 
-/* =========================================
-   MOBILE RESPONSIVE
-========================================= */
 
-@media (max-width: 900px) {
+.scheme-icon {
+
+    height: 100px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+
+.scheme-card:nth-child(1)
+.scheme-icon {
+
+    background: #fff0d0;
+}
+
+
+.scheme-card:nth-child(2)
+.scheme-icon {
+
+    background: #e2eeff;
+}
+
+
+.scheme-card:nth-child(3)
+.scheme-icon {
+
+    background: #ffe4eb;
+}
+
+
+.scheme-card small {
+
+    color: #087443;
+
+    font-weight: bold;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+}
+
+
+.scheme-card h3 {
+
+    font-size: 15px;
+
+    margin: 8px 0;
+}
+
+
+.scheme-card p {
+
+    color: #687384;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    margin-bottom: 14px;
+}
+
+
+.view-btn {
+
+    border: none;
+
+    background: #e5f8ed;
+
+    color: #007840;
+
+    padding: 9px 14px;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   HEALTH
+===================================================== */
+
+.health {
+
+    padding: 75px 8%;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    align-items: center;
+
+    gap: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff2f5,
+            #fff
+        );
+}
+
+
+.health-content h2 {
+
+    font-size: 32px;
+
+    margin: 8px 0;
+}
+
+
+.health-content p {
+
+    color: #687384;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+
+.health-cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 12px;
+}
+
+
+.health-card {
+
+    padding: 16px;
+
+    border-radius: 11px;
+
+    background: white;
+
+    box-shadow:
+        0 6px 18px
+        rgba(0,0,0,.06);
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    color: #333;
+}
+
+
+.health-card span {
+
+    display: block;
+
+    font-size: 25px;
+
+    margin-bottom: 7px;
+}
+
+
+.health-visual {
+
+    height: 320px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.health-circle {
+
+    width: 260px;
+    height: 260px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffb9c4,
+            #ff6477
+        );
+
+    color: white;
+
+    box-shadow:
+        0 20px 40px
+        rgba(220,60,80,.22);
+}
+
+
+.health-circle strong {
+
+    font-size: 70px;
+}
+
+
+.health-circle h3 {
+
+    font-size: 17px;
+}
+
+
+/* =====================================================
+   EDUCATION
+===================================================== */
+
+.education {
+
+    padding: 75px 6%;
+
+    background: white;
+}
+
+
+.education-grid {
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 18px;
+}
+
+
+.education-card {
+
+    padding: 25px;
+
+    text-align: center;
+
+    border-radius: 15px;
+
+    background: white;
+
+    border: 1px solid #edf0f2;
+
+    box-shadow:
+        0 7px 22px
+        rgba(0,0,0,.06);
+
+    transition: 0.3s;
+}
+
+
+.education-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color: #6ecf99;
+}
+
+
+.education-icon {
+
+    font-size: 40px;
+
+    margin-bottom: 12px;
+}
+
+
+.education-card h3 {
+
+    font-size: 15px;
+
+    margin-bottom: 9px;
+}
+
+
+.education-card p {
+
+    color: #687384;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   ENVIRONMENT
+===================================================== */
+
+.environment {
+
+    padding: 75px 6%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eafff0,
+            #f0fff9
+        );
+}
+
+
+.environment-grid {
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 18px;
+}
+
+
+.environment-card {
+
+    padding: 25px;
+
+    text-align: center;
+
+    border-radius: 15px;
+
+    background:
+        rgba(255,255,255,.9);
+
+    box-shadow:
+        0 8px 22px
+        rgba(0,0,0,.06);
+
+    transition: 0.3s;
+}
+
+
+.environment-card:hover {
+
+    transform:
+        translateY(-8px)
+        rotate(1deg);
+}
+
+
+.environment-icon {
+
+    font-size: 43px;
+
+    margin-bottom: 10px;
+}
+
+
+.environment-card h3 {
+
+    font-size: 15px;
+
+    margin-bottom: 8px;
+}
+
+
+.environment-card p {
+
+    color: #687384;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   EMERGENCY
+===================================================== */
+
+.emergency {
+
+    padding: 75px 6%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff5f5,
+            #fffafa
+        );
+}
+
+
+.emergency-grid {
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 15px;
+}
+
+
+.emergency-card {
+
+    padding: 20px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    border-left:
+        5px solid #e53935;
+
+    box-shadow:
+        0 7px 20px
+        rgba(0,0,0,.06);
+
+    transition: 0.3s;
+}
+
+
+.emergency-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(220,50,50,.12);
+}
+
+
+.emergency-card span {
+
+    font-size: 28px;
+}
+
+
+.emergency-card h3 {
+
+    font-size: 13px;
+
+    margin: 7px 0;
+}
+
+
+.emergency-card strong {
+
+    color: #d62828;
+
+    font-size: 24px;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about {
+
+    padding: 75px 8%;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    align-items: center;
+
+    gap: 50px;
+}
+
+
+.about h2 {
+
+    font-size: 32px;
+
+    margin: 10px 0 15px;
+}
+
+
+.about p {
+
+    color: #687384;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+
+    margin-bottom: 14px;
+}
+
+
+.about-visual {
+
+    min-height: 300px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7564d8,
+            #b15bd4,
+            #ef6b9e
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    color: white;
+
+    box-shadow:
+        0 20px 40px
+        rgba(100,60,180,.18);
+}
+
+
+.about-symbol {
+
+    font-size: 90px;
+
+    margin-bottom: 10px;
+}
+
+
+.about-visual h3 {
+
+    font-size: 17px;
+
+    margin: 3px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+
+    padding: 45px 7% 15px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #003b29,
+            #00683c,
+            #004b32
+        );
+
+    color: white;
+}
+
+
+.footer-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr 1.2fr;
+
+    gap: 35px;
+}
+
+
+.footer h2 {
+
+    font-size: 20px;
+
+    margin-bottom: 8px;
+}
+
+
+.footer h3 {
+
+    font-size: 14px;
+
+    margin-bottom: 12px;
+}
+
+
+.footer a,
+.footer p {
+
+    display: block;
+
+    color: #d5ede2;
+
+    font-size: 11px;
+
+    margin: 7px 0;
+}
+
+
+.footer a:hover {
+
+    color: #ffe66d;
+}
+
+
+.copyright {
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.2);
+
+    margin-top: 30px;
+
+    padding-top: 15px;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    color: #cce7dc;
+}
+
+
+/* =====================================================
+   POPUP
+===================================================== */
+
+.popup {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 3000;
+
+    background:
+        rgba(0,0,0,.55);
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.popup.show {
+
+    display: flex;
+}
+
+
+.popup-box {
+
+    width: min(430px,90%);
+
+    padding: 35px;
+
+    border-radius: 18px;
+
+    background: white;
+
+    text-align: center;
+
+    position: relative;
+
+    animation:
+        popup 0.3s ease;
+}
+
+
+.close {
+
+    position: absolute;
+
+    right: 15px;
+
+    top: 10px;
+
+    border: none;
+
+    background: none;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+
+.popup-icon {
+
+    width: 60px;
+    height: 60px;
+
+    margin:
+        0 auto 15px;
+
+    border-radius: 50%;
+
+    background: #dff7e8;
+
+    color: #007840;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 28px;
+}
+
+
+.popup-box h2 {
+
+    margin-bottom: 10px;
+}
+
+
+.popup-box p {
+
+    color: #687384;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+
+@keyframes popup {
+
+    from {
+        transform: scale(.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1000px) {
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+    }
+
+    .feature-grid {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .education-grid {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .environment-grid {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .emergency-grid {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:750px) {
 
     .navbar {
-        flex-direction: column;
-        padding: 20px 0;
+        height: auto;
+
+        padding: 15px;
+
+        flex-wrap: wrap;
     }
 
-    nav {
+    .nav-links {
+
+        order: 3;
+
+        width: 100%;
+
+        flex-wrap: wrap;
+
         justify-content: center;
-        gap: 12px;
-    }
 
-    .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .hero-text p {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .hero-text h1 {
-        font-size: 40px;
-    }
-
-    .topic-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-
-    .container {
-        width: 92%;
-    }
-
-    nav {
-        gap: 8px;
-    }
-
-    nav a {
-        font-size: 13px;
+        margin-top: 10px;
     }
 
     .hero {
-        padding: 55px 0;
+
+        grid-template-columns: 1fr;
+
+        padding: 50px 6%;
     }
 
-    .hero-text h1 {
-        font-size: 34px;
+    .hero h1 {
+        font-size: 36px;
     }
 
-    .hero-text p {
-        font-size: 16px;
-    }
+    .community,
+    .health,
+    .about {
 
-    .community-art {
-        min-height: 200px;
-        font-size: 38px;
-    }
-
-    .topic-grid {
         grid-template-columns: 1fr;
     }
 
-    .stats-grid {
+    .scheme-grid {
+
         grid-template-columns: 1fr;
     }
 
-    .section-title h2 {
-        font-size: 30px;
+    .stats {
+
+        grid-template-columns:
+            repeat(2,1fr);
     }
+
+    .footer-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
 }
 
+
+@media(max-width:500px) {
+
+    .feature-grid,
+    .education-grid,
+    .environment-grid,
+    .emergency-grid,
+    .footer-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+
+        grid-template-columns: 1fr;
+    }
+
+    .stat {
+
+        border-right: none;
+
+        border-bottom:
+            1px solid #d8e9df;
+
+        padding-bottom: 12px;
+    }
+
+    .hero h1 {
+
+        font-size: 30px;
+    }
+
+    .hero-buttons {
+
+        flex-direction: column;
+    }
+
+    .hero-visual {
+
+        height: 320px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            CC
+        </div>
+
+        <div class="logo-text">
+
+            <h2>
+                CommunityConnect
+            </h2>
+
+            <p>
+                Connect. Discover. Empower.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <nav class="nav-links">
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#community">
+            Community Profile
+        </a>
+
+        <a href="#schemes">
+            Government Schemes
+        </a>
+
+        <a href="#health">
+            Health
+        </a>
+
+        <a href="#education">
+            Education
+        </a>
+
+        <a href="#environment">
+            Environment
+        </a>
+
+        <a href="#emergency">
+            Emergency
+        </a>
+
+    </nav>
+
+
+    <button class="login-btn"
+    onclick="showPopup('Welcome to CommunityConnect')">
+
+        Login
+
+    </button>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <span class="hero-tag">
+            A COMMUNITY RESOURCE & AWARENESS PORTAL
+        </span>
+
+
+        <h1>
+
+            Connecting Communities.
+
+            <span>
+                Building a Better Tomorrow.
+            </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            Your one-stop portal for community
+            information, government schemes,
+            health awareness, educational
+            opportunities, environmental
+            initiatives and essential services.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="#explore"
+            class="primary-btn">
+
+                Explore Resources →
+
+            </a>
+
+
+            <a href="#about"
+            class="secondary-btn">
+
+                Learn More
+
+            </a>
+
+        </div>
+
+
+        <div class="hero-checks">
+
+            <span>
+                ✓ Reliable Information
+            </span>
+
+            <span>
+                ✓ Easy Access
+            </span>
+
+            <span>
+                ✓ Community Focused
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="hero-visual">
+
+        <div class="sun"></div>
+
+        <div class="cloud"></div>
+
+        <div class="hill"></div>
+
+
+        <div class="house house-one"></div>
+
+        <div class="house house-two"></div>
+
+
+        <div class="tree tree-one"></div>
+
+        <div class="tree tree-two"></div>
+
+
+        <div class="people">
+            👨‍👩‍👧‍👦
+        </div>
+
+
+        <div class="float-card float-one">
+
+            <span>
+                +
+            </span>
+
+            Community
+
+        </div>
+
+
+        <div class="float-card float-two">
+
+            <span>
+                +
+            </span>
+
+            Education
+
+        </div>
+
+
+        <div class="float-card float-three">
+
+            <span>
+                +
+            </span>
+
+            Environment
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EXPLORE
+===================================================== -->
+
+<section class="explore" id="explore">
+
+    <div class="section-heading">
+
+        <small>
+            DISCOVER YOUR COMMUNITY
+        </small>
+
+        <h2>
+            Explore What Matters
+        </h2>
+
+        <p>
+            Everything important for your community,
+            available in one place.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+
+        <div class="feature-card green">
+
+            <div class="feature-icon">
+                👥
+            </div>
+
+            <h3>
+                Community Profile
+            </h3>
+
+            <p>
+                Learn about communities,
+                their background, facilities
+                and key information.
+            </p>
+
+            <a class="explore-link"
+            href="#community">
+
+                Explore →
+
+            </a>
+
+        </div>
+
+
+
+        <div class="feature-card blue">
+
+            <div class="feature-icon">
+                🏛
+            </div>
+
+            <h3>
+                Government Schemes
+            </h3>
+
+            <p>
+                Find government schemes
+                and benefits available
+                for eligible citizens.
+            </p>
+
+            <a class="explore-link"
+            href="#schemes">
+
+                Explore →
+
+            </a>
+
+        </div>
+
+
+
+        <div class="feature-card purple">
+
+            <div class="feature-icon">
+                📚
+            </div>
+
+            <h3>
+                Community Resources
+            </h3>
+
+            <p>
+                Discover useful libraries,
+                training centres and
+                public resources.
+            </p>
+
+            <a class="explore-link"
+            href="#education">
+
+                Explore →
+
+            </a>
+
+        </div>
+
+
+
+        <div class="feature-card orange">
+
+            <div class="feature-icon">
+                !
+            </div>
+
+            <h3>
+                Awareness
+            </h3>
+
+            <p>
+                Stay informed about
+                health, education and
+                environmental topics.
+            </p>
+
+            <a class="explore-link"
+            href="#health">
+
+                Explore →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     STATISTICS
+===================================================== -->
+
+<div class="stats">
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            👥
+        </div>
+
+        <span class="stat-number"
+        data-target="100">
+
+            0+
+
+        </span>
+
+        <span class="stat-name">
+            Communities
+        </span>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            🏛
+        </div>
+
+        <span class="stat-number"
+        data-target="250">
+
+            0+
+
+        </span>
+
+        <span class="stat-name">
+            Government Schemes
+        </span>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            ♡
+        </div>
+
+        <span class="stat-number"
+        data-target="500">
+
+            0+
+
+        </span>
+
+        <span class="stat-name">
+            Resources
+        </span>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            !
+        </div>
+
+        <span class="stat-number"
+        data-target="200">
+
+            0+
+
+        </span>
+
+        <span class="stat-name">
+            Awareness Articles
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     COMMUNITY PROFILE
+===================================================== -->
+
+<section class="community"
+id="community">
+
+    <div class="community-visual">
+
+        <div class="community-symbol">
+            🏘
+        </div>
+
+        <div class="community-badge">
+            Stronger Communities
+        </div>
+
+    </div>
+
+
+    <div class="community-content">
+
+        <small class="section-heading">
+            COMMUNITY INFORMATION
+        </small>
+
+        <h2>
+            Community Profile
+        </h2>
+
+        <p>
+
+            Learn about your community,
+            its people, facilities, services
+            and development opportunities.
+
+        </p>
+
+
+        <div class="checks">
+
+            <div>
+                ✓ Schools and Libraries
+            </div>
+
+            <div>
+                ✓ Health Centres
+            </div>
+
+            <div>
+                ✓ Parks and Public Facilities
+            </div>
+
+            <div>
+                ✓ Transportation Information
+            </div>
+
+        </div>
+
+
+        <button class="primary-btn"
+        onclick="showPopup('Community Profile')">
+
+            View Community Details
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GOVERNMENT SCHEMES
+===================================================== -->
+
+<section class="schemes"
+id="schemes">
+
+    <div class="section-heading">
+
+        <small>
+            PUBLIC WELFARE
+        </small>
+
+        <h2>
+            Government Schemes
+        </h2>
+
+        <p>
+            Explore useful government schemes
+            and public welfare programmes.
+        </p>
+
+    </div>
+
+
+    <div class="scheme-search">
+
+        <input
+        type="text"
+        id="schemeSearch"
+        placeholder="Search schemes..."
+        onkeyup="searchSchemes()">
+
+
+        <select id="schemeCategory">
+
+            <option>
+                All Categories
+            </option>
+
+            <option>
+                Housing
+            </option>
+
+            <option>
+                Health
+            </option>
+
+            <option>
+                Education
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="scheme-grid">
+
+
+        <div class="scheme-card">
+
+            <div class="scheme-icon">
+                🏠
+            </div>
+
+            <small>
+                HOUSING
+            </small>
+
+            <h3>
+                Pradhan Mantri Awas Yojana
+            </h3>
+
+            <p>
+                Housing support for eligible
+                beneficiaries.
+            </p>
+
+            <button
+            class="view-btn"
+            onclick="showPopup('Pradhan Mantri Awas Yojana')">
+
+                View Details
+
+            </button>
+
+        </div>
+
+
+
+        <div class="scheme-card">
+
+            <div class="scheme-icon">
+                +
+            </div>
+
+            <small>
+                HEALTH
+            </small>
+
+            <h3>
+                Ayushman Bharat Yojana
+            </h3>
+
+            <p>
+                Health insurance coverage
+                for eligible families.
+            </p>
+
+            <button
+            class="view-btn"
+            onclick="showPopup('Ayushman Bharat Yojana')">
+
+                View Details
+
+            </button>
+
+        </div>
+
+
+
+        <div class="scheme-card">
+
+            <div class="scheme-icon">
+                👧
+            </div>
+
+            <small>
+                EDUCATION
+            </small>
+
+            <h3>
+                Beti Bachao Beti Padhao
+            </h3>
+
+            <p>
+                Promoting education and
+                safety for girls.
+            </p>
+
+            <button
+            class="view-btn"
+            onclick="showPopup('Beti Bachao Beti Padhao')">
+
+                View Details
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HEALTH
+===================================================== -->
+
+<section class="health"
+id="health">
+
+    <div class="health-content">
+
+        <small class="section-heading">
+            HEALTH & WELLNESS
+        </small>
+
+        <h2>
+            Health Awareness
+        </h2>
+
+        <p>
+
+            Healthy communities begin
+            with awareness. Discover
+            simple information about
+            health and wellbeing.
+
+        </p>
+
+
+        <div class="health-cards">
+
+
+            <div class="health-card">
+
+                <span>
+                    +
+                </span>
+
+                Clean Water
+
+            </div>
+
+
+            <div class="health-card">
+
+                <span>
+                    ♡
+                </span>
+
+                Healthy Food
+
+            </div>
+
+
+            <div class="health-card">
+
+                <span>
+                    →
+                </span>
+
+                Active Lifestyle
+
+            </div>
+
+
+            <div class="health-card">
+
+                <span>
+                    +
+                </span>
+
+                Personal Hygiene
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="health-visual">
+
+        <div class="health-circle">
+
+            <strong>
+                +
+            </strong>
+
+            <h3>
+                Your Health Matters
+            </h3>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EDUCATION
+===================================================== -->
+
+<section class="education"
+id="education">
+
+    <div class="section-heading">
+
+        <small>
+            LEARN • GROW • ACHIEVE
+        </small>
+
+        <h2>
+            Educational Resources
+        </h2>
+
+        <p>
+            Learning opportunities for
+            students and community members.
+        </p>
+
+    </div>
+
+
+    <div class="education-grid">
+
+
+        <div class="education-card">
+
+            <div class="education-icon">
+                📚
+            </div>
+
+            <h3>
+                Public Library
+            </h3>
+
+            <p>
+                Books, reading materials
+                and study resources.
+            </p>
+
+        </div>
+
+
+        <div class="education-card">
+
+            <div class="education-icon">
+                💻
+            </div>
+
+            <h3>
+                Skill Development
+            </h3>
+
+            <p>
+                Training and skill development
+                opportunities.
+            </p>
+
+        </div>
+
+
+        <div class="education-card">
+
+            <div class="education-icon">
+                🎓
+            </div>
+
+            <h3>
+                Scholarships
+            </h3>
+
+            <p>
+                Educational opportunities
+                and financial support.
+            </p>
+
+        </div>
+
+
+        <div class="education-card">
+
+            <div class="education-icon">
+                ★
+            </div>
+
+            <h3>
+                Career Guidance
+            </h3>
+
+            <p>
+                Resources to help students
+                plan their future.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ENVIRONMENT
+===================================================== -->
+
+<section class="environment"
+id="environment">
+
+    <div class="section-heading">
+
+        <small>
+            PROTECT OUR PLANET
+        </small>
+
+        <h2>
+            Environmental Initiatives
+        </h2>
+
+        <p>
+            Together we can create cleaner
+            and greener communities.
+        </p>
+
+    </div>
+
+
+    <div class="environment-grid">
+
+
+        <div class="environment-card">
+
+            <div class="environment-icon">
+                🌳
+            </div>
+
+            <h3>
+                Tree Plantation
+            </h3>
+
+            <p>
+                Increase green spaces
+                in our communities.
+            </p>
+
+        </div>
+
+
+        <div class="environment-card">
+
+            <div class="environment-icon">
+                ♻
+            </div>
+
+            <h3>
+                Waste Management
+            </h3>
+
+            <p>
+                Reduce waste and
+                encourage recycling.
+            </p>
+
+        </div>
+
+
+        <div class="environment-card">
+
+            <div class="environment-icon">
+                +
+            </div>
+
+            <h3>
+                Save Water
+            </h3>
+
+            <p>
+                Use water responsibly
+                and avoid wastage.
+            </p>
+
+        </div>
+
+
+        <div class="environment-card">
+
+            <div class="environment-icon">
+                !
+            </div>
+
+            <h3>
+                Reduce Plastic
+            </h3>
+
+            <p>
+                Choose reusable
+                alternatives whenever possible.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EMERGENCY CONTACTS
+===================================================== -->
+
+<section class="emergency"
+id="emergency">
+
+    <div class="section-heading">
+
+        <small>
+            IMPORTANT SERVICES
+        </small>
+
+        <h2>
+            Emergency Contacts
+        </h2>
+
+        <p>
+            Quick access to important
+            emergency service numbers.
+        </p>
+
+    </div>
+
+
+    <div class="emergency-grid">
+
+
+        <div class="emergency-card">
+
+            <span>
+                +
+            </span>
+
+            <h3>
+                Police
+            </h3>
+
+            <strong>
+                100
+            </strong>
+
+        </div>
+
+
+        <div class="emergency-card">
+
+            <span>
+                +
+            </span>
+
+            <h3>
+                Ambulance
+            </h3>
+
+            <strong>
+                108
+            </strong>
+
+        </div>
+
+
+        <div class="emergency-card">
+
+            <span>
+                +
+            </span>
+
+            <h3>
+                Fire & Rescue
+            </h3>
+
+            <strong>
+                101
+            </strong>
+
+        </div>
+
+
+        <div class="emergency-card">
+
+            <span>
+                !
+            </span>
+
+            <h3>
+                Unified Emergency
+            </h3>
+
+            <strong>
+                112
+            </strong>
+
+        </div>
+
+
+        <div class="emergency-card">
+
+            <span>
+                +
+            </span>
+
+            <h3>
+                Women Helpline
+            </h3>
+
+            <strong>
+                181
+            </strong>
+
+        </div>
+
+
+        <div class="emergency-card">
+
+            <span>
+                +
+            </span>
+
+            <h3>
+                Child Helpline
+            </h3>
+
+            <strong>
+                1098
+            </strong>
+
+        </div>
+
+
+        <div class="emergency-card">
+
+            <span>
+                +
+            </span>
+
+            <h3>
+                Railway Helpline
+            </h3>
+
+            <strong>
+                139
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="about"
+id="about">
+
+    <div>
+
+        <small class="section-heading">
+            ABOUT OUR PORTAL
+        </small>
+
+        <h2>
+            Connecting People With Opportunities
+        </h2>
+
+        <p>
+
+            CommunityConnect is a platform
+            designed to bring important
+            community information into one
+            easy-to-use website.
+
+        </p>
+
+        <p>
+
+            Our aim is to make information
+            about public services, government
+            schemes, health, education and
+            environmental initiatives easier
+            to discover.
+
+        </p>
+
+
+        <button
+        class="primary-btn"
+        onclick="showPopup('About CommunityConnect')">
+
+            Know More About Us
+
+        </button>
+
+    </div>
+
+
+    <div class="about-visual">
+
+        <div class="about-symbol">
+            +
+        </div>
+
+        <h3>
+            Connect
+        </h3>
+
+        <h3>
+            Discover
+        </h3>
+
+        <h3>
+            Empower
+        </h3>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-grid">
+
+
+        <div>
+
+            <h2>
+                CommunityConnect
+            </h2>
+
+            <p>
+                Connect. Discover. Empower.
+            </p>
+
+            <p>
+                Community Resource and
+                Awareness Portal.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#community">
+                Community Profile
+            </a>
+
+            <a href="#schemes">
+                Government Schemes
+            </a>
+
+            <a href="#health">
+                Health Awareness
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Resources
+            </h3>
+
+            <a href="#education">
+                Educational Resources
+            </a>
+
+            <a href="#environment">
+                Environmental Initiatives
+            </a>
+
+            <a href="#emergency">
+                Emergency Contacts
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Contact Us
+            </h3>
+
+            <p>
+                Email:
+                info@communityconnect.org
+            </p>
+
+            <p>
+                Phone:
+                +91 12345 67890
+            </p>
+
+            <p>
+                Your City, India
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 Community Resource and
+        Awareness Portal.
+        All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     POPUP
+===================================================== -->
+
+<div class="popup"
+id="popup">
+
+    <div class="popup-box">
+
+        <button
+        class="close"
+        onclick="closePopup()">
+
+            ×
+
+        </button>
+
+
+        <div class="popup-icon">
+            ✓
+        </div>
+
+
+        <h2 id="popupTitle">
+            Welcome
+        </h2>
+
+
+        <p id="popupText">
+
+            Welcome to CommunityConnect.
+
+        </p>
+
+
+        <button
+        class="primary-btn"
+        onclick="closePopup()">
+
+            Continue
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   POPUP
+===================================================== */
+
+function showPopup(title) {
+
+    document.getElementById("popupTitle")
+        .innerText = title;
+
+    document.getElementById("popupText")
+        .innerText =
+        "This section of the Community Resource and Awareness Portal provides useful information for community members.";
+
+    document.getElementById("popup")
+        .classList.add("show");
+}
+
+
+function closePopup() {
+
+    document.getElementById("popup")
+        .classList.remove("show");
+}
+
+
+document.getElementById("popup")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+
+            closePopup();
+
+        }
+
+    });
+
+
+
+/* =====================================================
+   ANIMATED STATISTICS
+===================================================== */
+
+const counters =
+    document.querySelectorAll(
+        ".stat-number"
+    );
+
+let started = false;
+
+
+function startCounter() {
+
+    if (started) {
+        return;
+    }
+
+    const stats =
+        document.querySelector(".stats");
+
+    const position =
+        stats.getBoundingClientRect().top;
+
+    if (
+        position <
+        window.innerHeight - 100
+    ) {
+
+        started = true;
+
+        counters.forEach(counter => {
+
+            const target =
+                Number(
+                    counter.dataset.target
+                );
+
+            let number = 0;
+
+            const speed =
+                Math.ceil(target / 60);
+
+
+            function update() {
+
+                number += speed;
+
+                if (number < target) {
+
+                    counter.innerText =
+                        number + "+";
+
+                    requestAnimationFrame(update);
+
+                } else {
+
+                    counter.innerText =
+                        target + "+";
+
+                }
+
+            }
+
+            update();
+
+        });
+
+    }
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    startCounter
+);
+
+startCounter();
+
+
+
+/* =====================================================
+   SCHEME SEARCH
+===================================================== */
+
+function searchSchemes() {
+
+    const input =
+        document
+        .getElementById("schemeSearch")
+        .value
+        .toLowerCase();
+
+
+    const cards =
+        document.querySelectorAll(
+            ".scheme-card"
+        );
+
+
+    cards.forEach(card => {
+
+        const text =
+            card.innerText.toLowerCase();
+
+
+        if (text.includes(input)) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+
+</body>
+
+</html>
