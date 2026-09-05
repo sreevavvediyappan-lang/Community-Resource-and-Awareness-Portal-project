@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Saved Resources | CommunityConnect</title>
+    <title>My Applications | CommunityConnect</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -44,10 +46,13 @@
             height: 40px;
             background: #5ab878;
             border-radius: 10px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             font-size: 18px;
+            color: #123d2a;
         }
 
         .nav-links {
@@ -69,8 +74,10 @@
             border: 1px solid #6dcc88;
             background: transparent;
             color: white;
+
             padding: 9px 17px;
             border-radius: 8px;
+
             cursor: pointer;
             font-weight: 600;
         }
@@ -114,98 +121,122 @@
             max-width: 680px;
         }
 
-        /* RESOURCE COUNT */
+        /* APPLICATION COUNT */
 
-        .resource-count {
+        .application-count {
             background: white;
             border: 1px solid #e1eae4;
             border-radius: 14px;
+
             padding: 18px 22px;
             margin-bottom: 25px;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .resource-count strong {
+        .application-count strong {
             color: #183b2a;
         }
 
-        .resource-count span {
+        .application-count span {
             color: #287a48;
             font-weight: 700;
         }
 
-        /* RESOURCE GRID */
+        /* APPLICATION GRID */
 
-        .resource-grid {
+        .application-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
+
             margin-bottom: 60px;
         }
 
-        .resource-card {
+        .application-card {
             background: white;
             border: 1px solid #e1eae4;
             border-radius: 17px;
+
             padding: 25px;
+
             transition: 0.3s;
-            position: relative;
         }
 
-        .resource-card:hover {
+        .application-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(20, 70, 45, 0.08);
+
+            box-shadow:
+                0 12px 30px rgba(20, 70, 45, 0.08);
         }
 
-        .resource-icon {
+        .application-icon {
             width: 52px;
             height: 52px;
+
             border-radius: 13px;
             background: #e9f6ed;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             font-size: 23px;
             margin-bottom: 18px;
         }
 
-        .category {
+        .status {
             display: inline-block;
-            background: #edf7f0;
-            color: #287a48;
-            padding: 5px 9px;
+
+            background: #fff4d6;
+            color: #9a6b00;
+
+            padding: 5px 10px;
             border-radius: 20px;
+
             font-size: 10px;
             font-weight: 700;
+
             margin-bottom: 12px;
         }
 
-        .resource-card h3 {
+        .application-card h3 {
             color: #244536;
             font-size: 18px;
             margin-bottom: 9px;
         }
 
-        .resource-card p {
+        .application-card p {
             color: #78857e;
             font-size: 13px;
             line-height: 1.65;
-            margin-bottom: 20px;
+
+            margin-bottom: 16px;
         }
 
-        .card-actions {
+        .application-date {
+            color: #89968f;
+            font-size: 11px;
+            margin-bottom: 18px;
+        }
+
+        .application-actions {
             display: flex;
             gap: 9px;
         }
 
         .visit-btn,
         .remove-btn {
+
             padding: 10px 13px;
+
             border-radius: 8px;
+
             font-size: 12px;
             font-weight: 700;
+
             text-decoration: none;
             cursor: pointer;
         }
@@ -223,6 +254,7 @@
         .remove-btn {
             background: white;
             color: #b34a4a;
+
             border: 1px solid #e5caca;
         }
 
@@ -236,20 +268,28 @@
             background: white;
             border: 1px solid #e1eae4;
             border-radius: 18px;
+
             padding: 70px 30px;
+
             text-align: center;
+
             margin-bottom: 60px;
         }
 
         .empty-icon {
             width: 75px;
             height: 75px;
+
             background: #e9f6ed;
+
             border-radius: 50%;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             font-size: 31px;
+
             margin: 0 auto 20px;
         }
 
@@ -262,17 +302,24 @@
             color: #7a867f;
             font-size: 14px;
             line-height: 1.7;
+
             max-width: 500px;
+
             margin: auto auto 25px;
         }
 
         .explore-btn {
             display: inline-block;
+
             background: #287a48;
             color: white;
+
             text-decoration: none;
+
             padding: 13px 23px;
+
             border-radius: 9px;
+
             font-size: 13px;
             font-weight: 700;
         }
@@ -285,10 +332,15 @@
 
         .cta {
             background: #123d2a;
+
             border-radius: 20px;
+
             padding: 45px;
+
             color: white;
+
             text-align: center;
+
             margin-bottom: 60px;
         }
 
@@ -300,16 +352,22 @@
         .cta p {
             color: #c7dbce;
             font-size: 14px;
+
             margin-bottom: 25px;
         }
 
         .cta a {
             display: inline-block;
+
             background: #6dcc88;
             color: #123d2a;
+
             text-decoration: none;
+
             padding: 13px 25px;
+
             border-radius: 9px;
+
             font-size: 14px;
             font-weight: 700;
         }
@@ -319,7 +377,9 @@
         footer {
             background: #0c2c1e;
             color: white;
+
             padding: 30px 7%;
+
             text-align: center;
         }
 
@@ -336,7 +396,7 @@
                 display: none;
             }
 
-            .resource-grid {
+            .application-grid {
                 grid-template-columns: 1fr 1fr;
             }
         }
@@ -351,11 +411,11 @@
                 font-size: 30px;
             }
 
-            .resource-grid {
+            .application-grid {
                 grid-template-columns: 1fr;
             }
 
-            .resource-count {
+            .application-count {
                 align-items: flex-start;
                 gap: 10px;
                 flex-direction: column;
@@ -365,7 +425,9 @@
                 padding: 35px 20px;
             }
         }
+
     </style>
+
 </head>
 
 <body>
@@ -374,18 +436,43 @@
 
 <nav class="navbar">
 
-    <div class="logo">
-        <div class="logo-icon">CC</div>
-        <span>CommunityConnect</span>
-    </div>
+    <a href="index.html" class="logo" style="text-decoration:none;color:white;">
+
+        <div class="logo-icon">
+            CC
+        </div>
+
+        <span>
+            CommunityConnect
+        </span>
+
+    </a>
+
 
     <div class="nav-links">
-        <a href="dashboard.html">Dashboard</a>
-        <a href="community.html">Community</a>
-        <a href="government.html">Government</a>
-        <a href="education.html">Education</a>
-        <a href="health.html">Health</a>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="community.html">
+            Community
+        </a>
+
+        <a href="government.html">
+            Government
+        </a>
+
+        <a href="education.html">
+            Education
+        </a>
+
+        <a href="health.html">
+            Health
+        </a>
+
     </div>
+
 
     <button class="logout-btn" onclick="logout()">
         Logout
@@ -400,15 +487,17 @@
 
     <section class="page-header">
 
-        <p>Your Personal Collection</p>
+        <p>
+            Track Your Progress
+        </p>
 
         <h1>
-            Saved <span>Resources</span>
+            My <span>Applications</span>
         </h1>
 
         <p class="intro">
-            Keep useful community information, educational resources,
-            government schemes and other important links in one place.
+            Keep track of government schemes and community opportunities
+            that you have saved or started applying for.
         </p>
 
     </section>
@@ -416,24 +505,22 @@
 
     <!-- COUNT -->
 
-    <div class="resource-count">
+    <div class="application-count">
 
         <strong>
-            Resources saved to your account
+            Applications in your account
         </strong>
 
-        <span id="resourceCount">
-            0 Resources
+        <span id="applicationCount">
+            0 Applications
         </span>
 
     </div>
 
 
-    <!-- RESOURCE AREA -->
+    <!-- APPLICATION AREA -->
 
-    <div id="resourceArea">
-
-        <!-- SAVED CARDS WILL APPEAR HERE -->
+    <div id="applicationArea">
 
     </div>
 
@@ -443,20 +530,24 @@
     <div id="emptyState" class="empty-state">
 
         <div class="empty-icon">
-            🔖
+            📋
         </div>
 
         <h2>
-            No Saved Resources Yet
+            No Applications Yet
         </h2>
 
         <p>
-            You haven't saved any resources yet. Explore CommunityConnect
-            and keep useful resources here so you can easily find them later.
+            You haven't started tracking any applications yet.
+            Explore government schemes and save an application
+            to keep track of it here.
         </p>
 
-        <a href="community.html" class="explore-btn">
-            Explore Resources
+        <a
+            href="government.html"
+            class="explore-btn"
+        >
+            Explore Government Schemes
         </a>
 
     </div>
@@ -467,12 +558,12 @@
     <section class="cta">
 
         <h2>
-            Discover Something Useful
+            Find Opportunities For You
         </h2>
 
         <p>
-            Explore government schemes, education, health,
-            environment and community resources.
+            Explore government schemes, education resources,
+            healthcare services and community opportunities.
         </p>
 
         <a href="government.html">
@@ -503,7 +594,9 @@
         localStorage.getItem("communityConnectLoggedIn");
 
     const savedUser =
-        JSON.parse(localStorage.getItem("communityConnectUser"));
+        JSON.parse(
+            localStorage.getItem("communityConnectUser")
+        );
 
 
     if (loggedIn !== "true" || !savedUser) {
@@ -513,11 +606,11 @@
     }
 
 
-    /* MAKE SURE SAVED RESOURCES EXISTS */
+    /* MAKE SURE APPLICATIONS EXISTS */
 
-    if (!savedUser.savedResources) {
+    if (!savedUser.applications) {
 
-        savedUser.savedResources = [];
+        savedUser.applications = [];
 
         localStorage.setItem(
             "communityConnectUser",
@@ -527,33 +620,37 @@
     }
 
 
-    /* DISPLAY RESOURCES */
+    /* DISPLAY APPLICATIONS */
 
-    function displayResources() {
+    function displayApplications() {
 
         const area =
-            document.getElementById("resourceArea");
+            document.getElementById("applicationArea");
 
         const emptyState =
             document.getElementById("emptyState");
 
         const count =
-            document.getElementById("resourceCount");
+            document.getElementById("applicationCount");
 
 
         area.innerHTML = "";
 
 
-        const resources =
-            savedUser.savedResources || [];
+        const applications =
+            savedUser.applications || [];
 
 
         count.textContent =
-            resources.length +
-            (resources.length === 1 ? " Resource" : " Resources");
+            applications.length +
+            (
+                applications.length === 1
+                    ? " Application"
+                    : " Applications"
+            );
 
 
-        if (resources.length === 0) {
+        if (applications.length === 0) {
 
             emptyState.style.display = "block";
 
@@ -568,60 +665,69 @@
         const grid =
             document.createElement("div");
 
-        grid.className = "resource-grid";
+        grid.className =
+            "application-grid";
 
 
-        resources.forEach(function(resource, index) {
+        applications.forEach(
+            function(application, index) {
 
-            const card =
-                document.createElement("div");
+                const card =
+                    document.createElement("div");
 
-            card.className = "resource-card";
-
-
-            card.innerHTML = `
-
-                <div class="resource-icon">
-                    ${resource.icon || "📚"}
-                </div>
-
-                <span class="category">
-                    ${resource.category || "Resource"}
-                </span>
-
-                <h3>
-                    ${resource.title || "Saved Resource"}
-                </h3>
-
-                <p>
-                    ${resource.description || "Useful community resource."}
-                </p>
-
-                <div class="card-actions">
-
-                    <a
-                        href="${resource.url || "#"}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="visit-btn"
-                    >
-                        Visit Resource
-                    </a>
-
-                    <button
-                        class="remove-btn"
-                        onclick="removeResource(${index})"
-                    >
-                        Remove
-                    </button>
-
-                </div>
-            `;
+                card.className =
+                    "application-card";
 
 
-            grid.appendChild(card);
+                card.innerHTML = `
 
-        });
+                    <div class="application-icon">
+                        ${application.icon || "📋"}
+                    </div>
+
+                    <span class="status">
+                        ${application.status || "Saved"}
+                    </span>
+
+                    <h3>
+                        ${application.title || "Application"}
+                    </h3>
+
+                    <p>
+                        ${application.description || "Application information."}
+                    </p>
+
+                    <div class="application-date">
+                        Added on:
+                        ${application.date || "Recently"}
+                    </div>
+
+                    <div class="application-actions">
+
+                        <a
+                            href="${application.url || "#"}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="visit-btn"
+                        >
+                            Open Portal
+                        </a>
+
+                        <button
+                            class="remove-btn"
+                            onclick="removeApplication(${index})"
+                        >
+                            Remove
+                        </button>
+
+                    </div>
+                `;
+
+
+                grid.appendChild(card);
+
+            }
+        );
 
 
         area.appendChild(grid);
@@ -629,11 +735,11 @@
     }
 
 
-    /* REMOVE RESOURCE */
+    /* REMOVE APPLICATION */
 
-    function removeResource(index) {
+    function removeApplication(index) {
 
-        savedUser.savedResources.splice(index, 1);
+        savedUser.applications.splice(index, 1);
 
 
         localStorage.setItem(
@@ -642,7 +748,7 @@
         );
 
 
-        displayResources();
+        displayApplications();
 
     }
 
@@ -656,14 +762,19 @@
             "false"
         );
 
-        window.location.href = "login.html";
+
+        window.location.href =
+            "login.html";
 
     }
 
 
-    displayResources();
+    /* LOAD APPLICATIONS */
+
+    displayApplications();
 
 </script>
 
 </body>
+
 </html>
