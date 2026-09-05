@@ -6,176 +6,702 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Emergency | CommunityConnect</title>
-                    Emergency <span>Information</span>
-                </h1>
 
-                <p>
-                    Find important emergency services and
-                    contact information when you need help.
-                </p>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-            </div>
+        html {
+            scroll-behavior: smooth;
+        }
 
-        </div>
+        body {
+            font-family: Arial, sans-serif;
+            color: #1f2937;
+            background: #f8fbff;
+            line-height: 1.6;
+        }
 
-    </section>
+        /* HEADER */
 
+        header {
+            background: white;
+            padding: 15px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
 
-    <!-- Emergency Resources -->
-    <section class="topics">
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-        <div class="container">
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #dc2626, #ea580c);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
 
-            <div class="section-title">
+        .logo-text h2 {
+            color: #dc2626;
+            font-size: 21px;
+        }
 
-                <h2>Emergency Services</h2>
+        .logo-text p {
+            font-size: 11px;
+            color: #64748b;
+        }
 
-                <div class="title-line"></div>
+        nav {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
 
-            </div>
+        nav a {
+            text-decoration: none;
+            color: #475569;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
 
+        nav a:hover,
+        nav a.active {
+            color: #dc2626;
+        }
 
-            <div class="topic-grid">
+        .login-btn {
+            background: #dc2626;
+            color: white !important;
+            padding: 9px 17px;
+            border-radius: 20px;
+        }
 
+        /* HERO */
 
-                <!-- Police -->
-                <div class="topic-card">
+        .hero {
+            background: linear-gradient(135deg, #dc2626, #ea580c);
+            color: white;
+            padding: 75px 8%;
+            text-align: center;
+        }
 
-                    <div class="topic-icon emergency-icon">
-                        👮
-                    </div>
+        .hero h1 {
+            font-size: 46px;
+            margin-bottom: 15px;
+        }
 
-                    <h3>Police</h3>
+        .hero p {
+            max-width: 720px;
+            margin: auto;
+            font-size: 18px;
+        }
 
-                    <p>
-                        Contact the police for immediate
-                        assistance during safety and security
-                        emergencies.
-                    </p>
+        /* ALERT */
 
-                    <strong>Emergency Number: 112</strong>
+        .alert {
+            margin: 45px 8% 20px;
+            padding: 25px;
+            background: #fff7ed;
+            border-left: 5px solid #dc2626;
+            border-radius: 12px;
+        }
 
-                </div>
+        .alert h2 {
+            color: #b91c1c;
+            margin-bottom: 8px;
+        }
 
+        .alert p {
+            color: #64748b;
+        }
 
-                <!-- Ambulance -->
-                <div class="topic-card">
+        /* EMERGENCY NUMBERS */
 
-                    <div class="topic-icon health-icon">
-                        🚑
-                    </div>
+        .numbers {
+            padding: 40px 8% 70px;
+        }
 
-                    <h3>Ambulance</h3>
+        .numbers h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #991b1b;
+            margin-bottom: 35px;
+        }
 
-                    <p>
-                        Seek emergency medical assistance
-                        when someone requires urgent care.
-                    </p>
+        .number-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
 
-                    <strong>Emergency Number: 112</strong>
+        .number-card {
+            background: white;
+            padding: 28px 20px;
+            border-radius: 18px;
+            text-align: center;
+            border: 1px solid #fee2e2;
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.08);
+        }
 
-                </div>
+        .number-card .icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
 
+        .number-card h3 {
+            color: #991b1b;
+            margin-bottom: 5px;
+        }
 
-                <!-- Fire Service -->
-                <div class="topic-card">
+        .number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #dc2626;
+        }
 
-                    <div class="topic-icon government-icon">
-                        🚒
-                    </div>
+        /* RESOURCES */
 
-                    <h3>Fire & Rescue</h3>
+        .resources {
+            background: #fff7ed;
+            padding: 70px 8%;
+        }
 
-                    <p>
-                        Contact emergency services during
-                        fires and other rescue situations.
-                    </p>
+        .resources h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #9a3412;
+            margin-bottom: 40px;
+        }
 
-                    <strong>Emergency Number: 112</strong>
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
 
-                </div>
+        .resource-card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        }
 
+        .resource-card span {
+            font-size: 30px;
+        }
 
-                <!-- Disaster Management -->
-                <div class="topic-card">
+        .resource-card h3 {
+            color: #9a3412;
+            margin: 15px 0 8px;
+        }
 
-                    <div class="topic-icon environment-icon">
-                        🌪️
-                    </div>
+        .resource-card p {
+            color: #64748b;
+            font-size: 14px;
+        }
 
-                    <h3>Disaster Management</h3>
+        /* SAFETY */
 
-                    <p>
-                        Learn about emergency preparedness,
-                        disaster awareness and safety measures.
-                    </p>
+        .safety {
+            padding: 70px 8%;
+        }
 
-                </div>
+        .safety h2 {
+            text-align: center;
+            color: #991b1b;
+            font-size: 32px;
+            margin-bottom: 35px;
+        }
 
+        .safety-list {
+            max-width: 850px;
+            margin: auto;
+            display: grid;
+            gap: 15px;
+        }
 
-                <!-- Women Safety -->
-                <div class="topic-card">
+        .safety-item {
+            background: white;
+            padding: 18px 22px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
 
-                    <div class="topic-icon community-icon">
-                        🛡️
-                    </div>
+        .safety-item strong {
+            color: #dc2626;
+        }
 
-                    <h3>Women Safety</h3>
+        /* CTA */
 
-                    <p>
-                        Find information about emergency
-                        assistance and safety support services.
-                    </p>
+        .cta {
+            margin: 50px 8% 70px;
+            padding: 50px 30px;
+            border-radius: 25px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(135deg, #dc2626, #ea580c);
+        }
 
-                    <strong>Emergency Number: 112</strong>
+        .cta h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
 
-                </div>
+        .cta p {
+            margin-bottom: 20px;
+        }
 
+        .cta a {
+            display: inline-block;
+            background: white;
+            color: #dc2626;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-                <!-- Child Safety -->
-                <div class="topic-card">
+        /* FOOTER */
 
-                    <div class="topic-icon education-icon">
-                        👶
-                    </div>
+        footer {
+            background: #111827;
+            color: white;
+            padding: 45px 8% 20px;
+        }
 
-                    <h3>Child Safety</h3>
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+        }
 
-                    <p>
-                        Learn about emergency assistance and
-                        support services for children.
-                    </p>
+        footer h3 {
+            margin-bottom: 12px;
+        }
 
-                </div>
+        footer p,
+        footer a {
+            color: #cbd5e1;
+            font-size: 14px;
+            text-decoration: none;
+        }
 
-            </div>
+        footer a {
+            display: block;
+            margin-bottom: 7px;
+        }
 
-        </div>
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #374151;
+            margin-top: 30px;
+            padding-top: 20px;
+            color: #94a3b8;
+            font-size: 13px;
+        }
 
-    </section>
+        /* RESPONSIVE */
 
+        @media (max-width: 1000px) {
 
-    <!-- Emergency Notice -->
-    <section class="about">
+            nav a:not(.login-btn) {
+                display: none;
+            }
 
-        <div class="container about-content">
+            .number-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
-            <div class="about-image">
+            .resource-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero {
+                padding: 55px 6%;
+            }
+
+            .number-grid,
+            .resource-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .numbers h2,
+            .resources h2,
+            .safety h2,
+            .cta h2 {
+                font-size: 27px;
+            }
+
+            .alert {
+                margin: 30px 5% 10px;
+            }
+
+            .cta {
+                margin: 40px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+
+            <div class="logo-icon">
                 🚨
             </div>
 
-            <div class="about-text">
+            <div class="logo-text">
+                <h2>CommunityConnect</h2>
+                <p>Connect. Discover. Empower.</p>
+            </div>
 
-                <h2>In Case of an Emergency</h2>
+        </div>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+            <a href="community.html">Community</a>
+            <a href="government.html">Government</a>
+            <a href="health.html">Health</a>
+            <a href="education.html">Education</a>
+            <a href="environment.html">Environment</a>
+            <a href="Emergency.html" class="active">Emergency</a>
+            <a href="contact.html">Contact</a>
+
+            <a href="#" class="login-btn">Login</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1>Emergency Resources</h1>
+
+        <p>
+            Important emergency information and safety resources
+            to help people respond calmly and seek appropriate help.
+        </p>
+
+    </section>
+
+
+    <!-- ALERT -->
+
+    <section class="alert">
+
+        <h2>🚨 Emergency Alert</h2>
+
+        <p>
+            If you are facing an immediate emergency, contact the
+            appropriate emergency service in your area or ask a
+            trusted adult or nearby authority for help.
+        </p>
+
+    </section>
+
+
+    <!-- EMERGENCY NUMBERS -->
+
+    <section class="numbers">
+
+        <h2>Important Emergency Services</h2>
+
+        <div class="number-grid">
+
+            <div class="number-card">
+
+                <div class="icon">🚓</div>
+
+                <h3>Police</h3>
+
+                <div class="number">112</div>
+
+                <p>For urgent police assistance.</p>
+
+            </div>
+
+
+            <div class="number-card">
+
+                <div class="icon">🚑</div>
+
+                <h3>Ambulance</h3>
+
+                <div class="number">112</div>
+
+                <p>For urgent medical emergencies.</p>
+
+            </div>
+
+
+            <div class="number-card">
+
+                <div class="icon">🚒</div>
+
+                <h3>Fire & Rescue</h3>
+
+                <div class="number">112</div>
+
+                <p>For fire and rescue emergencies.</p>
+
+            </div>
+
+
+            <div class="number-card">
+
+                <div class="icon">📞</div>
+
+                <h3>Emergency Helpline</h3>
+
+                <div class="number">112</div>
+
+                <p>India's unified emergency number.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESOURCES -->
+
+    <section class="resources">
+
+        <h2>Emergency Awareness</h2>
+
+        <div class="resource-grid">
+
+            <div class="resource-card">
+
+                <span>🧯</span>
+
+                <h3>Fire Safety</h3>
 
                 <p>
-                    Stay calm and move to a safe location if
-                    possible. Contact the appropriate emergency
-                    service and clearly explain your location
-                    and situation.
+                    Learn basic fire-safety awareness and how to
+                    respond safely during a fire emergency.
                 </p>
 
+            </div>
+
+
+            <div class="resource-card">
+
+                <span>🌧️</span>
+
+                <h3>Natural Disasters</h3>
+
                 <p>
-                    In India, <strong>112</strong> is the
-                    integrated emergency number for police,
-                    fire and rescue, and medical emergencies.
+                    Learn about preparedness and safety awareness
+                    during floods, storms, earthquakes, and other
+                    natural events.
+                </p>
+
+            </div>
+
+
+            <div class="resource-card">
+
+                <span>🏥</span>
+
+                <h3>Medical Emergencies</h3>
+
+                <p>
+                    Understand when urgent medical assistance may
+                    be needed and how to contact emergency services.
+                </p>
+
+            </div>
+
+
+            <div class="resource-card">
+
+                <span>🚗</span>
+
+                <h3>Road Safety</h3>
+
+                <p>
+                    Follow responsible road practices and know what
+                    to do when an accident or road emergency occurs.
+                </p>
+
+            </div>
+
+
+            <div class="resource-card">
+
+                <span>📢</span>
+
+                <h3>Emergency Alerts</h3>
+
+                <p>
+                    Pay attention to official alerts and instructions
+                    from local authorities during emergencies.
+                </p>
+
+            </div>
+
+
+            <div class="resource-card">
+
+                <span>👨‍👩‍👧</span>
+
+                <h3>Family Preparedness</h3>
+
+                <p>
+                    Encourage families to discuss emergency contacts,
+                    meeting points, and basic preparedness.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SAFETY -->
+
+    <section class="safety">
+
+        <h2>Stay Safe During an Emergency</h2>
+
+        <div class="safety-list">
+
+            <div class="safety-item">
+                <strong>01.</strong>
+                Stay calm and move to a safe location when possible.
+            </div>
+
+            <div class="safety-item">
+                <strong>02.</strong>
+                Contact the appropriate emergency service when urgent help is needed.
+            </div>
+
+            <div class="safety-item">
+                <strong>03.</strong>
+                Follow instructions from emergency responders and local authorities.
+            </div>
+
+            <div class="safety-item">
+                <strong>04.</strong>
+                Avoid spreading unverified information during an emergency.
+            </div>
+
+            <div class="safety-item">
+                <strong>05.</strong>
+                Help children, older people, and others who may need assistance, when it is safe to do so.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+        <h2>Prepared Communities Are Safer Communities</h2>
+
+        <p>
+            Learn, stay aware, and share reliable emergency information
+            with your community.
+        </p>
+
+        <a href="contact.html">Contact Us</a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+
+                <h3>CommunityConnect</h3>
+
+                <p>
+                    Connecting communities with useful resources,
+                    services, and awareness information.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a>
+                <a href="community.html">Community</a>
+                <a href="government.html">Government</a>
+                <a href="health.html">Health</a>
+
+            </div>
+
+
+            <div>
+
+                <h3>Resources</h3>
+
+                <a href="education.html">Education</a>
+                <a href="environment.html">Environment</a>
+                <a href="Emergency.html">Emergency</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 CommunityConnect. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
