@@ -5,10 +5,224 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Community | CommunityConnect</title>
+    <title>Community Profile | CommunityConnect</title>
 
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .community-hero {
+            padding: 70px 20px;
+            background: linear-gradient(135deg, #e9f8f0, #eef6ff);
+            text-align: center;
+        }
+
+        .community-hero h1 {
+            font-size: 44px;
+            margin-bottom: 15px;
+            color: #073b2a;
+        }
+
+        .community-hero h1 span {
+            color: #07834f;
+        }
+
+        .community-hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #52627a;
+        }
+
+        .community-container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .overview {
+            padding: 60px 0;
+        }
+
+        .overview h2 {
+            text-align: center;
+            color: #073b2a;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .resource-card {
+            background: white;
+            padding: 28px;
+            border-radius: 18px;
+            border: 1px solid #e3e8ee;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+        }
+
+        .resource-icon {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e9f8f0;
+            border-radius: 14px;
+            font-size: 27px;
+            margin-bottom: 18px;
+        }
+
+        .resource-card h3 {
+            color: #073b2a;
+            margin-bottom: 12px;
+            font-size: 21px;
+        }
+
+        .resource-card p {
+            color: #667085;
+            line-height: 1.7;
+        }
+
+        .resource-card a {
+            display: inline-block;
+            margin-top: 15px;
+            color: #00834f;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .highlight-section {
+            padding: 60px 0;
+            background: #f7faf9;
+        }
+
+        .highlight {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .highlight-image {
+            background: linear-gradient(135deg, #dff5e8, #e8f1ff);
+            min-height: 300px;
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+        }
+
+        .highlight-text h2 {
+            font-size: 32px;
+            color: #073b2a;
+            margin-bottom: 18px;
+        }
+
+        .highlight-text p {
+            color: #667085;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .service-section {
+            padding: 60px 0;
+        }
+
+        .service-section h2 {
+            text-align: center;
+            color: #073b2a;
+            margin-bottom: 35px;
+            font-size: 32px;
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .service-item {
+            padding: 22px;
+            border-radius: 15px;
+            background: white;
+            border: 1px solid #e4e7ec;
+        }
+
+        .service-item strong {
+            color: #073b2a;
+            font-size: 18px;
+        }
+
+        .service-item p {
+            margin-top: 8px;
+            color: #667085;
+            line-height: 1.6;
+        }
+
+        .community-cta {
+            padding: 60px 20px;
+            text-align: center;
+            background: #087f4e;
+            color: white;
+        }
+
+        .community-cta h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .community-cta p {
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.7;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 25px;
+            background: white;
+            color: #087f4e;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 800px) {
+
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .highlight {
+                grid-template-columns: 1fr;
+            }
+
+            .service-list {
+                grid-template-columns: 1fr;
+            }
+
+            .community-hero h1 {
+                font-size: 34px;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
@@ -32,10 +246,14 @@
             </div>
 
             <nav>
-
-                <a href="../index.html">Home</a>
+                <a href="index.html">Home</a>
                 <a href="community.html">Community</a>
-
+                <a href="government.html">Government</a>
+                <a href="health.html">Health</a>
+                <a href="education.html">Education</a>
+                <a href="environment.html">Environment</a>
+                <a href="Emergency.html">Emergency</a>
+                <a href="contact.html">Contact</a>
             </nav>
 
         </div>
@@ -43,151 +261,270 @@
     </header>
 
 
-    <!-- PAGE INTRODUCTION -->
+    <!-- HERO -->
 
-    <section class="hero">
+    <section class="community-hero">
 
-        <div class="container">
+        <div class="community-container">
 
-            <div class="hero-text">
+            <h1>
+                Explore Your <span>Community</span>
+            </h1>
 
-                <h1>
-                    Community <span>Resources</span>
-                </h1>
-
-                <p>
-                    Find important information, facilities
-                    and resources available in your community.
-                </p>
-
-            </div>
+            <p>
+                Discover useful information about community
+                facilities, education, healthcare, transportation,
+                public services and important local resources.
+            </p>
 
         </div>
 
     </section>
 
 
-    <!-- COMMUNITY INFORMATION -->
+    <!-- COMMUNITY RESOURCES -->
 
-    <section class="topics">
+    <section class="overview">
 
-        <div class="container">
+        <div class="community-container">
 
-            <div class="section-title">
+            <h2>Community Resources</h2>
 
-                <h2>Community Information</h2>
-
-                <div class="title-line"></div>
-
-            </div>
+            <div class="resource-grid">
 
 
-            <div class="topic-grid">
+                <div class="resource-card">
 
+                    <div class="resource-icon">📍</div>
 
-                <!-- LOCATION -->
-
-                <div class="topic-card">
-
-                    <div class="topic-icon community-icon">
-                        📍
-                    </div>
-
-                    <h3>Location</h3>
+                    <h3>Location & Area</h3>
 
                     <p>
-                        Add the location and address
-                        of the community here.
+                        Explore information about the local area,
+                        important places and community surroundings.
                     </p>
+
+                    <a href="#location">
+                        View Details →
+                    </a>
 
                 </div>
 
 
-                <!-- POPULATION -->
+                <div class="resource-card">
 
-                <div class="topic-card">
-
-                    <div class="topic-icon government-icon">
-                        👨‍👩‍👧‍👦
-                    </div>
-
-                    <h3>Population</h3>
-
-                    <p>
-                        Add population information
-                        about the community here.
-                    </p>
-
-                </div>
-
-
-                <!-- EDUCATION -->
-
-                <div class="topic-card">
-
-                    <div class="topic-icon education-icon">
-                        📚
-                    </div>
+                    <div class="resource-icon">🏫</div>
 
                     <h3>Education</h3>
 
                     <p>
-                        Add schools, colleges and
-                        educational resources here.
+                        Find schools, colleges, libraries,
+                        learning centres and educational opportunities.
                     </p>
+
+                    <a href="#education">
+                        Explore Education →
+                    </a>
 
                 </div>
 
 
-                <!-- HEALTH -->
+                <div class="resource-card">
 
-                <div class="topic-card">
-
-                    <div class="topic-icon health-icon">
-                        🏥
-                    </div>
+                    <div class="resource-icon">🏥</div>
 
                     <h3>Health Facilities</h3>
 
                     <p>
-                        Add hospitals, clinics and
-                        health centres here.
+                        Learn about hospitals, clinics,
+                        health centres and community health services.
                     </p>
+
+                    <a href="#health">
+                        Explore Health →
+                    </a>
 
                 </div>
 
 
-                <!-- TRANSPORT -->
+                <div class="resource-card">
 
-                <div class="topic-card">
-
-                    <div class="topic-icon environment-icon">
-                        🚌
-                    </div>
+                    <div class="resource-icon">🚌</div>
 
                     <h3>Transportation</h3>
 
                     <p>
-                        Add buses, trains and other
-                        transportation information.
+                        Access useful information about buses,
+                        trains, roads and other transportation options.
+                    </p>
+
+                    <a href="#transport">
+                        View Transport →
+                    </a>
+
+                </div>
+
+
+                <div class="resource-card">
+
+                    <div class="resource-icon">🏢</div>
+
+                    <h3>Public Facilities</h3>
+
+                    <p>
+                        Discover libraries, community halls,
+                        public offices, parks and other facilities.
+                    </p>
+
+                    <a href="#facilities">
+                        View Facilities →
+                    </a>
+
+                </div>
+
+
+                <div class="resource-card">
+
+                    <div class="resource-icon">🌳</div>
+
+                    <h3>Recreation & Environment</h3>
+
+                    <p>
+                        Learn about parks, recreation spaces,
+                        environmental activities and community initiatives.
+                    </p>
+
+                    <a href="#environment">
+                        Explore →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="highlight">
+
+        <div class="community-container highlight">
+
+            <div class="highlight-image">
+                🏘️
+            </div>
+
+            <div class="highlight-text">
+
+                <h2>About Our Communities</h2>
+
+                <p>
+                    A strong community provides people with access
+                    to essential services, education, healthcare,
+                    transportation and public facilities.
+                </p>
+
+                <p>
+                    CommunityConnect brings important information
+                    together in one place so that people can easily
+                    discover resources and opportunities available
+                    around them.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- IMPORTANT SERVICES -->
+
+    <section class="service-section">
+
+        <div class="community-container">
+
+            <h2>Important Community Services</h2>
+
+            <div class="service-list">
+
+
+                <div class="service-item" id="location">
+
+                    <strong>📍 Location Information</strong>
+
+                    <p>
+                        Find important locations, public places,
+                        government offices and essential services
+                        in the community.
                     </p>
 
                 </div>
 
 
-                <!-- FACILITIES -->
+                <div class="service-item" id="education">
 
-                <div class="topic-card">
-
-                    <div class="topic-icon emergency-icon">
-                        🏢
-                    </div>
-
-                    <h3>Community Facilities</h3>
+                    <strong>🎓 Education Services</strong>
 
                     <p>
-                        Add libraries, parks, community
-                        halls and other facilities.
+                        Schools, colleges, libraries, training centres
+                        and other learning resources can help people
+                        improve their education and skills.
+                    </p>
+
+                </div>
+
+
+                <div class="service-item" id="health">
+
+                    <strong>❤️ Health Services</strong>
+
+                    <p>
+                        Access information about hospitals, clinics,
+                        health centres, awareness programs and
+                        healthcare resources.
+                    </p>
+
+                </div>
+
+
+                <div class="service-item" id="transport">
+
+                    <strong>🚌 Transportation</strong>
+
+                    <p>
+                        Transportation information helps community
+                        members reach schools, hospitals, workplaces
+                        and public services more easily.
+                    </p>
+
+                </div>
+
+
+                <div class="service-item" id="facilities">
+
+                    <strong>🏢 Community Facilities</strong>
+
+                    <p>
+                        Public facilities may include libraries,
+                        parks, community halls, public offices and
+                        other shared spaces.
+                    </p>
+
+                </div>
+
+
+                <div class="service-item" id="environment">
+
+                    <strong>🌱 Environment</strong>
+
+                    <p>
+                        Communities can participate in recycling,
+                        waste management, tree planting and
+                        environmental awareness activities.
                     </p>
 
                 </div>
@@ -199,33 +536,21 @@
     </section>
 
 
-    <!-- ABOUT COMMUNITY -->
+    <!-- CALL TO ACTION -->
 
-    <section class="about">
+    <section class="community-cta">
 
-        <div class="container about-content">
+        <h2>Connect With Your Community</h2>
 
-            <div class="about-image">
-                🏘️
-            </div>
+        <p>
+            Discover resources, learn about available services
+            and stay informed about opportunities that can help
+            build a stronger community.
+        </p>
 
-            <div class="about-text">
-
-                <h2>About the Community</h2>
-
-                <p>
-                    Add a description of the community here.
-                </p>
-
-                <p>
-                    You can include information about
-                    important places, facilities, culture,
-                    activities and available resources.
-                </p>
-
-            </div>
-
-        </div>
+        <a href="index.html" class="back-btn">
+            ← Back to Home
+        </a>
 
     </section>
 
@@ -237,68 +562,43 @@
         <div class="container footer-grid">
 
             <div>
-
                 <h3>CommunityConnect</h3>
-
-                <p>
-                    Connect. Discover. Empower.
-                </p>
-
+                <p>Connect. Discover. Empower.</p>
             </div>
-
 
             <div>
 
                 <h4>Quick Links</h4>
 
-                <a href="../index.html">
-                    Home
-                </a>
-
-                <a href="community.html">
-                    Community
-                </a>
+                <a href="index.html">Home</a>
+                <a href="community.html">Community</a>
+                <a href="government.html">Government</a>
 
             </div>
-
 
             <div>
 
                 <h4>Resources</h4>
 
-                <p>
-                    Community information
-                </p>
-
-                <p>
-                    Local resources
-                </p>
+                <a href="health.html">Health</a>
+                <a href="education.html">Education</a>
+                <a href="environment.html">Environment</a>
 
             </div>
-
 
             <div>
 
                 <h4>Contact</h4>
 
-                <p>
-                    info@communityconnect.org
-                </p>
-
-                <p>
-                    Chennai, Tamil Nadu
-                </p>
+                <p>info@communityconnect.org</p>
+                <p>Chennai, Tamil Nadu</p>
 
             </div>
 
         </div>
 
-
         <div class="copyright">
-
-            © 2026 CommunityConnect.
-            All rights reserved.
-
+            © 2026 CommunityConnect. All rights reserved.
         </div>
 
     </footer>
@@ -306,4 +606,3 @@
 </body>
 
 </html>
-
