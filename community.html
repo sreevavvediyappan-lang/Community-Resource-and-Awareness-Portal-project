@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Community Profile | CommunityConnect</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5faf7;
+            color: #26352d;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: #123d2b;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: #8bd8a9;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: #8bd8a9;
+        }
+
+        .login-btn {
+            background: #79d69a;
+            color: #123d2b !important;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 80px 7%;
+            background: linear-gradient(135deg, #e7f8ed, #f7fcf8);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .small-title {
+            color: #25834c;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            line-height: 1.15;
+            color: #123d2b;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #2e9d5a;
+        }
+
+        .hero p {
+            max-width: 700px;
+            color: #5d6d63;
+            font-size: 17px;
+        }
+
+        /* CONTAINER */
+        .container {
+            width: 86%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* OVERVIEW */
+        .section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            color: #123d2b;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #68776e;
+        }
+
+        .overview {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(30, 80, 50, 0.08);
+        }
+
+        .card h3 {
+            color: #174e35;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #68776e;
+        }
+
+        /* INFO */
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 13px 0;
+            border-bottom: 1px solid #e6eee9;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-list strong {
+            color: #174e35;
+        }
+
+        /* FACILITIES */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 28px;
+            border-radius: 18px;
+            border: 1px solid #e2eee6;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(30, 80, 50, 0.1);
+        }
+
+        .icon {
+            width: 55px;
+            height: 55px;
+            background: #e5f7eb;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 27px;
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            color: #174e35;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: #6b786f;
+            font-size: 14px;
+        }
+
+        /* UPDATES */
+        .updates {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .update {
+            background: #123d2b;
+            color: white;
+            padding: 25px;
+            border-radius: 18px;
+        }
+
+        .update span {
+            color: #8bd8a9;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .update h3 {
+            margin: 12px 0;
+        }
+
+        .update p {
+            color: #d5e7dc;
+            font-size: 14px;
+        }
+
+        /* CTA */
+        .cta {
+            background: #dff5e6;
+            padding: 50px;
+            border-radius: 22px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: #123d2b;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: #5f7066;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #257c49;
+            color: white;
+            text-decoration: none;
+            padding: 13px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #185d36;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 70px;
+            background: #123d2b;
+            color: white;
+            padding: 45px 7%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        footer h3 {
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #c9ddd0;
+            max-width: 500px;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #315b46;
+            color: #b8cdbf;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 850px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .overview,
+            .grid,
+            .updates {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            Community<span>Connect</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="community.html">Community Profile</a>
+            <a href="#">Government Schemes</a>
+            <a href="#">Resources</a>
+            <a href="#">Awareness</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <a href="#" class="login-btn">Login</a>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                CommunityConnect
+            </div>
+
+            <h1>
+                Know Your <span>Community.</span><br>
+                Connect With Your Community.
+            </h1>
+
+            <p>
+                Explore important information about your community,
+                including local facilities, services, public spaces,
+                activities and useful community updates.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMMUNITY OVERVIEW -->
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Community Overview</h2>
+                <p>Everything you need to know about your local community.</p>
+            </div>
+
+            <div class="overview">
+
+                <div class="card">
+
+                    <h3>About Our Community</h3>
+
+                    <p>
+                        A community is more than just a place where people
+                        live. It is a network of people, services,
+                        educational institutions, healthcare facilities
+                        and public resources.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        CommunityConnect brings useful community information
+                        together in one place so that residents can easily
+                        discover resources and opportunities around them.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Community Information</h3>
+
+                    <ul class="info-list">
+
+                        <li>
+                            <strong>Location:</strong>
+                            Your Community
+                        </li>
+
+                        <li>
+                            <strong>Population:</strong>
+                            Community Information
+                        </li>
+
+                        <li>
+                            <strong>Administration:</strong>
+                            Local Government
+                        </li>
+
+                        <li>
+                            <strong>Nearby Areas:</strong>
+                            Local Neighbourhoods
+                        </li>
+
+                        <li>
+                            <strong>Community Type:</strong>
+                            Urban / Rural
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FACILITIES -->
+    <section class="section" style="background:#eef8f2;">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Community Facilities</h2>
+
+                <p>
+                    Discover facilities and services available in the community.
+                </p>
+
+            </div>
+
+
+            <div class="grid">
+
+                <div class="feature-card">
+
+                    <div class="icon">🏫</div>
+
+                    <h3>Education</h3>
+
+                    <p>
+                        Schools, colleges, libraries and learning
+                        centres available for students and residents.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="icon">🏥</div>
+
+                    <h3>Healthcare</h3>
+
+                    <p>
+                        Find hospitals, clinics, healthcare centres
+                        and other important health services.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="icon">🌳</div>
+
+                    <h3>Parks & Recreation</h3>
+
+                    <p>
+                        Discover parks, playgrounds, walking areas
+                        and recreational spaces.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="icon">🚌</div>
+
+                    <h3>Transportation</h3>
+
+                    <p>
+                        Information about public transportation
+                        and important travel facilities.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="icon">🏛️</div>
+
+                    <h3>Government Services</h3>
+
+                    <p>
+                        Find local government offices and public
+                        service facilities.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="icon">🤝</div>
+
+                    <h3>Community Centres</h3>
+
+                    <p>
+                        Information about community halls,
+                        activities and social support services.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMMUNITY UPDATES -->
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Community Updates</h2>
+
+                <p>
+                    Stay informed about activities and important announcements.
+                </p>
+
+            </div>
+
+
+            <div class="updates">
+
+                <div class="update">
+
+                    <span>COMMUNITY EVENT</span>
+
+                    <h3>Local Community Programs</h3>
+
+                    <p>
+                        Stay updated about community meetings,
+                        awareness programs and local events.
+                    </p>
+
+                </div>
+
+
+                <div class="update">
+
+                    <span>AWARENESS</span>
+
+                    <h3>Community Awareness</h3>
+
+                    <p>
+                        Learn about campaigns and initiatives
+                        that can help create a better community.
+                    </p>
+
+                </div>
+
+
+                <div class="update">
+
+                    <span>ANNOUNCEMENT</span>
+
+                    <h3>Public Information</h3>
+
+                    <p>
+                        Important public announcements and
+                        community information can be shared here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="section">
+
+        <div class="container">
+
+            <div class="cta">
+
+                <h2>Explore More Community Resources</h2>
+
+                <p>
+                    Find government schemes, educational resources,
+                    health information and emergency contacts.
+                </p>
+
+                <a href="index.html" class="btn">
+                    Back to Home
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+                <h3>CommunityConnect</h3>
+
+                <p>
+                    Connecting communities with useful information,
+                    resources and opportunities.
+                </p>
+            </div>
+
+            <div>
+                <h3>Community Portal</h3>
+
+                <p>
+                    Community • Education • Health • Environment
+                </p>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 CommunityConnect. All Rights Reserved.
+        </div>
+
+    </footer>
+
+</body>
+</html>
