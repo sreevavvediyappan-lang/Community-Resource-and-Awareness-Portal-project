@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Saved Resources | CommunityConnect</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f4f8f5;
+            color: #25372e;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            height: 72px;
+            background: #123d2a;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            color: white;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #5ab878;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #d9e8df;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: #6dcc88;
+        }
+
+        .logout-btn {
+            border: 1px solid #6dcc88;
+            background: transparent;
+            color: white;
+            padding: 9px 17px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .logout-btn:hover {
+            background: #6dcc88;
+            color: #123d2a;
+        }
+
+        /* MAIN */
+
+        .container {
+            width: 86%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .page-header {
+            padding: 55px 0 35px;
+        }
+
+        .page-header p {
+            color: #708078;
+            font-size: 14px;
+            margin-bottom: 9px;
+        }
+
+        .page-header h1 {
+            color: #183b2a;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .page-header h1 span {
+            color: #329657;
+        }
+
+        .intro {
+            color: #77857d;
+            line-height: 1.7;
+            max-width: 680px;
+        }
+
+        /* RESOURCE COUNT */
+
+        .resource-count {
+            background: white;
+            border: 1px solid #e1eae4;
+            border-radius: 14px;
+            padding: 18px 22px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .resource-count strong {
+            color: #183b2a;
+        }
+
+        .resource-count span {
+            color: #287a48;
+            font-weight: 700;
+        }
+
+        /* RESOURCE GRID */
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .resource-card {
+            background: white;
+            border: 1px solid #e1eae4;
+            border-radius: 17px;
+            padding: 25px;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(20, 70, 45, 0.08);
+        }
+
+        .resource-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 13px;
+            background: #e9f6ed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
+            margin-bottom: 18px;
+        }
+
+        .category {
+            display: inline-block;
+            background: #edf7f0;
+            color: #287a48;
+            padding: 5px 9px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .resource-card h3 {
+            color: #244536;
+            font-size: 18px;
+            margin-bottom: 9px;
+        }
+
+        .resource-card p {
+            color: #78857e;
+            font-size: 13px;
+            line-height: 1.65;
+            margin-bottom: 20px;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 9px;
+        }
+
+        .visit-btn,
+        .remove-btn {
+            padding: 10px 13px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .visit-btn {
+            background: #287a48;
+            color: white;
+            border: none;
+        }
+
+        .visit-btn:hover {
+            background: #1f643b;
+        }
+
+        .remove-btn {
+            background: white;
+            color: #b34a4a;
+            border: 1px solid #e5caca;
+        }
+
+        .remove-btn:hover {
+            background: #fff4f4;
+        }
+
+        /* EMPTY STATE */
+
+        .empty-state {
+            background: white;
+            border: 1px solid #e1eae4;
+            border-radius: 18px;
+            padding: 70px 30px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .empty-icon {
+            width: 75px;
+            height: 75px;
+            background: #e9f6ed;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 31px;
+            margin: 0 auto 20px;
+        }
+
+        .empty-state h2 {
+            color: #244536;
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            color: #7a867f;
+            font-size: 14px;
+            line-height: 1.7;
+            max-width: 500px;
+            margin: auto auto 25px;
+        }
+
+        .explore-btn {
+            display: inline-block;
+            background: #287a48;
+            color: white;
+            text-decoration: none;
+            padding: 13px 23px;
+            border-radius: 9px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .explore-btn:hover {
+            background: #1f643b;
+        }
+
+        /* CTA */
+
+        .cta {
+            background: #123d2a;
+            border-radius: 20px;
+            padding: 45px;
+            color: white;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .cta h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: #c7dbce;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .cta a {
+            display: inline-block;
+            background: #6dcc88;
+            color: #123d2a;
+            text-decoration: none;
+            padding: 13px 25px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #0c2c1e;
+            color: white;
+            padding: 30px 7%;
+            text-align: center;
+        }
+
+        footer p {
+            color: #a9c1b2;
+            font-size: 12px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 950px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .resource-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: 92%;
+            }
+
+            .page-header h1 {
+                font-size: 30px;
+            }
+
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .resource-count {
+                align-items: flex-start;
+                gap: 10px;
+                flex-direction: column;
+            }
+
+            .cta {
+                padding: 35px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <div class="logo-icon">CC</div>
+        <span>CommunityConnect</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="community.html">Community</a>
+        <a href="government.html">Government</a>
+        <a href="education.html">Education</a>
+        <a href="health.html">Health</a>
+    </div>
+
+    <button class="logout-btn" onclick="logout()">
+        Logout
+    </button>
+
+</nav>
+
+
+<main class="container">
+
+    <!-- HEADER -->
+
+    <section class="page-header">
+
+        <p>Your Personal Collection</p>
+
+        <h1>
+            Saved <span>Resources</span>
+        </h1>
+
+        <p class="intro">
+            Keep useful community information, educational resources,
+            government schemes and other important links in one place.
+        </p>
+
+    </section>
+
+
+    <!-- COUNT -->
+
+    <div class="resource-count">
+
+        <strong>
+            Resources saved to your account
+        </strong>
+
+        <span id="resourceCount">
+            0 Resources
+        </span>
+
+    </div>
+
+
+    <!-- RESOURCE AREA -->
+
+    <div id="resourceArea">
+
+        <!-- SAVED CARDS WILL APPEAR HERE -->
+
+    </div>
+
+
+    <!-- EMPTY STATE -->
+
+    <div id="emptyState" class="empty-state">
+
+        <div class="empty-icon">
+            🔖
+        </div>
+
+        <h2>
+            No Saved Resources Yet
+        </h2>
+
+        <p>
+            You haven't saved any resources yet. Explore CommunityConnect
+            and keep useful resources here so you can easily find them later.
+        </p>
+
+        <a href="community.html" class="explore-btn">
+            Explore Resources
+        </a>
+
+    </div>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+        <h2>
+            Discover Something Useful
+        </h2>
+
+        <p>
+            Explore government schemes, education, health,
+            environment and community resources.
+        </p>
+
+        <a href="government.html">
+            Explore Government Schemes
+        </a>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 CommunityConnect. Connect. Discover. Empower.
+    </p>
+
+</footer>
+
+
+<script>
+
+    /* CHECK LOGIN */
+
+    const loggedIn =
+        localStorage.getItem("communityConnectLoggedIn");
+
+    const savedUser =
+        JSON.parse(localStorage.getItem("communityConnectUser"));
+
+
+    if (loggedIn !== "true" || !savedUser) {
+
+        window.location.href = "login.html";
+
+    }
+
+
+    /* MAKE SURE SAVED RESOURCES EXISTS */
+
+    if (!savedUser.savedResources) {
+
+        savedUser.savedResources = [];
+
+        localStorage.setItem(
+            "communityConnectUser",
+            JSON.stringify(savedUser)
+        );
+
+    }
+
+
+    /* DISPLAY RESOURCES */
+
+    function displayResources() {
+
+        const area =
+            document.getElementById("resourceArea");
+
+        const emptyState =
+            document.getElementById("emptyState");
+
+        const count =
+            document.getElementById("resourceCount");
+
+
+        area.innerHTML = "";
+
+
+        const resources =
+            savedUser.savedResources || [];
+
+
+        count.textContent =
+            resources.length +
+            (resources.length === 1 ? " Resource" : " Resources");
+
+
+        if (resources.length === 0) {
+
+            emptyState.style.display = "block";
+
+            return;
+
+        }
+
+
+        emptyState.style.display = "none";
+
+
+        const grid =
+            document.createElement("div");
+
+        grid.className = "resource-grid";
+
+
+        resources.forEach(function(resource, index) {
+
+            const card =
+                document.createElement("div");
+
+            card.className = "resource-card";
+
+
+            card.innerHTML = `
+
+                <div class="resource-icon">
+                    ${resource.icon || "📚"}
+                </div>
+
+                <span class="category">
+                    ${resource.category || "Resource"}
+                </span>
+
+                <h3>
+                    ${resource.title || "Saved Resource"}
+                </h3>
+
+                <p>
+                    ${resource.description || "Useful community resource."}
+                </p>
+
+                <div class="card-actions">
+
+                    <a
+                        href="${resource.url || "#"}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="visit-btn"
+                    >
+                        Visit Resource
+                    </a>
+
+                    <button
+                        class="remove-btn"
+                        onclick="removeResource(${index})"
+                    >
+                        Remove
+                    </button>
+
+                </div>
+            `;
+
+
+            grid.appendChild(card);
+
+        });
+
+
+        area.appendChild(grid);
+
+    }
+
+
+    /* REMOVE RESOURCE */
+
+    function removeResource(index) {
+
+        savedUser.savedResources.splice(index, 1);
+
+
+        localStorage.setItem(
+            "communityConnectUser",
+            JSON.stringify(savedUser)
+        );
+
+
+        displayResources();
+
+    }
+
+
+    /* LOGOUT */
+
+    function logout() {
+
+        localStorage.setItem(
+            "communityConnectLoggedIn",
+            "false"
+        );
+
+        window.location.href = "login.html";
+
+    }
+
+
+    displayResources();
+
+</script>
+
+</body>
+</html>
