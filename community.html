@@ -66,6 +66,7 @@
             padding: 10px 20px;
             border-radius: 25px;
             font-weight: bold;
+            text-decoration: none;
         }
 
         /* HERO */
@@ -110,7 +111,7 @@
             margin: auto;
         }
 
-        /* OVERVIEW */
+        /* SECTION */
         .section {
             padding: 70px 0;
         }
@@ -130,6 +131,7 @@
             color: #68776e;
         }
 
+        /* OVERVIEW */
         .overview {
             display: grid;
             grid-template-columns: 1.3fr 1fr;
@@ -308,6 +310,7 @@
 
         /* MOBILE */
         @media (max-width: 850px) {
+
             .nav-links {
                 display: none;
             }
@@ -335,19 +338,30 @@
     <nav class="navbar">
 
         <div class="logo">
-            Community<span>Connect</span>
+            <a href="index.html" style="color:white; text-decoration:none;">
+                Community<span>Connect</span>
+            </a>
         </div>
 
         <div class="nav-links">
+
             <a href="index.html">Home</a>
+
             <a href="community.html">Community Profile</a>
-            <a href="#">Government Schemes</a>
-            <a href="#">Resources</a>
-            <a href="#">Awareness</a>
-            <a href="#">Contact</a>
+
+            <a href="government.html">Government Schemes</a>
+
+            <a href="education.html">Resources</a>
+
+            <a href="environment.html">Awareness</a>
+
+            <a href="contact.html">Contact</a>
+
         </div>
 
-        <a href="#" class="login-btn">Login</a>
+        <a href="login.html" class="login-btn">
+            Login
+        </a>
 
     </nav>
 
@@ -383,8 +397,13 @@
         <div class="container">
 
             <div class="section-title">
+
                 <h2>Community Overview</h2>
-                <p>Everything you need to know about your local community.</p>
+
+                <p>
+                    Everything you need to know about your local community.
+                </p>
+
             </div>
 
             <div class="overview">
@@ -409,6 +428,7 @@
                     </p>
 
                 </div>
+
 
                 <div class="card">
 
@@ -657,26 +677,34 @@
         <div class="footer-content">
 
             <div>
+
                 <h3>CommunityConnect</h3>
 
                 <p>
                     Connecting communities with useful information,
                     resources and opportunities.
                 </p>
+
             </div>
 
+
             <div>
+
                 <h3>Community Portal</h3>
 
                 <p>
                     Community • Education • Health • Environment
                 </p>
+
             </div>
 
         </div>
 
+
         <div class="copyright">
+
             © 2026 CommunityConnect. All Rights Reserved.
+
         </div>
 
     </footer>
