@@ -1,838 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>CommunityConnect - Community Resource and Awareness Portal</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Arial, sans-serif;
-    background:#f7faf8;
-    color:#101828;
-}
-
-:root{
-    --green:#08783f;
-    --darkgreen:#04552e;
-    --lightgreen:#edf9f1;
-    --blue:#1769d1;
-    --purple:#7654d6;
-    --orange:#f5a400;
-    --gray:#667085;
-    --border:#e4e7ec;
-}
-
-.container{
-    width:92%;
-    max-width:1400px;
-    margin:auto;
-}
-
-/* ================= HEADER ================= */
-
-header{
-    background:linear-gradient(90deg,#08783f,#006332);
-    color:white;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.navbar{
-    min-height:70px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.logo-area{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.logo{
-    width:43px;
-    height:43px;
-    border-radius:50%;
-    background:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:24px;
-}
-
-.logo-text h2{
-    font-size:18px;
-}
-
-.logo-text p{
-    font-size:10px;
-}
-
-nav{
-    display:flex;
-    align-items:center;
-    gap:18px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    font-size:12px;
-}
-
-nav a:hover{
-    opacity:.75;
-}
-
-.login-btn{
-    background:white;
-    color:var(--green);
-    border:none;
-    border-radius:6px;
-    padding:9px 17px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-/* ================= HERO ================= */
-
-.hero{
-    min-height:370px;
-    display:flex;
-    align-items:center;
-    padding:35px 5%;
-    background:linear-gradient(120deg,#ffffff,#f0faf3);
-    overflow:hidden;
-}
-
-.hero-text{
-    width:48%;
-}
-
-.hero-text h1{
-    font-size:36px;
-    line-height:1.2;
-    margin-bottom:15px;
-}
-
-.hero-text h1 span{
-    color:var(--green);
-}
-
-.hero-text p{
-    font-size:15px;
-    line-height:1.7;
-    color:#344054;
-    max-width:500px;
-    margin-bottom:22px;
-}
-
-.buttons{
-    display:flex;
-    gap:12px;
-}
-
-.btn{
-    border:none;
-    background:var(--green);
-    color:white;
-    padding:11px 20px;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
-    text-decoration:none;
-    font-size:13px;
-}
-
-.btn:hover{
-    background:var(--darkgreen);
-}
-
-.outline{
-    background:white;
-    color:var(--green);
-    border:1px solid var(--green);
-}
-
-/* Hero illustration */
-
-.hero-picture{
-    width:52%;
-    height:300px;
-    position:relative;
-}
-
-.sun{
-    position:absolute;
-    width:130px;
-    height:130px;
-    border-radius:50%;
-    background:#fff3bd;
-    top:20px;
-    right:25%;
-}
-
-.ground{
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    height:90px;
-    background:#a9d47c;
-    border-radius:50% 50% 0 0;
-}
-
-.house{
-    position:absolute;
-    width:105px;
-    height:65px;
-    bottom:55px;
-    background:#fff0b8;
-    border:3px solid #c98239;
-}
-
-.house:before{
-    content:"";
-    position:absolute;
-    top:-42px;
-    left:-12px;
-    border-left:62px solid transparent;
-    border-right:62px solid transparent;
-    border-bottom:42px solid #c87535;
-}
-
-.house1{
-    left:8%;
-}
-
-.house2{
-    right:8%;
-    transform:scale(.8);
-}
-
-.tree{
-    position:absolute;
-    bottom:60px;
-    width:40px;
-    height:90px;
-}
-
-.tree:before{
-    content:"";
-    position:absolute;
-    bottom:0;
-    left:16px;
-    width:8px;
-    height:38px;
-    background:#73502e;
-}
-
-.tree:after{
-    content:"";
-    position:absolute;
-    width:45px;
-    height:48px;
-    border-radius:50%;
-    background:#58923e;
-    top:0;
-    box-shadow:20px 10px 0 #6ca94d,-18px 13px 0 #4e8737;
-}
-
-.tree1{
-    left:0;
-}
-
-.tree2{
-    right:0;
-}
-
-.buildings{
-    position:absolute;
-    bottom:82px;
-    left:28%;
-    display:flex;
-    align-items:end;
-    gap:8px;
-}
-
-.building{
-    width:35px;
-    background:#dceee1;
-    border-radius:4px 4px 0 0;
-}
-
-.b1{height:55px;}
-.b2{height:90px;}
-.b3{height:70px;}
-.b4{height:50px;}
-
-.people{
-    position:absolute;
-    bottom:55px;
-    left:43%;
-    display:flex;
-    align-items:end;
-    gap:5px;
-}
-
-.person{
-    width:27px;
-    height:70px;
-    position:relative;
-}
-
-.person:before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:6px;
-    width:16px;
-    height:16px;
-    border-radius:50%;
-    background:#e9ad72;
-}
-
-.person:after{
-    content:"";
-    position:absolute;
-    top:15px;
-    left:2px;
-    width:24px;
-    height:52px;
-    border-radius:14px 14px 5px 5px;
-    background:#159447;
-}
-
-.person:nth-child(2):after{
-    background:#f2a31c;
-}
-
-.person:nth-child(3){
-    transform:scale(.75);
-}
-
-.person:nth-child(3):after{
-    background:#3975bb;
-}
-
-.person:nth-child(4):after{
-    background:#555;
-}
-
-/* ================= SECTION ================= */
-
-section{
-    padding:45px 0;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:28px;
-}
-
-.section-title h2{
-    font-size:27px;
-}
-
-.section-title p{
-    color:var(--gray);
-    margin-top:7px;
-    font-size:14px;
-}
-
-.line{
-    width:35px;
-    height:3px;
-    background:var(--green);
-    margin:8px auto;
-}
-
-/* ================= CARDS ================= */
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-}
-
-.card{
-    background:white;
-    border:1px solid var(--border);
-    border-radius:10px;
-    padding:24px 17px;
-    text-align:center;
-    box-shadow:0 4px 14px rgba(0,0,0,.05);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-}
-
-.icon{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    margin:auto auto 14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:27px;
-}
-
-.green{
-    background:#e7f7ec;
-}
-
-.blue{
-    background:#e7f0ff;
-}
-
-.purple{
-    background:#eee8ff;
-}
-
-.orange{
-    background:#fff1d4;
-}
-
-.card h3{
-    font-size:15px;
-    margin-bottom:10px;
-}
-
-.card p{
-    color:#475467;
-    font-size:12px;
-    line-height:1.6;
-}
-
-.card a{
-    display:inline-block;
-    color:var(--green);
-    text-decoration:none;
-    font-weight:bold;
-    font-size:12px;
-    margin-top:15px;
-}
-
-/* ================= STATS ================= */
-
-.stats{
-    margin-top:20px;
-    background:#effaf3;
-    border-radius:10px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    padding:17px;
-}
-
-.stat{
-    text-align:center;
-    border-right:1px solid #d8e9dc;
-}
-
-.stat:last-child{
-    border:0;
-}
-
-.stat-icon{
-    font-size:25px;
-}
-
-.stat strong{
-    display:block;
-    color:var(--green);
-    font-size:23px;
-}
-
-.stat span{
-    font-size:11px;
-}
-
-/* ================= CONTENT ================= */
-
-.content{
-    background:#f8faf9;
-}
-
-.content-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.info-card{
-    background:white;
-    border:1px solid var(--border);
-    border-radius:10px;
-    padding:20px;
-}
-
-.info-card h3{
-    color:var(--green);
-    margin-bottom:10px;
-}
-
-.info-card p{
-    font-size:12px;
-    line-height:1.7;
-    color:#475467;
-}
-
-.list{
-    margin-top:12px;
-}
-
-.list li{
-    list-style:none;
-    padding:7px 0;
-    font-size:12px;
-    border-bottom:1px solid #eee;
-}
-
-/* ================= SEARCH ================= */
-
-.search-box{
-    width:100%;
-    max-width:600px;
-    margin:0 auto 25px;
-    display:flex;
-}
-
-.search-box input{
-    flex:1;
-    padding:12px;
-    border:1px solid #d0d5dd;
-    border-radius:6px 0 0 6px;
-}
-
-.search-box button{
-    width:55px;
-    border:0;
-    background:var(--green);
-    color:white;
-    border-radius:0 6px 6px 0;
-}
-
-/* ================= ABOUT ================= */
-
-.about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-    align-items:center;
-}
-
-.about-image{
-    min-height:220px;
-    border-radius:12px;
-    background:
-        linear-gradient(120deg,#7caf55,#d8e9b7);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:80px;
-}
-
-.about-text h2{
-    color:var(--green);
-    margin-bottom:13px;
-}
-
-.about-text p{
-    color:#475467;
-    font-size:13px;
-    line-height:1.7;
-    margin-bottom:12px;
-}
-
-/* ================= EMERGENCY ================= */
-
-.emergency{
-    background:#fff5f5;
-}
-
-.emergency-cards{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.emergency-card{
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    border-left:5px solid #d92d20;
-    text-align:center;
-}
-
-.emergency-card h3{
-    margin-bottom:10px;
-}
-
-.number{
-    color:#d92d20;
-    font-size:27px;
-    font-weight:bold;
-}
-
-/* ================= PROFILE ================= */
-
-.profile-section{
-    background:#eef9f2;
-}
-
-.profile-box{
-    max-width:700px;
-    margin:auto;
-    background:white;
-    padding:28px;
-    border-radius:12px;
-    box-shadow:0 4px 15px rgba(0,0,0,.06);
-}
-
-.profile-box h2{
-    color:var(--green);
-    margin-bottom:20px;
-}
-
-.profile-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-}
-
-.profile-item{
-    padding:13px;
-    background:#f7faf8;
-    border-radius:6px;
-}
-
-.profile-item small{
-    display:block;
-    color:#667085;
-    margin-bottom:4px;
-}
-
-.profile-item strong{
-    font-size:14px;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-    background:linear-gradient(90deg,#064b2b,#006332);
-    color:white;
-    padding:35px 0 15px;
-}
-
-.footer-grid{
-    display:grid;
-    grid-template-columns:1.4fr 1fr 1fr 1.2fr;
-    gap:30px;
-}
-
-footer h3,
-footer h4{
-    margin-bottom:10px;
-}
-
-footer p,
-footer a{
-    color:#e4f1e8;
-    font-size:11px;
-    line-height:1.8;
-    text-decoration:none;
-}
-
-.copyright{
-    text-align:center;
-    border-top:1px solid rgba(255,255,255,.2);
-    margin-top:25px;
-    padding-top:12px;
-    font-size:10px;
-}
-
-/* ================= MODAL ================= */
-
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.55);
-    z-index:5000;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-}
-
-.modal-box{
-    width:100%;
-    max-width:430px;
-    background:white;
-    border-radius:12px;
-    padding:28px;
-    position:relative;
-}
-
-.close{
-    position:absolute;
-    right:18px;
-    top:13px;
-    font-size:25px;
-    cursor:pointer;
-}
-
-.modal-box h2{
-    color:var(--green);
-    margin-bottom:20px;
-}
-
-.form-group{
-    margin-bottom:14px;
-}
-
-.form-group label{
-    display:block;
-    font-size:12px;
-    font-weight:bold;
-    margin-bottom:6px;
-}
-
-.form-group input,
-.form-group select{
-    width:100%;
-    padding:11px;
-    border:1px solid #d0d5dd;
-    border-radius:6px;
-}
-
-.full-btn{
-    width:100%;
-    margin-top:8px;
-}
-
-.switch{
-    text-align:center;
-    margin-top:15px;
-    font-size:12px;
-}
-
-.switch span{
-    color:var(--green);
-    font-weight:bold;
-    cursor:pointer;
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:900px){
-
-    nav{
-        gap:8px;
-    }
-
-    nav a{
-        font-size:10px;
-    }
-
-    .hero-text h1{
-        font-size:28px;
-    }
-
-    .cards{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .content-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-}
-
-@media(max-width:650px){
-
-    .navbar{
-        flex-direction:column;
-        padding:12px 0;
-        gap:12px;
-    }
-
-    nav{
-        flex-wrap:wrap;
-        justify-content:center;
-    }
-
-    .hero{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .hero-text{
-        width:100%;
-    }
-
-    .hero-text p{
-        margin:auto auto 20px;
-    }
-
-    .buttons{
-        justify-content:center;
-    }
-
-    .hero-picture{
-        width:100%;
-    }
-
-    .cards,
-    .content-grid,
-    .emergency-cards,
-    .about{
-        grid-template-columns:1fr;
-    }
-
-    .stats{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .stat{
-        border:0;
-        padding:10px;
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .profile-row{
-        grid-template-columns:1fr;
-    }
-}
-
-@media(max-width:430px){
-
-    .stats,
-    .footer-grid{
-        grid-template-columns:1fr;
-    }
-
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CommunityConnect</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f8f5;
+            color: #26352b;
+        }
+
+        /* HEADER */
+        header {
+            background: #176b3a;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav button {
+            background: transparent;
+            border: none;
+            color: white;
+            margin-left: 15px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        nav button:hover {
+            text-decoration: underline;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 80px 7%;
+            text-align: center;
+            background: linear-gradient(135deg, #e5f6ea, #ffffff);
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            color: #176b3a;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #59665d;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 15px;
+            margin: 5px;
+        }
+
+        .primary {
+            background: #176b3a;
+            color: white;
+        }
+
+        .secondary {
+            background: white;
+            color: #176b3a;
+            border: 1px solid #176b3a;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* SECTION */
+        section {
+            padding: 50px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #176b3a;
+            margin-bottom: 30px;
+            font-size: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .card h3 {
+            color: #176b3a;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #66736a;
+            line-height: 1.5;
+        }
+
+        /* DASHBOARD */
+        #dashboard {
+            display: none;
+            min-height: 70vh;
+        }
+
+        .profile-box {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .profile-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #176b3a;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 38px;
+            margin: 0 auto 20px;
+        }
+
+        .profile-info {
+            margin-top: 20px;
+        }
+
+        .profile-info div {
+            padding: 14px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .profile-info strong {
+            display: inline-block;
+            width: 120px;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.55);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-box {
+            background: white;
+            width: 100%;
+            max-width: 430px;
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .modal-box h2 {
+            text-align: center;
+            color: #176b3a;
+            margin-bottom: 25px;
+        }
+
+        .close {
+            position: absolute;
+            right: 18px;
+            top: 12px;
+            font-size: 25px;
+            cursor: pointer;
+            color: #777;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        .form-submit {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .switch {
+            text-align: center;
+            margin-top: 18px;
+            color: #555;
+        }
+
+        .switch span {
+            color: #176b3a;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .message {
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #123d27;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media(max-width:600px) {
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav button {
+                margin: 5px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -841,64 +284,70 @@ footer a{
 
 <header>
 
-<div class="container navbar">
-
-    <div class="logo-area">
-
-        <div class="logo">👥</div>
-
-        <div class="logo-text">
-            <h2>CommunityConnect</h2>
-            <p>Connect. Discover. Empower.</p>
-        </div>
-
+    <div class="logo">
+        🌿 CommunityConnect
     </div>
 
     <nav>
-        <a href="#home">Home</a>
-        <a href="#community">Community Profile</a>
-        <a href="#schemes">Government Schemes</a>
-        <a href="#resources">Resources</a>
-        <a href="#awareness">Awareness</a>
-        <a href="#contact">Contact</a>
 
-        <button class="login-btn" onclick="openLogin()">
+        <button onclick="showHome()">Home</button>
+
+        <button onclick="openLogin()">
             Login
         </button>
-    </nav>
 
-</div>
+        <button onclick="openSignup()">
+            Sign Up
+        </button>
+
+        <button
+            id="profileNav"
+            onclick="showDashboard()"
+            style="display:none;">
+            My Profile
+        </button>
+
+        <button
+            id="logoutNav"
+            onclick="logout()"
+            style="display:none;">
+            Logout
+        </button>
+
+    </nav>
 
 </header>
 
 
 <!-- ================= HOME ================= -->
 
-<section class="hero" id="home">
+<main id="home">
 
-<div class="container" style="display:flex;align-items:center;">
-
-    <div class="hero-text">
+    <div class="hero">
 
         <h1>
-            Connecting Communities<br>
-            Building a <span>Better Tomorrow</span>
+            Connect. Discover. Empower.
         </h1>
 
         <p>
-            Your one-stop portal for community information,
-            government schemes, resources, health awareness,
-            education and environmental initiatives.
+            Welcome to CommunityConnect — a community resource
+            and awareness portal where people can discover useful
+            government schemes, educational opportunities,
+            health information and community resources.
         </p>
 
-        <div class="buttons">
+        <div class="hero-buttons">
 
-            <a href="#community" class="btn">
-                Explore Resources
-            </a>
+            <button
+                class="btn primary"
+                onclick="openSignup()">
+                Create Your Profile
+            </button>
 
-            <button class="btn outline" onclick="openSignup()">
-                Create Profile
+            <button
+                class="btn secondary"
+                onclick="openLogin()">
+                Login
             </button>
 
         </div>
@@ -906,1350 +355,619 @@ footer a{
     </div>
 
 
-    <div class="hero-picture">
+    <!-- FEATURES -->
 
-        <div class="sun"></div>
+    <section>
 
-        <div class="buildings">
-            <div class="building b1"></div>
-            <div class="building b2"></div>
-            <div class="building b3"></div>
-            <div class="building b4"></div>
+        <h2 class="section-title">
+            Explore What Matters
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>🏛️ Government Schemes</h3>
+                <p>
+                    Discover information about government
+                    welfare schemes and public services.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>📚 Educational Resources</h3>
+                <p>
+                    Find educational materials, scholarships,
+                    courses and learning opportunities.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>❤️ Health Awareness</h3>
+                <p>
+                    Learn about health awareness and
+                    community wellbeing.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🌱 Environment</h3>
+                <p>
+                    Explore environmental awareness,
+                    recycling and community initiatives.
+                </p>
+            </div>
+
         </div>
 
-        <div class="house house1"></div>
-        <div class="house house2"></div>
+    </section>
 
-        <div class="tree tree1"></div>
-        <div class="tree tree2"></div>
+</main>
 
-        <div class="people">
-            <div class="person"></div>
-            <div class="person"></div>
-            <div class="person"></div>
-            <div class="person"></div>
+
+<!-- ================= DASHBOARD ================= -->
+
+<section id="dashboard">
+
+    <h2 class="section-title">
+        My Profile
+    </h2>
+
+    <div class="profile-box">
+
+        <div class="profile-icon">
+            👤
         </div>
 
-        <div class="ground"></div>
+        <h2
+            id="welcomeName"
+            style="text-align:center;color:#176b3a;">
+        </h2>
 
-    </div>
+        <div class="profile-info">
 
-</div>
+            <div>
+                <strong>Name:</strong>
+                <span id="profileName"></span>
+            </div>
 
-</section>
+            <div>
+                <strong>Email:</strong>
+                <span id="profileEmail"></span>
+            </div>
 
+            <div>
+                <strong>Community:</strong>
+                <span id="profileCommunity"></span>
+            </div>
 
-<!-- ================= EXPLORE ================= -->
-
-<section id="community">
-
-<div class="container">
-
-<div class="section-title">
-
-    <h2>Explore What Matters</h2>
-    <div class="line"></div>
-
-</div>
-
-
-<div class="cards">
-
-    <div class="card">
-
-        <div class="icon green">👥</div>
-
-        <h3>Community Profile</h3>
-
-        <p>
-            Learn about communities, their background,
-            facilities and important information.
-        </p>
-
-        <a href="#community-profile">
-            Explore →
-        </a>
-
-    </div>
-
-
-    <div class="card">
-
-        <div class="icon blue">🏛️</div>
-
-        <h3>Government Schemes</h3>
-
-        <p>
-            Find government schemes and benefits
-            available for citizens.
-        </p>
-
-        <a href="#schemes">
-            Explore →
-        </a>
-
-    </div>
-
-
-    <div class="card">
-
-        <div class="icon purple">📚</div>
-
-        <h3>Community Resources</h3>
-
-        <p>
-            Discover educational, health and community
-            resources available near you.
-        </p>
-
-        <a href="#resources">
-            Explore →
-        </a>
-
-    </div>
-
-
-    <div class="card">
-
-        <div class="icon orange">📢</div>
-
-        <h3>Awareness</h3>
-
-        <p>
-            Stay informed with health and environmental
-            awareness information.
-        </p>
-
-        <a href="#awareness">
-            Explore →
-        </a>
-
-    </div>
-
-</div>
-
-
-<!-- ================= STATS ================= -->
-
-<div class="stats">
-
-    <div class="stat">
-        <div class="stat-icon">👥</div>
-        <strong>100+</strong>
-        <span>Communities</span>
-    </div>
-
-    <div class="stat">
-        <div class="stat-icon">🏛️</div>
-        <strong>250+</strong>
-        <span>Government Schemes</span>
-    </div>
-
-    <div class="stat">
-        <div class="stat-icon">💚</div>
-        <strong>500+</strong>
-        <span>Resources</span>
-    </div>
-
-    <div class="stat">
-        <div class="stat-icon">📢</div>
-        <strong>200+</strong>
-        <span>Awareness Articles</span>
-    </div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= COMMUNITY PROFILE ================= -->
-
-<section class="profile-section" id="community-profile">
-
-<div class="container">
-
-<div class="section-title">
-
-    <h2>Community Profile</h2>
-
-    <p>
-        Explore information about your community.
-    </p>
-
-</div>
-
-
-<div class="profile-box">
-
-    <h2>Greenfield Community</h2>
-
-    <div class="profile-row">
-
-        <div class="profile-item">
-            <small>Location</small>
-            <strong>Greenfield Village</strong>
         </div>
 
-        <div class="profile-item">
-            <small>Population</small>
-            <strong>2,350</strong>
-        </div>
+        <div style="text-align:center;margin-top:25px;">
 
-        <div class="profile-item">
-            <small>Facilities</small>
-            <strong>Schools, Health Center, Parks</strong>
-        </div>
+            <button
+                class="btn primary"
+                onclick="showHome()">
+                Explore Resources
+            </button>
 
-        <div class="profile-item">
-            <small>Community Needs</small>
-            <strong>Transport, Water, Waste Management</strong>
+            <button
+                class="btn secondary"
+                onclick="logout()">
+                Logout
+            </button>
+
         </div>
 
     </div>
 
-</div>
-
-</div>
-
 </section>
 
 
-<!-- ================= GOVERNMENT SCHEMES ================= -->
+<!-- ================= SIGN UP MODAL ================= -->
 
-<section id="schemes">
+<div
+    class="modal"
+    id="signupModal">
 
-<div class="container">
+    <div class="modal-box">
 
-<div class="section-title">
+        <span
+            class="close"
+            onclick="closeSignup()">
+            ×
+        </span>
 
-    <h2>Government Schemes</h2>
+        <h2>Create Account</h2>
 
-    <p>
-        Explore useful government schemes and benefits.
-    </p>
+        <div
+            id="signupMessage"
+            class="message">
+        </div>
 
-</div>
+        <form onsubmit="signup(event)">
 
+            <div class="form-group">
 
-<div class="search-box">
+                <label>Full Name</label>
 
-    <input
-        type="text"
-        id="schemeSearch"
-        placeholder="Search government schemes..."
-        onkeyup="searchSchemes()"
-    >
+                <input
+                    type="text"
+                    id="signupName"
+                    placeholder="Enter your name"
+                    required>
 
-    <button>🔍</button>
-
-</div>
-
-
-<div class="content-grid" id="schemeList">
-
-    <div class="info-card scheme">
-
-        <h3>🏠 Pradhan Mantri Awas Yojana</h3>
-
-        <p>
-            Housing support and assistance for eligible
-            beneficiaries.
-        </p>
-
-        <ul class="list">
-            <li>🏠 Housing Support</li>
-            <li>🇮🇳 Government Scheme</li>
-        </ul>
-
-    </div>
+            </div>
 
 
-    <div class="info-card scheme">
+            <div class="form-group">
 
-        <h3>🏥 Ayushman Bharat Yojana</h3>
+                <label>Email</label>
 
-        <p>
-            Health insurance and healthcare support
-            for eligible families.
-        </p>
+                <input
+                    type="email"
+                    id="signupEmail"
+                    placeholder="Enter your email"
+                    required>
 
-        <ul class="list">
-            <li>🏥 Health Support</li>
-            <li>🇮🇳 Government Scheme</li>
-        </ul>
-
-    </div>
+            </div>
 
 
-    <div class="info-card scheme">
+            <div class="form-group">
 
-        <h3>👧 Beti Bachao Beti Padhao</h3>
+                <label>Password</label>
 
-        <p>
-            Promotes education, protection and empowerment
-            of girls.
-        </p>
+                <input
+                    type="password"
+                    id="signupPassword"
+                    placeholder="Create a password"
+                    required>
 
-        <ul class="list">
-            <li>📚 Education</li>
-            <li>🇮🇳 Government Scheme</li>
-        </ul>
-
-    </div>
+            </div>
 
 
-    <div class="info-card scheme">
+            <div class="form-group">
 
-        <h3>🎓 Scholarship Schemes</h3>
+                <label>Community</label>
 
-        <p>
-            Educational assistance and scholarship
-            opportunities for students.
-        </p>
+                <input
+                    type="text"
+                    id="signupCommunity"
+                    placeholder="Enter your community"
+                    required>
 
-        <ul class="list">
-            <li>🎓 Education</li>
-            <li>💰 Financial Support</li>
-        </ul>
-
-    </div>
+            </div>
 
 
-    <div class="info-card scheme">
+            <button
+                type="submit"
+                class="btn primary form-submit">
+                Create Account
+            </button>
 
-        <h3>🌾 Farmer Support</h3>
-
-        <p>
-            Information about agricultural support and
-            farmer welfare programs.
-        </p>
-
-        <ul class="list">
-            <li>🌾 Agriculture</li>
-            <li>🇮🇳 Government Scheme</li>
-        </ul>
-
-    </div>
+        </form>
 
 
-    <div class="info-card scheme">
+        <div class="switch">
 
-        <h3>💼 Skill Development</h3>
+            Already have an account?
 
-        <p>
-            Training and skill development opportunities
-            for employment.
-        </p>
+            <span onclick="switchToLogin()">
+                Login
+            </span>
 
-        <ul class="list">
-            <li>💼 Employment</li>
-            <li>📚 Training</li>
-        </ul>
+        </div>
 
     </div>
 
 </div>
 
-</div>
 
-</section>
+<!-- ================= LOGIN MODAL ================= -->
 
+<div
+    class="modal"
+    id="loginModal">
 
-<!-- ================= RESOURCES ================= -->
+    <div class="modal-box">
 
-<section class="content" id="resources">
+        <span
+            class="close"
+            onclick="closeLogin()">
+            ×
+        </span>
 
-<div class="container">
+        <h2>Login</h2>
 
-<div class="section-title">
+        <div
+            id="loginMessage"
+            class="message">
+        </div>
 
-    <h2>Community Resources</h2>
+        <form onsubmit="login(event)">
 
-    <p>
-        Educational, healthcare and community support resources.
-    </p>
+            <div class="form-group">
 
-</div>
+                <label>Email</label>
 
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email"
+                    required>
 
-<div class="content-grid">
-
-    <div class="info-card">
-
-        <h3>🏥 Healthcare Resources</h3>
-
-        <p>
-            Find information about health centers,
-            health services and community healthcare.
-        </p>
-
-        <ul class="list">
-            <li>🏥 Community Health Center</li>
-            <li>💊 Health Services</li>
-            <li>🩺 Health Camps</li>
-        </ul>
-
-    </div>
+            </div>
 
 
-    <div class="info-card">
+            <div class="form-group">
 
-        <h3>📚 Educational Resources</h3>
+                <label>Password</label>
 
-        <p>
-            Discover educational opportunities and
-            learning resources.
-        </p>
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                    required>
 
-        <ul class="list">
-            <li>🎓 Scholarships</li>
-            <li>📖 Learning Materials</li>
-            <li>💻 Skill Development</li>
-        </ul>
-
-    </div>
+            </div>
 
 
-    <div class="info-card">
+            <button
+                type="submit"
+                class="btn primary form-submit">
+                Login
+            </button>
 
-        <h3>🏫 Community Services</h3>
+        </form>
 
-        <p>
-            Important facilities and services available
-            to the community.
-        </p>
 
-        <ul class="list">
-            <li>📚 Public Library</li>
-            <li>🏫 Community Centers</li>
-            <li>🤝 Support Services</li>
-        </ul>
+        <div class="switch">
+
+            Don't have an account?
+
+            <span onclick="switchToSignup()">
+                Sign Up
+            </span>
+
+        </div>
 
     </div>
 
 </div>
-
-</div>
-
-</section>
-
-
-<!-- ================= AWARENESS ================= -->
-
-<section id="awareness">
-
-<div class="container">
-
-<div class="section-title">
-
-    <h2>Awareness</h2>
-
-    <p>
-        Important health and environmental awareness information.
-    </p>
-
-</div>
-
-
-<div class="content-grid">
-
-    <div class="info-card">
-
-        <h3>💧 Clean Water, Healthy Life</h3>
-
-        <p>
-            Clean drinking water and proper sanitation
-            are important for a healthy community.
-        </p>
-
-    </div>
-
-
-    <div class="info-card">
-
-        <h3>🏥 Health Awareness</h3>
-
-        <p>
-            Learn about healthy habits, hygiene and
-            preventive healthcare.
-        </p>
-
-    </div>
-
-
-    <div class="info-card">
-
-        <h3>🌱 Environmental Awareness</h3>
-
-        <p>
-            Reduce waste, protect natural resources and
-            participate in environmental initiatives.
-        </p>
-
-    </div>
-
-
-    <div class="info-card">
-
-        <h3>♻️ Waste Management</h3>
-
-        <p>
-            Learn about waste segregation, recycling
-            and responsible disposal.
-        </p>
-
-    </div>
-
-
-    <div class="info-card">
-
-        <h3>🌳 Tree Plantation</h3>
-
-        <p>
-            Community tree plantation programs can help
-            create a greener environment.
-        </p>
-
-    </div>
-
-
-    <div class="info-card">
-
-        <h3>🚫 Say No to Plastic</h3>
-
-        <p>
-            Reduce single-use plastic and encourage
-            reusable alternatives.
-        </p>
-
-    </div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= EMERGENCY ================= -->
-
-<section class="emergency" id="emergency">
-
-<div class="container">
-
-<div class="section-title">
-
-    <h2>🚨 Emergency Contacts</h2>
-
-    <p>
-        Important emergency services.
-    </p>
-
-</div>
-
-
-<div class="emergency-cards">
-
-    <div class="emergency-card">
-
-        <h3>🚓 Police</h3>
-
-        <p>Emergency police assistance</p>
-
-        <div class="number">112</div>
-
-    </div>
-
-
-    <div class="emergency-card">
-
-        <h3>🚑 Ambulance</h3>
-
-        <p>Medical emergency assistance</p>
-
-        <div class="number">108</div>
-
-    </div>
-
-
-    <div class="emergency-card">
-
-        <h3>🔥 Fire & Rescue</h3>
-
-        <p>Fire and rescue emergency</p>
-
-        <div class="number">101</div>
-
-    </div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= ABOUT ================= -->
-
-<section>
-
-<div class="container about">
-
-    <div class="about-image">
-        👥🌱
-    </div>
-
-    <div class="about-text">
-
-        <h2>About CommunityConnect</h2>
-
-        <p>
-            CommunityConnect is a community resource and
-            awareness portal designed to connect people with
-            important information, services and opportunities.
-        </p>
-
-        <p>
-            Our goal is to make government schemes, health
-            awareness, educational resources, environmental
-            initiatives and emergency information easier to find.
-        </p>
-
-        <a href="#contact" class="btn">
-            Know More About Us
-        </a>
-
-    </div>
-
-</div>
-
-</section>
-
-
-<!-- ================= CONTACT ================= -->
-
-<section id="contact" class="content">
-
-<div class="container">
-
-<div class="section-title">
-
-    <h2>Contact Us</h2>
-
-    <p>
-        Have a question? Send us a message.
-    </p>
-
-</div>
-
-
-<div class="profile-box">
-
-    <div class="form-group">
-
-        <label>Name</label>
-
-        <input
-            type="text"
-            id="contactName"
-            placeholder="Enter your name"
-        >
-
-    </div>
-
-
-    <div class="form-group">
-
-        <label>Email</label>
-
-        <input
-            type="email"
-            id="contactEmail"
-            placeholder="Enter your email"
-        >
-
-    </div>
-
-
-    <div class="form-group">
-
-        <label>Message</label>
-
-        <input
-            type="text"
-            id="contactMessage"
-            placeholder="Enter your message"
-        >
-
-    </div>
-
-
-    <button class="btn" onclick="sendMessage()">
-        Send Message
-    </button>
-
-</div>
-
-</div>
-
-</section>
 
 
 <!-- ================= FOOTER ================= -->
 
 <footer>
 
-<div class="container">
-
-<div class="footer-grid">
-
-    <div>
-
-        <h3>👥 CommunityConnect</h3>
-
-        <p>
-            Connect. Discover. Empower.
-        </p>
-
-    </div>
-
-
-    <div>
-
-        <h4>Quick Links</h4>
-
-        <p><a href="#home">Home</a></p>
-        <p><a href="#community">Community Profile</a></p>
-        <p><a href="#schemes">Government Schemes</a></p>
-        <p><a href="#resources">Resources</a></p>
-
-    </div>
-
-
-    <div>
-
-        <h4>Resources</h4>
-
-        <p><a href="#awareness">Health Awareness</a></p>
-        <p><a href="#awareness">Environmental Initiatives</a></p>
-        <p><a href="#emergency">Emergency Contacts</a></p>
-
-    </div>
-
-
-    <div>
-
-        <h4>Contact Us</h4>
-
-        <p>Email: info@communityconnect.org</p>
-        <p>Phone: +91 123 456 7890</p>
-        <p>India</p>
-
-    </div>
-
-</div>
-
-
-<div class="copyright">
-
-    © 2026 CommunityConnect.
-    Community Resource and Awareness Portal.
-
-</div>
-
-</div>
+    <p>
+        © 2026 CommunityConnect |
+        Community Resource and Awareness Portal
+    </p>
 
 </footer>
 
 
-<!-- ================= LOGIN MODAL ================= -->
-
-<div class="modal" id="loginModal">
-
-<div class="modal-box">
-
-    <span class="close" onclick="closeLogin()">×</span>
-
-    <h2>Login</h2>
-
-    <div class="form-group">
-
-        <label>Email</label>
-
-        <input
-            type="email"
-            id="loginEmail"
-            placeholder="Enter your email"
-        >
-
-    </div>
-
-
-    <div class="form-group">
-
-        <label>Password</label>
-
-        <input
-            type="password"
-            id="loginPassword"
-            placeholder="Enter your password"
-        >
-
-    </div>
-
-
-    <button class="btn full-btn" onclick="login()">
-        Login
-    </button>
-
-
-    <div class="switch">
-
-        Don't have an account?
-
-        <span onclick="switchToSignup()">
-            Create Profile
-        </span>
-
-    </div>
-
-</div>
-
-</div>
-
-
-<!-- ================= SIGNUP MODAL ================= -->
-
-<div class="modal" id="signupModal">
-
-<div class="modal-box">
-
-    <span class="close" onclick="closeSignup()">×</span>
-
-    <h2>Create Your Profile</h2>
-
-
-    <div class="form-group">
-
-        <label>Full Name</label>
-
-        <input
-            type="text"
-            id="signupName"
-            placeholder="Enter your full name"
-        >
-
-    </div>
-
-
-    <div class="form-group">
-
-        <label>Email</label>
-
-        <input
-            type="email"
-            id="signupEmail"
-            placeholder="Enter your email"
-        >
-
-    </div>
-
-
-    <div class="form-group">
-
-        <label>Password</label>
-
-        <input
-            type="password"
-            id="signupPassword"
-            placeholder="Create a password"
-        >
-
-    </div>
-
-
-    <div class="form-group">
-
-        <label>Community / Village</label>
-
-        <input
-            type="text"
-            id="signupCommunity"
-            placeholder="Enter your community"
-        >
-
-    </div>
-
-
-    <div class="form-group">
-
-        <label>District</label>
-
-        <input
-            type="text"
-            id="signupDistrict"
-            placeholder="Enter your district"
-        >
-
-    </div>
-
-
-    <div class="form-group">
-
-        <label>State</label>
-
-        <input
-            type="text"
-            id="signupState"
-            placeholder="Enter your state"
-        >
-
-    </div>
-
-
-    <button class="btn full-btn" onclick="signup()">
-        Create Profile
-    </button>
-
-
-    <div class="switch">
-
-        Already have an account?
-
-        <span onclick="switchToLogin()">
-            Login
-        </span>
-
-    </div>
-
-</div>
-
-</div>
-
-
-<!-- ================= PROFILE MODAL ================= -->
-
-<div class="modal" id="profileModal">
-
-<div class="modal-box">
-
-    <span class="close" onclick="closeProfile()">×</span>
-
-    <h2>My Profile</h2>
-
-    <div id="profileDetails"></div>
-
-    <br>
-
-    <button class="btn full-btn" onclick="logout()">
-        Logout
-    </button>
-
-</div>
-
-</div>
-
+<!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
-/* =========================================
-   SIGN UP
-========================================= */
+    /* =====================================
+       OPEN / CLOSE SIGNUP
+    ===================================== */
 
-function openSignup(){
+    function openSignup() {
 
-    document.getElementById("signupModal").style.display="flex";
-
-}
-
-function closeSignup(){
-
-    document.getElementById("signupModal").style.display="none";
-
-}
-
-
-/* =========================================
-   LOGIN
-========================================= */
-
-function openLogin(){
-
-    document.getElementById("loginModal").style.display="flex";
-
-}
-
-function closeLogin(){
-
-    document.getElementById("loginModal").style.display="none";
-
-}
-
-
-/* =========================================
-   SWITCH LOGIN / SIGNUP
-========================================= */
-
-function switchToSignup(){
-
-    closeLogin();
-    openSignup();
-
-}
-
-function switchToLogin(){
-
-    closeSignup();
-    openLogin();
-
-}
-
-
-/* =========================================
-   CREATE ACCOUNT
-========================================= */
-
-function signup(){
-
-    let name =
-        document.getElementById("signupName").value.trim();
-
-    let email =
-        document.getElementById("signupEmail").value.trim();
-
-    let password =
-        document.getElementById("signupPassword").value;
-
-    let community =
-        document.getElementById("signupCommunity").value.trim();
-
-    let district =
-        document.getElementById("signupDistrict").value.trim();
-
-    let state =
-        document.getElementById("signupState").value.trim();
-
-
-    if(
-        name === "" ||
-        email === "" ||
-        password === "" ||
-        community === "" ||
-        district === "" ||
-        state === ""
-    ){
-
-        alert("Please complete all profile fields.");
-
-        return;
+        document.getElementById("signupModal").style.display = "flex";
 
     }
 
 
-    let user = {
+    function closeSignup() {
 
-        name:name,
-        email:email,
-        password:password,
-        community:community,
-        district:district,
-        state:state
-
-    };
-
-
-    localStorage.setItem(
-        "communityConnectUser",
-        JSON.stringify(user)
-    );
-
-
-    localStorage.setItem(
-        "communityConnectLoggedIn",
-        "true"
-    );
-
-
-    alert(
-        "Profile created successfully! Welcome to CommunityConnect."
-    );
-
-
-    closeSignup();
-
-    showProfile();
-
-}
-
-
-/* =========================================
-   LOGIN ACCOUNT
-========================================= */
-
-function login(){
-
-    let email =
-        document.getElementById("loginEmail").value.trim();
-
-    let password =
-        document.getElementById("loginPassword").value;
-
-
-    let savedUser =
-        localStorage.getItem("communityConnectUser");
-
-
-    if(!savedUser){
-
-        alert(
-            "No profile found. Please create your profile first."
-        );
-
-        closeLogin();
-        openSignup();
-
-        return;
+        document.getElementById("signupModal").style.display = "none";
 
     }
 
 
-    let user =
-        JSON.parse(savedUser);
+    /* =====================================
+       OPEN / CLOSE LOGIN
+    ===================================== */
 
+    function openLogin() {
 
-    if(
-        email === user.email &&
-        password === user.password
-    ){
-
-        localStorage.setItem(
-            "communityConnectLoggedIn",
-            "true"
-        );
-
-
-        alert("Login successful!");
-
-
-        closeLogin();
-
-        showProfile();
-
-    }
-
-    else{
-
-        alert(
-            "Incorrect email or password."
-        );
-
-    }
-
-}
-
-
-/* =========================================
-   SHOW PROFILE
-========================================= */
-
-function showProfile(){
-
-    let savedUser =
-        localStorage.getItem("communityConnectUser");
-
-
-    if(!savedUser){
-
-        openSignup();
-
-        return;
+        document.getElementById("loginModal").style.display = "flex";
 
     }
 
 
-    let user =
-        JSON.parse(savedUser);
+    function closeLogin() {
 
-
-    document.getElementById("profileDetails").innerHTML = `
-
-        <div class="profile-item">
-            <small>Name</small>
-            <strong>${user.name}</strong>
-        </div>
-
-        <br>
-
-        <div class="profile-item">
-            <small>Email</small>
-            <strong>${user.email}</strong>
-        </div>
-
-        <br>
-
-        <div class="profile-item">
-            <small>Community</small>
-            <strong>${user.community}</strong>
-        </div>
-
-        <br>
-
-        <div class="profile-item">
-            <small>District</small>
-            <strong>${user.district}</strong>
-        </div>
-
-        <br>
-
-        <div class="profile-item">
-            <small>State</small>
-            <strong>${user.state}</strong>
-        </div>
-
-    `;
-
-
-    document.getElementById("profileModal").style.display="flex";
-
-}
-
-
-function closeProfile(){
-
-    document.getElementById("profileModal").style.display="none";
-
-}
-
-
-/* =========================================
-   LOGOUT
-========================================= */
-
-function logout(){
-
-    localStorage.setItem(
-        "communityConnectLoggedIn",
-        "false"
-    );
-
-    closeProfile();
-
-    alert("You have been logged out.");
-
-}
-
-
-/* =========================================
-   SEARCH GOVERNMENT SCHEMES
-========================================= */
-
-function searchSchemes(){
-
-    let input =
-        document.getElementById("schemeSearch")
-        .value
-        .toLowerCase();
-
-
-    let schemes =
-        document.querySelectorAll(".scheme");
-
-
-    schemes.forEach(function(scheme){
-
-        let text =
-            scheme.innerText.toLowerCase();
-
-
-        if(text.includes(input)){
-
-            scheme.style.display="block";
-
-        }
-
-        else{
-
-            scheme.style.display="none";
-
-        }
-
-    });
-
-}
-
-
-/* =========================================
-   CONTACT
-========================================= */
-
-function sendMessage(){
-
-    let name =
-        document.getElementById("contactName").value;
-
-    let email =
-        document.getElementById("contactEmail").value;
-
-    let message =
-        document.getElementById("contactMessage").value;
-
-
-    if(
-        name === "" ||
-        email === "" ||
-        message === ""
-    ){
-
-        alert("Please complete the contact form.");
-
-        return;
+        document.getElementById("loginModal").style.display = "none";
 
     }
 
 
-    alert(
-        "Thank you " + name +
-        "! Your message has been submitted."
-    );
+    /* =====================================
+       SWITCH LOGIN / SIGNUP
+    ===================================== */
 
-
-    document.getElementById("contactName").value="";
-    document.getElementById("contactEmail").value="";
-    document.getElementById("contactMessage").value="";
-
-}
-
-
-/* =========================================
-   CLOSE MODALS WHEN CLICKING OUTSIDE
-========================================= */
-
-window.onclick=function(event){
-
-    if(event.target ===
-       document.getElementById("loginModal")){
-
-        closeLogin();
-
-    }
-
-    if(event.target ===
-       document.getElementById("signupModal")){
+    function switchToLogin() {
 
         closeSignup();
 
-    }
-
-    if(event.target ===
-       document.getElementById("profileModal")){
-
-        closeProfile();
+        openLogin();
 
     }
 
-};
+
+    function switchToSignup() {
+
+        closeLogin();
+
+        openSignup();
+
+    }
+
+
+    /* =====================================
+       SIGN UP
+    ===================================== */
+
+    function signup(event) {
+
+        event.preventDefault();
+
+        const name =
+            document.getElementById("signupName").value.trim();
+
+        const email =
+            document.getElementById("signupEmail").value.trim();
+
+        const password =
+            document.getElementById("signupPassword").value;
+
+        const community =
+            document.getElementById("signupCommunity").value.trim();
+
+
+        const user = {
+
+            name: name,
+            email: email,
+            password: password,
+            community: community
+
+        };
+
+
+        /* Save account in browser */
+
+        localStorage.setItem(
+            "communityConnectUser",
+            JSON.stringify(user)
+        );
+
+
+        document.getElementById("signupMessage").innerHTML =
+            "Account created successfully!";
+
+
+        setTimeout(function() {
+
+            closeSignup();
+
+            openLogin();
+
+            document.getElementById("signupMessage").innerHTML = "";
+
+        }, 1000);
+
+    }
+
+
+    /* =====================================
+       LOGIN
+    ===================================== */
+
+    function login(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document.getElementById("loginEmail").value.trim();
+
+        const password =
+            document.getElementById("loginPassword").value;
+
+
+        const savedUser =
+            localStorage.getItem("communityConnectUser");
+
+
+        if (!savedUser) {
+
+            document.getElementById("loginMessage").innerHTML =
+                "No account found. Please sign up first.";
+
+            return;
+
+        }
+
+
+        const user =
+            JSON.parse(savedUser);
+
+
+        if (
+            email === user.email &&
+            password === user.password
+        ) {
+
+            /* Remember that user is logged in */
+
+            localStorage.setItem(
+                "communityConnectLoggedIn",
+                "true"
+            );
+
+
+            closeLogin();
+
+            showDashboard();
+
+            updateNavigation();
+
+        }
+
+        else {
+
+            document.getElementById("loginMessage").innerHTML =
+                "Incorrect email or password.";
+
+        }
+
+    }
+
+
+    /* =====================================
+       SHOW DASHBOARD
+    ===================================== */
+
+    function showDashboard() {
+
+        const savedUser =
+            localStorage.getItem("communityConnectUser");
+
+
+        const loggedIn =
+            localStorage.getItem("communityConnectLoggedIn");
+
+
+        if (!savedUser || loggedIn !== "true") {
+
+            openLogin();
+
+            return;
+
+        }
+
+
+        const user =
+            JSON.parse(savedUser);
+
+
+        document.getElementById("home").style.display =
+            "none";
+
+
+        document.getElementById("dashboard").style.display =
+            "block";
+
+
+        document.getElementById("welcomeName").innerText =
+            "Welcome, " + user.name + "!";
+
+
+        document.getElementById("profileName").innerText =
+            user.name;
+
+
+        document.getElementById("profileEmail").innerText =
+            user.email;
+
+
+        document.getElementById("profileCommunity").innerText =
+            user.community;
+
+
+        updateNavigation();
+
+    }
+
+
+    /* =====================================
+       HOME
+    ===================================== */
+
+    function showHome() {
+
+        document.getElementById("home").style.display =
+            "block";
+
+
+        document.getElementById("dashboard").style.display =
+            "none";
+
+    }
+
+
+    /* =====================================
+       LOGOUT
+    ===================================== */
+
+    function logout() {
+
+        localStorage.removeItem(
+            "communityConnectLoggedIn"
+        );
+
+
+        document.getElementById("dashboard").style.display =
+            "none";
+
+
+        document.getElementById("home").style.display =
+            "block";
+
+
+        updateNavigation();
+
+    }
+
+
+    /* =====================================
+       UPDATE NAVIGATION
+    ===================================== */
+
+    function updateNavigation() {
+
+        const loggedIn =
+            localStorage.getItem("communityConnectLoggedIn")
+            === "true";
+
+
+        document.getElementById("profileNav").style.display =
+            loggedIn ? "inline-block" : "none";
+
+
+        document.getElementById("logoutNav").style.display =
+            loggedIn ? "inline-block" : "none";
+
+    }
+
+
+    /* =====================================
+       CHECK LOGIN WHEN PAGE LOADS
+    ===================================== */
+
+    window.onload = function() {
+
+        updateNavigation();
+
+
+        const loggedIn =
+            localStorage.getItem("communityConnectLoggedIn")
+            === "true";
+
+
+        if (loggedIn) {
+
+            showDashboard();
+
+        }
+
+    };
 
 </script>
 
