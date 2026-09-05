@@ -1,0 +1,915 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Government Schemes | CommunityConnect</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5faf7;
+    color: #26352d;
+    line-height: 1.6;
+}
+
+/* NAVBAR */
+.navbar {
+    background: #123d2b;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #8bd8a9;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #8bd8a9;
+}
+
+.login {
+    background: #79d69a;
+    color: #123d2b !important;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* HERO */
+.hero {
+    padding: 75px 7%;
+    background: linear-gradient(135deg, #e7f8ed, #f8fcf9);
+}
+
+.hero small {
+    color: #25834c;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    margin-top: 15px;
+    font-size: 48px;
+    line-height: 1.15;
+    color: #123d2b;
+    max-width: 800px;
+}
+
+.hero h1 span {
+    color: #2e9d5a;
+}
+
+.hero p {
+    margin-top: 18px;
+    max-width: 750px;
+    color: #617067;
+    font-size: 17px;
+}
+
+/* SEARCH */
+.search-section {
+    padding: 35px 7%;
+    background: white;
+}
+
+.search-box {
+    max-width: 750px;
+    margin: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 1px solid #d4e3da;
+    border-radius: 30px;
+    outline: none;
+    font-size: 15px;
+}
+
+.search-box button {
+    border: none;
+    background: #257c49;
+    color: white;
+    padding: 0 28px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* CONTENT */
+.container {
+    width: 86%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section {
+    padding: 65px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    color: #123d2b;
+    font-size: 34px;
+}
+
+.section-title p {
+    color: #68776e;
+    margin-top: 8px;
+}
+
+/* CATEGORIES */
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.category {
+    border: 1px solid #cfe2d6;
+    background: white;
+    color: #24613e;
+    padding: 10px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.category:hover {
+    background: #dff5e6;
+}
+
+/* SCHEME GRID */
+.scheme-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.scheme-card {
+    background: white;
+    padding: 28px;
+    border-radius: 18px;
+    border: 1px solid #e1eee6;
+    box-shadow: 0 7px 25px rgba(30,80,50,0.06);
+    transition: 0.3s;
+}
+
+.scheme-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(30,80,50,0.10);
+}
+
+.scheme-icon {
+    width: 55px;
+    height: 55px;
+    background: #e5f7eb;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    margin-bottom: 18px;
+}
+
+.scheme-card h3 {
+    color: #174e35;
+    margin-bottom: 10px;
+}
+
+.scheme-card p {
+    color: #69776f;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.details {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.details li {
+    padding: 7px 0;
+    color: #526158;
+    font-size: 13px;
+}
+
+.details strong {
+    color: #174e35;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.details-btn,
+.apply-btn {
+    display: inline-block;
+    padding: 10px 17px;
+    border-radius: 22px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.details-btn {
+    background: #e5f7eb;
+    color: #24613e;
+}
+
+.apply-btn {
+    background: #257c49;
+    color: white;
+}
+
+.apply-btn:hover {
+    background: #185d36;
+}
+
+/* OFFICIAL BADGE */
+.official {
+    display: inline-block;
+    background: #eef8f2;
+    color: #257c49;
+    font-size: 11px;
+    padding: 5px 9px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* INFORMATION BOX */
+.info {
+    background: #123d2b;
+    color: white;
+    padding: 50px;
+    border-radius: 22px;
+    text-align: center;
+}
+
+.info h2 {
+    margin-bottom: 12px;
+}
+
+.info p {
+    color: #d4e7dc;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* FOOTER */
+footer {
+    background: #123d2b;
+    color: white;
+    padding: 45px 7%;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+footer p {
+    color: #c9ddd0;
+    margin-top: 8px;
+}
+
+.copyright {
+    margin-top: 30px;
+    border-top: 1px solid #315b46;
+    padding-top: 20px;
+    color: #b8cdbf;
+    font-size: 13px;
+}
+
+/* MOBILE */
+@media(max-width:850px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .scheme-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box button {
+        padding: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <div class="logo">
+        Community<span>Connect</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="community.html">Community Profile</a>
+        <a href="government.html">Government Schemes</a>
+        <a href="#">Resources</a>
+        <a href="#">Awareness</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <a href="#" class="login">Login</a>
+
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+
+    <small>GOVERNMENT SUPPORT</small>
+
+    <h1>
+        Government Schemes for a
+        <span>Better Tomorrow.</span>
+    </h1>
+
+    <p>
+        Discover government schemes and support programs for
+        education, healthcare, housing, agriculture and financial
+        inclusion.
+    </p>
+
+</section>
+
+
+<!-- SEARCH -->
+<section class="search-section">
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search schemes..."
+            onkeyup="searchSchemes()"
+        >
+
+        <button onclick="searchSchemes()">
+            Search
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- SCHEMES -->
+<section class="section">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <h2>Explore Government Schemes</h2>
+
+        <p>
+            Information is provided to help users reach the
+            appropriate official government portal.
+        </p>
+
+    </div>
+
+
+    <div class="categories">
+
+        <button class="category" onclick="filterSchemes('all')">
+            All
+        </button>
+
+        <button class="category" onclick="filterSchemes('education')">
+            Education
+        </button>
+
+        <button class="category" onclick="filterSchemes('health')">
+            Health
+        </button>
+
+        <button class="category" onclick="filterSchemes('housing')">
+            Housing
+        </button>
+
+        <button class="category" onclick="filterSchemes('agriculture')">
+            Agriculture
+        </button>
+
+        <button class="category" onclick="filterSchemes('financial')">
+            Financial
+        </button>
+
+    </div>
+
+
+    <div class="scheme-grid" id="schemeGrid">
+
+
+        <!-- NATIONAL SCHOLARSHIP PORTAL -->
+
+        <div class="scheme-card" data-category="education">
+
+            <span class="official">
+                ✓ OFFICIAL GOVERNMENT PORTAL
+            </span>
+
+            <div class="scheme-icon">🎓</div>
+
+            <h3>National Scholarship Portal</h3>
+
+            <p>
+                The National Scholarship Portal provides a
+                single platform for students to find and apply
+                for scholarships available through participating
+                government departments.
+            </p>
+
+            <ul class="details">
+
+                <li>
+                    <strong>Category:</strong> Education
+                </li>
+
+                <li>
+                    <strong>For:</strong> Eligible Students
+                </li>
+
+                <li>
+                    <strong>Registration:</strong> OTR required
+                </li>
+
+                <li>
+                    <strong>Academic Year:</strong> 2026–27
+                </li>
+
+            </ul>
+
+            <div class="button-group">
+
+                <a
+                    href="https://scholarships.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="apply-btn">
+                    Apply Now ↗
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PMAY -->
+
+        <div class="scheme-card" data-category="housing">
+
+            <span class="official">
+                ✓ OFFICIAL GOVERNMENT PORTAL
+            </span>
+
+            <div class="scheme-icon">🏠</div>
+
+            <h3>PMAY – Urban 2.0</h3>
+
+            <p>
+                Pradhan Mantri Awas Yojana – Urban supports
+                eligible urban households through housing
+                assistance under its approved program components.
+            </p>
+
+            <ul class="details">
+
+                <li>
+                    <strong>Category:</strong> Housing
+                </li>
+
+                <li>
+                    <strong>Area:</strong> Urban
+                </li>
+
+                <li>
+                    <strong>For:</strong> Eligible households
+                </li>
+
+                <li>
+                    <strong>Application:</strong> Online / CSC / ULB
+                </li>
+
+            </ul>
+
+            <div class="button-group">
+
+                <a
+                    href="https://pmaymis.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="apply-btn">
+                    Apply / Visit Portal ↗
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PM KISAN -->
+
+        <div class="scheme-card" data-category="agriculture">
+
+            <span class="official">
+                ✓ OFFICIAL GOVERNMENT PORTAL
+            </span>
+
+            <div class="scheme-icon">🌾</div>
+
+            <h3>PM-KISAN</h3>
+
+            <p>
+                Pradhan Mantri Kisan Samman Nidhi is a government
+                income-support scheme for eligible landholding
+                farmer families, subject to the scheme's rules.
+            </p>
+
+            <ul class="details">
+
+                <li>
+                    <strong>Category:</strong> Agriculture
+                </li>
+
+                <li>
+                    <strong>For:</strong> Eligible farmer families
+                </li>
+
+                <li>
+                    <strong>Registration:</strong> Farmer registration
+                </li>
+
+                <li>
+                    <strong>Verification:</strong> Aadhaar authentication
+                </li>
+
+            </ul>
+
+            <div class="button-group">
+
+                <a
+                    href="https://pmkisan.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="apply-btn">
+                    Apply / Register ↗
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PMJDY -->
+
+        <div class="scheme-card" data-category="financial">
+
+            <span class="official">
+                ✓ OFFICIAL GOVERNMENT PORTAL
+            </span>
+
+            <div class="scheme-icon">🏦</div>
+
+            <h3>Pradhan Mantri Jan-Dhan Yojana</h3>
+
+            <p>
+                PMJDY aims to provide access to basic banking,
+                savings, remittance, credit, insurance and pension
+                services.
+            </p>
+
+            <ul class="details">
+
+                <li>
+                    <strong>Category:</strong> Financial Inclusion
+                </li>
+
+                <li>
+                    <strong>For:</strong> Eligible unbanked persons
+                </li>
+
+                <li>
+                    <strong>Account:</strong> Basic savings account
+                </li>
+
+                <li>
+                    <strong>Minimum Balance:</strong> No requirement
+                </li>
+
+            </ul>
+
+            <div class="button-group">
+
+                <a
+                    href="https://www.pmjdy.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="apply-btn">
+                    Visit Official Portal ↗
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PM-JAY -->
+
+        <div class="scheme-card" data-category="health">
+
+            <span class="official">
+                ✓ OFFICIAL GOVERNMENT PORTAL
+            </span>
+
+            <div class="scheme-icon">🏥</div>
+
+            <h3>Ayushman Bharat</h3>
+
+            <p>
+                Ayushman Bharat PM-JAY provides health coverage
+                to eligible beneficiary families according to
+                the scheme's eligibility rules.
+            </p>
+
+            <ul class="details">
+
+                <li>
+                    <strong>Category:</strong> Healthcare
+                </li>
+
+                <li>
+                    <strong>For:</strong> Eligible beneficiaries
+                </li>
+
+                <li>
+                    <strong>Purpose:</strong> Health coverage
+                </li>
+
+                <li>
+                    <strong>Verification:</strong> Official portal
+                </li>
+
+            </ul>
+
+            <div class="button-group">
+
+                <a
+                    href="https://pmjay.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="apply-btn">
+                    Check / Visit Portal ↗
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- EDUCATION SCHOLARSHIP -->
+
+        <div class="scheme-card" data-category="education">
+
+            <span class="official">
+                ✓ AVAILABLE THROUGH NSP
+            </span>
+
+            <div class="scheme-icon">📚</div>
+
+            <h3>PM-USP Central Sector Scholarship</h3>
+
+            <p>
+                A merit-based scholarship scheme for eligible
+                college and university students listed on the
+                National Scholarship Portal.
+            </p>
+
+            <ul class="details">
+
+                <li>
+                    <strong>Category:</strong> Education
+                </li>
+
+                <li>
+                    <strong>For:</strong> Eligible college/university students
+                </li>
+
+                <li>
+                    <strong>Type:</strong> Merit based
+                </li>
+
+                <li>
+                    <strong>Portal:</strong> National Scholarship Portal
+                </li>
+
+            </ul>
+
+            <div class="button-group">
+
+                <a
+                    href="https://scholarships.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="apply-btn">
+                    Apply on NSP ↗
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- IMPORTANT INFORMATION -->
+
+<section class="section">
+
+<div class="container">
+
+    <div class="info">
+
+        <h2>Important Before You Apply</h2>
+
+        <p>
+            CommunityConnect does not collect or process government
+            scheme applications. The Apply buttons take you to
+            official government portals. Check the latest eligibility,
+            required documents, application dates and instructions
+            on the official portal before submitting an application.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>CommunityConnect</h3>
+
+            <p>
+                Connecting communities with useful information,
+                resources and opportunities.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>Government Resources</h3>
+
+            <p>
+                Education • Health • Housing • Agriculture • Finance
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 CommunityConnect. All Rights Reserved.
+    </div>
+
+</footer>
+
+
+<script>
+
+/* SEARCH */
+
+function searchSchemes() {
+
+    let input =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    let cards =
+        document.querySelectorAll(".scheme-card");
+
+    cards.forEach(function(card) {
+
+        let text =
+            card.innerText.toLowerCase();
+
+        if (text.includes(input)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+}
+
+
+/* CATEGORY FILTER */
+
+function filterSchemes(category) {
+
+    let cards =
+        document.querySelectorAll(".scheme-card");
+
+    cards.forEach(function(card) {
+
+        if (
+            category === "all" ||
+            card.dataset.category === category
+        ) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
+```
