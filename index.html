@@ -1,57 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CommunityConnect | Community Resource & Awareness Portal</title>
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
 <body>
 
-    <!-- =====================================================
-         NAVIGATION
-    ===================================================== -->
+    <!-- =========================================
+         HEADER / NAVBAR
+    ========================================== -->
 
-    <header class="navbar">
+    <header class="header">
 
-        <div class="container nav-inner">
+        <div class="container navbar">
 
-            <a href="index.html" class="brand">
+            <!-- LOGO -->
+            <a href="index.html" class="logo">
 
-                <div class="brand-logo">
-                    👥
+                <div class="logo-icon">
+                    🌿
                 </div>
 
-                <div class="brand-text">
-                    <h2>CommunityConnect</h2>
-                    <p>Connect. Discover. Empower.</p>
+                <div class="logo-text">
+                    CommunityConnect
+                    <span>Connect. Discover. Empower.</span>
                 </div>
 
             </a>
 
 
-            <nav class="nav-links" id="navLinks">
+            <!-- NAVIGATION -->
+            <nav class="nav-links">
 
-                <a href="index.html">Home</a>
+                <a href="index.html" class="active">Home</a>
 
-                <a href="community.html">Community Profile</a>
+                <a href="community.html">
+                    Community Profile
+                </a>
 
-                <a href="government.html">Government Schemes</a>
+                <a href="government.html">
+                    Government Schemes
+                </a>
 
-                <a href="education.html">Resources</a>
+                <a href="education.html">
+                    Resources
+                </a>
 
-                <a href="environment.html">Awareness</a>
+                <a href="environment.html">
+                    Awareness
+                </a>
 
-                <a href="contact.html">Contact</a>
+                <a href="contact.html">
+                    Contact
+                </a>
 
             </nav>
 
 
+            <!-- ACTIONS -->
             <div class="nav-actions">
 
-                <button class="search-btn" onclick="toggleSearch()">
+                <button class="search-btn" onclick="toggleSearch()" aria-label="Search">
                     🔍
                 </button>
 
-                <a href="login.html" class="login-btn">
+                <a href="login.html" class="login">
                     Login
                 </a>
 
-                <button class="menu-btn" onclick="toggleMenu()">
+                <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">
                     ☰
                 </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- SEARCH -->
+        <div id="searchBox" style="display:none; padding:15px 0; background:#f7faf8;">
+
+            <div class="container">
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        id="siteSearch"
+                        placeholder="Search CommunityConnect..."
+                        onkeydown="searchSite(event)"
+                    >
+
+                    <button onclick="performSearch()">
+                        Search
+                    </button>
+
+                </div>
 
             </div>
 
@@ -60,604 +111,69 @@
     </header>
 
 
-    <!-- SEARCH -->
 
-    <div class="search-box" id="searchBox">
+    <!-- =========================================
+         HERO SECTION
+    ========================================== -->
 
-        <input
-            type="text"
-            placeholder="Search CommunityConnect..."
-            onkeyup="searchSite(this.value)"
-        >
+    <section class="hero">
 
-    </div>
+        <div class="container hero-grid">
 
+            <!-- LEFT CONTENT -->
 
-    <!-- =====================================================
-         HERO
-    ===================================================== -->
+            <div class="hero-content">
 
-    <main id="home">
-
-        <section class="hero">
-
-            <div class="container hero-inner">
-
-                <div class="hero-content">
-
-                    <h1>
-                        Connecting Communities<br>
-                        Building a <span>Better Tomorrow</span>
-                    </h1>
-
-                    <p>
-                        Your one-stop portal for community information,
-                        government schemes, resources, and awareness.
-                    </p>
-
-                    <div class="hero-buttons">
-
-                        <a href="education.html" class="btn-primary">
-                            Explore Resources →
-                        </a>
-
-                        <a href="#about" class="btn-secondary">
-                            Learn More
-                        </a>
-
-                    </div>
-
+                <div class="hero-tag">
+                    🌱 Community Resource & Awareness Portal
                 </div>
 
 
-                <!-- Community Illustration -->
+                <h1>
+                    Connecting Communities,
+                    <br>
+                    <span>Building a Better Tomorrow.</span>
+                </h1>
 
-                <div class="hero-art">
 
-                    <div class="sun"></div>
+                <p>
+                    CommunityConnect brings essential community resources,
+                    government schemes, educational opportunities, healthcare
+                    information and awareness services together in one
+                    easy-to-use platform.
+                </p>
 
-                    <div class="cloud one"></div>
-                    <div class="cloud two"></div>
 
-                    <div class="city">
+                <div class="hero-buttons">
 
-                        <div class="building"></div>
-                        <div class="building"></div>
-                        <div class="building"></div>
-                        <div class="building"></div>
-                        <div class="building"></div>
-                        <div class="building"></div>
+                    <a href="education.html" class="btn btn-primary">
+                        Explore Resources →
+                    </a>
 
-                    </div>
-
-                    <div class="ground"></div>
-
-                    <div class="house left"></div>
-                    <div class="house right"></div>
-
-                    <div class="person one">
-                        <div class="head"></div>
-                        <div class="body"></div>
-                        <div class="legs"></div>
-                    </div>
-
-                    <div class="person two">
-                        <div class="head"></div>
-                        <div class="body"></div>
-                        <div class="legs"></div>
-                    </div>
-
-                    <div class="person three">
-                        <div class="head"></div>
-                        <div class="body"></div>
-                        <div class="legs"></div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             EXPLORE
-        ===================================================== -->
-
-        <section class="section">
-
-            <div class="container">
-
-                <div class="section-title">
-
-                    <h2>Explore What Matters</h2>
-
-                    <div class="line"></div>
-
-                </div>
-
-
-                <div class="features">
-
-                    <!-- COMMUNITY -->
-
-                    <article class="feature-card">
-
-                        <div class="feature-icon">👥</div>
-
-                        <h3>Community Profile</h3>
-
-                        <p>
-                            Learn about communities, their background,
-                            facilities, needs, and key information.
-                        </p>
-
-                        <a href="community.html" class="feature-link">
-                            Explore →
-                        </a>
-
-                    </article>
-
-
-                    <!-- GOVERNMENT -->
-
-                    <article class="feature-card">
-
-                        <div class="feature-icon">🏛️</div>
-
-                        <h3>Government Schemes</h3>
-
-                        <p>
-                            Find government schemes and benefits
-                            you may be eligible for.
-                        </p>
-
-                        <a href="government.html" class="feature-link">
-                            Explore →
-                        </a>
-
-                    </article>
-
-
-                    <!-- RESOURCES -->
-
-                    <article class="feature-card">
-
-                        <div class="feature-icon">📖</div>
-
-                        <h3>Community Resources</h3>
-
-                        <p>
-                            Discover resources and services available
-                            in your community.
-                        </p>
-
-                        <a href="education.html" class="feature-link">
-                            Explore →
-                        </a>
-
-                    </article>
-
-
-                    <!-- AWARENESS -->
-
-                    <article class="feature-card">
-
-                        <div class="feature-icon">📢</div>
-
-                        <h3>Awareness</h3>
-
-                        <p>
-                            Stay informed with important awareness
-                            information and community updates.
-                        </p>
-
-                        <a href="environment.html" class="feature-link">
-                            Explore →
-                        </a>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             STATISTICS
-        ===================================================== -->
-
-        <section class="container">
-
-            <div class="stats">
-
-                <div class="stat">
-
-                    <div class="stat-icon">👥</div>
-
-                    <strong>100+</strong>
-
-                    <span>Communities</span>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <div class="stat-icon">🏛️</div>
-
-                    <strong>250+</strong>
-
-                    <span>Government Schemes</span>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <div class="stat-icon">🤲</div>
-
-                    <strong>500+</strong>
-
-                    <span>Resources</span>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <div class="stat-icon">📢</div>
-
-                    <strong>200+</strong>
-
-                    <span>Awareness Articles</span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             ABOUT
-        ===================================================== -->
-
-        <section class="section" id="about">
-
-            <div class="container about">
-
-                <div class="about-image"></div>
-
-
-                <div class="about-content">
-
-                    <h2>About CommunityConnect</h2>
-
-                    <p>
-                        CommunityConnect is a platform dedicated to
-                        connecting people with essential resources,
-                        information, and opportunities.
-                    </p>
-
-                    <p>
-                        Our mission is to empower communities by making
-                        important information accessible to everyone.
-                    </p>
-
-                    <p>
-                        From government schemes to community services
-                        and awareness information, everything is brought
-                        together in one easy-to-use platform.
-                    </p>
-
-                    <a href="contact.html" class="btn-primary">
-                        Know More About Us
+                    <a href="#about" class="btn btn-outline">
+                        Learn More
                     </a>
 
                 </div>
 
             </div>
 
-        </section>
 
+            <!-- RIGHT ILLUSTRATION -->
 
-        <!-- =====================================================
-             PREVIEWS
-        ===================================================== -->
+            <div class="hero-visual">
 
-        <section class="section preview-section">
+                <div class="community-illustration">
 
-            <div class="container">
+                    <div class="people">
 
-                <div class="section-title">
+                        <div class="person"></div>
 
-                    <h2>Discover What's Available</h2>
+                        <div class="person"></div>
 
-                    <div class="line"></div>
+                        <div class="person"></div>
 
-                </div>
-
-
-                <div class="preview-grid">
-
-
-                    <!-- GOVERNMENT -->
-
-                    <div class="preview-card">
-
-                        <h3>🏛️ Government Schemes</h3>
-
-                        <div class="preview-item">
-
-                            <div class="preview-thumb">🏠</div>
-
-                            <div class="preview-info">
-
-                                <strong>Pradhan Mantri Awas Yojana</strong>
-
-                                <span>
-                                    Housing support for eligible beneficiaries
-                                </span>
-
-                            </div>
-
-                            <a href="government.html" class="view-btn">
-                                View
-                            </a>
-
-                        </div>
-
-
-                        <div class="preview-item">
-
-                            <div class="preview-thumb">❤️</div>
-
-                            <div class="preview-info">
-
-                                <strong>Ayushman Bharat Yojana</strong>
-
-                                <span>
-                                    Health support for eligible beneficiaries
-                                </span>
-
-                            </div>
-
-                            <a href="government.html" class="view-btn">
-                                View
-                            </a>
-
-                        </div>
-
-
-                        <div class="preview-item">
-
-                            <div class="preview-thumb">🎓</div>
-
-                            <div class="preview-info">
-
-                                <strong>Education Support</strong>
-
-                                <span>
-                                    Educational opportunities and support
-                                </span>
-
-                            </div>
-
-                            <a href="government.html" class="view-btn">
-                                View
-                            </a>
-
-                        </div>
-
-
-                        <div class="center-button">
-
-                            <a href="government.html" class="btn-primary">
-                                View All Schemes
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- RESOURCES -->
-
-                    <div class="preview-card">
-
-                        <h3>📚 Community Resources</h3>
-
-                        <div class="preview-item">
-
-                            <div class="preview-thumb">🏥</div>
-
-                            <div class="preview-info">
-
-                                <strong>Community Health Center</strong>
-
-                                <span>
-                                    Health services for community members
-                                </span>
-
-                            </div>
-
-                            <a href="health.html" class="view-btn">
-                                View
-                            </a>
-
-                        </div>
-
-
-                        <div class="preview-item">
-
-                            <div class="preview-thumb">💻</div>
-
-                            <div class="preview-info">
-
-                                <strong>Skill Development Center</strong>
-
-                                <span>
-                                    Training and skill development programs
-                                </span>
-
-                            </div>
-
-                            <a href="education.html" class="view-btn">
-                                View
-                            </a>
-
-                        </div>
-
-
-                        <div class="preview-item">
-
-                            <div class="preview-thumb">📚</div>
-
-                            <div class="preview-info">
-
-                                <strong>Public Library</strong>
-
-                                <span>
-                                    Books, study materials and resources
-                                </span>
-
-                            </div>
-
-                            <a href="education.html" class="view-btn">
-                                View
-                            </a>
-
-                        </div>
-
-
-                        <div class="center-button">
-
-                            <a href="community.html" class="btn-primary">
-                                View All Resources
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- AWARENESS -->
-
-                    <div class="preview-card">
-
-                        <h3>📢 Latest Awareness</h3>
-
-                        <div class="preview-item">
-
-                            <div class="preview-thumb">💧</div>
-
-                            <div class="preview-info">
-
-                                <strong>Clean Water, Healthy Life</strong>
-
-                                <span>
-                                    Learn about the importance of clean water
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="preview-item">
-
-                            <div class="preview-thumb">🩺</div>
-
-                            <div class="preview-info">
-
-                                <strong>Health Awareness</strong>
-
-                                <span>
-                                    Important health information for families
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="preview-item">
-
-                            <div class="preview-thumb">🌱</div>
-
-                            <div class="preview-info">
-
-                                <strong>Say No to Plastic</strong>
-
-                                <span>
-                                    Small steps for a better environment
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- COMMUNITY -->
-
-                    <div class="preview-card">
-
-                        <h3>👥 Community Highlights</h3>
-
-                        <div class="preview-item">
-
-                            <div class="preview-thumb">🏡</div>
-
-                            <div class="preview-info">
-
-                                <strong>Greenfield Community</strong>
-
-                                <span>
-                                    A growing and well-developed community
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="preview-item">
-
-                            <div class="preview-thumb">🌳</div>
-
-                            <div class="preview-info">
-
-                                <strong>Community Facilities</strong>
-
-                                <span>
-                                    Schools, parks, libraries and health centers
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="preview-item">
-
-                            <div class="preview-thumb">🤝</div>
-
-                            <div class="preview-info">
-
-                                <strong>Community Support</strong>
-
-                                <span>
-                                    Connecting people with useful services
-                                </span>
-
-                            </div>
-
-                        </div>
+                        <div class="person"></div>
 
                     </div>
 
@@ -665,201 +181,780 @@
 
             </div>
 
-        </section>
+        </div>
+
+    </section>
 
 
-        <!-- =====================================================
-             CTA
-        ===================================================== -->
 
-        <section class="section">
+    <!-- =========================================
+         EXPLORE WHAT MATTERS
+    ========================================== -->
 
-            <div class="container">
-
-                <div class="cta">
-
-                    <h2>Be Connected. Stay Informed.</h2>
-
-                    <p>
-                        Discover resources, government schemes and
-                        important information available for your community.
-                    </p>
-
-                    <a href="community.html" class="btn-secondary">
-                        Explore Community Resources
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =====================================================
-         FOOTER
-    ===================================================== -->
-
-    <footer id="contact">
+    <section class="section">
 
         <div class="container">
 
-            <div class="footer-grid">
+            <div class="section-heading">
+
+                <div class="eyebrow">
+                    Everything in One Place
+                </div>
+
+                <h2>
+                    Explore What Matters
+                </h2>
+
+                <p>
+                    Discover resources and opportunities designed to
+                    support individuals, families and communities.
+                </p>
+
+            </div>
 
 
-                <div>
+            <div class="features">
 
-                    <div class="footer-brand">
 
-                        <div class="footer-brand-icon">
-                            👥
-                        </div>
+                <!-- COMMUNITY -->
 
-                        <strong>CommunityConnect</strong>
+                <a href="community.html" class="feature-card">
 
+                    <div class="feature-icon">
+                        👥
                     </div>
 
-                    <p>
-                        Connect. Discover. Empower.
-                    </p>
+                    <h3>
+                        Community Profile
+                    </h3>
 
                     <p>
-                        A Community Resource and Awareness Portal.
+                        Learn about your community and discover
+                        useful local information and services.
                     </p>
 
-                </div>
+                    <span class="feature-link">
+                        Explore Community →
+                    </span>
+
+                </a>
 
 
-                <div>
+                <!-- GOVERNMENT -->
 
-                    <h3>Quick Links</h3>
+                <a href="government.html" class="feature-card">
 
-                    <a href="index.html">Home</a>
-                    <a href="community.html">Community Profile</a>
-                    <a href="government.html">Government Schemes</a>
-                    <a href="education.html">Resources</a>
-                    <a href="environment.html">Awareness</a>
-                    <a href="contact.html">Contact</a>
-
-                </div>
-
-
-                <div>
-
-                    <h3>Useful Links</h3>
-
-                    <a href="login.html">Login</a>
-                    <a href="signup.html">Create Account</a>
-                    <a href="dashboard.html">Dashboard</a>
-                    <a href="saved-resources.html">Saved Resources</a>
-                    <a href="applications.html">My Applications</a>
-
-                </div>
-
-
-                <div>
-
-                    <h3>Contact Us</h3>
-
-                    <p>Email: info@communityconnect.org</p>
-                    <p>Phone: +91 12345 67890</p>
-                    <p>
-                        Address: 123 Community Street,<br>
-                        Your City, India
-                    </p>
-
-                </div>
-
-
-                <div>
-
-                    <h3>Follow Us</h3>
-
-                    <div class="socials">
-
-                        <a href="#" class="social">f</a>
-
-                        <a href="#" class="social">𝕏</a>
-
-                        <a href="#" class="social">◎</a>
-
-                        <a href="#" class="social">▶</a>
-
+                    <div class="feature-icon">
+                        🏛️
                     </div>
+
+                    <h3>
+                        Government Schemes
+                    </h3>
+
+                    <p>
+                        Find government welfare schemes, scholarships
+                        and financial support opportunities.
+                    </p>
+
+                    <span class="feature-link">
+                        View Schemes →
+                    </span>
+
+                </a>
+
+
+                <!-- RESOURCES -->
+
+                <a href="education.html" class="feature-card">
+
+                    <div class="feature-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Community Resources
+                    </h3>
+
+                    <p>
+                        Access educational, career, skill development
+                        and other useful community resources.
+                    </p>
+
+                    <span class="feature-link">
+                        Find Resources →
+                    </span>
+
+                </a>
+
+
+                <!-- AWARENESS -->
+
+                <a href="environment.html" class="feature-card">
+
+                    <div class="feature-icon">
+                        📢
+                    </div>
+
+                    <h3>
+                        Awareness
+                    </h3>
+
+                    <p>
+                        Stay informed about important environmental,
+                        social and community awareness topics.
+                    </p>
+
+                    <span class="feature-link">
+                        Learn More →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         STATISTICS
+    ========================================== -->
+
+    <section class="stats">
+
+        <div class="container stats-grid">
+
+
+            <div class="stat">
+
+                <h3>
+                    100+
+                </h3>
+
+                <p>
+                    Communities
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    250+
+                </h3>
+
+                <p>
+                    Government Schemes
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    500+
+                </h3>
+
+                <p>
+                    Resources
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    200+
+                </h3>
+
+                <p>
+                    Awareness Articles
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         ABOUT SECTION
+    ========================================== -->
+
+    <section class="section" id="about">
+
+        <div class="container about-grid">
+
+
+            <div class="about-image">
+                🌍
+            </div>
+
+
+            <div class="about-content">
+
+                <div class="eyebrow">
+                    About Us
+                </div>
+
+                <h2>
+                    About CommunityConnect
+                </h2>
+
+                <p>
+                    CommunityConnect is a platform dedicated to connecting
+                    people with essential resources, information and
+                    opportunities.
+                </p>
+
+                <p>
+                    Our mission is to empower communities by making
+                    important information accessible to everyone.
+                </p>
+
+                <p>
+                    From government schemes to community services,
+                    education, healthcare and awareness information,
+                    everything is brought together in one easy-to-use
+                    platform.
+                </p>
+
+                <br>
+
+                <a href="contact.html" class="btn btn-primary">
+                    Know More About Us →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         GOVERNMENT SCHEMES
+    ========================================== -->
+
+    <section class="section section-light">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="eyebrow">
+                    Government Support
+                </div>
+
+                <h2>
+                    Discover Government Schemes
+                </h2>
+
+                <p>
+                    Explore useful government schemes and programs
+                    available for eligible citizens.
+                </p>
+
+            </div>
+
+
+            <div class="cards-grid">
+
+
+                <!-- CARD 1 -->
+
+                <div class="scheme-card">
+
+                    <div class="card-icon">
+                        🏠
+                    </div>
+
+                    <h3>
+                        Pradhan Mantri Awas Yojana
+                    </h3>
+
+                    <p>
+                        Housing support for eligible beneficiaries
+                        under government housing programs.
+                    </p>
+
+                    <a href="government.html" class="card-link">
+                        View Scheme →
+                    </a>
+
+                </div>
+
+
+                <!-- CARD 2 -->
+
+                <div class="scheme-card">
+
+                    <div class="card-icon">
+                        🎓
+                    </div>
+
+                    <h3>
+                        National Scholarships
+                    </h3>
+
+                    <p>
+                        Discover scholarship opportunities available
+                        for students through government programs.
+                    </p>
+
+                    <a href="government.html" class="card-link">
+                        View Scheme →
+                    </a>
+
+                </div>
+
+
+                <!-- CARD 3 -->
+
+                <div class="scheme-card">
+
+                    <div class="card-icon">
+                        🏥
+                    </div>
+
+                    <h3>
+                        Ayushman Bharat
+                    </h3>
+
+                    <p>
+                        Explore healthcare support and government
+                        health protection programs.
+                    </p>
+
+                    <a href="government.html" class="card-link">
+                        View Scheme →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         COMMUNITY RESOURCES
+    ========================================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="eyebrow">
+                    Useful Resources
+                </div>
+
+                <h2>
+                    Resources For Your Community
+                </h2>
+
+                <p>
+                    Find trusted resources for education, healthcare,
+                    skills and career development.
+                </p>
+
+            </div>
+
+
+            <div class="cards-grid">
+
+
+                <!-- HEALTH -->
+
+                <div class="resource-card">
+
+                    <div class="card-icon">
+                        🏥
+                    </div>
+
+                    <h3>
+                        Community Health Center
+                    </h3>
+
+                    <p>
+                        Find important healthcare information,
+                        services and trusted health resources.
+                    </p>
+
+                    <a href="health.html" class="card-link">
+                        Explore Health →
+                    </a>
+
+                </div>
+
+
+                <!-- EDUCATION -->
+
+                <div class="resource-card">
+
+                    <div class="card-icon">
+                        📖
+                    </div>
+
+                    <h3>
+                        Skill Development Center
+                    </h3>
+
+                    <p>
+                        Discover learning resources, online courses
+                        and skill development opportunities.
+                    </p>
+
+                    <a href="education.html" class="card-link">
+                        Explore Education →
+                    </a>
+
+                </div>
+
+
+                <!-- LIBRARY -->
+
+                <div class="resource-card">
+
+                    <div class="card-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Public Library
+                    </h3>
+
+                    <p>
+                        Access educational materials and resources
+                        that support lifelong learning.
+                    </p>
+
+                    <a href="education.html" class="card-link">
+                        Explore Resources →
+                    </a>
 
                 </div>
 
             </div>
 
 
-            <div class="copyright">
+            <div style="text-align:center; margin-top:35px;">
 
-                © 2026 CommunityConnect. All rights reserved.
+                <a href="community.html" class="btn btn-outline">
+                    View All Resources →
+                </a>
 
             </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         CALL TO ACTION
+    ========================================== -->
+
+    <section class="cta">
+
+        <div class="container">
+
+            <h2>
+                Together, We Can Build Stronger Communities.
+            </h2>
+
+            <p>
+                Join CommunityConnect and discover resources,
+                opportunities and information that can make
+                a difference in your community.
+            </p>
+
+            <a href="community.html" class="btn btn-primary">
+                Explore CommunityConnect →
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="footer">
+
+        <div class="container footer-grid">
+
+
+            <!-- ABOUT -->
+
+            <div>
+
+                <div class="logo">
+
+                    <div class="logo-icon">
+                        🌿
+                    </div>
+
+                    <div class="logo-text">
+                        CommunityConnect
+                        <span>
+                            Connect. Discover. Empower.
+                        </span>
+                    </div>
+
+                </div>
+
+                <br>
+
+                <p>
+                    Connecting communities with essential resources,
+                    information and opportunities for a better tomorrow.
+                </p>
+
+            </div>
+
+
+            <!-- QUICK LINKS -->
+
+            <div>
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <div class="footer-links">
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="community.html">
+                        Community Profile
+                    </a>
+
+                    <a href="government.html">
+                        Government Schemes
+                    </a>
+
+                    <a href="education.html">
+                        Resources
+                    </a>
+
+                    <a href="environment.html">
+                        Awareness
+                    </a>
+
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- USEFUL LINKS -->
+
+            <div>
+
+                <h3>
+                    Useful Links
+                </h3>
+
+                <div class="footer-links">
+
+                    <a href="login.html">
+                        Login
+                    </a>
+
+                    <a href="signup.html">
+                        Create Account
+                    </a>
+
+                    <a href="dashboard.html">
+                        Dashboard
+                    </a>
+
+                    <a href="saved-resources.html">
+                        Saved Resources
+                    </a>
+
+                    <a href="applications.html">
+                        My Applications
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- SUPPORT -->
+
+            <div>
+
+                <h3>
+                    Support
+                </h3>
+
+                <div class="footer-links">
+
+                    <a href="health.html">
+                        Health Resources
+                    </a>
+
+                    <a href="emergency.html">
+                        Emergency Help
+                    </a>
+
+                    <a href="contact.html">
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="container footer-bottom">
+
+            © 2026 CommunityConnect.
+            Community Resource & Awareness Portal.
+            All rights reserved.
 
         </div>
 
     </footer>
 
 
-    <!-- =====================================================
+
+    <!-- =========================================
          JAVASCRIPT
-    ===================================================== -->
+    ========================================== -->
 
     <script>
 
-        function toggleMenu() {
-
-            const menu =
-                document.getElementById("navLinks");
-
-            menu.classList.toggle("active");
-
-        }
-
-
         function toggleSearch() {
 
-            const search =
-                document.getElementById("searchBox");
+            const searchBox = document.getElementById("searchBox");
 
-            search.classList.toggle("active");
+            if (searchBox.style.display === "none") {
 
-        }
+                searchBox.style.display = "block";
 
+                document.getElementById("siteSearch").focus();
 
-        function searchSite(value) {
+            } else {
 
-            if (value.length > 2) {
-
-                console.log(
-                    "Searching CommunityConnect for:",
-                    value
-                );
+                searchBox.style.display = "none";
 
             }
 
         }
 
 
-        // Close mobile menu after clicking a link
+        function toggleMenu() {
 
-        document
-            .querySelectorAll(".nav-links a")
-            .forEach(function(link) {
+            const nav = document.querySelector(".nav-links");
 
-                link.addEventListener("click", function() {
+            nav.classList.toggle("show");
 
-                    document
-                        .getElementById("navLinks")
-                        .classList.remove("active");
+        }
 
-                });
 
-            });
+        function searchSite(event) {
+
+            if (event.key === "Enter") {
+
+                performSearch();
+
+            }
+
+        }
+
+
+        function performSearch() {
+
+            const search =
+                document.getElementById("siteSearch").value
+                .toLowerCase()
+                .trim();
+
+
+            if (search.includes("government") ||
+                search.includes("scheme")) {
+
+                window.location.href = "government.html";
+
+            }
+
+            else if (search.includes("health")) {
+
+                window.location.href = "health.html";
+
+            }
+
+            else if (search.includes("education") ||
+                     search.includes("course") ||
+                     search.includes("skill")) {
+
+                window.location.href = "education.html";
+
+            }
+
+            else if (search.includes("community")) {
+
+                window.location.href = "community.html";
+
+            }
+
+            else if (search.includes("environment") ||
+                     search.includes("awareness")) {
+
+                window.location.href = "environment.html";
+
+            }
+
+            else if (search.includes("contact")) {
+
+                window.location.href = "contact.html";
+
+            }
+
+            else if (search === "") {
+
+                alert("Please enter something to search.");
+
+            }
+
+            else {
+
+                alert(
+                    "No matching page found. Try searching for Government, Health, Education, Community or Awareness."
+                );
+
+            }
+
+        }
 
     </script>
 
