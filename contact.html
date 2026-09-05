@@ -7,206 +7,583 @@
 
     <title>Contact | CommunityConnect</title>
 
-    <link rel="stylesheet" href="../style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #1f2937;
+            background: #f8fbff;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+
+        header {
+            background: white;
+            padding: 15px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .logo-text h2 {
+            color: #1d4ed8;
+            font-size: 21px;
+        }
+
+        .logo-text p {
+            font-size: 11px;
+            color: #64748b;
+        }
+
+        nav {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #475569;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #2563eb;
+        }
+
+        .login-btn {
+            background: #2563eb;
+            color: white !important;
+            padding: 9px 17px;
+            border-radius: 20px;
+        }
+
+        /* HERO */
+
+        .hero {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            padding: 75px 8%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+        }
+
+        /* CONTACT SECTION */
+
+        .contact-section {
+            padding: 70px 8%;
+        }
+
+        .contact-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 35px;
+        }
+
+        /* INFO */
+
+        .contact-info {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            padding: 40px;
+            border-radius: 22px;
+        }
+
+        .contact-info h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info > p {
+            color: #e0e7ff;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+
+        .info-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .info-item h3 {
+            font-size: 16px;
+            margin-bottom: 3px;
+        }
+
+        .info-item p {
+            color: #dbeafe;
+            font-size: 14px;
+        }
+
+        /* FORM */
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 22px;
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.09);
+            border: 1px solid #e5e7eb;
+        }
+
+        .contact-form h2 {
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .contact-form .description {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: #334155;
+            margin-bottom: 7px;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+        }
+
+        /* FAQ */
+
+        .faq {
+            background: #eff6ff;
+            padding: 70px 8%;
+        }
+
+        .faq h2 {
+            text-align: center;
+            color: #1e3a8a;
+            font-size: 32px;
+            margin-bottom: 35px;
+        }
+
+        .faq-container {
+            max-width: 850px;
+            margin: auto;
+            display: grid;
+            gap: 15px;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 22px;
+            border-radius: 14px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .faq-item h3 {
+            color: #1e3a8a;
+            font-size: 17px;
+            margin-bottom: 7px;
+        }
+
+        .faq-item p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #111827;
+            color: white;
+            padding: 45px 8% 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        footer h3 {
+            margin-bottom: 12px;
+        }
+
+        footer p,
+        footer a {
+            color: #cbd5e1;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        footer a {
+            display: block;
+            margin-bottom: 7px;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #374151;
+            margin-top: 30px;
+            padding-top: 20px;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1000px) {
+
+            nav a:not(.login-btn) {
+                display: none;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero {
+                padding: 55px 6%;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 28px;
+            }
+
+            .faq h2 {
+                font-size: 27px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header class="header">
+    <!-- HEADER -->
 
-        <div class="container navbar">
+    <header>
 
-            <div class="logo">
+        <div class="logo">
 
-                <div class="logo-icon">
-                    👥
-                </div>
-
-                <div>
-                    <h2>CommunityConnect</h2>
-                    <p>Connect. Discover. Empower.</p>
-                </div>
-
+            <div class="logo-icon">
+                👥
             </div>
 
-            <nav>
-
-                <a href="../index.html">Home</a>
-                <a href="community.html">Community</a>
-                <a href="government.html">Government</a>
-                <a href="health.html">Health</a>
-                <a href="education.html">Education</a>
-                <a href="environment.html">Environment</a>
-                <a href="emergency.html">Emergency</a>
-                <a href="contact.html">Contact</a>
-
-            </nav>
+            <div class="logo-text">
+                <h2>CommunityConnect</h2>
+                <p>Connect. Discover. Empower.</p>
+            </div>
 
         </div>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+            <a href="community.html">Community</a>
+            <a href="government.html">Government</a>
+            <a href="health.html">Health</a>
+            <a href="education.html">Education</a>
+            <a href="environment.html">Environment</a>
+            <a href="Emergency.html">Emergency</a>
+            <a href="contact.html" class="active">Contact</a>
+
+            <a href="#" class="login-btn">Login</a>
+
+        </nav>
 
     </header>
 
 
-    <!-- Hero Section -->
+    <!-- HERO -->
+
     <section class="hero">
 
-        <div class="container hero-content">
+        <h1>Contact Us</h1>
 
-            <div class="hero-text">
+        <p>
+            Have a question, suggestion, or feedback?
+            We'd love to hear from you.
+        </p>
 
-                <h1>
-                    Contact <span>Us</span>
-                </h1>
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact-section">
+
+        <div class="contact-container">
+
+            <!-- CONTACT INFORMATION -->
+
+            <div class="contact-info">
+
+                <h2>Let's Connect</h2>
 
                 <p>
-                    Have a question or suggestion?
-                    Get in touch with CommunityConnect.
+                    CommunityConnect is designed to make useful
+                    community information easier to discover.
+                    Send us your questions or suggestions.
                 </p>
 
-            </div>
 
-        </div>
+                <div class="info-item">
 
-    </section>
+                    <div class="info-icon">📧</div>
 
-
-    <!-- Contact Section -->
-    <section class="topics">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <h2>Get In Touch</h2>
-
-                <div class="title-line"></div>
-
-            </div>
-
-
-            <div class="topic-grid">
-
-
-                <!-- Email -->
-                <div class="topic-card">
-
-                    <div class="topic-icon community-icon">
-                        📧
+                    <div>
+                        <h3>Email</h3>
+                        <p>communityconnect@example.com</p>
                     </div>
-
-                    <h3>Email</h3>
-
-                    <p>
-                        Send us your questions,
-                        suggestions or feedback.
-                    </p>
-
-                    <strong>
-                        info@communityconnect.org
-                    </strong>
 
                 </div>
 
 
-                <!-- Location -->
-                <div class="topic-card">
+                <div class="info-item">
 
-                    <div class="topic-icon government-icon">
-                        📍
+                    <div class="info-icon">📍</div>
+
+                    <div>
+                        <h3>Location</h3>
+                        <p>Chennai, Tamil Nadu, India</p>
                     </div>
-
-                    <h3>Location</h3>
-
-                    <p>
-                        CommunityConnect
-                        Chennai, Tamil Nadu, India
-                    </p>
 
                 </div>
 
 
-                <!-- Support -->
-                <div class="topic-card">
+                <div class="info-item">
 
-                    <div class="topic-icon health-icon">
-                        💬
+                    <div class="info-icon">🌐</div>
+
+                    <div>
+                        <h3>Website</h3>
+                        <p>CommunityConnect Portal</p>
                     </div>
 
-                    <h3>Support</h3>
+                </div>
 
-                    <p>
-                        Contact us for information
-                        about community resources.
-                    </p>
+
+                <div class="info-item">
+
+                    <div class="info-icon">💬</div>
+
+                    <div>
+                        <h3>Feedback</h3>
+                        <p>Share your ideas to improve our portal.</p>
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
 
-    </section>
+            <!-- CONTACT FORM -->
 
-
-    <!-- Contact Form -->
-    <section class="about">
-
-        <div class="container about-content">
-
-            <div class="about-image">
-                ✉️
-            </div>
-
-            <div class="about-text">
+            <div class="contact-form">
 
                 <h2>Send Us a Message</h2>
 
+                <p class="description">
+                    Fill in the form below and share your message with us.
+                </p>
+
+
                 <form id="contactForm">
 
-                    <p>
-                        <label for="name">Name</label>
-                    </p>
+                    <div class="form-group">
 
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Enter your name"
-                        required
-                    >
+                        <label for="name">Your Name</label>
 
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            required
+                        >
 
-                    <p>
-                        <label for="email">Email</label>
-                    </p>
-
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Enter your email"
-                        required
-                    >
+                    </div>
 
 
-                    <p>
-                        <label for="message">Message</label>
-                    </p>
+                    <div class="form-group">
 
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="5"
-                        placeholder="Enter your message"
-                        required
-                    ></textarea>
+                        <label for="email">Email Address</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
 
 
-                    <br><br>
+                    <div class="form-group">
 
-                    <button type="submit">
-                        Send Message
+                        <label for="category">Message Category</label>
+
+                        <select id="category" name="category">
+
+                            <option value="">Select a category</option>
+
+                            <option value="community">
+                                Community
+                            </option>
+
+                            <option value="government">
+                                Government
+                            </option>
+
+                            <option value="health">
+                                Health
+                            </option>
+
+                            <option value="education">
+                                Education
+                            </option>
+
+                            <option value="environment">
+                                Environment
+                            </option>
+
+                            <option value="other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">Your Message</label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Write your message here..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button type="submit" class="submit-btn">
+                        Send Message →
                     </button>
 
                 </form>
@@ -218,17 +595,81 @@
     </section>
 
 
-    <!-- Footer -->
+    <!-- FAQ -->
+
+    <section class="faq">
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-container">
+
+            <div class="faq-item">
+
+                <h3>What is CommunityConnect?</h3>
+
+                <p>
+                    CommunityConnect is a community resource and
+                    awareness portal that brings useful information
+                    together in one place.
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>What type of resources are available?</h3>
+
+                <p>
+                    The portal includes community, government,
+                    health, education, environment, and emergency
+                    awareness resources.
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>Can I suggest a resource?</h3>
+
+                <p>
+                    Yes. You can use the contact form to send your
+                    suggestions and feedback.
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>How can I report incorrect information?</h3>
+
+                <p>
+                    Please send the details through the contact form
+                    so the information can be reviewed.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
     <footer>
 
-        <div class="container footer-grid">
+        <div class="footer-content">
 
             <div>
 
                 <h3>CommunityConnect</h3>
 
                 <p>
-                    Connect. Discover. Empower.
+                    Connecting communities with useful resources,
+                    services, and awareness information.
                 </p>
 
             </div>
@@ -236,37 +677,24 @@
 
             <div>
 
-                <h4>Quick Links</h4>
+                <h3>Quick Links</h3>
 
-                <a href="../index.html">Home</a>
+                <a href="index.html">Home</a>
                 <a href="community.html">Community</a>
                 <a href="government.html">Government</a>
+                <a href="health.html">Health</a>
 
             </div>
 
 
             <div>
 
-                <h4>Resources</h4>
+                <h3>Resources</h3>
 
-                <a href="health.html">Health</a>
                 <a href="education.html">Education</a>
                 <a href="environment.html">Environment</a>
-
-            </div>
-
-
-            <div>
-
-                <h4>Contact</h4>
-
-                <p>
-                    info@communityconnect.org
-                </p>
-
-                <p>
-                    Chennai, Tamil Nadu
-                </p>
+                <a href="Emergency.html">Emergency</a>
+                <a href="contact.html">Contact</a>
 
             </div>
 
@@ -275,15 +703,28 @@
 
         <div class="copyright">
 
-            © 2026 CommunityConnect.
-            All rights reserved.
+            © 2026 CommunityConnect. All Rights Reserved.
 
         </div>
 
     </footer>
 
 
-    <script src="../script.js"></script>
+    <!-- FORM SCRIPT -->
+
+    <script>
+
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            alert("Thank you! Your message has been submitted.");
+
+            this.reset();
+
+        });
+
+    </script>
 
 </body>
 
