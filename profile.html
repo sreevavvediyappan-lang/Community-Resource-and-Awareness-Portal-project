@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | CommunityConnect</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f4f8f5;
+            color: #25372e;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            height: 72px;
+            background: #123d2a;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            color: white;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #5ab878;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #d9e8df;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: #6dcc88;
+        }
+
+        .logout-btn {
+            border: 1px solid #6dcc88;
+            background: transparent;
+            color: white;
+            padding: 9px 17px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .logout-btn:hover {
+            background: #6dcc88;
+            color: #123d2a;
+        }
+
+        /* CONTAINER */
+
+        .container {
+            width: 86%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* HEADER */
+
+        .page-header {
+            padding: 55px 0 35px;
+        }
+
+        .page-header p {
+            color: #708078;
+            font-size: 14px;
+            margin-bottom: 9px;
+        }
+
+        .page-header h1 {
+            color: #183b2a;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .page-header h1 span {
+            color: #329657;
+        }
+
+        .page-header .intro {
+            line-height: 1.7;
+            color: #77857d;
+            max-width: 650px;
+        }
+
+        /* PROFILE CARD */
+
+        .profile-card {
+            background: white;
+            border: 1px solid #e1eae4;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 35px rgba(20, 70, 45, 0.06);
+        }
+
+        .profile-top {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #edf1ee;
+            margin-bottom: 30px;
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #287a48;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+            font-weight: bold;
+        }
+
+        .profile-top h2 {
+            color: #203e30;
+            font-size: 25px;
+            margin-bottom: 7px;
+        }
+
+        .profile-top p {
+            color: #78857e;
+            font-size: 14px;
+        }
+
+        /* FORM */
+
+        .form-title {
+            color: #183b2a;
+            font-size: 21px;
+            margin-bottom: 25px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .form-group {
+            margin-bottom: 3px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            color: #30483b;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid #d9e3dd;
+            border-radius: 10px;
+            outline: none;
+            font-size: 14px;
+            color: #25372e;
+            background: white;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #3d9b5e;
+            box-shadow: 0 0 0 3px rgba(61, 155, 94, 0.1);
+        }
+
+        input:disabled {
+            background: #f4f7f5;
+            color: #7c8982;
+        }
+
+        .helper {
+            font-size: 11px;
+            color: #87928c;
+            margin-top: 6px;
+        }
+
+        /* BUTTONS */
+
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #edf1ee;
+        }
+
+        .cancel-btn,
+        .save-btn {
+            padding: 13px 25px;
+            border-radius: 9px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .cancel-btn {
+            background: white;
+            color: #4e6057;
+            border: 1px solid #d6e0da;
+        }
+
+        .cancel-btn:hover {
+            background: #f4f8f5;
+        }
+
+        .save-btn {
+            background: #287a48;
+            color: white;
+            border: none;
+        }
+
+        .save-btn:hover {
+            background: #1f643b;
+        }
+
+        /* MESSAGE */
+
+        .message {
+            display: none;
+            padding: 13px 16px;
+            border-radius: 9px;
+            margin-bottom: 22px;
+            font-size: 13px;
+        }
+
+        .success {
+            display: block;
+            background: #edf9f1;
+            border: 1px solid #c9ead3;
+            color: #24733e;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #0c2c1e;
+            color: white;
+            padding: 30px 7%;
+            text-align: center;
+        }
+
+        footer p {
+            color: #a9c1b2;
+            font-size: 12px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: 92%;
+            }
+
+            .page-header {
+                padding-top: 35px;
+            }
+
+            .page-header h1 {
+                font-size: 30px;
+            }
+
+            .profile-card {
+                padding: 25px 20px;
+            }
+
+            .profile-top {
+                align-items: flex-start;
+            }
+
+            .avatar {
+                width: 70px;
+                height: 70px;
+                font-size: 26px;
+            }
+
+            .profile-top h2 {
+                font-size: 20px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .cancel-btn,
+            .save-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <div class="logo-icon">CC</div>
+        <span>CommunityConnect</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="community.html">Community</a>
+        <a href="government.html">Government</a>
+        <a href="education.html">Education</a>
+        <a href="health.html">Health</a>
+    </div>
+
+    <button class="logout-btn" onclick="logout()">
+        Logout
+    </button>
+
+</nav>
+
+
+<main class="container">
+
+    <!-- HEADER -->
+
+    <section class="page-header">
+
+        <p>Account Settings</p>
+
+        <h1>
+            My <span>Profile</span>
+        </h1>
+
+        <p class="intro">
+            Keep your CommunityConnect profile information updated.
+            Your details help personalize your experience on the portal.
+        </p>
+
+    </section>
+
+
+    <!-- PROFILE -->
+
+    <section class="profile-card">
+
+        <div class="profile-top">
+
+            <div class="avatar" id="avatar">
+                U
+            </div>
+
+            <div>
+
+                <h2 id="displayName">
+                    User
+                </h2>
+
+                <p id="displayEmail">
+                    email@example.com
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <h2 class="form-title">
+            Personal Information
+        </h2>
+
+
+        <div id="message" class="message"></div>
+
+
+        <form id="profileForm">
+
+            <div class="form-grid">
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        disabled
+                    >
+
+                    <div class="helper">
+                        Email cannot be changed in this prototype.
+                    </div>
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter your phone number"
+                    >
+
+                </div>
+
+
+                <!-- LOCATION -->
+
+                <div class="form-group">
+
+                    <label for="location">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="City / District"
+                    >
+
+                </div>
+
+
+                <!-- OCCUPATION -->
+
+                <div class="form-group">
+
+                    <label for="occupation">
+                        Occupation
+                    </label>
+
+                    <input
+                        type="text"
+                        id="occupation"
+                        placeholder="Student / Employee / etc."
+                    >
+
+                </div>
+
+
+                <!-- EDUCATION -->
+
+                <div class="form-group">
+
+                    <label for="education">
+                        Education
+                    </label>
+
+                    <input
+                        type="text"
+                        id="education"
+                        placeholder="Enter your qualification"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="buttons">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    onclick="goDashboard()"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="save-btn"
+                >
+                    Save Changes
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 CommunityConnect. Connect. Discover. Empower.
+    </p>
+
+</footer>
+
+
+<script>
+
+    /* CHECK LOGIN */
+
+    const loggedIn =
+        localStorage.getItem("communityConnectLoggedIn");
+
+    let savedUser =
+        JSON.parse(localStorage.getItem("communityConnectUser"));
+
+
+    if (loggedIn !== "true" || !savedUser) {
+
+        window.location.href = "login.html";
+
+    }
+
+
+    /* DISPLAY USER */
+
+    if (savedUser) {
+
+        document.getElementById("name").value =
+            savedUser.name || "";
+
+        document.getElementById("email").value =
+            savedUser.email || "";
+
+        document.getElementById("displayName").textContent =
+            savedUser.name || "User";
+
+        document.getElementById("displayEmail").textContent =
+            savedUser.email || "";
+
+        document.getElementById("avatar").textContent =
+            (savedUser.name || "U").charAt(0).toUpperCase();
+
+
+        if (!savedUser.profile) {
+
+            savedUser.profile = {
+                phone: "",
+                location: "",
+                occupation: "",
+                education: ""
+            };
+
+        }
+
+
+        document.getElementById("phone").value =
+            savedUser.profile.phone || "";
+
+        document.getElementById("location").value =
+            savedUser.profile.location || "";
+
+        document.getElementById("occupation").value =
+            savedUser.profile.occupation || "";
+
+        document.getElementById("education").value =
+            savedUser.profile.education || "";
+
+    }
+
+
+    /* SAVE PROFILE */
+
+    document.getElementById("profileForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            savedUser.name =
+                document.getElementById("name").value.trim();
+
+            savedUser.profile = {
+
+                phone:
+                    document.getElementById("phone").value.trim(),
+
+                location:
+                    document.getElementById("location").value.trim(),
+
+                occupation:
+                    document.getElementById("occupation").value.trim(),
+
+                education:
+                    document.getElementById("education").value.trim()
+
+            };
+
+
+            localStorage.setItem(
+                "communityConnectUser",
+                JSON.stringify(savedUser)
+            );
+
+
+            document.getElementById("displayName").textContent =
+                savedUser.name;
+
+            document.getElementById("avatar").textContent =
+                savedUser.name.charAt(0).toUpperCase();
+
+
+            const message =
+                document.getElementById("message");
+
+            message.className = "message success";
+
+            message.textContent =
+                "Your profile has been updated successfully!";
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+
+    /* DASHBOARD */
+
+    function goDashboard() {
+
+        window.location.href = "dashboard.html";
+
+    }
+
+
+    /* LOGOUT */
+
+    function logout() {
+
+        localStorage.setItem(
+            "communityConnectLoggedIn",
+            "false"
+        );
+
+        window.location.href = "login.html";
+
+    }
+
+</script>
+
+</body>
+</html>
