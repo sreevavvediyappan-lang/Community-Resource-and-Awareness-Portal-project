@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Environment | CommunityConnect</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5faf7;
+    color: #26352d;
+    line-height: 1.6;
+}
+
+/* NAVBAR */
+.navbar {
+    background: #123d2b;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #8bd8a9;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #8bd8a9;
+}
+
+.login {
+    background: #79d69a;
+    color: #123d2b !important;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* HERO */
+.hero {
+    padding: 80px 7%;
+    background: linear-gradient(135deg, #e7f8ed, #f8fcf9);
+}
+
+.hero small {
+    color: #25834c;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    margin-top: 15px;
+    font-size: 50px;
+    line-height: 1.15;
+    color: #123d2b;
+    max-width: 850px;
+}
+
+.hero h1 span {
+    color: #2e9d5a;
+}
+
+.hero p {
+    margin-top: 20px;
+    max-width: 750px;
+    color: #617067;
+    font-size: 17px;
+}
+
+/* CONTAINER */
+.container {
+    width: 86%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section {
+    padding: 70px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.section-title h2 {
+    color: #123d2b;
+    font-size: 34px;
+}
+
+.section-title p {
+    color: #68776e;
+    margin-top: 8px;
+}
+
+/* ENVIRONMENT CARDS */
+.environment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.environment-card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    border: 1px solid #e1eee6;
+    box-shadow: 0 7px 25px rgba(30,80,50,0.06);
+    transition: 0.3s;
+}
+
+.environment-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(30,80,50,0.10);
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    background: #e5f7eb;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.environment-card h3 {
+    color: #174e35;
+    margin-bottom: 10px;
+}
+
+.environment-card p {
+    color: #69776f;
+    font-size: 14px;
+}
+
+/* AWARENESS */
+.awareness {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.awareness-card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    border-left: 5px solid #2e9d5a;
+    box-shadow: 0 7px 25px rgba(30,80,50,0.06);
+}
+
+.awareness-card h3 {
+    color: #174e35;
+    margin-bottom: 10px;
+}
+
+.awareness-card p {
+    color: #69776f;
+}
+
+/* GREEN TIPS */
+.tips-section {
+    background: #eef8f2;
+}
+
+.tips {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.tip {
+    background: white;
+    padding: 22px;
+    border-radius: 16px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    border: 1px solid #e0eee5;
+}
+
+.tip-number {
+    min-width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #dff5e6;
+    color: #257c49;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.tip h3 {
+    color: #174e35;
+    font-size: 17px;
+}
+
+.tip p {
+    color: #69776f;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+/* GREEN CHALLENGE */
+.challenge {
+    background: #123d2b;
+    color: white;
+    padding: 55px;
+    border-radius: 22px;
+}
+
+.challenge-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.challenge h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.challenge p {
+    color: #d4e7dc;
+}
+
+.challenge-list {
+    list-style: none;
+}
+
+.challenge-list li {
+    background: rgba(255,255,255,0.08);
+    margin: 10px 0;
+    padding: 12px 15px;
+    border-radius: 10px;
+}
+
+.challenge-list input {
+    margin-right: 10px;
+}
+
+/* PROGRESS */
+.progress-box {
+    margin-top: 20px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #315b46;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #79d69a;
+    transition: 0.4s;
+}
+
+.progress-text {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #cce4d5;
+}
+
+/* CTA */
+.cta {
+    background: #dff5e6;
+    padding: 50px;
+    border-radius: 22px;
+    text-align: center;
+}
+
+.cta h2 {
+    color: #123d2b;
+    margin-bottom: 12px;
+}
+
+.cta p {
+    color: #5f7066;
+    max-width: 700px;
+    margin: auto auto 22px;
+}
+
+.btn {
+    display: inline-block;
+    background: #257c49;
+    color: white;
+    text-decoration: none;
+    padding: 13px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #185d36;
+}
+
+/* FOOTER */
+footer {
+    background: #123d2b;
+    color: white;
+    padding: 45px 7%;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+footer h3 {
+    margin-bottom: 8px;
+}
+
+footer p {
+    color: #c9ddd0;
+}
+
+.copyright {
+    margin-top: 30px;
+    border-top: 1px solid #315b46;
+    padding-top: 20px;
+    color: #b8cdbf;
+    font-size: 13px;
+}
+
+/* MOBILE */
+@media(max-width:850px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .environment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .awareness,
+    .tips,
+    .challenge-content {
+        grid-template-columns: 1fr;
+    }
+
+    .challenge {
+        padding: 35px 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <div class="logo">
+        Community<span>Connect</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="community.html">Community Profile</a>
+        <a href="government.html">Government Schemes</a>
+        <a href="environment.html">Environment</a>
+        <a href="education.html">Education</a>
+        <a href="health.html">Health</a>
+    </div>
+
+    <a href="#" class="login">Login</a>
+
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+
+    <small>ENVIRONMENT & AWARENESS</small>
+
+    <h1>
+        Protect Our Environment,
+        <span>Protect Our Future.</span>
+    </h1>
+
+    <p>
+        Learn simple ways to protect nature, reduce waste,
+        conserve water and energy, and build a cleaner and
+        healthier community for everyone.
+    </p>
+
+</section>
+
+
+<!-- ENVIRONMENT AREAS -->
+<section class="section">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <h2>Explore Environmental Awareness</h2>
+
+        <p>
+            Understand the environmental issues that affect
+            our communities and discover ways to make a difference.
+        </p>
+
+    </div>
+
+
+    <div class="environment-grid">
+
+
+        <div class="environment-card">
+
+            <div class="icon">🌳</div>
+
+            <h3>Green Communities</h3>
+
+            <p>
+                Encourage tree planting, green spaces and
+                community activities that help create cleaner
+                and more sustainable neighbourhoods.
+            </p>
+
+        </div>
+
+
+        <div class="environment-card">
+
+            <div class="icon">♻️</div>
+
+            <h3>Waste Management</h3>
+
+            <p>
+                Learn about waste segregation, recycling,
+                responsible disposal and ways to reduce
+                unnecessary waste.
+            </p>
+
+        </div>
+
+
+        <div class="environment-card">
+
+            <div class="icon">💧</div>
+
+            <h3>Water Conservation</h3>
+
+            <p>
+                Learn practical ways to reduce water wastage
+                and protect this important natural resource.
+            </p>
+
+        </div>
+
+
+        <div class="environment-card">
+
+            <div class="icon">⚡</div>
+
+            <h3>Energy Conservation</h3>
+
+            <p>
+                Discover everyday habits that can help reduce
+                unnecessary energy consumption.
+            </p>
+
+        </div>
+
+
+        <div class="environment-card">
+
+            <div class="icon">🌱</div>
+
+            <h3>Sustainable Living</h3>
+
+            <p>
+                Explore simple lifestyle choices that can
+                reduce environmental impact and support
+                sustainable communities.
+            </p>
+
+        </div>
+
+
+        <div class="environment-card">
+
+            <div class="icon">🌍</div>
+
+            <h3>Environmental Awareness</h3>
+
+            <p>
+                Stay informed about environmental issues and
+                participate in activities that promote a
+                cleaner community.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- AWARENESS TOPICS -->
+<section class="section" style="background:#eef8f2;">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <h2>Important Awareness Topics</h2>
+
+        <p>
+            Small actions by many people can create meaningful change.
+        </p>
+
+    </div>
+
+
+    <div class="awareness">
+
+
+        <div class="awareness-card">
+
+            <h3>♻️ Reduce, Reuse & Recycle</h3>
+
+            <p>
+                Reduce unnecessary consumption, reuse items
+                whenever possible and separate recyclable
+                materials appropriately.
+            </p>
+
+        </div>
+
+
+        <div class="awareness-card">
+
+            <h3>💧 Save Water</h3>
+
+            <p>
+                Avoid unnecessary water wastage and encourage
+                responsible water use at home, school and
+                within the community.
+            </p>
+
+        </div>
+
+
+        <div class="awareness-card">
+
+            <h3>🌳 Plant & Protect Trees</h3>
+
+            <p>
+                Trees and green spaces contribute to healthier
+                surroundings. Support responsible tree planting
+                and care for existing greenery.
+            </p>
+
+        </div>
+
+
+        <div class="awareness-card">
+
+            <h3>🛍️ Reduce Single-Use Items</h3>
+
+            <p>
+                Consider reusable alternatives to frequently
+                used disposable products and avoid unnecessary
+                consumption.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- GREEN TIPS -->
+<section class="section tips-section">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <h2>Simple Green Habits</h2>
+
+        <p>
+            Try these practical habits in your everyday life.
+        </p>
+
+    </div>
+
+
+    <div class="tips">
+
+
+        <div class="tip">
+
+            <div class="tip-number">1</div>
+
+            <div>
+                <h3>Switch Off Unused Devices</h3>
+
+                <p>
+                    Turn off lights and electrical devices
+                    when they are not needed.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="tip">
+
+            <div class="tip-number">2</div>
+
+            <div>
+                <h3>Carry Reusable Bags</h3>
+
+                <p>
+                    Use reusable bags when shopping to reduce
+                    dependence on disposable bags.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="tip">
+
+            <div class="tip-number">3</div>
+
+            <div>
+                <h3>Separate Your Waste</h3>
+
+                <p>
+                    Follow your local waste collection rules
+                    and separate different types of waste.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="tip">
+
+            <div class="tip-number">4</div>
+
+            <div>
+                <h3>Use Water Responsibly</h3>
+
+                <p>
+                    Avoid leaving taps running unnecessarily
+                    and report leaks when appropriate.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="tip">
+
+            <div class="tip-number">5</div>
+
+            <div>
+                <h3>Choose Walking or Cycling</h3>
+
+                <p>
+                    When practical and safe, consider walking
+                    or cycling for short journeys.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="tip">
+
+            <div class="tip-number">6</div>
+
+            <div>
+                <h3>Keep Public Spaces Clean</h3>
+
+                <p>
+                    Dispose of waste responsibly and help keep
+                    shared community spaces clean.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- GREEN CHALLENGE -->
+<section class="section">
+
+<div class="container">
+
+    <div class="challenge">
+
+        <div class="challenge-content">
+
+            <div>
+
+                <h2>🌱 Take the Green Challenge</h2>
+
+                <p>
+                    Complete these simple environmental actions
+                    and see how many you can accomplish.
+                </p>
+
+                <div class="progress-box">
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress-fill"
+                            id="progressFill">
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="progress-text"
+                        id="progressText">
+                        0 of 5 completed
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <ul class="challenge-list">
+
+                <li>
+                    <label>
+                        <input
+                            type="checkbox"
+                            onchange="updateProgress()">
+                        Save water today
+                    </label>
+                </li>
+
+                <li>
+                    <label>
+                        <input
+                            type="checkbox"
+                            onchange="updateProgress()">
+                        Avoid unnecessary plastic
+                    </label>
+                </li>
+
+                <li>
+                    <label>
+                        <input
+                            type="checkbox"
+                            onchange="updateProgress()">
+                        Separate household waste
+                    </label>
+                </li>
+
+                <li>
+                    <label>
+                        <input
+                            type="checkbox"
+                            onchange="updateProgress()">
+                        Switch off unused electricity
+                    </label>
+                </li>
+
+                <li>
+                    <label>
+                        <input
+                            type="checkbox"
+                            onchange="updateProgress()">
+                        Keep your surroundings clean
+                    </label>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+<section class="section">
+
+<div class="container">
+
+    <div class="cta">
+
+        <h2>Build a Cleaner Community Together</h2>
+
+        <p>
+            Explore other CommunityConnect resources and
+            discover information that can help your community.
+        </p>
+
+        <a href="index.html" class="btn">
+            Explore CommunityConnect
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>CommunityConnect</h3>
+
+            <p>
+                Connecting communities with useful information,
+                resources and opportunities.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>Explore</h3>
+
+            <p>
+                Community • Government • Education • Health
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 CommunityConnect. All Rights Reserved.
+    </div>
+
+</footer>
+
+
+<script>
+
+function updateProgress() {
+
+    const checkboxes =
+        document.querySelectorAll(
+            '.challenge-list input[type="checkbox"]'
+        );
+
+    let completed = 0;
+
+    checkboxes.forEach(function(box) {
+
+        if (box.checked) {
+            completed++;
+        }
+
+    });
+
+    const total = checkboxes.length;
+
+    const percentage =
+        (completed / total) * 100;
+
+    document.getElementById("progressFill")
+        .style.width = percentage + "%";
+
+    document.getElementById("progressText")
+        .textContent =
+        completed + " of " + total + " completed";
+
+}
+
+</script>
+
+</body>
+</html>
