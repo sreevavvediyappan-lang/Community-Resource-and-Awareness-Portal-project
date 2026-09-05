@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Educational Resources | CommunityConnect</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5faf7;
+    color: #26352d;
+    line-height: 1.6;
+}
+
+/* NAVBAR */
+.navbar {
+    background: #123d2b;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #8bd8a9;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #8bd8a9;
+}
+
+.login {
+    background: #79d69a;
+    color: #123d2b !important;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* HERO */
+.hero {
+    padding: 80px 7%;
+    background: linear-gradient(135deg, #e7f8ed, #f8fcf9);
+}
+
+.hero small {
+    color: #25834c;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    margin-top: 15px;
+    font-size: 50px;
+    line-height: 1.15;
+    color: #123d2b;
+    max-width: 850px;
+}
+
+.hero h1 span {
+    color: #2e9d5a;
+}
+
+.hero p {
+    margin-top: 20px;
+    max-width: 750px;
+    color: #617067;
+    font-size: 17px;
+}
+
+/* SEARCH */
+.search-section {
+    background: white;
+    padding: 35px 7%;
+}
+
+.search-box {
+    max-width: 750px;
+    margin: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 1px solid #d4e3da;
+    border-radius: 30px;
+    outline: none;
+    font-size: 15px;
+}
+
+.search-box button {
+    border: none;
+    background: #257c49;
+    color: white;
+    padding: 0 28px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* GENERAL */
+.container {
+    width: 86%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section {
+    padding: 70px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.section-title h2 {
+    color: #123d2b;
+    font-size: 34px;
+}
+
+.section-title p {
+    color: #68776e;
+    margin-top: 8px;
+}
+
+/* CATEGORY */
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.category {
+    border: 1px solid #cfe2d6;
+    background: white;
+    color: #24613e;
+    padding: 10px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.category:hover {
+    background: #dff5e6;
+}
+
+/* RESOURCE GRID */
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.resource-card {
+    background: white;
+    padding: 28px;
+    border-radius: 18px;
+    border: 1px solid #e1eee6;
+    box-shadow: 0 7px 25px rgba(30,80,50,0.06);
+    transition: 0.3s;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(30,80,50,0.10);
+}
+
+.resource-icon {
+    width: 58px;
+    height: 58px;
+    background: #e5f7eb;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 18px;
+}
+
+.badge {
+    display: inline-block;
+    background: #eef8f2;
+    color: #257c49;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-bottom: 12px;
+}
+
+.resource-card h3 {
+    color: #174e35;
+    margin-bottom: 10px;
+}
+
+.resource-card p {
+    color: #69776f;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.resource-info {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.resource-info li {
+    padding: 6px 0;
+    color: #526158;
+    font-size: 13px;
+}
+
+.resource-info strong {
+    color: #174e35;
+}
+
+.resource-btn {
+    display: inline-block;
+    background: #257c49;
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 22px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.resource-btn:hover {
+    background: #185d36;
+}
+
+/* LEARNING AREAS */
+.learning-section {
+    background: #eef8f2;
+}
+
+.learning-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.learning-card {
+    background: white;
+    padding: 28px;
+    border-radius: 18px;
+    border: 1px solid #e0eee5;
+}
+
+.learning-card h3 {
+    color: #174e35;
+    margin-bottom: 10px;
+}
+
+.learning-card p {
+    color: #69776f;
+    font-size: 14px;
+}
+
+/* STUDENT JOURNEY */
+.journey {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.journey-step {
+    text-align: center;
+    padding: 25px 15px;
+    background: white;
+    border-radius: 18px;
+    border: 1px solid #e1eee6;
+}
+
+.step-number {
+    width: 45px;
+    height: 45px;
+    margin: auto auto 15px;
+    border-radius: 50%;
+    background: #dff5e6;
+    color: #257c49;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.journey-step h3 {
+    color: #174e35;
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.journey-step p {
+    color: #69776f;
+    font-size: 13px;
+}
+
+/* CTA */
+.cta {
+    background: #123d2b;
+    color: white;
+    padding: 55px;
+    border-radius: 22px;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.cta p {
+    color: #d4e7dc;
+    max-width: 750px;
+    margin: auto auto 22px;
+}
+
+.cta-btn {
+    display: inline-block;
+    background: #79d69a;
+    color: #123d2b;
+    text-decoration: none;
+    padding: 13px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    background: #123d2b;
+    color: white;
+    padding: 45px 7%;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+footer p {
+    color: #c9ddd0;
+    margin-top: 8px;
+}
+
+.copyright {
+    margin-top: 30px;
+    border-top: 1px solid #315b46;
+    padding-top: 20px;
+    color: #b8cdbf;
+    font-size: 13px;
+}
+
+/* MOBILE */
+@media(max-width:850px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .resource-grid,
+    .learning-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .journey {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box button {
+        padding: 13px;
+    }
+}
+
+@media(max-width:500px) {
+
+    .journey {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <div class="logo">
+        Community<span>Connect</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="community.html">Community Profile</a>
+        <a href="government.html">Government Schemes</a>
+        <a href="environment.html">Environment</a>
+        <a href="education.html">Education</a>
+        <a href="health.html">Health</a>
+    </div>
+
+    <a href="#" class="login">Login</a>
+
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+
+    <small>LEARNING & DEVELOPMENT</small>
+
+    <h1>
+        Learn. Grow.
+        <span>Build Your Future.</span>
+    </h1>
+
+    <p>
+        Discover educational resources, scholarships, digital
+        learning opportunities, career guidance and skill
+        development resources in one place.
+    </p>
+
+</section>
+
+
+<!-- SEARCH -->
+<section class="search-section">
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search educational resources..."
+            onkeyup="searchResources()"
+        >
+
+        <button onclick="searchResources()">
+            Search
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- RESOURCES -->
+<section class="section">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <h2>Educational Resources</h2>
+
+        <p>
+            Explore opportunities for learning, skills and career growth.
+        </p>
+
+    </div>
+
+
+    <div class="categories">
+
+        <button class="category" onclick="filterResources('all')">
+            All
+        </button>
+
+        <button class="category" onclick="filterResources('school')">
+            School
+        </button>
+
+        <button class="category" onclick="filterResources('college')">
+            College
+        </button>
+
+        <button class="category" onclick="filterResources('career')">
+            Career
+        </button>
+
+        <button class="category" onclick="filterResources('scholarship')">
+            Scholarships
+        </button>
+
+        <button class="category" onclick="filterResources('skills')">
+            Skills
+        </button>
+
+    </div>
+
+
+    <div class="resource-grid" id="resourceGrid">
+
+
+        <!-- DIKSHA -->
+
+        <div class="resource-card" data-category="school">
+
+            <div class="resource-icon">📚</div>
+
+            <span class="badge">DIGITAL LEARNING</span>
+
+            <h3>DIKSHA</h3>
+
+            <p>
+                A national digital platform supporting school
+                education with learning resources and educational
+                content.
+            </p>
+
+            <ul class="resource-info">
+
+                <li>
+                    <strong>Level:</strong> School Education
+                </li>
+
+                <li>
+                    <strong>Type:</strong> Digital Learning
+                </li>
+
+                <li>
+                    <strong>Access:</strong> Online
+                </li>
+
+            </ul>
+
+            <a
+                href="https://diksha.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="resource-btn">
+                Explore Resource ↗
+            </a>
+
+        </div>
+
+
+        <!-- SWAYAM -->
+
+        <div class="resource-card" data-category="college">
+
+            <div class="resource-icon">🎓</div>
+
+            <span class="badge">ONLINE COURSES</span>
+
+            <h3>SWAYAM</h3>
+
+            <p>
+                A Government of India initiative offering online
+                courses from school education through higher
+                education and professional learning.
+            </p>
+
+            <ul class="resource-info">
+
+                <li>
+                    <strong>Level:</strong> Multiple Levels
+                </li>
+
+                <li>
+                    <strong>Type:</strong> Online Courses
+                </li>
+
+                <li>
+                    <strong>Access:</strong> Online
+                </li>
+
+            </ul>
+
+            <a
+                href="https://swayam.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="resource-btn">
+                Explore Courses ↗
+            </a>
+
+        </div>
+
+
+        <!-- NPTEL -->
+
+        <div class="resource-card" data-category="college">
+
+            <div class="resource-icon">💻</div>
+
+            <span class="badge">TECHNICAL LEARNING</span>
+
+            <h3>NPTEL</h3>
+
+            <p>
+                Online courses and learning resources provided
+                through a collaboration of Indian Institutes of
+                Technology and the Indian Institute of Science.
+            </p>
+
+            <ul class="resource-info">
+
+                <li>
+                    <strong>Level:</strong> Higher Education
+                </li>
+
+                <li>
+                    <strong>Type:</strong> Technical Courses
+                </li>
+
+                <li>
+                    <strong>Focus:</strong> Engineering & Science
+                </li>
+
+            </ul>
+
+            <a
+                href="https://nptel.ac.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="resource-btn">
+                Explore NPTEL ↗
+            </a>
+
+        </div>
+
+
+        <!-- NATIONAL SCHOLARSHIP PORTAL -->
+
+        <div class="resource-card" data-category="scholarship">
+
+            <div class="resource-icon">🏆</div>
+
+            <span class="badge">SCHOLARSHIPS</span>
+
+            <h3>National Scholarship Portal</h3>
+
+            <p>
+                A government platform where eligible students
+                can discover and apply for scholarships offered
+                by participating government departments.
+            </p>
+
+            <ul class="resource-info">
+
+                <li>
+                    <strong>Type:</strong> Scholarships
+                </li>
+
+                <li>
+                    <strong>For:</strong> Eligible Students
+                </li>
+
+                <li>
+                    <strong>Application:</strong> Online
+                </li>
+
+            </ul>
+
+            <a
+                href="https://scholarships.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="resource-btn">
+                Find Scholarships ↗
+            </a>
+
+        </div>
+
+
+        <!-- NATIONAL CAREER SERVICE -->
+
+        <div class="resource-card" data-category="career">
+
+            <div class="resource-icon">💼</div>
+
+            <span class="badge">CAREER</span>
+
+            <h3>National Career Service</h3>
+
+            <p>
+                A government platform providing career-related
+                services including job search, career guidance
+                and employment information.
+            </p>
+
+            <ul class="resource-info">
+
+                <li>
+                    <strong>Type:</strong> Career Services
+                </li>
+
+                <li>
+                    <strong>For:</strong> Job Seekers
+                </li>
+
+                <li>
+                    <strong>Access:</strong> Online
+                </li>
+
+            </ul>
+
+            <a
+                href="https://www.ncs.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="resource-btn">
+                Explore Careers ↗
+            </a>
+
+        </div>
+
+
+        <!-- SKILL INDIA -->
+
+        <div class="resource-card" data-category="skills">
+
+            <div class="resource-icon">🛠️</div>
+
+            <span class="badge">SKILL DEVELOPMENT</span>
+
+            <h3>Skill India</h3>
+
+            <p>
+                Explore skill development initiatives and
+                training opportunities designed to support
+                employability and professional development.
+            </p>
+
+            <ul class="resource-info">
+
+                <li>
+                    <strong>Type:</strong> Skill Development
+                </li>
+
+                <li>
+                    <strong>Focus:</strong> Employability
+                </li>
+
+                <li>
+                    <strong>Access:</strong> Online
+                </li>
+
+            </ul>
+
+            <a
+                href="https://www.skillindiadigital.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="resource-btn">
+                Explore Skills ↗
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- LEARNING AREAS -->
+<section class="section learning-section">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <h2>What Can You Explore?</h2>
+
+        <p>
+            Find resources according to your learning goals.
+        </p>
+
+    </div>
+
+
+    <div class="learning-grid">
+
+
+        <div class="learning-card">
+
+            <h3>📖 School Education</h3>
+
+            <p>
+                Find digital learning materials, educational
+                content and resources that support school-level
+                learning.
+            </p>
+
+        </div>
+
+
+        <div class="learning-card">
+
+            <h3>🎓 Higher Education</h3>
+
+            <p>
+                Explore online courses, academic resources and
+                learning opportunities for college and university
+                students.
+            </p>
+
+        </div>
+
+
+        <div class="learning-card">
+
+            <h3>💡 Career Development</h3>
+
+            <p>
+                Learn about career paths, job opportunities,
+                career guidance and professional development.
+            </p>
+
+        </div>
+
+
+        <div class="learning-card">
+
+            <h3>🛠️ Skill Development</h3>
+
+            <p>
+                Build technical and professional skills through
+                structured online learning and training resources.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- STUDENT JOURNEY -->
+<section class="section">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <h2>Your Learning Journey</h2>
+
+        <p>
+            A simple approach to building your future.
+        </p>
+
+    </div>
+
+
+    <div class="journey">
+
+        <div class="journey-step">
+
+            <div class="step-number">1</div>
+
+            <h3>Discover</h3>
+
+            <p>
+                Find subjects and resources that interest you.
+            </p>
+
+        </div>
+
+
+        <div class="journey-step">
+
+            <div class="step-number">2</div>
+
+            <h3>Learn</h3>
+
+            <p>
+                Use reliable learning platforms and educational
+                resources.
+            </p>
+
+        </div>
+
+
+        <div class="journey-step">
+
+            <div class="step-number">3</div>
+
+            <h3>Build Skills</h3>
+
+            <p>
+                Develop practical knowledge and useful skills.
+            </p>
+
+        </div>
+
+
+        <div class="journey-step">
+
+            <div class="step-number">4</div>
+
+            <h3>Grow</h3>
+
+            <p>
+                Apply your knowledge toward academic and career goals.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+<section class="section">
+
+<div class="container">
+
+    <div class="cta">
+
+        <h2>Keep Learning. Keep Growing.</h2>
+
+        <p>
+            Explore trusted educational platforms and discover
+            opportunities that can help you build your future.
+        </p>
+
+        <a href="index.html" class="cta-btn">
+            Back to CommunityConnect
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>CommunityConnect</h3>
+
+            <p>
+                Connecting communities with useful information,
+                resources and opportunities.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>Education</h3>
+
+            <p>
+                Learning • Scholarships • Careers • Skills
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 CommunityConnect. All Rights Reserved.
+    </div>
+
+</footer>
+
+
+<script>
+
+/* SEARCH */
+
+function searchResources() {
+
+    let input =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    let cards =
+        document.querySelectorAll(".resource-card");
+
+    cards.forEach(function(card) {
+
+        let text =
+            card.innerText.toLowerCase();
+
+        if (text.includes(input)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+}
+
+
+/* CATEGORY FILTER */
+
+function filterResources(category) {
+
+    let cards =
+        document.querySelectorAll(".resource-card");
+
+    cards.forEach(function(card) {
+
+        if (
+            category === "all" ||
+            card.dataset.category === category
+        ) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
