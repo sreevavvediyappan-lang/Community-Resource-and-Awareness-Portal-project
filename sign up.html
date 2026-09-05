@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | CommunityConnect</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eef2ff, #f5f3ff);
+            min-height: 100vh;
+            color: #1f2937;
+        }
+
+        .header {
+            background: white;
+            padding: 18px 7%;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo-text h2 {
+            color: #312e81;
+            font-size: 22px;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 3px;
+        }
+
+        .login-link {
+            text-decoration: none;
+            color: #4f46e5;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 22px;
+            padding: 35px;
+            box-shadow: 0 12px 35px rgba(31, 41, 55, 0.12);
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title h1 {
+            color: #312e81;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .title p {
+            color: #6b7280;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #374151;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+            font-family: inherit;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .button {
+            width: 100%;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        .button:hover {
+            opacity: 0.92;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .bottom-text {
+            text-align: center;
+            margin-top: 22px;
+            color: #6b7280;
+        }
+
+        .bottom-text a {
+            color: #4f46e5;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .note {
+            background: #eef2ff;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 22px;
+            color: #4338ca;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 25px 20px;
+            }
+
+            .title h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="navbar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                CC
+            </div>
+
+            <div class="logo-text">
+                <h2>CommunityConnect</h2>
+                <p>Connect. Discover. Empower.</p>
+            </div>
+
+        </div>
+
+        <a href="login.html" class="login-link">
+            Login
+        </a>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+    <div class="card">
+
+        <div class="title">
+            <h1>Create Your Account</h1>
+            <p>Join CommunityConnect and discover useful resources.</p>
+        </div>
+
+        <div class="note">
+            Create your account and complete your profile to get personalized
+            community resources and recommendations.
+        </div>
+
+
+        <form id="signupForm">
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Create a password"
+                    minlength="6"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="location">Location</label>
+
+                <input
+                    type="text"
+                    id="location"
+                    placeholder="Enter your city"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="education">Education</label>
+
+                <select id="education" required>
+
+                    <option value="">
+                        Select your education level
+                    </option>
+
+                    <option value="School">
+                        School Student
+                    </option>
+
+                    <option value="College">
+                        College Student
+                    </option>
+
+                    <option value="Graduate">
+                        Graduate
+                    </option>
+
+                    <option value="Working Professional">
+                        Working Professional
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label for="interests">Your Interests</label>
+
+                <textarea
+                    id="interests"
+                    placeholder="Example: Education, Health, Environment, Government schemes..."
+                ></textarea>
+            </div>
+
+
+            <button type="submit" class="button">
+                Create Account
+            </button>
+
+            <div id="message" class="message"></div>
+
+        </form>
+
+
+        <div class="bottom-text">
+            Already have an account?
+            <a href="login.html">Login here</a>
+        </div>
+
+    </div>
+
+</main>
+
+
+<script type="module">
+
+    /*
+    ==========================================
+    FIREBASE CONFIGURATION
+    ==========================================
+
+    We will add your Firebase configuration
+    here in the next step.
+    */
+
+    const signupForm = document.getElementById("signupForm");
+    const message = document.getElementById("message");
+
+    signupForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        message.style.color = "#4f46e5";
+
+        message.textContent =
+            "Firebase account creation will be connected in the next step.";
+
+    });
+
+</script>
+
+</body>
+</html>
