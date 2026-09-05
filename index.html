@@ -1,137 +1,649 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CommunityConnect - Community Resource & Awareness Portal</title>
+    <title>CommunityConnect | Community Resource & Awareness Portal</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <meta name="description"
+        content="CommunityConnect is a community resource and awareness portal connecting people with essential information, services, opportunities and support.">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f9fc;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 25px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .logo-text h2 {
+            font-size: 21px;
+            color: #172554;
+            margin-bottom: 0;
+        }
+
+        .logo-text p {
+            font-size: 11px;
+            color: #64748b;
+            margin: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            color: #475569;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .nav-button {
+            background: #2563eb;
+            color: white !important;
+            padding: 10px 18px;
+            border-radius: 8px;
+        }
+
+        .nav-button:hover {
+            background: #1d4ed8;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            background:
+                radial-gradient(circle at 85% 20%, rgba(124, 58, 237, 0.30), transparent 30%),
+                radial-gradient(circle at 10% 80%, rgba(37, 99, 235, 0.30), transparent 30%),
+                linear-gradient(135deg, #172554, #1e40af 55%, #4338ca);
+
+            color: white;
+            min-height: 570px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            padding: 70px 25px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 55px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: #93c5fd;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            max-width: 650px;
+            color: #dbeafe;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .primary-button {
+            background: white;
+            color: #1d4ed8;
+            padding: 14px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .primary-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .secondary-button {
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: white;
+            padding: 14px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .secondary-button:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        /* Hero visual */
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-card-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .hero-item {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 15px;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .hero-item-icon {
+            font-size: 25px;
+        }
+
+        .hero-item strong {
+            display: block;
+        }
+
+        .hero-item small {
+            color: #dbeafe;
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 25px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading span {
+            color: #2563eb;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-heading h2 {
+            font-size: 36px;
+            color: #172554;
+            margin: 8px 0;
+        }
+
+        .section-heading p {
+            color: #64748b;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* =========================
+           RESOURCE CARDS
+        ========================= */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 28px;
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(15, 23, 42, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.12);
+        }
+
+        .card-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 15px;
+            background: #eff6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            color: #172554;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .card-link {
+            color: #2563eb;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .card-link:hover {
+            color: #7c3aed;
+        }
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats-section {
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .stats {
+            max-width: 1200px;
+            margin: auto;
+            padding: 55px 25px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            text-align: center;
+        }
+
+        .stat h2 {
+            color: #2563eb;
+            font-size: 35px;
+            margin-bottom: 4px;
+        }
+
+        .stat p {
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: #eef4ff;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-box {
+            background: white;
+            border-radius: 22px;
+            padding: 35px;
+            box-shadow: 0 15px 40px rgba(30, 64, 175, 0.08);
+        }
+
+        .about-box .big-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .about-content span {
+            color: #2563eb;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            color: #172554;
+            margin: 10px 0 18px;
+        }
+
+        .about-content p {
+            color: #64748b;
+            margin-bottom: 18px;
+        }
+
+        .check {
+            margin: 12px 0;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        .check span {
+            color: #16a34a;
+            margin-right: 8px;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            max-width: 1150px;
+            margin: 70px auto;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 55px 30px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: #e0e7ff;
+            max-width: 650px;
+            margin: 0 auto 25px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #0f172a;
+            color: white;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 60px 25px 25px;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            font-size: 23px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .footer-column p {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #94a3b8;
+            margin-bottom: 9px;
+            font-size: 14px;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px 25px;
+            border-top: 1px solid #1e293b;
+            color: #64748b;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-content h2 {
+                font-size: 30px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cta {
+                margin: 40px 15px;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-    <!-- ================= HEADER ================= -->
+    <!-- =========================
+         HEADER
+    ========================== -->
 
     <header class="header">
 
-        <div class="container navbar">
+        <nav class="navbar">
 
-            <!-- LOGO -->
-
-            <div class="logo">
+            <a href="index.html" class="logo">
 
                 <div class="logo-icon">
                     👥
                 </div>
 
-                <div>
+                <div class="logo-text">
                     <h2>CommunityConnect</h2>
-                    <p>Connect. Discover. Empower.</p>
+                    <p>Connect • Discover • Empower</p>
                 </div>
+
+            </a>
+
+
+            <div class="nav-links">
+
+                <a href="index.html">Home</a>
+                <a href="community.html">Community</a>
+                <a href="government.html">Government</a>
+                <a href="health.html">Health</a>
+                <a href="education.html">Education</a>
+                <a href="environment.html">Environment</a>
+                <a href="Emergency.html">Emergency</a>
+                <a href="contact.html" class="nav-button">Contact</a>
 
             </div>
 
-
-            <!-- NAVIGATION -->
-
-            <nav>
-
-                <a href="index.html">Home</a>
-
-                <a href="community.html">
-                    Community
-                </a>
-
-                <a href="government.html">
-                    Government
-                </a>
-
-                <a href="health.html">
-                    Health
-                </a>
-
-                <a href="education.html">
-                    Education
-                </a>
-
-                <a href="environment.html">
-                    Environment
-                </a>
-
-                <a href="emergency.html">
-                    Emergency
-                </a>
-
-                <a href="contact.html">
-                    Contact
-                </a>
-
-            </nav>
-
-
-            <!-- LOGIN -->
-
-            <button class="login-btn">
-                Login
-            </button>
-
-        </div>
+        </nav>
 
     </header>
 
 
-
-    <!-- ================= HERO SECTION ================= -->
+    <!-- =========================
+         HERO
+    ========================== -->
 
     <section class="hero">
 
-        <div class="container hero-content">
+        <div class="hero-container">
 
-
-            <!-- HERO TEXT -->
-
-            <div class="hero-text">
+            <div class="hero-content">
 
                 <h1>
-
-                    Connecting Communities
-
-                    <br>
-
-                    Building a
-                    <span>Better Tomorrow</span>
-
+                    Connecting Communities,
+                    <span>Creating Change.</span>
                 </h1>
 
-
                 <p>
-
-                    Your one-stop portal for community
-                    information, government schemes,
-                    resources, and awareness.
-
+                    Welcome to CommunityConnect — a simple and accessible
+                    platform that brings community information, government
+                    resources, education, health awareness and essential
+                    support together in one place.
                 </p>
-
 
                 <div class="hero-buttons">
 
-                    <a href="#topics"
-                       class="primary-btn">
-
-                        Explore Resources
-
+                    <a href="#resources" class="primary-button">
+                        Explore Resources →
                     </a>
 
-
-                    <a href="#about"
-                       class="secondary-btn">
-
+                    <a href="#about" class="secondary-button">
                         Learn More
-
                     </a>
 
                 </div>
@@ -139,15 +651,42 @@
             </div>
 
 
+            <div class="hero-card">
 
-            <!-- HERO IMAGE AREA -->
+                <div class="hero-card-title">
+                    🌟 What can you find here?
+                </div>
 
-            <div class="hero-image">
+                <div class="hero-item">
+                    <div class="hero-item-icon">🏛️</div>
+                    <div>
+                        <strong>Government Services</strong>
+                        <small>Schemes and public resources</small>
+                    </div>
+                </div>
 
-                <div class="community-art">
+                <div class="hero-item">
+                    <div class="hero-item-icon">❤️</div>
+                    <div>
+                        <strong>Health Awareness</strong>
+                        <small>Useful health information</small>
+                    </div>
+                </div>
 
-                    🏠 🌳 👨‍👩‍👧‍👦 🌳 🏠
+                <div class="hero-item">
+                    <div class="hero-item-icon">📚</div>
+                    <div>
+                        <strong>Education</strong>
+                        <small>Learning and opportunities</small>
+                    </div>
+                </div>
 
+                <div class="hero-item">
+                    <div class="hero-item-icon">🌱</div>
+                    <div>
+                        <strong>Environment</strong>
+                        <small>Awareness and sustainability</small>
+                    </div>
                 </div>
 
             </div>
@@ -157,350 +696,275 @@
     </section>
 
 
+    <!-- =========================
+         RESOURCES
+    ========================== -->
 
-    <!-- ================= EXPLORE SECTION ================= -->
+    <section class="section" id="resources">
 
-    <section class="topics"
-             id="topics">
+        <div class="section-heading">
 
-        <div class="container">
+            <span>Explore</span>
 
+            <h2>Resources That Matter</h2>
 
-            <!-- SECTION TITLE -->
-
-            <div class="section-title">
-
-                <h2>
-                    Explore What Matters
-                </h2>
-
-                <div class="title-line"></div>
-
-            </div>
-
-
-
-            <!-- TOPIC CARDS -->
-
-            <div class="topic-grid">
-
-
-                <!-- COMMUNITY -->
-
-                <div class="topic-card">
-
-                    <div class="topic-icon community-icon">
-                        👥
-                    </div>
-
-                    <h3>
-                        Community Profile
-                    </h3>
-
-                    <p>
-
-                        Learn about communities,
-                        their background, facilities,
-                        and important information.
-
-                    </p>
-
-                    <a href="community.html">
-                        Explore →
-                    </a>
-
-                </div>
-
-
-
-                <!-- GOVERNMENT -->
-
-                <div class="topic-card">
-
-                    <div class="topic-icon government-icon">
-                        🏛️
-                    </div>
-
-                    <h3>
-                        Government Schemes
-                    </h3>
-
-                    <p>
-
-                        Find government schemes
-                        and benefits you may be
-                        eligible for.
-
-                    </p>
-
-                    <a href="government.html">
-                        Explore →
-                    </a>
-
-                </div>
-
-
-
-                <!-- HEALTH -->
-
-                <div class="topic-card">
-
-                    <div class="topic-icon health-icon">
-                        ❤️
-                    </div>
-
-                    <h3>
-                        Health Resources
-                    </h3>
-
-                    <p>
-
-                        Discover health services,
-                        awareness programs and
-                        useful resources.
-
-                    </p>
-
-                    <a href="health.html">
-                        Explore →
-                    </a>
-
-                </div>
-
-
-
-                <!-- EDUCATION -->
-
-                <div class="topic-card">
-
-                    <div class="topic-icon education-icon">
-                        📚
-                    </div>
-
-                    <h3>
-                        Education
-                    </h3>
-
-                    <p>
-
-                        Find scholarships,
-                        learning resources,
-                        training and opportunities.
-
-                    </p>
-
-                    <a href="education.html">
-                        Explore →
-                    </a>
-
-                </div>
-
-
-
-                <!-- ENVIRONMENT -->
-
-                <div class="topic-card">
-
-                    <div class="topic-icon environment-icon">
-                        🌱
-                    </div>
-
-                    <h3>
-                        Environment
-                    </h3>
-
-                    <p>
-
-                        Learn about environmental
-                        protection, recycling and
-                        waste management.
-
-                    </p>
-
-                    <a href="environment.html">
-                        Explore →
-                    </a>
-
-                </div>
-
-
-
-                <!-- EMERGENCY -->
-
-                <div class="topic-card">
-
-                    <div class="topic-icon emergency-icon">
-                        🚨
-                    </div>
-
-                    <h3>
-                        Emergency
-                    </h3>
-
-                    <p>
-
-                        Access important emergency
-                        contacts, safety information
-                        and support.
-
-                    </p>
-
-                    <a href="emergency.html">
-                        Explore →
-                    </a>
-
-                </div>
-
-            </div>
+            <p>
+                Discover important information and resources designed
+                to help individuals and communities.
+            </p>
 
         </div>
 
-    </section>
 
+        <div class="cards">
 
+            <!-- Community -->
 
-    <!-- ================= STATISTICS ================= -->
+            <div class="card">
 
-    <section class="statistics">
-
-        <div class="container stats-grid">
-
-
-            <div class="stat">
-
-                <span>👥</span>
-
-                <div>
-
-                    <strong>
-                        100+
-                    </strong>
-
-                    <small>
-                        Communities
-                    </small>
-
+                <div class="card-icon">
+                    👥
                 </div>
 
-            </div>
-
-
-
-            <div class="stat">
-
-                <span>🏛️</span>
-
-                <div>
-
-                    <strong>
-                        250+
-                    </strong>
-
-                    <small>
-                        Government Schemes
-                    </small>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="stat">
-
-                <span>❤️</span>
-
-                <div>
-
-                    <strong>
-                        500+
-                    </strong>
-
-                    <small>
-                        Resources
-                    </small>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="stat">
-
-                <span>📢</span>
-
-                <div>
-
-                    <strong>
-                        200+
-                    </strong>
-
-                    <small>
-                        Awareness Articles
-                    </small>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ================= ABOUT SECTION ================= -->
-
-    <section class="about"
-             id="about">
-
-        <div class="container about-content">
-
-
-            <!-- IMAGE -->
-
-            <div class="about-image">
-
-                👨‍👩‍👧‍👦
-
-            </div>
-
-
-
-            <!-- TEXT -->
-
-            <div class="about-text">
-
-                <h2>
-                    About CommunityConnect
-                </h2>
-
+                <h3>Community</h3>
 
                 <p>
+                    Learn about communities, local facilities,
+                    development and useful community information.
+                </p>
 
-                    CommunityConnect is a platform
-                    dedicated to connecting people
-                    with essential resources,
-                    information, and opportunities.
+                <a href="community.html" class="card-link">
+                    Explore Community →
+                </a>
 
+            </div>
+
+
+            <!-- Government -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🏛️
+                </div>
+
+                <h3>Government</h3>
+
+                <p>
+                    Find information about government schemes,
+                    services, benefits and public resources.
+                </p>
+
+                <a href="government.html" class="card-link">
+                    Explore Government →
+                </a>
+
+            </div>
+
+
+            <!-- Health -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    ❤️
+                </div>
+
+                <h3>Health</h3>
+
+                <p>
+                    Access health awareness information,
+                    services and useful community resources.
+                </p>
+
+                <a href="health.html" class="card-link">
+                    Explore Health →
+                </a>
+
+            </div>
+
+
+            <!-- Education -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📚
+                </div>
+
+                <h3>Education</h3>
+
+                <p>
+                    Discover scholarships, learning resources,
+                    training programs and opportunities.
+                </p>
+
+                <a href="education.html" class="card-link">
+                    Explore Education →
+                </a>
+
+            </div>
+
+
+            <!-- Environment -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🌱
+                </div>
+
+                <h3>Environment</h3>
+
+                <p>
+                    Learn about environmental protection,
+                    recycling, cleanliness and sustainability.
+                </p>
+
+                <a href="environment.html" class="card-link">
+                    Explore Environment →
+                </a>
+
+            </div>
+
+
+            <!-- Emergency -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🚨
+                </div>
+
+                <h3>Emergency</h3>
+
+                <p>
+                    Find important safety information and
+                    emergency support resources.
+                </p>
+
+                <a href="Emergency.html" class="card-link">
+                    Emergency Support →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         STATISTICS
+    ========================== -->
+
+    <section class="stats-section">
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <h2>100+</h2>
+
+                <p>Community Resources</p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h2>250+</h2>
+
+                <p>Government Resources</p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h2>500+</h2>
+
+                <p>Useful Resources</p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h2>200+</h2>
+
+                <p>Awareness Topics</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="about" id="about">
+
+        <div class="about-container">
+
+            <div class="about-box">
+
+                <div class="big-icon">
+                    🌍
+                </div>
+
+                <h3>
+                    One Platform.
+                    Many Possibilities.
+                </h3>
+
+                <p>
+                    CommunityConnect brings useful community
+                    information together so people can discover
+                    resources more easily.
+                </p>
+
+            </div>
+
+
+            <div class="about-content">
+
+                <span>About Us</span>
+
+                <h2>
+                    Empowering Communities Through Information
+                </h2>
+
+                <p>
+                    CommunityConnect is a community resource and
+                    awareness portal created to make useful information
+                    easier to discover and access.
+                </p>
+
+                <p>
+                    Our goal is to connect people with resources,
+                    opportunities and awareness information that can
+                    support stronger and more informed communities.
                 </p>
 
 
-                <p>
+                <div class="check">
+                    <span>✓</span>
+                    Easy access to useful information
+                </div>
 
-                    Our mission is to empower
-                    communities by making important
-                    information accessible to everyone.
+                <div class="check">
+                    <span>✓</span>
+                    Community-focused resources
+                </div>
 
-                </p>
-
-
-                <button class="primary-btn">
-
-                    Know More About Us
-
-                </button>
+                <div class="check">
+                    <span>✓</span>
+                    Awareness and education
+                </div>
 
             </div>
 
@@ -509,111 +973,88 @@
     </section>
 
 
+    <!-- =========================
+         CALL TO ACTION
+    ========================== -->
 
-    <!-- ================= FOOTER ================= -->
+    <section class="cta">
+
+        <h2>
+            Be Informed. Be Connected.
+        </h2>
+
+        <p>
+            Explore CommunityConnect and discover resources,
+            information and opportunities available for you
+            and your community.
+        </p>
+
+        <a href="#resources" class="primary-button">
+            Explore Resources
+        </a>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
     <footer>
 
-        <div class="container footer-grid">
+        <div class="footer-container">
 
+            <div class="footer-column">
 
-            <!-- BRAND -->
-
-            <div>
-
-                <h3>
-                    CommunityConnect
-                </h3>
+                <div class="footer-logo">
+                    👥 CommunityConnect
+                </div>
 
                 <p>
                     Connect. Discover. Empower.
                 </p>
 
-            </div>
-
-
-
-            <!-- QUICK LINKS -->
-
-            <div>
-
-                <h4>
-                    Quick Links
-                </h4>
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                <a href="community.html">
-                    Community
-                </a>
-
-                <a href="government.html">
-                    Government
-                </a>
-
-                <a href="health.html">
-                    Health
-                </a>
-
-                <a href="education.html">
-                    Education
-                </a>
+                <p>
+                    A community resource and awareness portal
+                    connecting people with useful information.
+                </p>
 
             </div>
 
 
+            <div class="footer-column">
 
-            <!-- USEFUL LINKS -->
+                <h3>Quick Links</h3>
 
-            <div>
-
-                <h4>
-                    Useful Links
-                </h4>
-
-                <a href="#">
-                    Privacy Policy
-                </a>
-
-                <a href="#">
-                    Terms & Conditions
-                </a>
-
-                <a href="#">
-                    Disclaimer
-                </a>
-
-                <a href="#">
-                    FAQ
-                </a>
+                <a href="index.html">Home</a>
+                <a href="community.html">Community</a>
+                <a href="government.html">Government</a>
+                <a href="health.html">Health</a>
 
             </div>
 
 
+            <div class="footer-column">
 
-            <!-- CONTACT -->
+                <h3>Resources</h3>
 
-            <div>
+                <a href="education.html">Education</a>
+                <a href="environment.html">Environment</a>
+                <a href="Emergency.html">Emergency</a>
+                <a href="contact.html">Contact</a>
 
-                <h4>
-                    Contact Us
-                </h4>
+            </div>
 
-                <p>
-                    Email:
-                    info@communityconnect.org
-                </p>
 
-                <p>
-                    Phone:
-                    +91 12345 67890
-                </p>
+            <div class="footer-column">
 
-                <p>
-                    Chennai, Tamil Nadu, India
-                </p>
+                <h3>Contact</h3>
+
+                <p>📧 info@communityconnect.org</p>
+
+                <p>📞 +91 9994533883</p>
+
+                <p>📍 Chennai, Tamil Nadu, India</p>
 
             </div>
 
@@ -623,17 +1064,11 @@
         <div class="copyright">
 
             © 2026 CommunityConnect.
-            All rights reserved.
+            Community Resource & Awareness Portal.
 
         </div>
 
     </footer>
-
-
-
-    <!-- JAVASCRIPT -->
-
-    <script src="Script.js"></script>
 
 </body>
 
