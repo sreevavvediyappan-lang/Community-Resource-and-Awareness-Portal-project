@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Education | CommunityConnect</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #1f2937;
+            background: #f8fbff;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+
+        header {
+            background: white;
+            padding: 15px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .logo-text h2 {
+            color: #1d4ed8;
+            font-size: 21px;
+        }
+
+        .logo-text p {
+            font-size: 11px;
+            color: #64748b;
+        }
+
+        nav {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #475569;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #2563eb;
+        }
+
+        .login-btn {
+            background: #2563eb;
+            color: white !important;
+            padding: 9px 17px;
+            border-radius: 20px;
+        }
+
+        .login-btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* HERO */
+
+        .hero {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            padding: 75px 8%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: auto;
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        /* INTRO */
+
+        .intro {
+            text-align: center;
+            padding: 65px 8% 35px;
+        }
+
+        .intro h2 {
+            font-size: 32px;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+        }
+
+        .intro p {
+            max-width: 750px;
+            margin: auto;
+            color: #64748b;
+        }
+
+        /* CARDS */
+
+        .cards-section {
+            padding: 30px 8% 70px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.08);
+            border: 1px solid #e5e7eb;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.15);
+        }
+
+        .icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 15px;
+            background: #eff6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 27px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .card a {
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* LEARNING SECTION */
+
+        .learning {
+            background: #eff6ff;
+            padding: 70px 8%;
+        }
+
+        .learning h2 {
+            text-align: center;
+            color: #1e3a8a;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .learning-box {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .learning-box span {
+            font-size: 30px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .learning-box h3 {
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .learning-box p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* CTA */
+
+        .cta {
+            margin: 70px 8%;
+            padding: 55px 30px;
+            border-radius: 25px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+        }
+
+        .cta h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            margin-bottom: 25px;
+        }
+
+        .cta a {
+            display: inline-block;
+            background: white;
+            color: #2563eb;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #111827;
+            color: white;
+            padding: 45px 8% 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        footer h3 {
+            margin-bottom: 12px;
+        }
+
+        footer p,
+        footer a {
+            color: #cbd5e1;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        footer a {
+            display: block;
+            margin-bottom: 7px;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #374151;
+            margin-top: 30px;
+            padding-top: 20px;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1000px) {
+            nav a:not(.login-btn) {
+                display: none;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .learning-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero {
+                padding: 55px 6%;
+            }
+
+            .cards,
+            .learning-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .intro h2,
+            .learning h2,
+            .cta h2 {
+                font-size: 27px;
+            }
+
+            .cta {
+                margin: 50px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                👥
+            </div>
+
+            <div class="logo-text">
+                <h2>CommunityConnect</h2>
+                <p>Connect. Discover. Empower.</p>
+            </div>
+
+        </div>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+            <a href="community.html">Community</a>
+            <a href="government.html">Government</a>
+            <a href="health.html">Health</a>
+            <a href="education.html" class="active">Education</a>
+            <a href="environment.html">Environment</a>
+            <a href="Emergency.html">Emergency</a>
+            <a href="contact.html">Contact</a>
+
+            <a href="#" class="login-btn">Login</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1>Education Resources</h1>
+
+        <p>
+            Discover learning opportunities, educational support,
+            scholarships, digital resources, and career guidance.
+        </p>
+
+    </section>
+
+
+    <!-- INTRO -->
+
+    <section class="intro">
+
+        <h2>Learning Opportunities for Everyone</h2>
+
+        <p>
+            CommunityConnect helps students and community members
+            discover useful educational resources and opportunities
+            that can support learning and personal development.
+        </p>
+
+    </section>
+
+
+    <!-- EDUCATION CARDS -->
+
+    <section class="cards-section">
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icon">🎓</div>
+
+                <h3>Scholarships</h3>
+
+                <p>
+                    Explore scholarship opportunities and financial
+                    support available for students.
+                </p>
+
+                <a href="#">Explore Resources →</a>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">📚</div>
+
+                <h3>Study Resources</h3>
+
+                <p>
+                    Find useful study materials, learning resources,
+                    and educational content.
+                </p>
+
+                <a href="#">Explore Resources →</a>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">💻</div>
+
+                <h3>Digital Learning</h3>
+
+                <p>
+                    Discover online learning platforms and digital
+                    education resources.
+                </p>
+
+                <a href="#">Explore Resources →</a>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🏫</div>
+
+                <h3>Educational Institutions</h3>
+
+                <p>
+                    Learn about schools, colleges, training centres,
+                    and other educational institutions.
+                </p>
+
+                <a href="#">Explore Resources →</a>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🧑‍💻</div>
+
+                <h3>Skill Development</h3>
+
+                <p>
+                    Find opportunities to develop technical,
+                    professional, and practical skills.
+                </p>
+
+                <a href="#">Explore Resources →</a>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">💼</div>
+
+                <h3>Career Guidance</h3>
+
+                <p>
+                    Explore career awareness resources and guidance
+                    for making informed education choices.
+                </p>
+
+                <a href="#">Explore Resources →</a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LEARNING SECTION -->
+
+    <section class="learning">
+
+        <h2>Ways to Learn and Grow</h2>
+
+        <div class="learning-grid">
+
+            <div class="learning-box">
+
+                <span>📖</span>
+
+                <h3>Read</h3>
+
+                <p>
+                    Improve knowledge through books and educational
+                    materials.
+                </p>
+
+            </div>
+
+
+            <div class="learning-box">
+
+                <span>🌐</span>
+
+                <h3>Learn Online</h3>
+
+                <p>
+                    Access digital learning resources from anywhere.
+                </p>
+
+            </div>
+
+
+            <div class="learning-box">
+
+                <span>🛠️</span>
+
+                <h3>Build Skills</h3>
+
+                <p>
+                    Develop practical and professional skills for
+                    future opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="learning-box">
+
+                <span>🚀</span>
+
+                <h3>Plan Your Future</h3>
+
+                <p>
+                    Explore education and career pathways for your
+                    future goals.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+        <h2>Build Your Future Through Education</h2>
+
+        <p>
+            Explore resources that can help you learn, grow,
+            and discover new opportunities.
+        </p>
+
+        <a href="contact.html">Get in Touch</a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+                <h3>CommunityConnect</h3>
+
+                <p>
+                    Connecting communities with useful resources,
+                    services, and awareness information.
+                </p>
+            </div>
+
+
+            <div>
+
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a>
+                <a href="community.html">Community</a>
+                <a href="government.html">Government</a>
+                <a href="health.html">Health</a>
+
+            </div>
+
+
+            <div>
+
+                <h3>Resources</h3>
+
+                <a href="education.html">Education</a>
+                <a href="environment.html">Environment</a>
+                <a href="Emergency.html">Emergency</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 CommunityConnect. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
