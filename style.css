@@ -358,6 +358,45 @@ button {
 }
 
 /* =========================================
+   INDIVIDUAL SECTION COLORS
+========================================= */
+
+/* 🌱 AWARENESS */
+.awareness-section {
+    background: #E8F5E9;
+}
+
+/* 📚 RESOURCES */
+.resources-section {
+    background: #FFF3E0;
+}
+
+/* 🏛️ GOVERNMENT SCHEMES */
+.government-section {
+    background: #E3F2FD;
+}
+
+/* 🏘️ COMMUNITY */
+.community-section {
+    background: #F3E5F5;
+}
+
+/* 🚨 EMERGENCY */
+.emergency-section {
+    background: #FFEBEE;
+}
+
+/* 📩 CONTACT */
+.contact-section {
+    background: #E0F7FA;
+}
+
+/* 👤 PROFILE */
+.profile-section {
+    background: #F5F5F5;
+}
+
+/* =========================================
    FEATURE CARDS
 ========================================= */
 
