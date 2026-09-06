@@ -1,224 +1,449 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | CommunityConnect</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
+    <title>Contact | CommunityConnect</title>
 
-body {
-    background: #f5f8f6;
-    color: #263238;
-}
-
-header {
-    background: #176b4d;
-    color: white;
-    padding: 18px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 18px;
-    font-size: 14px;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-.container {
-    max-width: 850px;
-    margin: 50px auto;
-    padding: 20px;
-}
-
-.card {
-    background: white;
-    padding: 35px;
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-}
-
-h1 {
-    text-align: center;
-    color: #176b4d;
-    margin-bottom: 10px;
-}
-
-.subtitle {
-    text-align: center;
-    color: #667085;
-    margin-bottom: 30px;
-}
-
-label {
-    display: block;
-    margin-top: 18px;
-    margin-bottom: 7px;
-    font-weight: bold;
-}
-
-input,
-textarea {
-    width: 100%;
-    padding: 13px;
-    border: 1px solid #d0d5dd;
-    border-radius: 8px;
-    font-size: 15px;
-}
-
-textarea {
-    height: 130px;
-    resize: vertical;
-}
-
-button {
-    width: 100%;
-    margin-top: 22px;
-    padding: 14px;
-    border: none;
-    border-radius: 8px;
-    background: #176b4d;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #12543c;
-}
-
-#message {
-    text-align: center;
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-footer {
-    text-align: center;
-    padding: 25px;
-    color: #667085;
-}
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-    <div class="logo">🌿 CommunityConnect</div>
+    <!-- ================= HEADER ================= -->
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="community.html">Community</a>
-        <a href="government.html">Government</a>
-        <a href="resources.html">Resources</a>
-        <a href="awareness.html">Awareness</a>
-        <a href="dashboard.html">Dashboard</a>
-    </nav>
-</header>
+    <header class="header">
 
-<div class="container">
+        <div class="container navbar">
 
-    <div class="card">
+            <a href="index.html" class="logo">
+                Community<span>Connect</span>
+            </a>
 
-        <h1>Contact Us</h1>
+            <nav class="nav-links">
 
-        <p class="subtitle">
-            Have a question or suggestion? Send us a message.
-        </p>
+                <a href="index.html">Home</a>
 
-        <form id="contactForm">
+                <a href="community.html">
+                    Community Profile
+                </a>
 
-            <label for="name">Your Name</label>
-            <input type="text" id="name" required>
+                <a href="government.html">
+                    Government Schemes
+                </a>
 
-            <label for="email">Email Address</label>
-            <input type="email" id="email" required>
+                <a href="education.html">
+                    Resources
+                </a>
 
-            <label for="messageText">Message</label>
-            <textarea id="messageText" required></textarea>
+                <a href="environment.html">
+                    Awareness
+                </a>
 
-            <button type="submit">Send Message</button>
+                <a href="contact.html" class="active">
+                    Contact
+                </a>
 
-        </form>
+                <a href="login.html" class="login">
+                    Login
+                </a>
 
-        <p id="message"></p>
+            </nav>
 
-    </div>
+        </div>
 
-</div>
-
-<footer>
-    © 2026 CommunityConnect | Community Resource and Awareness Portal
-</footer>
+    </header>
 
 
-<script type="module">
+    <!-- ================= HERO ================= -->
 
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+    <section class="hero">
 
-import {
-    getAuth,
-    onAuthStateChanged
-}
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+        <div class="container hero-content">
 
+            <div class="hero-text">
 
-const firebaseConfig = {
-    apiKey: "AIzaSyDpm8pHtGj_6pTw_ltZqpbHDWuF1G7KgZ4",
-    authDomain: "community-resourses.firebaseapp.com",
-    projectId: "community-resourses",
-    storageBucket: "community-resourses.firebasestorage.app",
-    messagingSenderId: "556205954035",
-    appId: "1:556205954035:web:90c48e1ba4b241bc1ab886",
-    measurementId: "G-BSVB77GELT"
-};
+                <p class="eyebrow">
+                    CONTACT COMMUNITYCONNECT
+                </p>
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+                <h1>
+                    We're Here to
+                    <span>Help You.</span>
+                </h1>
 
+                <p>
+                    Have a question, suggestion or need help
+                    finding a community resource? Get in touch
+                    with us.
+                </p>
 
-// 🔐 Only logged-in users can access this page
-onAuthStateChanged(auth, (user) => {
+            </div>
 
-    if (!user) {
-        window.location.href = "login.html";
-    }
+        </div>
 
-});
+    </section>
 
 
-// Contact form
-document.getElementById("contactForm").addEventListener("submit", function(event) {
+    <!-- ================= CONTACT SECTION ================= -->
 
-    event.preventDefault();
+    <section class="section">
 
-    document.getElementById("message").textContent =
-        "✅ Thank you! Your message has been received.";
+        <div class="container">
 
-    document.getElementById("contactForm").reset();
+            <div class="section-heading">
 
-});
+                <p class="eyebrow">
+                    GET IN TOUCH
+                </p>
 
-</script>
+                <h2>
+                    We'd Love to Hear From You
+                </h2>
+
+                <p>
+                    Reach out to CommunityConnect for questions,
+                    suggestions and community-related support.
+                </p>
+
+            </div>
+
+
+            <div class="cards-grid">
+
+                <!-- EMAIL -->
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        📧
+                    </div>
+
+                    <h3>
+                        Email Us
+                    </h3>
+
+                    <p>
+                        Send us your questions or suggestions
+                        through email.
+                    </p>
+
+                    <a href="mailto:info@communityconnect.org">
+                        info@communityconnect.org →
+                    </a>
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        📞
+                    </div>
+
+                    <h3>
+                        Call Us
+                    </h3>
+
+                    <p>
+                        Contact us for general community
+                        information and assistance.
+                    </p>
+
+                    <a href="tel:+911234567890">
+                        +91 12345 67890 →
+                    </a>
+
+                </div>
+
+
+                <!-- LOCATION -->
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        📍
+                    </div>
+
+                    <h3>
+                        Our Location
+                    </h3>
+
+                    <p>
+                        CommunityConnect
+                        <br>
+                        Chennai, Tamil Nadu, India
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT FORM ================= -->
+
+    <section class="section section-light">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    SEND A MESSAGE
+                </p>
+
+                <h2>
+                    Contact Us
+                </h2>
+
+                <p>
+                    Share your message and we'll be happy
+                    to hear from you.
+                </p>
+
+            </div>
+
+
+            <div class="contact-form-container">
+
+                <form id="contactForm">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Your Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="subject">
+                            Subject
+                        </label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            placeholder="Enter subject"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            rows="6"
+                            placeholder="Write your message here..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Send Message
+                    </button>
+
+                    <p id="formMessage"></p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta">
+
+        <div class="container">
+
+            <h2>
+                Stay Connected With Your Community
+            </h2>
+
+            <p>
+                Explore CommunityConnect and discover
+                useful information, services and opportunities.
+            </p>
+
+            <a
+                href="index.html"
+                class="btn btn-primary"
+            >
+                Explore CommunityConnect
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+
+                    <h3>
+                        CommunityConnect
+                    </h3>
+
+                    <p>
+                        A community resource and awareness
+                        portal designed to connect people
+                        with useful information and services.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Explore
+                    </h3>
+
+                    <div class="footer-links">
+
+                        <a href="community.html">
+                            Community
+                        </a>
+
+                        <a href="government.html">
+                            Government Schemes
+                        </a>
+
+                        <a href="environment.html">
+                            Environment
+                        </a>
+
+                        <a href="education.html">
+                            Education
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Support
+                    </h3>
+
+                    <div class="footer-links">
+
+                        <a href="health.html">
+                            Health
+                        </a>
+
+                        <a href="emergency.html">
+                            Emergency
+                        </a>
+
+                        <a href="contact.html">
+                            Contact
+                        </a>
+
+                        <a href="index.html">
+                            Home
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="copyright">
+
+                © 2026 CommunityConnect.
+                Built for community awareness and empowerment.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        document
+            .getElementById("contactForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                const formMessage =
+                    document.getElementById("formMessage");
+
+                formMessage.textContent =
+                    "Thank you! Your message has been received.";
+
+                formMessage.style.marginTop = "15px";
+
+                this.reset();
+
+            });
+
+    </script>
 
 </body>
+
 </html>
