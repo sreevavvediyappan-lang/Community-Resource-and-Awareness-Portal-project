@@ -1,149 +1,248 @@
-<script type="module">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | CommunityConnect</title>
 
-    // =========================================
-    // FIREBASE IMPORTS
-    // =========================================
+    <link rel="stylesheet" href="style.css">
 
-    import { initializeApp }
-        from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-
-    import {
-        getAuth,
-        onAuthStateChanged,
-        signOut
-    }
-        from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-
-
-    // =========================================
-    // FIREBASE CONFIG
-    // =========================================
-
-    const firebaseConfig = {
-
-        apiKey: "YOUR_API_KEY",
-
-        authDomain:
-            "YOUR_PROJECT_ID.firebaseapp.com",
-
-        projectId:
-            "YOUR_PROJECT_ID",
-
-        storageBucket:
-            "YOUR_PROJECT_ID.firebasestorage.app",
-
-        messagingSenderId:
-            "YOUR_MESSAGING_SENDER_ID",
-
-        appId:
-            "YOUR_APP_ID"
-    };
-
-
-    // =========================================
-    // INITIALIZE FIREBASE
-    // =========================================
-
-    const app =
-        initializeApp(firebaseConfig);
-
-    const auth =
-        getAuth(app);
-
-
-    // =========================================
-    // CHECK FIREBASE LOGIN
-    // =========================================
-
-    onAuthStateChanged(auth, function(user) {
-
-        // -----------------------------------------
-        // USER IS NOT LOGGED IN
-        // -----------------------------------------
-
-        if (!user) {
-
-            window.location.href =
-                "login.html";
-
-            return;
+    <style>
+        .dashboard-box {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 40px;
+            text-align: center;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
         }
 
+        .dashboard-box h1 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
 
-        // -----------------------------------------
-        // USER IS LOGGED IN
-        // -----------------------------------------
+        .user-email {
+            color: #555;
+            margin: 20px 0;
+        }
 
-        const name =
-            user.displayName ||
-            "User";
+        .dashboard-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
 
-        const email =
-            user.email ||
-            "";
+        .dashboard-links a {
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .logout-button {
+            border: none;
+            padding: 14px 30px;
+            border-radius: 10px;
+            background: #d32f2f;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .logout-button:hover {
+            background: #b71c1c;
+        }
+
+        #message {
+            margin-top: 15px;
+            color: #d32f2f;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+
+        <div class="logo">
+            🌿 CommunityConnect
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="community.html">Community</a>
+            <a href="government.html">Government</a>
+            <a href="resources.html">Resources</a>
+            <a href="awareness.html">Awareness</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+    </nav>
+</header>
 
 
-        // =========================================
-        // DISPLAY USER NAME
-        // =========================================
+<main>
 
-        document.getElementById("userName")
-            .textContent = name;
+    <div class="dashboard-box">
 
-        document.getElementById("profileName")
-            .textContent = name;
+        <h1>Welcome to CommunityConnect! 🌿</h1>
 
-        document.getElementById("profileEmail")
-            .textContent = email;
+        <p>
+            You are successfully logged in.
+        </p>
 
-
-        // =========================================
-        // AVATAR
-        // =========================================
-
-        const firstLetter =
-            name.charAt(0).toUpperCase();
-
-        document.getElementById("avatar")
-            .textContent = firstLetter;
+        <p class="user-email" id="userEmail">
+            Loading account...
+        </p>
 
 
-        // =========================================
-        // PROFILE INFORMATION
-        // =========================================
+        <div class="dashboard-links">
 
-        document.getElementById("phone")
-            .textContent = "Not added";
+            <a href="community.html">
+                👥 Community
+            </a>
 
-        document.getElementById("location")
-            .textContent = "Not added";
+            <a href="government.html">
+                🏛️ Government
+            </a>
 
-        document.getElementById("occupation")
-            .textContent = "Not added";
+            <a href="resources.html">
+                📚 Resources
+            </a>
 
-        document.getElementById("education")
-            .textContent = "Not added";
+            <a href="awareness.html">
+                🌱 Awareness
+            </a>
 
-    });
+        </div>
 
 
-    // =========================================
-    // LOGOUT
-    // =========================================
+        <button
+            class="logout-button"
+            id="logoutButton">
+            Logout
+        </button>
 
-    window.logout = async function() {
+        <p id="message"></p>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-content">
+
+        <h3>🌿 CommunityConnect</h3>
+
+        <p>
+            Connect. Discover. Empower.
+        </p>
+
+        <p class="copyright">
+            © 2026 CommunityConnect. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- FIREBASE -->
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+
+import {
+    getAuth,
+    onAuthStateChanged,
+    signOut
+}
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyDpm8pHtGj_6pTw_ltZqpbHDWuF1GKgZ4",
+
+    authDomain:
+        "community-resourses.firebaseapp.com",
+
+    projectId:
+        "community-resourses",
+
+    storageBucket:
+        "community-resourses.firebasestorage.app",
+
+    messagingSenderId:
+        "556205954035",
+
+    appId:
+        "1:556205954035:web:90c48e1ba4b241bc1ab886",
+
+    measurementId:
+        "G-BSVB77GELT"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+
+const userEmail =
+    document.getElementById("userEmail");
+
+const logoutButton =
+    document.getElementById("logoutButton");
+
+const message =
+    document.getElementById("message");
+
+
+/* Check login */
+
+onAuthStateChanged(auth, function(user) {
+
+    if (user) {
+
+        userEmail.textContent =
+            "Logged in as: " + user.email;
+
+    } else {
+
+        window.location.href =
+            "login.html";
+
+    }
+
+});
+
+
+/* Logout */
+
+logoutButton.addEventListener(
+    "click",
+    async function() {
 
         try {
 
             await signOut(auth);
 
-            // Remove old prototype login data
             localStorage.removeItem(
                 "communityConnectLoggedIn"
-            );
-
-            localStorage.removeItem(
-                "communityConnectUser"
             );
 
             localStorage.removeItem(
@@ -154,27 +253,22 @@
                 "communityConnectEmail"
             );
 
-
-            // Go to login
-
             window.location.href =
                 "login.html";
 
-        }
+        } catch (error) {
 
-        catch (error) {
+            console.error(error);
 
-            console.error(
-                "Logout error:",
-                error
-            );
-
-            alert(
-                "Unable to logout. Please try again."
-            );
+            message.textContent =
+                "Logout failed. Please try again.";
 
         }
 
-    };
+    }
+);
 
 </script>
+
+</body>
+</html>
