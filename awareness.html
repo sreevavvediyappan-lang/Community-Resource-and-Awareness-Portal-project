@@ -1,758 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Awareness | CommunityConnect</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<title>Resources | CommunityConnect</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #E8F5E9;
-            color: #1f2937;
-        }
+<style>
 
-        nav {
-            background: white;
-            padding: 16px 6%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e5e7eb;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #16a34a;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: #FFF3E0;
+    color: #0f172a;
+    line-height: 1.5;
+}
 
-        nav a {
-            text-decoration: none;
-            color: #374151;
-            margin-left: 20px;
-            font-size: 14px;
-            font-weight: 600;
-        }
+/* NAVIGATION */
 
-        nav a:hover {
-            color: #16a34a;
-        }
+nav {
+    background: white;
+    padding: 16px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
 
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 35px auto;
-        }
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #16a34a;
+}
 
-        .hero {
-            background: #F1F8E9;
-            padding: 35px;
-            border-radius: 18px;
-            border: 1px solid #d7e8d1;
-            margin-bottom: 25px;
-        }
+nav a {
+    text-decoration: none;
+    color: #374151;
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
 
-        .small-title {
-            color: #16a34a;
-            font-size: 13px;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
+nav a:hover {
+    color: #16a34a;
+}
 
-        h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-            color: #111827;
-        }
+/* MAIN CONTAINER */
 
-        .hero p {
-            color: #6b7280;
-            line-height: 1.6;
-        }
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 35px auto;
+}
 
-        .controls {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
+/* HERO */
 
-        #search {
-            flex: 1;
-            min-width: 240px;
-            padding: 13px 16px;
-            border: 1px solid #d1d5db;
-            border-radius: 10px;
-            font-size: 14px;
-            outline: none;
-            background: white;
-        }
+.hero {
+    background: #FFF8EF;
+    padding: 35px;
+    border-radius: 18px;
+    border: 1px solid #f3dfc4;
+    margin-bottom: 25px;
+}
 
-        #search:focus {
-            border-color: #16a34a;
-        }
+.small-title {
+    color: #ea580c;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
 
-        .category {
-            padding: 11px 14px;
-            border: 1px solid #d1d5db;
-            background: white;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 600;
-        }
+h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #111827;
+}
 
-        .category.active {
-            background: #16a34a;
-            color: white;
-            border-color: #16a34a;
-        }
+.hero p {
+    color: #6b7280;
+    line-height: 1.6;
+}
 
-        .articles {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
+/* RESOURCE GRID */
 
-        .card {
-            background: white;
-            padding: 24px;
-            border-radius: 16px;
-            border: 1px solid #e5e7eb;
-            transition: 0.2s;
-        }
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
 
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-        }
+/* CARDS */
 
-        .tag {
-            display: inline-block;
-            background: #ecfdf5;
-            color: #15803d;
-            padding: 5px 9px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: bold;
-            margin-bottom: 12px;
-        }
+.card {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    transition: 0.2s;
+}
 
-        .card h2 {
-            font-size: 19px;
-            margin-bottom: 10px;
-            color: #111827;
-        }
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
 
-        .card p {
-            font-size: 14px;
-            line-height: 1.6;
-            color: #6b7280;
-            margin-bottom: 18px;
-        }
+.icon {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
 
-        .read-btn {
-            border: none;
-            background: #16a34a;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 9px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #111827;
+}
 
-        .read-btn:hover {
-            background: #15803d;
-        }
+.card p {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
 
-        .no-results {
-            background: white;
-            padding: 40px;
-            text-align: center;
-            border-radius: 15px;
-            color: #6b7280;
-            display: none;
-        }
+/* BUTTON */
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #6b7280;
-            font-size: 13px;
-        }
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    background: #ea580c;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 9px;
+    font-weight: bold;
+    font-size: 14px;
+}
 
-        /* MODAL */
+.btn:hover {
+    background: #c2410c;
+}
 
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.65);
-            z-index: 100;
-            padding: 20px;
-            overflow-y: auto;
-        }
+/* FOOTER */
 
-        .modal-box {
-            background: white;
-            max-width: 750px;
-            margin: 50px auto;
-            border-radius: 18px;
-            overflow: hidden;
-        }
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #6b7280;
+    font-size: 13px;
+}
 
-        .modal-header {
-            background: #111827;
-            color: white;
-            padding: 25px;
-        }
+/* MOBILE */
 
-        .modal-header h2 {
-            margin-top: 10px;
-        }
+@media (max-width: 700px) {
 
-        .close {
-            float: right;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 25px;
-            cursor: pointer;
-        }
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
 
-        .modal-body {
-            padding: 25px;
-        }
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
 
-        .section {
-            margin-bottom: 25px;
-        }
+    nav a {
+        margin-left: 8px;
+    }
 
-        .section h3 {
-            margin-bottom: 8px;
-            color: #111827;
-        }
+    h1 {
+        font-size: 26px;
+    }
 
-        .section p {
-            color: #4b5563;
-            line-height: 1.7;
-        }
+}
 
-        .checklist {
-            background: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            padding: 18px;
-            border-radius: 12px;
-            margin-top: 20px;
-        }
+</style>
 
-        .checklist h3 {
-            margin-bottom: 12px;
-        }
-
-        .check-item {
-            display: block;
-            margin: 10px 0;
-            cursor: pointer;
-            color: #374151;
-        }
-
-        .quiz {
-            background: #fffbeb;
-            border: 1px solid #fde68a;
-            padding: 18px;
-            border-radius: 12px;
-            margin-top: 20px;
-        }
-
-        .quiz-option {
-            display: block;
-            width: 100%;
-            text-align: left;
-            padding: 11px;
-            margin-top: 8px;
-            border: 1px solid #d1d5db;
-            background: white;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        .quiz-option:hover {
-            background: #f9fafb;
-        }
-
-        .quiz-result {
-            margin-top: 12px;
-            font-weight: bold;
-        }
-
-        .contacts {
-            background: #f8fafc;
-            padding: 18px;
-            border-radius: 12px;
-            margin-top: 20px;
-        }
-
-        .contacts p {
-            margin: 8px 0;
-        }
-
-        @media (max-width: 700px) {
-            .articles {
-                grid-template-columns: 1fr;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            nav a {
-                margin-left: 8px;
-            }
-
-            h1 {
-                font-size: 26px;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
+
 <nav>
-    <div class="logo">🌿 CommunityConnect</div>
+
+    <div class="logo">
+        🌿 CommunityConnect
+    </div>
 
     <div>
+
         <a href="index.html">Home</a>
+
         <a href="dashboard.html">Dashboard</a>
-        <a href="resources.html">Resources</a>
+
+        <!-- Awareness file -->
+        <a href="awareness.html">Awareness</a>
+
     </div>
+
 </nav>
+
+
+<!-- MAIN CONTENT -->
 
 <div class="container">
 
     <section class="hero">
-        <div class="small-title">💡 Civic Education & Safety Campaigns</div>
 
-        <h1>Community Awareness & Preparedness</h1>
+        <div class="small-title">
+            📚 Community Support Resources
+        </div>
+
+        <h1>
+            Community Resources
+        </h1>
 
         <p>
-            Actionable guides on civic rights, disaster readiness,
-            digital scam protection, and family health.
-            Learn useful information and stay prepared.
+            Explore useful educational, government, health,
+            environmental and community resources in one place.
         </p>
+
     </section>
 
-    <div class="controls">
 
-        <input
-            type="text"
-            id="search"
-            placeholder="Search awareness guides..."
-            onkeyup="filterArticles()"
-        >
+    <div class="resources-grid">
 
-        <button class="category active" onclick="selectCategory('All', this)">
-            All
-        </button>
 
-        <button class="category" onclick="selectCategory('Disaster Preparedness', this)">
-            Disaster Preparedness
-        </button>
+        <!-- EDUCATIONAL -->
 
-        <button class="category" onclick="selectCategory('Digital Safety & Scams', this)">
-            Digital Safety
-        </button>
+        <div class="card">
 
-        <button class="category" onclick="selectCategory('Civic Rights', this)">
-            Civic Rights
-        </button>
+            <div class="icon">🎓</div>
 
-        <button class="category" onclick="selectCategory('Health & Hygiene', this)">
-            Health & Hygiene
-        </button>
-
-    </div>
-
-    <div class="articles" id="articles">
-
-        <div class="card"
-             data-category="Disaster Preparedness"
-             data-search="disaster earthquake emergency preparedness safety">
-
-            <span class="tag">Disaster Preparedness</span>
-
-            <h2>Emergency Preparedness</h2>
+            <h2>Educational Resources</h2>
 
             <p>
-                Learn how your family can prepare for emergencies
-                and keep important information ready.
+                Find learning opportunities, educational
+                information and useful study resources.
             </p>
 
-            <button class="read-btn"
-                    onclick="openArticle('emergency')">
-                Read Guide →
-            </button>
+            <a href="educational.html" class="btn">
+                Explore Resources →
+            </a>
 
         </div>
 
-        <div class="card"
-             data-category="Digital Safety & Scams"
-             data-search="digital safety scam online fraud cyber security">
 
-            <span class="tag">Digital Safety & Scams</span>
+        <!-- GOVERNMENT -->
 
-            <h2>Protect Yourself From Online Scams</h2>
+        <div class="card">
+
+            <div class="icon">🏛️</div>
+
+            <h2>Government Schemes</h2>
 
             <p>
-                Learn how to recognize suspicious messages,
-                fake links and common online scams.
+                Discover government schemes and public
+                services that may support communities.
             </p>
 
-            <button class="read-btn"
-                    onclick="openArticle('scams')">
-                Read Guide →
-            </button>
+            <a href="government.html" class="btn">
+                View Schemes →
+            </a>
 
         </div>
 
-        <div class="card"
-             data-category="Civic Rights"
-             data-search="civic rights government citizen rights awareness">
 
-            <span class="tag">Civic Rights</span>
+        <!-- HEALTH -->
 
-            <h2>Know Your Civic Rights</h2>
+        <div class="card">
+
+            <div class="icon">🏥</div>
+
+            <h2>Health Resources</h2>
 
             <p>
-                Understand basic civic responsibilities,
-                public services and how citizens can participate
-                in their community.
+                Access general health information and
+                useful community health resources.
             </p>
 
-            <button class="read-btn"
-                    onclick="openArticle('rights')">
-                Read Guide →
-            </button>
+            <a href="health.html" class="btn">
+                Explore Health →
+            </a>
 
         </div>
 
-        <div class="card"
-             data-category="Health & Hygiene"
-             data-search="health hygiene clean water hand washing health">
 
-            <span class="tag">Health & Hygiene</span>
+        <!-- ENVIRONMENT -->
 
-            <h2>Health & Hygiene</h2>
+        <div class="card">
+
+            <div class="icon">🌱</div>
+
+            <h2>Environmental Resources</h2>
 
             <p>
-                Learn simple everyday practices that support
-                healthy and hygienic communities.
+                Learn about environmental awareness,
+                sustainability and community action.
             </p>
 
-            <button class="read-btn"
-                    onclick="openArticle('health')">
-                Read Guide →
-            </button>
+            <a href="environmental.html" class="btn">
+                Explore Environment →
+            </a>
 
         </div>
 
-    </div>
 
-    <div class="no-results" id="noResults">
-        <h3>No awareness guides found</h3>
-        <p>Try another keyword or select "All".</p>
+        <!-- COMMUNITY -->
+
+        <div class="card">
+
+            <div class="icon">👥</div>
+
+            <h2>Community Support</h2>
+
+            <p>
+                Find information that can help individuals
+                connect with and support their community.
+            </p>
+
+            <a href="community.html" class="btn">
+                Explore Community →
+            </a>
+
+        </div>
+
+
+        <!-- EMERGENCY -->
+
+        <div class="card">
+
+            <div class="icon">📞</div>
+
+            <h2>Emergency Support</h2>
+
+            <p>
+                Find important emergency information and
+                contact details for immediate assistance.
+            </p>
+
+            <a href="emergency.html" class="btn">
+                Emergency Help →
+            </a>
+
+        </div>
+
     </div>
 
 </div>
+
+
+<!-- FOOTER -->
 
 <footer>
-    © 2026 CommunityConnect | Community Resource and Awareness Portal
+
+    © 2026 CommunityConnect |
+    Community Resource and Awareness Portal
+
 </footer>
 
-<!-- ARTICLE MODAL -->
-
-<div class="modal" id="articleModal">
-
-    <div class="modal-box">
-
-        <div class="modal-header">
-
-            <button class="close" onclick="closeArticle()">×</button>
-
-            <span id="modalCategory"></span>
-
-            <h2 id="modalTitle"></h2>
-
-        </div>
-
-        <div class="modal-body">
-
-            <div class="section">
-
-                <h3>About this guide</h3>
-
-                <p id="modalContent"></p>
-
-            </div>
-
-            <div class="checklist">
-
-                <h3>✅ Personal Action Checklist</h3>
-
-                <label class="check-item">
-                    <input type="checkbox">
-                    I have read and understood this guide.
-                </label>
-
-                <label class="check-item">
-                    <input type="checkbox">
-                    I will share this information with my family.
-                </label>
-
-                <label class="check-item">
-                    <input type="checkbox">
-                    I will follow the recommended safety practices.
-                </label>
-
-            </div>
-
-            <div class="quiz">
-
-                <h3>🧠 Quick Knowledge Check</h3>
-
-                <p id="quizQuestion"></p>
-
-                <button class="quiz-option"
-                        onclick="checkAnswer(0)"
-                        id="option0"></button>
-
-                <button class="quiz-option"
-                        onclick="checkAnswer(1)"
-                        id="option1"></button>
-
-                <button class="quiz-option"
-                        onclick="checkAnswer(2)"
-                        id="option2"></button>
-
-                <div class="quiz-result" id="quizResult"></div>
-
-            </div>
-
-            <div class="contacts">
-
-                <h3>📞 Important Helplines</h3>
-
-                <p>Emergency: <strong>112</strong></p>
-                <p>Police: <strong>100</strong></p>
-                <p>Ambulance: <strong>108</strong></p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-<script>
-
-let selectedCategory = "All";
-
-const articles = {
-
-    emergency: {
-        category: "Disaster Preparedness",
-        title: "Emergency Preparedness",
-        content:
-        "Being prepared can help individuals and families respond calmly during emergencies. Keep important contact information available, understand local emergency procedures, and discuss a simple family emergency plan.",
-        question: "What is a useful part of emergency preparedness?",
-        options: [
-            "Having an emergency plan",
-            "Ignoring warnings",
-            "Sharing unverified information"
-        ],
-        answer: 0
-    },
-
-    scams: {
-        category: "Digital Safety & Scams",
-        title: "Protect Yourself From Online Scams",
-        content:
-        "Be careful with unexpected messages, suspicious links and requests for personal information. Never share passwords or sensitive account information with unknown people. When something seems suspicious, verify it through an official source.",
-        question: "What should you do with a suspicious link?",
-        options: [
-            "Open it immediately",
-            "Verify it before clicking",
-            "Share it with everyone"
-        ],
-        answer: 1
-    },
-
-    rights: {
-        category: "Civic Rights",
-        title: "Know Your Civic Rights",
-        content:
-        "Being an informed citizen means understanding basic civic responsibilities, knowing how to access public services and participating responsibly in your community.",
-        question: "What is an important part of being an informed citizen?",
-        options: [
-            "Understanding civic responsibilities",
-            "Ignoring community issues",
-            "Sharing false information"
-        ],
-        answer: 0
-    },
-
-    health: {
-        category: "Health & Hygiene",
-        title: "Health & Hygiene",
-        content:
-        "Good hygiene practices can help maintain healthier communities. Regular hand washing, safe food and water practices, and keeping surroundings clean are useful everyday habits.",
-        question: "Which is a good hygiene practice?",
-        options: [
-            "Ignoring cleanliness",
-            "Keeping surroundings clean",
-            "Sharing unverified health information"
-        ],
-        answer: 1
-    }
-
-};
-
-function openArticle(id) {
-
-    const article = articles[id];
-
-    document.getElementById("modalCategory").textContent =
-        article.category;
-
-    document.getElementById("modalTitle").textContent =
-        article.title;
-
-    document.getElementById("modalContent").textContent =
-        article.content;
-
-    document.getElementById("quizQuestion").textContent =
-        article.question;
-
-    document.getElementById("option0").textContent =
-        article.options[0];
-
-    document.getElementById("option1").textContent =
-        article.options[1];
-
-    document.getElementById("option2").textContent =
-        article.options[2];
-
-    document.getElementById("quizResult").textContent = "";
-
-    document.getElementById("articleModal").style.display = "block";
-
-    window.currentAnswer = article.answer;
-}
-
-function closeArticle() {
-
-    document.getElementById("articleModal").style.display = "none";
-
-}
-
-function checkAnswer(option) {
-
-    const result = document.getElementById("quizResult");
-
-    if (option === window.currentAnswer) {
-
-        result.textContent = "✅ Correct answer!";
-
-    } else {
-
-        result.textContent = "❌ Not quite. Try again!";
-
-    }
-
-}
-
-function selectCategory(category, button) {
-
-    selectedCategory = category;
-
-    document.querySelectorAll(".category").forEach(function(btn) {
-        btn.classList.remove("active");
-    });
-
-    button.classList.add("active");
-
-    filterArticles();
-
-}
-
-function filterArticles() {
-
-    const searchText =
-        document.getElementById("search").value.toLowerCase();
-
-    const cards =
-        document.querySelectorAll(".card");
-
-    let visibleCount = 0;
-
-    cards.forEach(function(card) {
-
-        const category =
-            card.getAttribute("data-category");
-
-        const searchData =
-            card.getAttribute("data-search");
-
-        const categoryMatch =
-            selectedCategory === "All" ||
-            category === selectedCategory;
-
-        const searchMatch =
-            searchData.includes(searchText);
-
-        if (categoryMatch && searchMatch) {
-
-            card.style.display = "block";
-            visibleCount++;
-
-        } else {
-
-            card.style.display = "none";
-
-        }
-
-    });
-
-    document.getElementById("noResults").style.display =
-        visibleCount === 0 ? "block" : "none";
-
-}
-
-window.onclick = function(event) {
-
-    const modal =
-        document.getElementById("articleModal");
-
-    if (event.target === modal) {
-        closeArticle();
-    }
-
-};
-
-</script>
-
 </body>
+
 </html>
