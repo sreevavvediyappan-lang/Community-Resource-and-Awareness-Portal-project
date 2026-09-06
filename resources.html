@@ -1,1090 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Community Resources | CommunityConnect</title>
-
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f8fafc;
-      color: #0f172a;
-      line-height: 1.5;
-    }
-
-    a { text-decoration: none; color: inherit; }
-
-    .navbar {
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
-      padding: 16px 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: 800;
-      color: #059669;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      font-size: 14px;
-      font-weight: 600;
-      color: #475569;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active { color: #059669; }
-
-    .container {
-      width: min(1200px, 92%);
-      margin: 0 auto;
-    }
-
-    .hero {
-      margin: 28px 0 20px;
-      background: white;
-      border: 1px solid #e2e8f0;
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 4px 15px rgba(15, 23, 42, .05);
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      color: #4f46e5;
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
-    }
-
-    h1 { font-size: 32px; margin-bottom: 8px; }
-    .hero p { color: #64748b; max-width: 720px; font-size: 14px; }
-
-    .hero-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
-
-    button {
-      border: 0;
-      cursor: pointer;
-      font-family: inherit;
-    }
-
-    .btn {
-      padding: 11px 15px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 13px;
-    }
-
-    .btn-green { background: #059669; color: white; }
-    .btn-green:hover { background: #047857; }
-
-    .btn-indigo { background: #4f46e5; color: white; }
-    .btn-indigo:hover { background: #4338ca; }
-
-    .btn-light {
-      background: white;
-      border: 1px solid #cbd5e1;
-      color: #334155;
-    }
-
-    .btn-light:hover { background: #f1f5f9; }
-
-    .filters {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 22px;
-      flex-wrap: wrap;
-    }
-
-    .search-box {
-      flex: 1;
-      min-width: 260px;
-      position: relative;
-    }
-
-    .search-box input {
-      width: 100%;
-      padding: 13px 15px 13px 42px;
-      border: 1px solid #cbd5e1;
-      border-radius: 12px;
-      outline: none;
-      background: white;
-      font-size: 14px;
-    }
-
-    .search-box input:focus {
-      border-color: #6366f1;
-      box-shadow: 0 0 0 3px rgba(99,102,241,.12);
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 15px;
-      top: 12px;
-      font-size: 17px;
-      color: #94a3b8;
-    }
-
-    .category-list {
-      display: flex;
-      gap: 7px;
-      overflow-x: auto;
-      padding-bottom: 4px;
-    }
-
-    .category {
-      white-space: nowrap;
-      padding: 10px 13px;
-      border-radius: 10px;
-      border: 1px solid #e2e8f0;
-      background: white;
-      color: #475569;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .category.active {
-      background: #4f46e5;
-      color: white;
-      border-color: #4f46e5;
-    }
-
-    .resource-count {
-      color: #64748b;
-      font-size: 13px;
-      margin-bottom: 14px;
-    }
-
-    .resources-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      padding-bottom: 40px;
-    }
-
-    .card {
-      background: white;
-      border: 1px solid #e2e8f0;
-      border-radius: 18px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      min-height: 320px;
-      transition: .2s;
-    }
-
-    .card:hover {
-      border-color: #a5b4fc;
-      box-shadow: 0 8px 24px rgba(15,23,42,.08);
-      transform: translateY(-2px);
-    }
-
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      align-items: flex-start;
-    }
-
-    .badge {
-      display: inline-block;
-      background: #ecfdf5;
-      color: #047857;
-      border: 1px solid #a7f3d0;
-      padding: 4px 9px;
-      border-radius: 999px;
-      font-size: 10px;
-      font-weight: 800;
-    }
-
-    .bookmark {
-      font-size: 20px;
-      background: #f8fafc;
-      width: 34px;
-      height: 34px;
-      border-radius: 9px;
-      color: #94a3b8;
-    }
-
-    .bookmark.saved {
-      color: #4f46e5;
-      background: #eef2ff;
-    }
-
-    .card h2 {
-      font-size: 17px;
-      margin-top: 13px;
-      margin-bottom: 3px;
-    }
-
-    .org {
-      font-size: 12px;
-      color: #64748b;
-      font-weight: 600;
-      margin-bottom: 13px;
-    }
-
-    .info {
-      font-size: 12px;
-      color: #475569;
-      display: grid;
-      gap: 7px;
-    }
-
-    .service-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      margin-top: 14px;
-    }
-
-    .tag {
-      background: #f1f5f9;
-      color: #475569;
-      padding: 4px 7px;
-      border-radius: 6px;
-      font-size: 10px;
-    }
-
-    .card-footer {
-      border-top: 1px solid #f1f5f9;
-      margin-top: auto;
-      padding-top: 13px;
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .area {
-      font-size: 11px;
-      color: #94a3b8;
-    }
-
-    .empty {
-      grid-column: 1 / -1;
-      text-align: center;
-      background: white;
-      border: 1px dashed #cbd5e1;
-      padding: 55px 20px;
-      border-radius: 18px;
-      color: #64748b;
-    }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      background: rgba(15, 23, 42, .65);
-      padding: 20px;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal.show { display: flex; }
-
-    .modal-box {
-      width: min(650px, 100%);
-      max-height: 90vh;
-      overflow-y: auto;
-      background: white;
-      border-radius: 18px;
-      overflow: hidden;
-    }
-
-    .modal-header {
-      background: #0f172a;
-      color: white;
-      padding: 25px;
-      position: relative;
-    }
-
-    .close {
-      position: absolute;
-      right: 18px;
-      top: 15px;
-      background: transparent;
-      color: #cbd5e1;
-      font-size: 25px;
-    }
-
-    .modal-header h2 { margin-top: 10px; font-size: 23px; }
-    .modal-header p { color: #94a3b8; font-size: 12px; margin-top: 3px; }
-
-    .modal-content { padding: 25px; }
-
-    .detail-grid {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 15px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      margin-bottom: 22px;
-    }
-
-    .detail-label {
-      color: #94a3b8;
-      text-transform: uppercase;
-      font-size: 10px;
-      font-weight: 800;
-    }
-
-    .detail-value {
-      color: #334155;
-      font-size: 12px;
-      font-weight: 600;
-      margin-top: 3px;
-    }
-
-    .modal-section { margin-bottom: 20px; }
-    .modal-section h3 {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .6px;
-      margin-bottom: 9px;
-    }
-
-    .modal-section p { font-size: 13px; color: #475569; }
-
-    .service-list { list-style: none; display: grid; gap: 7px; }
-    .service-list li { font-size: 13px; color: #475569; }
-    .service-list li::before {
-      content: "✓";
-      color: #059669;
-      font-weight: bold;
-      margin-right: 8px;
-    }
-
-    .eligibility {
-      background: #fffbeb;
-      border: 1px solid #fde68a;
-      padding: 12px;
-      border-radius: 10px;
-    }
-
-    .modal-footer {
-      background: #f8fafc;
-      border-top: 1px solid #e2e8f0;
-      padding: 15px 25px;
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .request-form { display: grid; gap: 15px; padding: 25px; }
-    .request-form label {
-      display: block;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: #334155;
-    }
-
-    .request-form input,
-    .request-form select,
-    .request-form textarea {
-      width: 100%;
-      padding: 11px;
-      border: 1px solid #cbd5e1;
-      border-radius: 9px;
-      font-family: inherit;
-      outline: none;
-    }
-
-    .request-form textarea { resize: vertical; }
-
-    .logged-user {
-      background: #f8fafc;
-      padding: 11px;
-      border-radius: 9px;
-      font-size: 12px;
-      color: #475569;
-    }
-
-    .success {
-      padding: 45px 25px;
-      text-align: center;
-    }
-
-    .success-icon {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
-
-    footer {
-      background: #0f172a;
-      color: #cbd5e1;
-      padding: 30px 6%;
-      text-align: center;
-      font-size: 12px;
-    }
-
-    @media (max-width: 900px) {
-      .resources-grid { grid-template-columns: repeat(2, 1fr); }
-      .hero { flex-direction: column; align-items: flex-start; }
-    }
-
-    @media (max-width: 650px) {
-      .navbar { align-items: flex-start; flex-direction: column; }
-      .nav-links { gap: 12px; }
-      h1 { font-size: 25px; }
-      .resources-grid { grid-template-columns: 1fr; }
-      .detail-grid { grid-template-columns: 1fr; }
-      .modal-footer { flex-direction: column; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resources | CommunityConnect</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #FFF3E0;
+            color: #0f172a;
+            line-height: 1.5;
+        }
+
+        nav {
+            background: white;
+            padding: 16px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #16a34a;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #374151;
+            margin-left: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #16a34a;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 35px auto;
+        }
+
+        .hero {
+            background: #FFF8EF;
+            padding: 35px;
+            border-radius: 18px;
+            border: 1px solid #f3dfc4;
+            margin-bottom: 25px;
+        }
+
+        .small-title {
+            color: #ea580c;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .hero p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .card p {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background: #ea580c;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 9px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background: #c2410c;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #6b7280;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                margin-left: 8px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <nav class="navbar">
-    <a href="index.html" class="logo">🌿 CommunityConnect</a>
+<nav>
 
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="awareness.html">Awareness</a>
-      <a href="resources.html" class="active">Resources</a>
-      <a href="dashboard.html">Dashboard</a>
+    <div class="logo">
+        🌿 CommunityConnect
     </div>
-  </nav>
 
-  <main class="container">
+    <div>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="awarness.html">Awareness</a>
+    </div>
+
+</nav>
+
+
+<div class="container">
 
     <section class="hero">
-      <div>
-        <div class="eyebrow">📁 Verified Civic Directory</div>
-        <h1>Community Resources & Facilities</h1>
+
+        <div class="small-title">
+            📚 Community Support Resources
+        </div>
+
+        <h1>
+            Community Resources
+        </h1>
+
         <p>
-          Locate community kitchens, shelters, free legal aid, health services,
-          and job training centres with direct contact information.
+            Explore useful educational, government, health,
+            environmental and community resources in one place.
         </p>
-      </div>
 
-      <div class="hero-buttons">
-        <button class="btn btn-light" id="savedBtn" onclick="toggleSavedFilter()">
-          🔖 Saved (<span id="savedCount">0</span>)
-        </button>
-
-        <button class="btn btn-green" onclick="openRequestModal()">
-          ➕ Request Assistance
-        </button>
-      </div>
     </section>
 
-    <section class="filters">
-      <div class="search-box">
-        <span class="search-icon">🔍</span>
-        <input
-          id="searchInput"
-          type="text"
-          placeholder="Search by facility, service, or area..."
-          oninput="renderResources()"
-        >
-      </div>
 
-      <div class="category-list" id="categoryList"></div>
-    </section>
+    <div class="resources-grid">
 
-    <p class="resource-count" id="resourceCount"></p>
 
-    <section class="resources-grid" id="resourcesGrid"></section>
+        <div class="card">
 
-  </main>
+            <div class="icon">🎓</div>
 
-  <!-- Details Modal -->
-  <div class="modal" id="detailsModal">
-    <div class="modal-box" id="detailsBox"></div>
-  </div>
+            <h2>
+                Educational Resources
+            </h2>
 
-  <!-- Request Assistance Modal -->
-  <div class="modal" id="requestModal">
-    <div class="modal-box">
+            <p>
+                Find learning opportunities, educational
+                information and useful study resources.
+            </p>
 
-      <div class="modal-header">
-        <button class="close" onclick="closeRequestModal()">×</button>
-        <h2>Request Community Assistance</h2>
-        <p>Tell us what kind of community support you need.</p>
-      </div>
+            <a href="educational.html" class="btn">
+                Explore Resources →
+            </a>
 
-      <div id="requestBody">
-        <form class="request-form" onsubmit="submitRequest(event)">
+        </div>
 
-          <div>
-            <label for="needType">Need Type</label>
-            <select id="needType" required>
-              <option value="">Select assistance needed...</option>
-              <option>Emergency Food / Grocery Box</option>
-              <option>Shelter / Temporary Lodging</option>
-              <option>Free Legal Help / Court Advice</option>
-              <option>Health Consultation</option>
-              <option>Senior Citizen Support</option>
-              <option>Job Training / Placement Assistance</option>
-            </select>
-          </div>
 
-          <div>
-            <label for="requestDetails">Details / Specific Location</label>
-            <textarea id="requestDetails" rows="4" required
-              placeholder="Briefly describe what you or your neighbour needs..."></textarea>
-          </div>
+        <div class="card">
 
-          <div class="logged-user">
-            Logged under resident:
-            <strong id="loggedUser">Guest</strong>
-          </div>
+            <div class="icon">🏛️</div>
 
-          <button class="btn btn-green" type="submit">
-            📤 Submit Assistance Request
-          </button>
+            <h2>
+                Government Schemes
+            </h2>
 
-        </form>
-      </div>
+            <p>
+                Discover government schemes and public
+                services that may support communities.
+            </p>
+
+            <a href="government.html" class="btn">
+                View Schemes →
+            </a>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🏥</div>
+
+            <h2>
+                Health Resources
+            </h2>
+
+            <p>
+                Access general health information and
+                useful community health resources.
+            </p>
+
+            <a href="health.html" class="btn">
+                Explore Health →
+            </a>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🌱</div>
+
+            <h2>
+                Environmental Resources
+            </h2>
+
+            <p>
+                Learn about environmental awareness,
+                sustainability and community action.
+            </p>
+
+            <a href="environmental.html" class="btn">
+                Explore Environment →
+            </a>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">👥</div>
+
+            <h2>
+                Community Support
+            </h2>
+
+            <p>
+                Find information that can help individuals
+                connect with and support their community.
+            </p>
+
+            <a href="community.html" class="btn">
+                Explore Community →
+            </a>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">📞</div>
+
+            <h2>
+                Emergency Support
+            </h2>
+
+            <p>
+                Find important emergency information and
+                contact details for immediate assistance.
+            </p>
+
+            <a href="emergency.html" class="btn">
+                Emergency Help →
+            </a>
+
+        </div>
 
     </div>
-  </div>
 
-  <footer>
-    <p>© 2026 CommunityConnect — Connect. Discover. Empower.</p>
-  </footer>
+</div>
 
-<script>
-  const resources = [
-    {
-      id: 1,
-      category: "Food Pantry & Meals",
-      title: "Community Food Support Centre",
-      organization: "Community Welfare Centre",
-      address: "12 Main Road, Community Area",
-      cityArea: "Chennai",
-      openingHours: "Mon–Sat, 9:00 AM – 5:00 PM",
-      phone: "044-2345-6789",
-      email: "support@example.org",
-      servicesProvided: [
-        "Free meals",
-        "Grocery support",
-        "Emergency food assistance"
-      ],
-      eligibilityRequired: "Residents may be asked to provide basic identification or explain their need.",
-      languagesSupported: ["English", "Tamil"],
-      accessibility: ["Wheelchair accessible"],
-      notes: "Please call before visiting to confirm availability."
-    },
-    {
-      id: 2,
-      category: "Shelter & Housing",
-      title: "Community Shelter Support",
-      organization: "Local Community Welfare Trust",
-      address: "24 Central Street, Community Area",
-      cityArea: "Chennai",
-      openingHours: "Daily, 8:00 AM – 8:00 PM",
-      phone: "044-2456-7890",
-      email: "shelter@example.org",
-      servicesProvided: [
-        "Temporary shelter",
-        "Basic meals",
-        "Housing guidance"
-      ],
-      eligibilityRequired: "Availability depends on current capacity and the person's circumstances.",
-      languagesSupported: ["English", "Tamil"],
-      accessibility: ["Accessible entrance"],
-      notes: "Contact the centre before travelling."
-    },
-    {
-      id: 3,
-      category: "Free Legal Clinic",
-      title: "Community Legal Aid Clinic",
-      organization: "Civic Legal Support Centre",
-      address: "8 Civic Centre Road",
-      cityArea: "Chennai",
-      openingHours: "Mon–Fri, 10:00 AM – 4:00 PM",
-      phone: "044-2567-8901",
-      email: "legal@example.org",
-      servicesProvided: [
-        "Basic legal guidance",
-        "Document guidance",
-        "Civic rights information"
-      ],
-      eligibilityRequired: "Services may be subject to the centre's eligibility guidelines.",
-      languagesSupported: ["English", "Tamil"],
-      accessibility: ["Wheelchair accessible"],
-      notes: "Appointments may be required."
-    },
-    {
-      id: 4,
-      category: "Community Health & Mental Wellness",
-      title: "Community Health Centre",
-      organization: "Neighbourhood Health Initiative",
-      address: "35 Health Street",
-      cityArea: "Chennai",
-      openingHours: "Mon–Sat, 8:30 AM – 5:30 PM",
-      phone: "044-2678-9012",
-      email: "health@example.org",
-      servicesProvided: [
-        "General health guidance",
-        "Health awareness",
-        "Low-cost consultation information"
-      ],
-      eligibilityRequired: "Services and eligibility vary by programme.",
-      languagesSupported: ["English", "Tamil"],
-      accessibility: ["Wheelchair accessible"],
-      notes: "Call ahead for current services and timings."
-    },
-    {
-      id: 5,
-      category: "Job Training & Skills",
-      title: "Community Skill Development Centre",
-      organization: "Skills & Employment Initiative",
-      address: "17 Skill Development Road",
-      cityArea: "Chennai",
-      openingHours: "Mon–Fri, 9:00 AM – 6:00 PM",
-      phone: "044-2789-0123",
-      email: "skills@example.org",
-      servicesProvided: [
-        "Job training",
-        "Digital skills",
-        "Career guidance"
-      ],
-      eligibilityRequired: "Course eligibility varies depending on the training programme.",
-      languagesSupported: ["English", "Tamil"],
-      accessibility: ["Accessible entrance"],
-      notes: "Ask about upcoming training batches."
-    },
-    {
-      id: 6,
-      category: "Youth & Senior Care",
-      title: "Youth & Senior Support Centre",
-      organization: "Community Care Network",
-      address: "42 Community Care Road",
-      cityArea: "Chennai",
-      openingHours: "Mon–Sat, 9:00 AM – 5:00 PM",
-      phone: "044-2890-1234",
-      email: "care@example.org",
-      servicesProvided: [
-        "Senior support",
-        "Youth activities",
-        "Community assistance"
-      ],
-      eligibilityRequired: "Support depends on the programme and available resources.",
-      languagesSupported: ["English", "Tamil"],
-      accessibility: ["Wheelchair accessible"],
-      notes: "Contact the centre for programme details."
-    }
-  ];
 
-  const categories = [
-    "All",
-    "Food Pantry & Meals",
-    "Shelter & Housing",
-    "Free Legal Clinic",
-    "Community Health & Mental Wellness",
-    "Job Training & Skills",
-    "Youth & Senior Care"
-  ];
+<footer>
 
-  let selectedCategory = "All";
-  let savedOnly = false;
+    © 2026 CommunityConnect |
+    Community Resource and Awareness Portal
 
-  let savedResources =
-    JSON.parse(localStorage.getItem("communityConnectSavedResources") || "[]");
-
-  function escapeHTML(text) {
-    return String(text ?? "")
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-  }
-
-  function renderCategories() {
-    const box = document.getElementById("categoryList");
-
-    box.innerHTML = categories.map(category => `
-      <button
-        class="category ${selectedCategory === category ? "active" : ""}"
-        onclick="selectCategory('${category.replace(/'/g, "\\'")}')"
-      >
-        ${escapeHTML(category)}
-      </button>
-    `).join("");
-  }
-
-  function selectCategory(category) {
-    selectedCategory = category;
-    renderCategories();
-    renderResources();
-  }
-
-  function toggleSavedFilter() {
-    savedOnly = !savedOnly;
-
-    document.getElementById("savedBtn").classList.toggle("btn-indigo", savedOnly);
-    document.getElementById("savedBtn").classList.toggle("btn-light", !savedOnly);
-
-    renderResources();
-  }
-
-  function toggleBookmark(id) {
-    if (savedResources.includes(id)) {
-      savedResources = savedResources.filter(item => item !== id);
-    } else {
-      savedResources.push(id);
-    }
-
-    localStorage.setItem(
-      "communityConnectSavedResources",
-      JSON.stringify(savedResources)
-    );
-
-    updateSavedCount();
-    renderResources();
-  }
-
-  function updateSavedCount() {
-    document.getElementById("savedCount").textContent = savedResources.length;
-  }
-
-  function renderResources() {
-    const search = document.getElementById("searchInput").value.toLowerCase().trim();
-    const grid = document.getElementById("resourcesGrid");
-
-    const filtered = resources.filter(resource => {
-      const text = [
-        resource.title,
-        resource.organization,
-        resource.cityArea,
-        resource.address,
-        resource.category,
-        ...resource.servicesProvided
-      ].join(" ").toLowerCase();
-
-      const matchesSearch = text.includes(search);
-      const matchesCategory =
-        selectedCategory === "All" ||
-        resource.category === selectedCategory;
-      const matchesSaved =
-        !savedOnly || savedResources.includes(resource.id);
-
-      return matchesSearch && matchesCategory && matchesSaved;
-    });
-
-    document.getElementById("resourceCount").textContent =
-      `${filtered.length} resource${filtered.length === 1 ? "" : "s"} found`;
-
-    if (filtered.length === 0) {
-      grid.innerHTML = `
-        <div class="empty">
-          <div style="font-size:38px;">📁</div>
-          <h2 style="font-size:17px;margin:8px 0;">No community resources found</h2>
-          <p style="font-size:13px;margin-bottom:15px;">
-            Try removing some filters or searching for another service.
-          </p>
-          <button class="btn btn-indigo" onclick="resetFilters()">
-            Reset Filters
-          </button>
-        </div>
-      `;
-      return;
-    }
-
-    grid.innerHTML = filtered.map(resource => {
-      const saved = savedResources.includes(resource.id);
-
-      return `
-        <article class="card">
-          <div>
-            <div class="card-top">
-              <span class="badge">${escapeHTML(resource.category)}</span>
-
-              <button
-                class="bookmark ${saved ? "saved" : ""}"
-                onclick="toggleBookmark(${resource.id})"
-                title="${saved ? "Remove bookmark" : "Save resource"}"
-              >
-                ${saved ? "★" : "☆"}
-              </button>
-            </div>
-
-            <h2>${escapeHTML(resource.title)}</h2>
-            <p class="org">${escapeHTML(resource.organization)}</p>
-
-            <div class="info">
-              <div>📍 ${escapeHTML(resource.address)}</div>
-              <div>🕐 ${escapeHTML(resource.openingHours)}</div>
-              <div>📞 <a href="tel:${escapeHTML(resource.phone)}" style="color:#047857;font-weight:700;">
-                ${escapeHTML(resource.phone)}
-              </a></div>
-            </div>
-
-            <div class="service-tags">
-              ${resource.servicesProvided.slice(0, 2).map(service =>
-                `<span class="tag">✓ ${escapeHTML(service)}</span>`
-              ).join("")}
-              ${resource.servicesProvided.length > 2
-                ? `<span class="tag">+${resource.servicesProvided.length - 2} more</span>`
-                : ""}
-            </div>
-          </div>
-
-          <div class="card-footer">
-            <span class="area">${escapeHTML(resource.cityArea)}</span>
-
-            <button class="btn btn-indigo" onclick="openDetails(${resource.id})">
-              View Details
-            </button>
-          </div>
-        </article>
-      `;
-    }).join("");
-  }
-
-  function resetFilters() {
-    document.getElementById("searchInput").value = "";
-    selectedCategory = "All";
-    savedOnly = false;
-
-    document.getElementById("savedBtn").classList.remove("btn-indigo");
-    document.getElementById("savedBtn").classList.add("btn-light");
-
-    renderCategories();
-    renderResources();
-  }
-
-  function openDetails(id) {
-    const resource = resources.find(item => item.id === id);
-    if (!resource) return;
-
-    const saved = savedResources.includes(resource.id);
-
-    document.getElementById("detailsBox").innerHTML = `
-      <div class="modal-header">
-        <button class="close" onclick="closeDetails()">×</button>
-
-        <span class="badge">
-          ${escapeHTML(resource.category)}
-        </span>
-
-        <h2>${escapeHTML(resource.title)}</h2>
-        <p>Operated by ${escapeHTML(resource.organization)}</p>
-      </div>
-
-      <div class="modal-content">
-
-        <div class="detail-grid">
-          <div>
-            <div class="detail-label">Address</div>
-            <div class="detail-value">${escapeHTML(resource.address)}</div>
-            <div class="detail-value" style="color:#64748b;">
-              ${escapeHTML(resource.cityArea)}
-            </div>
-          </div>
-
-          <div>
-            <div class="detail-label">Operating Hours</div>
-            <div class="detail-value">${escapeHTML(resource.openingHours)}</div>
-          </div>
-
-          <div>
-            <div class="detail-label">Telephone</div>
-            <div class="detail-value">
-              <a href="tel:${escapeHTML(resource.phone)}" style="color:#047857;">
-                ${escapeHTML(resource.phone)}
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <div class="detail-label">Email Contact</div>
-            <div class="detail-value">
-              <a href="mailto:${escapeHTML(resource.email)}" style="color:#4f46e5;">
-                ${escapeHTML(resource.email)}
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal-section">
-          <h3>Services Provided</h3>
-          <ul class="service-list">
-            ${resource.servicesProvided.map(service =>
-              `<li>${escapeHTML(service)}</li>`
-            ).join("")}
-          </ul>
-        </div>
-
-        <div class="modal-section">
-          <h3>Eligibility & Requirements</h3>
-          <p class="eligibility">
-            ${escapeHTML(resource.eligibilityRequired)}
-          </p>
-        </div>
-
-        <div class="modal-section">
-          <h3>Languages & Accessibility</h3>
-          <p>
-            <strong>Languages:</strong>
-            ${resource.languagesSupported.map(escapeHTML).join(", ")}
-          </p>
-          <p style="margin-top:5px;">
-            <strong>Accessibility:</strong>
-            ${resource.accessibility.map(escapeHTML).join(", ")}
-          </p>
-        </div>
-
-        <div class="modal-section">
-          <p><em>Note: ${escapeHTML(resource.notes)}</em></p>
-        </div>
-
-      </div>
-
-      <div class="modal-footer">
-        <button class="btn btn-light" onclick="toggleBookmark(${resource.id); openDetails(${resource.id})">
-          ${saved ? "★ Saved to Profile" : "☆ Bookmark Resource"}
-        </button>
-
-        <a class="btn btn-green" href="tel:${escapeHTML(resource.phone)}">
-          📞 Call Centre
-        </a>
-      </div>
-    `;
-
-    document.getElementById("detailsModal").classList.add("show");
-  }
-
-  function closeDetails() {
-    document.getElementById("detailsModal").classList.remove("show");
-  }
-
-  function openRequestModal() {
-    document.getElementById("requestModal").classList.add("show");
-
-    const savedUser =
-      JSON.parse(localStorage.getItem("communityConnectUser") || "null");
-
-    if (savedUser) {
-      document.getElementById("loggedUser").textContent =
-        `${savedUser.name || "User"} (${savedUser.email || ""})`;
-    } else {
-      document.getElementById("loggedUser").textContent =
-        "Guest user";
-    }
-  }
-
-  function closeRequestModal() {
-    document.getElementById("requestModal").classList.remove("show");
-  }
-
-  function submitRequest(event) {
-    event.preventDefault();
-
-    const type = document.getElementById("needType").value;
-    const details = document.getElementById("requestDetails").value.trim();
-
-    const requests =
-      JSON.parse(localStorage.getItem("communityConnectRequests") || "[]");
-
-    requests.push({
-      type: type,
-      details: details,
-      date: new Date().toISOString()
-    });
-
-    localStorage.setItem(
-      "communityConnectRequests",
-      JSON.stringify(requests)
-    );
-
-    document.getElementById("requestBody").innerHTML = `
-      <div class="success">
-        <div class="success-icon">✅</div>
-        <h2 style="font-size:18px;margin-bottom:6px;">
-          Request Logged Successfully
-        </h2>
-        <p style="font-size:13px;color:#64748b;">
-          Your assistance request has been recorded.
-          The community support team can use the details you provided.
-        </p>
-      </div>
-    `;
-
-    setTimeout(() => {
-      closeRequestModal();
-
-      document.getElementById("requestBody").innerHTML = `
-        <form class="request-form" onsubmit="submitRequest(event)">
-
-          <div>
-            <label for="needType">Need Type</label>
-            <select id="needType" required>
-              <option value="">Select assistance needed...</option>
-              <option>Emergency Food / Grocery Box</option>
-              <option>Shelter / Temporary Lodging</option>
-              <option>Free Legal Help / Court Advice</option>
-              <option>Health Consultation</option>
-              <option>Senior Citizen Support</option>
-              <option>Job Training / Placement Assistance</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="requestDetails">Details / Specific Location</label>
-            <textarea id="requestDetails" rows="4" required
-              placeholder="Briefly describe what you or your neighbour needs..."></textarea>
-          </div>
-
-          <div class="logged-user">
-            Logged under resident:
-            <strong id="loggedUser">Guest</strong>
-          </div>
-
-          <button class="btn btn-green" type="submit">
-            📤 Submit Assistance Request
-          </button>
-
-        </form>
-      `;
-
-    }, 2000);
-  }
-
-  document.getElementById("detailsModal").addEventListener("click", function(event) {
-    if (event.target === this) closeDetails();
-  });
-
-  document.getElementById("requestModal").addEventListener("click", function(event) {
-    if (event.target === this) closeRequestModal();
-  });
-
-  updateSavedCount();
-  renderCategories();
-  renderResources();
-</script>
+</footer>
 
 </body>
 </html>
