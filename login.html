@@ -3,293 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Login | CommunityConnect</title>
 
     <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         body {
             min-height: 100vh;
-            background: #f4f8f5;
+            background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
             display: flex;
-            align-items: center;
             justify-content: center;
-            padding: 30px;
+            align-items: center;
+            padding: 20px;
         }
 
-        .login-wrapper {
-            width: 100%;
-            max-width: 1050px;
-            min-height: 650px;
+        .container {
+            width: 900px;
+            max-width: 100%;
+            min-height: 560px;
             background: white;
-            border-radius: 24px;
+            border-radius: 25px;
             overflow: hidden;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            box-shadow: 0 20px 60px rgba(20, 70, 45, 0.15);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            display: flex;
         }
 
-        .login-left {
-            background: #123d2a;
+        /* LEFT SIDE */
+        .left {
+            width: 45%;
+            background: linear-gradient(135deg, #2e7d32, #66bb6a);
             color: white;
-            padding: 60px;
+            padding: 55px 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            position: relative;
-            overflow: hidden;
         }
 
-        .login-left::before {
-            content: "";
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 50%;
-            right: -120px;
-            top: -80px;
+        .left h1 {
+            font-size: 38px;
+            margin-bottom: 15px;
         }
 
-        .login-left::after {
-            content: "";
-            position: absolute;
-            width: 450px;
-            height: 450px;
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 50%;
-            left: -250px;
-            bottom: -220px;
+        .left p {
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 25px;
         }
 
-        .brand {
-            position: relative;
-            z-index: 2;
-            margin-bottom: 70px;
+        .features {
+            list-style: none;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 25px;
-            font-weight: 800;
-        }
-
-        .logo-icon {
-            width: 45px;
-            height: 45px;
-            background: #5ab878;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 22px;
-        }
-
-        .tagline {
-            margin-top: 8px;
-            color: #b8d7c4;
-            font-size: 13px;
-        }
-
-        .welcome {
-            position: relative;
-            z-index: 2;
-        }
-
-        .welcome h1 {
-            font-size: 44px;
-            line-height: 1.15;
-            margin-bottom: 22px;
-        }
-
-        .welcome h1 span {
-            color: #68c586;
-        }
-
-        .welcome p {
-            color: #c5dbcd;
-            font-size: 16px;
-            line-height: 1.8;
-            max-width: 430px;
-        }
-
-        .benefits {
-            position: relative;
-            z-index: 2;
-            margin-top: 35px;
-        }
-
-        .benefit {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .features li {
             margin: 15px 0;
-            color: #d9e9df;
-            font-size: 14px;
+            font-size: 16px;
         }
 
-        .check {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background: rgba(104, 197, 134, 0.18);
-            color: #68c586;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .features li::before {
+            content: "✓";
             font-weight: bold;
+            margin-right: 10px;
         }
 
-        .login-right {
-            padding: 55px;
+        /* RIGHT SIDE */
+        .right {
+            width: 55%;
+            padding: 55px 50px;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            background: #ffffff;
         }
 
-        .form-box {
-            width: 100%;
-            max-width: 420px;
-        }
-
-        .form-header {
-            margin-bottom: 35px;
-        }
-
-        .form-header h2 {
+        .right h2 {
+            color: #1b5e20;
             font-size: 32px;
-            color: #183b2a;
             margin-bottom: 10px;
         }
 
-        .form-header p {
-            color: #718078;
-            font-size: 14px;
+        .subtitle {
+            color: #777;
+            margin-bottom: 30px;
         }
 
         .form-group {
             margin-bottom: 20px;
         }
 
-        .form-group label {
+        label {
             display: block;
             margin-bottom: 8px;
-            color: #30483b;
-            font-size: 14px;
-            font-weight: 600;
+            color: #333;
+            font-weight: bold;
         }
 
-        .input-box input {
+        input[type="email"],
+        input[type="password"],
+        input[type="text"] {
             width: 100%;
-            padding: 15px 16px;
-            border: 1px solid #d9e3dd;
+            padding: 14px;
+            border: 1px solid #ddd;
             border-radius: 10px;
+            font-size: 15px;
             outline: none;
-            font-size: 14px;
-            color: #25372e;
-            transition: 0.3s;
         }
 
-        .input-box input:focus {
-            border-color: #3d9b5e;
-            box-shadow: 0 0 0 3px rgba(61, 155, 94, 0.10);
+        input:focus {
+            border-color: #43a047;
+            box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.12);
         }
 
-        .password-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            font-size: 13px;
+        .password-box {
+            position: relative;
         }
 
-        .remember {
+        .password-box input {
+            padding-right: 45px;
+        }
+
+        .show-password {
+            margin-top: 9px;
             display: flex;
             align-items: center;
             gap: 7px;
-            color: #69776f;
+            font-size: 14px;
+            color: #666;
         }
 
-        .remember input {
-            accent-color: #287a48;
+        .show-password input {
+            width: auto;
+        }
+
+        .options {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: -5px;
+            margin-bottom: 20px;
         }
 
         .forgot {
-            color: #287a48;
+            color: #2e7d32;
             text-decoration: none;
-            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
         }
 
         .forgot:hover {
             text-decoration: underline;
         }
 
-        .login-btn {
+        button {
             width: 100%;
-            border: none;
             padding: 15px;
+            border: none;
             border-radius: 10px;
-            background: #287a48;
+            background: #2e7d32;
             color: white;
-            font-size: 15px;
-            font-weight: 700;
+            font-size: 16px;
+            font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
         }
 
-        .login-btn:hover {
-            background: #1f643b;
-            transform: translateY(-1px);
+        button:hover {
+            background: #1b5e20;
         }
 
-        .login-btn:disabled {
-            opacity: 0.7;
+        button:disabled {
+            background: #9e9e9e;
             cursor: not-allowed;
-            transform: none;
         }
 
         .message {
-            display: none;
-            padding: 12px 15px;
-            border-radius: 9px;
-            margin-bottom: 18px;
-            font-size: 13px;
-        }
-
-        .error {
-            display: block;
-            background: #fff0f0;
-            color: #b42318;
-            border: 1px solid #ffd0d0;
-        }
-
-        .success {
-            display: block;
-            background: #edf9f1;
-            color: #24733e;
-            border: 1px solid #c9ead3;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 14px;
+            min-height: 20px;
         }
 
         .signup-text {
             text-align: center;
             margin-top: 25px;
-            color: #748078;
-            font-size: 14px;
+            color: #666;
         }
 
         .signup-text a {
-            color: #287a48;
-            font-weight: 700;
+            color: #2e7d32;
+            font-weight: bold;
             text-decoration: none;
         }
 
@@ -297,59 +201,22 @@
             text-decoration: underline;
         }
 
-        .home-link {
-            display: block;
-            text-align: center;
-            margin-top: 25px;
-            color: #65736b;
-            text-decoration: none;
-            font-size: 13px;
-        }
-
-        .home-link:hover {
-            color: #287a48;
-        }
-
-        @media (max-width: 800px) {
-
-            body {
-                padding: 15px;
+        @media (max-width: 700px) {
+            .container {
+                flex-direction: column;
             }
 
-            .login-wrapper {
-                grid-template-columns: 1fr;
+            .left,
+            .right {
+                width: 100%;
             }
 
-            .login-left {
+            .left {
+                padding: 35px;
+            }
+
+            .right {
                 padding: 40px 30px;
-                min-height: 400px;
-            }
-
-            .brand {
-                margin-bottom: 40px;
-            }
-
-            .welcome h1 {
-                font-size: 34px;
-            }
-
-            .login-right {
-                padding: 40px 25px;
-            }
-        }
-
-        @media (max-width: 450px) {
-
-            .login-left {
-                padding: 35px 22px;
-            }
-
-            .login-right {
-                padding: 35px 20px;
-            }
-
-            .welcome h1 {
-                font-size: 30px;
             }
         }
     </style>
@@ -357,165 +224,93 @@
 
 <body>
 
-<div class="login-wrapper">
+<div class="container">
 
-    <div class="login-left">
+    <div class="left">
+        <h1>CommunityConnect</h1>
 
-        <div class="brand">
+        <p>
+            Connect. Discover. Empower.
+            Access community resources, educational opportunities,
+            government services and awareness information.
+        </p>
 
-            <div class="logo">
-                <div class="logo-icon">CC</div>
-                <span>CommunityConnect</span>
-            </div>
-
-            <div class="tagline">
-                Connect. Discover. Empower.
-            </div>
-
-        </div>
-
-        <div class="welcome">
-
-            <h1>
-                Welcome<br>
-                <span>Back!</span>
-            </h1>
-
-            <p>
-                Sign in to continue exploring community resources,
-                government schemes, educational opportunities and
-                important awareness information.
-            </p>
-
-        </div>
-
-        <div class="benefits">
-
-            <div class="benefit">
-                <div class="check">✓</div>
-                Discover useful community resources
-            </div>
-
-            <div class="benefit">
-                <div class="check">✓</div>
-                Save resources for later
-            </div>
-
-            <div class="benefit">
-                <div class="check">✓</div>
-                Track your applications
-            </div>
-
-        </div>
-
+        <ul class="features">
+            <li>Community Resources</li>
+            <li>Educational Opportunities</li>
+            <li>Government Services</li>
+            <li>Awareness & Information</li>
+        </ul>
     </div>
 
+    <div class="right">
 
-    <div class="login-right">
+        <h2>Welcome Back!</h2>
 
-        <div class="form-box">
+        <p class="subtitle">
+            Login to continue to CommunityConnect
+        </p>
 
-            <div class="form-header">
+        <form id="loginForm">
 
-                <h2>Sign In</h2>
+            <div class="form-group">
+                <label for="email">Email Address</label>
 
-                <p>
-                    Enter your account details to access your dashboard.
-                </p>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+
+                <label for="password">Password</label>
+
+                <div class="password-box">
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+                <label class="show-password">
+                    <input type="checkbox" id="showPassword">
+                    Show password
+                </label>
 
             </div>
 
-            <div id="message" class="message"></div>
-
-            <form id="loginForm">
-
-                <div class="form-group">
-
-                    <label for="email">
-                        Email Address
-                    </label>
-
-                    <div class="input-box">
-
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="Enter your email"
-                            required
-                        >
-
-                    </div>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="password">
-                        Password
-                    </label>
-
-                    <div class="input-box">
-
-                        <input
-                            type="password"
-                            id="password"
-                            placeholder="Enter your password"
-                            required
-                        >
-
-                    </div>
-
-                </div>
-
-
-                <div class="password-row">
-
-                    <label class="remember">
-
-                        <input type="checkbox" id="showPassword">
-
-                        Show password
-
-                    </label>
-
-                    <a href="#" class="forgot" id="forgotPassword">
-                        Forgot password?
-                    </a>
-
-                </div>
-
-
-                <button type="submit" class="login-btn" id="loginButton">
-                    Sign In
-                </button>
-
-            </form>
-
-
-            <div class="signup-text">
-
-                Don't have an account?
-                <a href="signup.html">Create Account</a>
-
+            <div class="options">
+                <a class="forgot" id="forgotPassword">
+                    Forgot password?
+                </a>
             </div>
 
+            <button type="submit" id="loginButton">
+                Login
+            </button>
 
-            <a href="index.html" class="home-link">
-                ← Back to Home
-            </a>
+            <div class="message" id="message"></div>
 
-        </div>
+        </form>
+
+        <p class="signup-text">
+            Don't have an account?
+            <a href="signup.html">Create Account</a>
+        </p>
 
     </div>
 
 </div>
 
 
-<!-- =========================================================
-     FIREBASE LOGIN
-========================================================= -->
-
+<!-- FIREBASE -->
 <script type="module">
 
     import { initializeApp }
@@ -524,125 +319,94 @@
     import {
         getAuth,
         signInWithEmailAndPassword,
-        sendPasswordResetEmail
+        sendPasswordResetEmail,
+        onAuthStateChanged
     }
-        from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+    from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
 
-    /* =====================================================
-       YOUR FIREBASE CONFIGURATION
-    ===================================================== */
-
+    // Firebase configuration
     const firebaseConfig = {
 
-        apiKey: "YOUR_API_KEY",
+        apiKey: "AIzaSyDpm8pHtGj_6pTw_ltZqpbHDWuF1G7KgZ4",
 
-        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+        authDomain:
+            "community-resourses.firebaseapp.com",
 
-        projectId: "YOUR_PROJECT_ID",
+        projectId:
+            "community-resourses",
 
-        storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
+        storageBucket:
+            "community-resourses.firebasestorage.app",
 
-        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        messagingSenderId:
+            "556205954035",
 
-        appId: "YOUR_APP_ID"
+        appId:
+            "1:556205954035:web:90c48e1ba4b241bc1ab886",
 
+        measurementId:
+            "G-BSVB77GELT"
     };
 
 
-    /* INITIALIZE FIREBASE */
-
+    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
 
     const auth = getAuth(app);
 
 
-    /* GET HTML ELEMENTS */
-
     const loginForm =
         document.getElementById("loginForm");
 
-    const message =
-        document.getElementById("message");
-
-    const showPassword =
-        document.getElementById("showPassword");
+    const emailInput =
+        document.getElementById("email");
 
     const passwordInput =
         document.getElementById("password");
 
+    const showPassword =
+        document.getElementById("showPassword");
+
     const loginButton =
         document.getElementById("loginButton");
+
+    const message =
+        document.getElementById("message");
 
     const forgotPassword =
         document.getElementById("forgotPassword");
 
 
-    /* =====================================================
-       SHOW / HIDE PASSWORD
-    ===================================================== */
-
+    // Show / hide password
     showPassword.addEventListener("change", function () {
 
         if (this.checked) {
-
             passwordInput.type = "text";
-
         } else {
-
             passwordInput.type = "password";
-
         }
 
     });
 
 
-    /* =====================================================
-       DISPLAY MESSAGE
-    ===================================================== */
-
-    function showMessage(text, type) {
-
-        message.className = "message " + type;
-
-        message.textContent = text;
-
-    }
-
-
-    /* =====================================================
-       FIREBASE LOGIN
-    ===================================================== */
-
+    // Login
     loginForm.addEventListener("submit", async function (event) {
 
         event.preventDefault();
 
         const email =
-            document.getElementById("email")
-            .value
-            .trim()
-            .toLowerCase();
+            emailInput.value.trim();
 
         const password =
             passwordInput.value;
 
 
-        if (!email || !password) {
-
-            showMessage(
-                "Please enter your email and password.",
-                "error"
-            );
-
-            return;
-
-        }
-
+        message.textContent = "";
+        message.style.color = "#d32f2f";
 
         loginButton.disabled = true;
-
-        loginButton.textContent = "Signing in...";
+        loginButton.textContent = "Logging in...";
 
 
         try {
@@ -654,20 +418,11 @@
                     password
                 );
 
-
-            /* LOGIN SUCCESS */
-
             const user =
                 userCredential.user;
 
 
-            /*
-             * We only store the Firebase user's ID and email.
-             *
-             * IMPORTANT:
-             * The password is NOT stored in localStorage.
-             */
-
+            // Save login information
             localStorage.setItem(
                 "communityConnectLoggedIn",
                 "true"
@@ -684,10 +439,9 @@
             );
 
 
-            showMessage(
-                "Login successful! Opening your dashboard...",
-                "success"
-            );
+            message.style.color = "#2e7d32";
+            message.textContent =
+                "Login successful! Redirecting...";
 
 
             setTimeout(function () {
@@ -695,136 +449,130 @@
                 window.location.href =
                     "dashboard.html";
 
-            }, 1000);
+            }, 800);
 
 
         } catch (error) {
 
             console.error(error);
 
+            if (error.code === "auth/invalid-credential") {
 
-            let errorMessage =
-                "Incorrect email or password. Please try again.";
-
-
-            if (
-                error.code ===
-                "auth/user-not-found"
-            ) {
-
-                errorMessage =
-                    "No account found with this email. Please create an account first.";
-
-            }
-
-
-            else if (
-                error.code ===
-                "auth/invalid-credential"
-            ) {
-
-                errorMessage =
+                message.textContent =
                     "Incorrect email or password.";
 
             }
+            else if (error.code === "auth/user-not-found") {
 
+                message.textContent =
+                    "No account found with this email.";
 
-            else if (
-                error.code ===
-                "auth/invalid-email"
-            ) {
+            }
+            else if (error.code === "auth/wrong-password") {
 
-                errorMessage =
+                message.textContent =
+                    "Incorrect password.";
+
+            }
+            else if (error.code === "auth/invalid-email") {
+
+                message.textContent =
                     "Please enter a valid email address.";
 
             }
+            else {
 
-
-            else if (
-                error.code ===
-                "auth/too-many-requests"
-            ) {
-
-                errorMessage =
-                    "Too many login attempts. Please try again later.";
+                message.textContent =
+                    "Login failed. Please try again.";
 
             }
 
+            loginButton.disabled = false;
+            loginButton.textContent = "Login";
+        }
 
-            showMessage(
-                errorMessage,
-                "error"
+    });
+
+
+    // Forgot password
+    forgotPassword.addEventListener("click", async function () {
+
+        const email =
+            emailInput.value.trim();
+
+
+        if (!email) {
+
+            message.style.color = "#d32f2f";
+
+            message.textContent =
+                "Enter your email address first.";
+
+            emailInput.focus();
+
+            return;
+        }
+
+
+        try {
+
+            await sendPasswordResetEmail(
+                auth,
+                email
             );
 
+            message.style.color = "#2e7d32";
 
-        } finally {
+            message.textContent =
+                "Password reset email sent. Check your inbox.";
 
-            loginButton.disabled = false;
+        }
+        catch (error) {
 
-            loginButton.textContent = "Sign In";
+            console.error(error);
+
+            message.style.color = "#d32f2f";
+
+            if (error.code === "auth/user-not-found") {
+
+                message.textContent =
+                    "No account found with this email.";
+
+            }
+            else {
+
+                message.textContent =
+                    "Could not send reset email.";
+
+            }
 
         }
 
     });
 
 
-    /* =====================================================
-       FORGOT PASSWORD
-    ===================================================== */
+    // If already logged in, go to dashboard
+    onAuthStateChanged(auth, function (user) {
 
-    forgotPassword.addEventListener(
-        "click",
-        async function (event) {
+        if (user) {
 
-            event.preventDefault();
+            localStorage.setItem(
+                "communityConnectLoggedIn",
+                "true"
+            );
 
-            const email =
-                document.getElementById("email")
-                .value
-                .trim()
-                .toLowerCase();
+            localStorage.setItem(
+                "communityConnectUID",
+                user.uid
+            );
 
-
-            if (!email) {
-
-                showMessage(
-                    "Enter your email address first, then click Forgot password.",
-                    "error"
-                );
-
-                return;
-
-            }
-
-
-            try {
-
-                await sendPasswordResetEmail(
-                    auth,
-                    email
-                );
-
-
-                showMessage(
-                    "Password reset email sent. Please check your email.",
-                    "success"
-                );
-
-
-            } catch (error) {
-
-                console.error(error);
-
-
-                showMessage(
-                    "Unable to send password reset email. Please check your email address.",
-                    "error"
-                );
-
-            }
-
+            localStorage.setItem(
+                "communityConnectEmail",
+                user.email || ""
+            );
         }
-    );
+
+    });
 
 </script>
 
