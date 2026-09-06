@@ -1,169 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Resources | CommunityConnect</title>
+<title>Resources | CommunityConnect</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<style>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #FFF3E0;
-            color: #0f172a;
-            line-height: 1.5;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        nav {
-            background: white;
-            padding: 16px 6%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e5e7eb;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: #FFF3E0;
+    color: #0f172a;
+    line-height: 1.5;
+}
 
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #16a34a;
-        }
+/* NAVIGATION */
 
-        nav a {
-            text-decoration: none;
-            color: #374151;
-            margin-left: 20px;
-            font-size: 14px;
-            font-weight: 600;
-        }
+nav {
+    background: white;
+    padding: 16px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
 
-        nav a:hover {
-            color: #16a34a;
-        }
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #16a34a;
+}
 
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 35px auto;
-        }
+nav a {
+    text-decoration: none;
+    color: #374151;
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
 
-        .hero {
-            background: #FFF8EF;
-            padding: 35px;
-            border-radius: 18px;
-            border: 1px solid #f3dfc4;
-            margin-bottom: 25px;
-        }
+nav a:hover {
+    color: #16a34a;
+}
 
-        .small-title {
-            color: #ea580c;
-            font-size: 13px;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
+/* CONTAINER */
 
-        h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-            color: #111827;
-        }
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 35px auto;
+}
 
-        .hero p {
-            color: #6b7280;
-            line-height: 1.6;
-        }
+/* HERO */
 
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
+.hero {
+    background: #FFF8EF;
+    padding: 35px;
+    border-radius: 18px;
+    border: 1px solid #f3dfc4;
+    margin-bottom: 25px;
+}
 
-        .card {
-            background: white;
-            padding: 24px;
-            border-radius: 16px;
-            border: 1px solid #e5e7eb;
-            transition: 0.2s;
-        }
+.small-title {
+    color: #ea580c;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
 
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-        }
+h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #111827;
+}
 
-        .icon {
-            font-size: 35px;
-            margin-bottom: 12px;
-        }
+.hero p {
+    color: #6b7280;
+    line-height: 1.6;
+}
 
-        .card h2 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: #111827;
-        }
+/* RESOURCE GRID */
 
-        .card p {
-            color: #6b7280;
-            font-size: 14px;
-            margin-bottom: 18px;
-        }
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
 
-        .btn {
-            display: inline-block;
-            text-decoration: none;
-            background: #ea580c;
-            color: white;
-            padding: 10px 16px;
-            border-radius: 9px;
-            font-weight: bold;
-            font-size: 14px;
-        }
+/* CARDS */
 
-        .btn:hover {
-            background: #c2410c;
-        }
+.card {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    transition: 0.2s;
+}
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #6b7280;
-            font-size: 13px;
-        }
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
 
-        @media (max-width: 700px) {
+.icon {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
 
-            .resources-grid {
-                grid-template-columns: 1fr;
-            }
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #111827;
+}
 
-            nav {
-                flex-direction: column;
-                gap: 10px;
-            }
+.card p {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
 
-            nav a {
-                margin-left: 8px;
-            }
+/* BUTTON */
 
-            h1 {
-                font-size: 26px;
-            }
-        }
-    </style>
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    background: #ea580c;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 9px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background: #c2410c;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav a {
+        margin-left: 8px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+}
+
+</style>
+
 </head>
 
 <body>
+
+<!-- NAVIGATION -->
 
 <nav>
 
@@ -172,13 +194,20 @@
     </div>
 
     <div>
+
         <a href="index.html">Home</a>
+
         <a href="dashboard.html">Dashboard</a>
+
+        <!-- IMPORTANT: actual file name is awarness.html -->
         <a href="awarness.html">Awareness</a>
+
     </div>
 
 </nav>
 
+
+<!-- MAIN CONTENT -->
 
 <div class="container">
 
@@ -203,6 +232,8 @@
     <div class="resources-grid">
 
 
+        <!-- EDUCATIONAL -->
+
         <div class="card">
 
             <div class="icon">🎓</div>
@@ -222,6 +253,8 @@
 
         </div>
 
+
+        <!-- GOVERNMENT -->
 
         <div class="card">
 
@@ -243,6 +276,8 @@
         </div>
 
 
+        <!-- HEALTH -->
+
         <div class="card">
 
             <div class="icon">🏥</div>
@@ -262,6 +297,8 @@
 
         </div>
 
+
+        <!-- ENVIRONMENT -->
 
         <div class="card">
 
@@ -283,6 +320,8 @@
         </div>
 
 
+        <!-- COMMUNITY -->
+
         <div class="card">
 
             <div class="icon">👥</div>
@@ -303,6 +342,8 @@
         </div>
 
 
+        <!-- EMERGENCY -->
+
         <div class="card">
 
             <div class="icon">📞</div>
@@ -322,10 +363,13 @@
 
         </div>
 
+
     </div>
 
 </div>
 
+
+<!-- FOOTER -->
 
 <footer>
 
@@ -335,4 +379,5 @@
 </footer>
 
 </body>
+
 </html>
