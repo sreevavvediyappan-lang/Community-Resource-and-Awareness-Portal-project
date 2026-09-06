@@ -1,243 +1,577 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Dashboard | CommunityConnect</title>
 
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        .dashboard-box {
-            max-width: 800px;
-            margin: 80px auto;
-            padding: 40px;
-            text-align: center;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-        }
-
-        .dashboard-box h1 {
-            color: #2e7d32;
-            margin-bottom: 15px;
-        }
-
-        .user-email {
-            color: #555;
-            margin: 20px 0;
-        }
-
-        .dashboard-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
-        }
-
-        .dashboard-links a {
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 10px;
-            background: #e8f5e9;
-            color: #2e7d32;
-            font-weight: bold;
-        }
-
-        .logout-button {
-            border: none;
-            padding: 14px 30px;
-            border-radius: 10px;
-            background: #d32f2f;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .logout-button:hover {
-            background: #b71c1c;
-        }
-
-        #message {
-            margin-top: 15px;
-            color: #d32f2f;
-        }
-    </style>
 </head>
 
 <body>
 
-<header>
-    <nav>
+    <!-- ================= HEADER ================= -->
 
-        <div class="logo">
-            🌿 CommunityConnect
-        </div>
+    <header class="header">
 
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="community.html">Community</a>
-            <a href="government.html">Government</a>
-            <a href="resources.html">Resources</a>
-            <a href="awareness.html">Awareness</a>
-            <a href="contact.html">Contact</a>
-        </div>
+        <div class="container navbar">
 
-    </nav>
-</header>
-
-
-<main>
-
-    <div class="dashboard-box">
-
-        <h1>Welcome to CommunityConnect! 🌿</h1>
-
-        <p>
-            You are successfully logged in.
-        </p>
-
-        <p class="user-email" id="userEmail">
-            Loading account...
-        </p>
-
-
-        <div class="dashboard-links">
-
-            <a href="community.html">
-                👥 Community
+            <a href="index.html" class="logo">
+                Community<span>Connect</span>
             </a>
 
-            <a href="government.html">
-                🏛️ Government
-            </a>
+            <nav class="nav-links">
 
-            <a href="resources.html">
-                📚 Resources
-            </a>
+                <a href="index.html">Home</a>
 
-            <a href="awareness.html">
-                🌱 Awareness
-            </a>
+                <a href="community.html">
+                    Community Profile
+                </a>
+
+                <a href="government.html">
+                    Government Schemes
+                </a>
+
+                <a href="education.html">
+                    Resources
+                </a>
+
+                <a href="environment.html">
+                    Awareness
+                </a>
+
+                <a href="health.html">
+                    Health
+                </a>
+
+                <a href="emergency.html">
+                    Emergency
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </nav>
 
         </div>
 
-
-        <button
-            class="logout-button"
-            id="logoutButton">
-            Logout
-        </button>
-
-        <p id="message"></p>
-
-    </div>
-
-</main>
+    </header>
 
 
-<footer>
+    <!-- ================= DASHBOARD HERO ================= -->
 
-    <div class="footer-content">
+    <section class="hero">
 
-        <h3>🌿 CommunityConnect</h3>
+        <div class="container hero-content">
 
-        <p>
-            Connect. Discover. Empower.
-        </p>
+            <div class="hero-text">
 
-        <p class="copyright">
-            © 2026 CommunityConnect. All rights reserved.
-        </p>
+                <p class="eyebrow">
+                    COMMUNITYCONNECT DASHBOARD
+                </p>
 
-    </div>
+                <h1>
+                    Welcome,
+                    <span id="userName">User</span>!
+                </h1>
 
-</footer>
+                <p>
+                    Your CommunityConnect dashboard gives you
+                    quick access to community resources,
+                    government schemes, awareness information
+                    and useful services.
+                </p>
 
+                <div class="hero-buttons">
 
-<!-- FIREBASE -->
+                    <a
+                        href="community.html"
+                        class="btn btn-primary"
+                    >
+                        Explore Community
+                    </a>
 
-<script type="module">
+                    <button
+                        onclick="logout()"
+                        class="btn btn-outline"
+                    >
+                        Logout
+                    </button>
 
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+                </div>
 
-import {
-    getAuth,
-    onAuthStateChanged,
-    signOut
-}
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+            </div>
 
+        </div>
 
-const firebaseConfig = {
-
-    apiKey:
-        "AIzaSyDpm8pHtGj_6pTw_ltZqpbHDWuF1GKgZ4",
-
-    authDomain:
-        "community-resourses.firebaseapp.com",
-
-    projectId:
-        "community-resourses",
-
-    storageBucket:
-        "community-resourses.firebasestorage.app",
-
-    messagingSenderId:
-        "556205954035",
-
-    appId:
-        "1:556205954035:web:90c48e1ba4b241bc1ab886",
-
-    measurementId:
-        "G-BSVB77GELT"
-};
+    </section>
 
 
-const app = initializeApp(firebaseConfig);
+    <!-- ================= DASHBOARD CARDS ================= -->
 
-const auth = getAuth(app);
+    <section class="section">
 
+        <div class="container">
 
-const userEmail =
-    document.getElementById("userEmail");
+            <div class="section-heading">
 
-const logoutButton =
-    document.getElementById("logoutButton");
+                <p class="eyebrow">
+                    QUICK ACCESS
+                </p>
 
-const message =
-    document.getElementById("message");
+                <h2>
+                    Explore CommunityConnect
+                </h2>
 
+                <p>
+                    Everything you need is available in one place.
+                </p>
 
-/* Check login */
-
-onAuthStateChanged(auth, function(user) {
-
-    if (user) {
-
-        userEmail.textContent =
-            "Logged in as: " + user.email;
-
-    } else {
-
-        window.location.href =
-            "login.html";
-
-    }
-
-});
+            </div>
 
 
-/* Logout */
+            <div class="cards-grid">
 
-logoutButton.addEventListener(
-    "click",
-    async function() {
+                <!-- COMMUNITY -->
 
-        try {
+                <div class="card">
+
+                    <div class="card-icon">
+                        🏘️
+                    </div>
+
+                    <h3>
+                        Community
+                    </h3>
+
+                    <p>
+                        Discover community facilities,
+                        services and useful local information.
+                    </p>
+
+                    <a href="community.html">
+                        Explore Community →
+                    </a>
+
+                </div>
+
+
+                <!-- GOVERNMENT -->
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🏛️
+                    </div>
+
+                    <h3>
+                        Government Schemes
+                    </h3>
+
+                    <p>
+                        Find useful government schemes,
+                        benefits and official information.
+                    </p>
+
+                    <a href="government.html">
+                        View Schemes →
+                    </a>
+
+                </div>
+
+
+                <!-- EDUCATION -->
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🎓
+                    </div>
+
+                    <h3>
+                        Education
+                    </h3>
+
+                    <p>
+                        Access learning platforms,
+                        scholarships and career resources.
+                    </p>
+
+                    <a href="education.html">
+                        Explore Education →
+                    </a>
+
+                </div>
+
+
+                <!-- HEALTH -->
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        ❤️
+                    </div>
+
+                    <h3>
+                        Health
+                    </h3>
+
+                    <p>
+                        Find trusted health information
+                        and healthcare resources.
+                    </p>
+
+                    <a href="health.html">
+                        Explore Health →
+                    </a>
+
+                </div>
+
+
+                <!-- ENVIRONMENT -->
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🌿
+                    </div>
+
+                    <h3>
+                        Environment
+                    </h3>
+
+                    <p>
+                        Learn simple ways to protect nature
+                        and build greener communities.
+                    </p>
+
+                    <a href="environment.html">
+                        Learn More →
+                    </a>
+
+                </div>
+
+
+                <!-- EMERGENCY -->
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🚨
+                    </div>
+
+                    <h3>
+                        Emergency Support
+                    </h3>
+
+                    <p>
+                        Quickly access important emergency
+                        services and safety information.
+                    </p>
+
+                    <a href="emergency.html">
+                        Emergency Help →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROFILE ================= -->
+
+    <section class="section section-light">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    YOUR ACCOUNT
+                </p>
+
+                <h2>
+                    Profile Information
+                </h2>
+
+            </div>
+
+
+            <div class="cards-grid">
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        👤
+                    </div>
+
+                    <h3>
+                        Your Profile
+                    </h3>
+
+                    <p>
+                        View and update your CommunityConnect
+                        profile information.
+                    </p>
+
+                    <a href="profile.html">
+                        View Profile →
+                    </a>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🔖
+                    </div>
+
+                    <h3>
+                        Saved Resources
+                    </h3>
+
+                    <p>
+                        Access resources that you have saved
+                        for later.
+                    </p>
+
+                    <a href="saved-resourses.html">
+                        View Saved Resources →
+                    </a>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        📝
+                    </div>
+
+                    <h3>
+                        My Applications
+                    </h3>
+
+                    <p>
+                        View your submitted applications
+                        and their status.
+                    </p>
+
+                    <a href="application.html">
+                        View Applications →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta">
+
+        <div class="container">
+
+            <h2>
+                Make Your Community Stronger
+            </h2>
+
+            <p>
+                Stay informed, discover opportunities and
+                connect with useful community resources.
+            </p>
+
+            <a
+                href="contact.html"
+                class="btn btn-primary"
+            >
+                Get in Touch
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+
+                    <h3>
+                        CommunityConnect
+                    </h3>
+
+                    <p>
+                        A community resource and awareness
+                        portal designed to connect people
+                        with useful information and services.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Explore
+                    </h3>
+
+                    <div class="footer-links">
+
+                        <a href="community.html">
+                            Community
+                        </a>
+
+                        <a href="government.html">
+                            Government Schemes
+                        </a>
+
+                        <a href="environment.html">
+                            Environment
+                        </a>
+
+                        <a href="education.html">
+                            Education
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Support
+                    </h3>
+
+                    <div class="footer-links">
+
+                        <a href="health.html">
+                            Health
+                        </a>
+
+                        <a href="emergency.html">
+                            Emergency
+                        </a>
+
+                        <a href="contact.html">
+                            Contact
+                        </a>
+
+                        <a href="index.html">
+                            Home
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="copyright">
+
+                © 2026 CommunityConnect.
+                Built for community awareness and empowerment.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= LOGIN SESSION ================= -->
+
+    <script type="module">
+
+        import {
+            initializeApp
+        } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+
+        import {
+            getAuth,
+            onAuthStateChanged,
+            signOut
+        } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+
+        const firebaseConfig = {
+
+            apiKey:
+                "AIzaSyDpm8pHtGj_6pTw_ltZqpbHDWu1F7GKgZ4",
+
+            authDomain:
+                "community-resourses.firebaseapp.com",
+
+            projectId:
+                "community-resourses",
+
+            storageBucket:
+                "community-resourses.firebasestorage.app",
+
+            messagingSenderId:
+                "556205954035",
+
+            appId:
+                "1:556205954035:web:90c48e1ba4b241bc1ab886",
+
+            measurementId:
+                "G-BSVB77GELT"
+
+        };
+
+
+        const app =
+            initializeApp(firebaseConfig);
+
+        const auth =
+            getAuth(app);
+
+
+        onAuthStateChanged(auth, (user) => {
+
+            if (!user) {
+
+                window.location.href =
+                    "login.html";
+
+                return;
+
+            }
+
+
+            const name =
+                user.displayName ||
+                user.email.split("@")[0];
+
+            document
+                .getElementById("userName")
+                .textContent = name;
+
+        });
+
+
+        window.logout = async function () {
 
             await signOut(auth);
 
@@ -256,19 +590,10 @@ logoutButton.addEventListener(
             window.location.href =
                 "login.html";
 
-        } catch (error) {
+        };
 
-            console.error(error);
-
-            message.textContent =
-                "Logout failed. Please try again.";
-
-        }
-
-    }
-);
-
-</script>
+    </script>
 
 </body>
+
 </html>
