@@ -1,226 +1,560 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health | CommunityConnect</title>
 
-<title>Health Resources | CommunityConnect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
+        body {
+            background: #f5faf7;
+            color: #26352d;
+            line-height: 1.6;
+        }
 
-body {
-    background: #f5f8f6;
-    color: #263238;
-}
+        .navbar {
+            background: #123d2b;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-header {
-    background: #176b4d;
-    color: white;
-    padding: 18px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
+        .logo span {
+            color: #8bd8a9;
+        }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 18px;
-    font-size: 14px;
-}
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
 
-nav a:hover {
-    text-decoration: underline;
-}
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
 
-.container {
-    max-width: 1000px;
-    margin: 45px auto;
-    padding: 20px;
-}
+        .nav-links a:hover {
+            color: #8bd8a9;
+        }
 
-h1 {
-    text-align: center;
-    color: #176b4d;
-    margin-bottom: 10px;
-}
+        .login-btn {
+            background: #79d69a;
+            color: #123d2b !important;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-decoration: none;
+        }
 
-.subtitle {
-    text-align: center;
-    color: #667085;
-    margin-bottom: 30px;
-}
+        .hero {
+            padding: 80px 7%;
+            background: linear-gradient(135deg, #e7f8ed, #f7fcf8);
+        }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-}
+        .hero-content {
+            max-width: 850px;
+        }
 
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-}
+        .small-title {
+            color: #25834c;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
 
-.icon {
-    font-size: 35px;
-    margin-bottom: 15px;
-}
+        .hero h1 {
+            font-size: 50px;
+            line-height: 1.15;
+            color: #123d2b;
+            margin-bottom: 20px;
+        }
 
-.card h2 {
-    color: #176b4d;
-    margin-bottom: 10px;
-}
+        .hero h1 span {
+            color: #2e9d5a;
+        }
 
-.card p {
-    color: #667085;
-    line-height: 1.6;
-}
+        .hero p {
+            max-width: 700px;
+            color: #5d6d63;
+            font-size: 17px;
+        }
 
-footer {
-    text-align: center;
-    padding: 25px;
-    color: #667085;
-}
-</style>
+        .container {
+            width: 86%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            color: #123d2b;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #68776e;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid #e2eee6;
+            box-shadow: 0 8px 30px rgba(30, 80, 50, 0.06);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(30, 80, 50, 0.12);
+        }
+
+        .icon {
+            width: 58px;
+            height: 58px;
+            background: #e5f7eb;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            color: #174e35;
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .card p {
+            color: #68776e;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .card a {
+            color: #257c49;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .card a:hover {
+            color: #123d2b;
+        }
+
+        .health-section {
+            background: #eef8f2;
+        }
+
+        .health-box {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(30, 80, 50, 0.07);
+        }
+
+        .health-box h3 {
+            color: #174e35;
+            margin-bottom: 15px;
+        }
+
+        .health-box p {
+            color: #68776e;
+        }
+
+        .health-box ul {
+            margin-top: 15px;
+            padding-left: 20px;
+            color: #68776e;
+        }
+
+        .health-box li {
+            margin-bottom: 8px;
+        }
+
+        .notice {
+            margin-top: 25px;
+            background: #fff8df;
+            border-left: 5px solid #d6a62e;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .notice strong {
+            color: #7a5d08;
+        }
+
+        .notice p {
+            color: #6d633f;
+            margin-top: 5px;
+        }
+
+        .cta {
+            background: #dff5e6;
+            padding: 50px;
+            border-radius: 22px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: #123d2b;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: #5f7066;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #257c49;
+            color: white;
+            text-decoration: none;
+            padding: 13px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #185d36;
+        }
+
+        footer {
+            margin-top: 70px;
+            background: #123d2b;
+            color: white;
+            padding: 45px 7%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        footer h3 {
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #c9ddd0;
+            max-width: 500px;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #315b46;
+            color: #b8cdbf;
+            font-size: 13px;
+        }
+
+        @media (max-width: 850px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
+<nav class="navbar">
 
-    <div class="logo">🌿 CommunityConnect</div>
+    <div class="logo">
+        Community<span>Connect</span>
+    </div>
 
-    <nav>
+    <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="community.html">Community</a>
-        <a href="government.html">Government</a>
-        <a href="resources.html">Resources</a>
-        <a href="awareness.html">Awareness</a>
-        <a href="dashboard.html">Dashboard</a>
-    </nav>
+        <a href="community.html">Community Profile</a>
+        <a href="government.html">Government Schemes</a>
+        <a href="environment.html">Awareness</a>
+        <a href="education.html">Resources</a>
+        <a href="health.html">Health</a>
+        <a href="emergency.html">Emergency</a>
+        <a href="contact.html">Contact</a>
+    </div>
 
-</header>
+    <a href="login.html" class="login-btn">Login</a>
 
-
-<div class="container">
-
-    <h1>Health Resources</h1>
-
-    <p class="subtitle">
-        Find useful information for a healthier and safer community.
-    </p>
+</nav>
 
 
-    <div class="grid">
+<section class="hero">
 
-        <div class="card">
-            <div class="icon">🩺</div>
+    <div class="hero-content">
 
-            <h2>Health Awareness</h2>
+        <div class="small-title">
+            Health & Well-being
+        </div>
+
+        <h1>
+            Health Information for a
+            <span>Healthier Community.</span>
+        </h1>
+
+        <p>
+            Find trusted health information, useful healthcare
+            services and simple habits that can support a healthier
+            community.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Important Health Resources</h2>
 
             <p>
-                Learn about healthy habits, prevention,
-                hygiene and general health awareness.
+                Explore trusted healthcare services and information.
             </p>
+
         </div>
 
 
-        <div class="card">
-            <div class="icon">🥗</div>
+        <div class="grid">
 
-            <h2>Healthy Living</h2>
+            <div class="card">
 
-            <p>
-                Explore information about balanced nutrition,
-                physical activity and healthy daily habits.
-            </p>
-        </div>
+                <div class="icon">🩺</div>
 
+                <h3>eSanjeevani</h3>
 
-        <div class="card">
-            <div class="icon">🧼</div>
+                <p>
+                    India's national telemedicine service that
+                    provides access to healthcare through online
+                    consultations.
+                </p>
 
-            <h2>Hygiene & Safety</h2>
+                <a href="https://esanjeevani.mohfw.gov.in/" target="_blank">
+                    Visit eSanjeevani →
+                </a>
 
-            <p>
-                Learn simple practices that help maintain
-                personal and community hygiene.
-            </p>
-        </div>
+            </div>
 
 
-        <div class="card">
-            <div class="icon">🏥</div>
+            <div class="card">
 
-            <h2>Healthcare Support</h2>
+                <div class="icon">🏥</div>
 
-            <p>
-                Find information about healthcare services
-                and community health support.
-            </p>
+                <h3>Ministry of Health</h3>
+
+                <p>
+                    Access official health information, programs,
+                    policies and public health updates.
+                </p>
+
+                <a href="https://mohfw.gov.in/" target="_blank">
+                    Visit Ministry →
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🧠</div>
+
+                <h3>Tele-MANAS</h3>
+
+                <p>
+                    A national mental health support service providing
+                    information and assistance.
+                </p>
+
+                <a href="https://mohfw.gov.in/" target="_blank">
+                    Learn More →
+                </a>
+
+            </div>
+
         </div>
 
     </div>
 
-</div>
+</section>
+
+
+<section class="section health-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Healthy Community</h2>
+
+            <p>
+                Small everyday habits can support better health.
+            </p>
+
+        </div>
+
+
+        <div class="health-box">
+
+            <h3>Everyday Health Habits</h3>
+
+            <p>
+                Taking care of your health includes simple habits
+                and staying informed about reliable health guidance.
+            </p>
+
+            <ul>
+
+                <li>Eat a balanced and varied diet.</li>
+
+                <li>Stay physically active in ways that feel comfortable.</li>
+
+                <li>Get enough sleep and maintain a regular routine.</li>
+
+                <li>Maintain good personal hygiene.</li>
+
+                <li>Use reliable sources for health information.</li>
+
+                <li>Seek appropriate professional medical advice when needed.</li>
+
+            </ul>
+
+
+            <div class="notice">
+
+                <strong>Important Health Notice</strong>
+
+                <p>
+                    This website provides general awareness information
+                    and is not a replacement for professional medical
+                    advice, diagnosis or treatment.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="cta">
+
+            <h2>
+                Healthier Communities Start With Awareness.
+            </h2>
+
+            <p>
+                Learn, stay informed and know where to find
+                reliable support when it is needed.
+            </p>
+
+            <a href="emergency.html" class="btn">
+                Emergency Information
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
 
 
 <footer>
-    © 2026 CommunityConnect | Community Resource and Awareness Portal
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>CommunityConnect</h3>
+
+            <p>
+                Connecting communities with useful information,
+                resources and opportunities.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>Community Portal</h3>
+
+            <p>
+                Community • Education • Health • Environment
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+        © 2026 CommunityConnect. All Rights Reserved.
+    </div>
+
 </footer>
-
-
-<script type="module">
-
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-
-import {
-    getAuth,
-    onAuthStateChanged
-}
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-
-
-const firebaseConfig = {
-    apiKey: "AIzaSyDpm8pHtGj_6pTw_ltZqpbHDWuF1G7KgZ4",
-    authDomain: "community-resourses.firebaseapp.com",
-    projectId: "community-resourses",
-    storageBucket: "community-resourses.firebasestorage.app",
-    messagingSenderId: "556205954035",
-    appId: "1:556205954035:web:90c48e1ba4b241bc1ab886",
-    measurementId: "G-BSVB77GELT"
-};
-
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-
-// 🔐 Login protection
-onAuthStateChanged(auth, (user) => {
-
-    if (!user) {
-        window.location.href = "login.html";
-    }
-
-});
-
-</script>
 
 </body>
 </html>
