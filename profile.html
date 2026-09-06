@@ -3,179 +3,925 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profile | CommunityConnect</title>
+
+<title>Community Profile | CommunityConnect</title>
 
 <style>
+
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
 
 body {
-    background: #f5f8f6;
-    color: #263238;
+    background: #f7faf8;
+    color: #101828;
 }
 
-header {
-    background: #176b4d;
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background: #006b35;
     color: white;
-    padding: 18px 8%;
+    height: 70px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    padding: 0 6%;
+    gap: 35px;
 }
 
 .logo {
-    font-size: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: auto;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    background: white;
+    color: #08783e;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
     font-weight: bold;
 }
 
-nav a {
+.logo-text h2 {
+    font-size: 17px;
+}
+
+.logo-text p {
+    font-size: 10px;
+    margin-top: 2px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav-links a {
     color: white;
     text-decoration: none;
-    margin-left: 18px;
+    font-size: 12px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.login-btn {
+    background: white;
+    color: #006b35;
+    padding: 9px 17px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+    width: 90%;
+    max-width: 1180px;
+    margin: auto;
+}
+
+/* ================= PAGE HEADER ================= */
+
+.page-header {
+    padding: 45px 0 25px;
+}
+
+.page-header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #667085;
     font-size: 14px;
 }
 
-.container {
-    max-width: 700px;
-    margin: 50px auto;
-    padding: 20px;
-}
+/* ================= COMMUNITY CARD ================= */
 
-.card {
+.community-card {
     background: white;
-    padding: 35px;
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-}
-
-h1 {
-    text-align: center;
-    color: #176b4d;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
     margin-bottom: 30px;
 }
 
-.info {
-    background: #f0f7f3;
-    padding: 20px;
+.community-top {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.community-image {
+    width: 100%;
+    height: 190px;
     border-radius: 12px;
+    background: linear-gradient(135deg, #d9f3df, #edf8ef);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+}
+
+.community-info h2 {
+    color: #08783e;
+    font-size: 27px;
     margin-bottom: 15px;
 }
 
-.info strong {
-    display: block;
-    color: #176b4d;
-    margin-bottom: 7px;
+.community-info p {
+    margin: 9px 0;
+    color: #475467;
+    font-size: 14px;
 }
 
-button {
-    width: 100%;
-    padding: 14px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 8px;
-    background: #176b4d;
+.community-info strong {
+    color: #101828;
+}
+
+/* ================= SECTIONS ================= */
+
+.section {
+    margin: 35px 0;
+}
+
+.section-title {
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+
+.section-title span {
+    color: #08783e;
+}
+
+/* ================= TWO COLUMN ================= */
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 330px;
+    gap: 25px;
+}
+
+/* ================= ABOUT ================= */
+
+.about-card {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+}
+
+.about-card h3 {
+    color: #08783e;
+    margin-bottom: 12px;
+}
+
+.about-card p {
+    color: #667085;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* ================= FACILITIES ================= */
+
+.facilities {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.facility {
+    background: white;
+    padding: 22px 15px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+.facility-icon {
+    width: 45px;
+    height: 45px;
+    margin: auto auto 10px;
+    background: #e5f7eb;
+    color: #08783e;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+}
+
+.facility h4 {
+    font-size: 13px;
+}
+
+/* ================= NEEDS ================= */
+
+.needs-card {
+    background: #f0faf3;
+    border-radius: 14px;
+    padding: 25px;
+}
+
+.needs-card h3 {
+    color: #08783e;
+    margin-bottom: 15px;
+}
+
+.needs-card ul {
+    list-style: none;
+}
+
+.needs-card li {
+    margin: 13px 0;
+    font-size: 13px;
+    color: #475467;
+}
+
+.needs-card li::before {
+    content: "✓";
+    color: #08783e;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-card {
+    background: #075c31;
     color: white;
-    font-size: 16px;
-    cursor: pointer;
+    border-radius: 14px;
+    padding: 25px;
 }
 
-button:hover {
-    background: #12543c;
+.contact-card h3 {
+    margin-bottom: 18px;
 }
+
+.contact-item {
+    margin: 14px 0;
+}
+
+.contact-item small {
+    display: block;
+    color: #9de0b5;
+    font-size: 11px;
+    margin-bottom: 4px;
+}
+
+.contact-item p {
+    font-size: 13px;
+}
+
+/* ================= PROFILE INFORMATION ================= */
+
+.profile-section {
+    background: white;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: #e0f5e8;
+    color: #08783e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.profile-header h2 {
+    margin-bottom: 5px;
+}
+
+.profile-header p {
+    color: #667085;
+    font-size: 13px;
+}
+
+.profile-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.detail-box {
+    background: #f8faf9;
+    padding: 17px;
+    border-radius: 10px;
+}
+
+.detail-box small {
+    display: block;
+    color: #667085;
+    font-size: 10px;
+    margin-bottom: 6px;
+}
+
+.detail-box strong {
+    font-size: 14px;
+}
+
+/* ================= BUTTON ================= */
+
+.button-area {
+    margin-top: 25px;
+}
+
+.btn {
+    display: inline-block;
+    background: #08783e;
+    color: white;
+    text-decoration: none;
+    padding: 11px 20px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #075c31;
+}
+
+.btn-secondary {
+    background: white;
+    color: #08783e;
+    border: 1px solid #08783e;
+    margin-left: 8px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #063d22;
+    color: white;
+    margin-top: 60px;
+    padding: 40px 6%;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 35px;
+}
+
+footer h3 {
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+footer p,
+footer a {
+    color: #c4d8cc;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+footer a {
+    display: block;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+}
+
+.copyright {
+    border-top: 1px solid #286047;
+    margin-top: 30px;
+    padding-top: 18px;
+    text-align: center;
+    color: #aac3b4;
+    font-size: 11px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 850px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .community-top {
+        grid-template-columns: 1fr;
+    }
+
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .facilities {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width: 550px) {
+
+    .facilities {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-details {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header h1 {
+        font-size: 27px;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">🌿 CommunityConnect</div>
+<!-- ================= NAVBAR ================= -->
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="dashboard.html">Dashboard</a>
-    </nav>
-</header>
+<nav class="navbar">
 
-<div class="container">
+    <div class="logo">
 
-    <div class="card">
-
-        <h1>My Profile</h1>
-
-        <div class="info">
-            <strong>Name</strong>
-            <span id="userName">Loading...</span>
+        <div class="logo-icon">
+            👥
         </div>
 
-        <div class="info">
-            <strong>Email</strong>
-            <span id="userEmail">Loading...</span>
+        <div class="logo-text">
+            <h2>CommunityConnect</h2>
+            <p>Connect. Discover. Empower.</p>
         </div>
-
-        <button id="logoutBtn">Logout</button>
 
     </div>
 
-</div>
+    <div class="nav-links">
+
+        <a href="index.html">Home</a>
+        <a href="community.html">Community Profile</a>
+        <a href="government.html">Government Schemes</a>
+        <a href="education.html">Resources</a>
+        <a href="environment.html">Awareness</a>
+        <a href="contact.html">Contact</a>
+
+    </div>
+
+    <a href="dashboard.html" class="login-btn">
+        Dashboard
+    </a>
+
+</nav>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-header">
+
+        <h1>Community Profile</h1>
+
+        <p>
+            Learn about your community, facilities, needs and important information.
+        </p>
+
+    </section>
+
+
+    <!-- COMMUNITY INFORMATION -->
+
+    <section class="community-card">
+
+        <div class="community-top">
+
+            <div class="community-image">
+                🏡
+            </div>
+
+            <div class="community-info">
+
+                <h2>Greenfield Community</h2>
+
+                <p>
+                    <strong>Location:</strong>
+                    Greenfield Village, Your District
+                </p>
+
+                <p>
+                    <strong>Population:</strong>
+                    2,350
+                </p>
+
+                <p>
+                    <strong>Established:</strong>
+                    1985
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT + CONTACT -->
+
+    <section class="section">
+
+        <div class="two-column">
+
+            <div class="about-card">
+
+                <h3>About Community</h3>
+
+                <p>
+                    Greenfield Community is a peaceful and well-developed
+                    area with great cultural diversity and strong community
+                    support.
+                </p>
+
+                <p style="margin-top:12px;">
+                    The community provides access to essential facilities,
+                    public services and opportunities that support the
+                    everyday needs of its residents.
+                </p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <h3>Contact Info</h3>
+
+                <div class="contact-item">
+
+                    <small>COMMUNITY HEAD</small>
+
+                    <p>Mr. Rajesh Kumar</p>
+
+                </div>
+
+                <div class="contact-item">
+
+                    <small>PHONE</small>
+
+                    <p>+91 98765 43210</p>
+
+                </div>
+
+                <div class="contact-item">
+
+                    <small>EMAIL</small>
+
+                    <p>greenfield@community.org</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- KEY FACILITIES -->
+
+    <section class="section">
+
+        <h2 class="section-title">
+            Key <span>Facilities</span>
+        </h2>
+
+        <div class="facilities">
+
+            <div class="facility">
+
+                <div class="facility-icon">
+                    🏫
+                </div>
+
+                <h4>Schools</h4>
+
+            </div>
+
+
+            <div class="facility">
+
+                <div class="facility-icon">
+                    ❤️
+                </div>
+
+                <h4>Health Center</h4>
+
+            </div>
+
+
+            <div class="facility">
+
+                <div class="facility-icon">
+                    🌳
+                </div>
+
+                <h4>Parks</h4>
+
+            </div>
+
+
+            <div class="facility">
+
+                <div class="facility-icon">
+                    📚
+                </div>
+
+                <h4>Libraries</h4>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMMUNITY NEEDS -->
+
+    <section class="section">
+
+        <div class="needs-card">
+
+            <h3>Community Needs</h3>
+
+            <ul>
+
+                <li>Improved Transport</li>
+
+                <li>Clean Water Supply</li>
+
+                <li>Waste Management</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- PERSONAL PROFILE -->
+
+    <section class="section">
+
+        <div class="profile-section">
+
+            <div class="profile-header">
+
+                <div class="avatar" id="avatar">
+                    U
+                </div>
+
+                <div>
+
+                    <h2 id="profileName">
+                        User
+                    </h2>
+
+                    <p id="profileEmail">
+                        Loading...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-details">
+
+                <div class="detail-box">
+
+                    <small>ACCOUNT</small>
+
+                    <strong>CommunityConnect Member</strong>
+
+                </div>
+
+                <div class="detail-box">
+
+                    <small>STATUS</small>
+
+                    <strong>Active</strong>
+
+                </div>
+
+                <div class="detail-box">
+
+                    <small>COMMUNITY</small>
+
+                    <strong>Greenfield Community</strong>
+
+                </div>
+
+                <div class="detail-box">
+
+                    <small>ACCESS</small>
+
+                    <strong>All Community Resources</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="button-area">
+
+                <a href="dashboard.html" class="btn">
+                    Back to Dashboard
+                </a>
+
+                <a href="index.html" class="btn btn-secondary">
+                    Home
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h3>CommunityConnect</h3>
+
+            <p>
+                Connect. Discover. Empower.
+            </p>
+
+            <p>
+                A Community Resource and Awareness Portal.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>Quick Links</h3>
+
+            <a href="index.html">Home</a>
+            <a href="community.html">Community Profile</a>
+            <a href="government.html">Government Schemes</a>
+            <a href="education.html">Resources</a>
+            <a href="environment.html">Awareness</a>
+            <a href="contact.html">Contact</a>
+
+        </div>
+
+
+        <div>
+
+            <h3>Useful Links</h3>
+
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Disclaimer</a>
+            <a href="#">FAQ</a>
+
+        </div>
+
+
+        <div>
+
+            <h3>Contact Us</h3>
+
+            <p>
+                Email: info@communityconnect.org
+            </p>
+
+            <p>
+                Phone: +91 12345 67890
+            </p>
+
+            <p>
+                Chennai, Tamil Nadu, India
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 CommunityConnect. All rights reserved.
+
+    </div>
+
+</footer>
+
+
+<!-- ================= FIREBASE ================= -->
 
 <script type="module">
 
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 
 import {
     getAuth,
-    onAuthStateChanged,
-    signOut
-}
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDpm8pHtGj_6pTw_ltZqpbHDWuF1G7KgZ4",
+
+    apiKey: "AIzaSyDpm8pHtGj_6pTw_ltZqpbHDWu1F7GKgZ4",
+
     authDomain: "community-resourses.firebaseapp.com",
+
     projectId: "community-resourses",
+
     storageBucket: "community-resourses.firebasestorage.app",
+
     messagingSenderId: "556205954035",
+
     appId: "1:556205954035:web:90c48e1ba4b241bc1ab886",
+
     measurementId: "G-BSVB77GELT"
+
 };
 
+
 const app = initializeApp(firebaseConfig);
+
 const auth = getAuth(app);
 
 
-// 🔐 Login protection
 onAuthStateChanged(auth, (user) => {
 
     if (!user) {
+
         window.location.href = "login.html";
+
         return;
+
     }
 
-    document.getElementById("userEmail").textContent =
-        user.email || "Not available";
 
-    document.getElementById("userName").textContent =
-        user.displayName || "CommunityConnect User";
-
-});
+    const name =
+        user.displayName ||
+        user.email.split("@")[0];
 
 
-// Logout
-document.getElementById("logoutBtn").addEventListener("click", async () => {
+    document.getElementById("profileName").textContent = name;
 
-    await signOut(auth);
+    document.getElementById("profileEmail").textContent =
+        user.email;
 
-    localStorage.removeItem("communityConnectLoggedIn");
-    localStorage.removeItem("communityConnectUID");
-    localStorage.removeItem("communityConnectEmail");
-
-    window.location.href = "login.html";
+    document.getElementById("avatar").textContent =
+        name.charAt(0).toUpperCase();
 
 });
 
