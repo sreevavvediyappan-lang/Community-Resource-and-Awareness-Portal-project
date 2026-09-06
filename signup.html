@@ -1,532 +1,739 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up | CommunityConnect</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+<title>Sign Up | CommunityConnect</title>
 
-        .container {
-            width: 900px;
-            max-width: 100%;
-            min-height: 600px;
-            background: white;
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-            display: flex;
-        }
+<style>
 
-        .left {
-            width: 45%;
-            background: linear-gradient(135deg, #2e7d32, #66bb6a);
-            color: white;
-            padding: 50px 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .left h1 {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef6f0;
+    color: #24352d;
+    min-height: 100vh;
+}
 
-        .left p {
-            font-size: 17px;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
+a {
+    text-decoration: none;
+}
 
-        .features {
-            list-style: none;
-        }
+.page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 
-        .features li {
-            margin: 15px 0;
-            font-size: 16px;
-        }
+/* LEFT */
 
-        .features li::before {
-            content: "✓";
-            font-weight: bold;
-            margin-right: 10px;
-        }
+.left {
+    background: #0c3b2e;
+    color: white;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-        .right {
-            width: 55%;
-            padding: 45px 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 55px;
+    color: white;
+}
 
-        .right h2 {
-            color: #1b5e20;
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
+.logo-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: #8bcf9b;
+    color: #0c3b2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+}
 
-        .subtitle {
-            color: #777;
-            margin-bottom: 25px;
-        }
+.logo h2 {
+    font-size: 21px;
+}
 
-        .form-group {
-            margin-bottom: 17px;
-        }
+.logo span {
+    display: block;
+    color: #b9d8c4;
+    font-size: 11px;
+    margin-top: 2px;
+}
 
-        label {
-            display: block;
-            margin-bottom: 7px;
-            color: #333;
-            font-weight: bold;
-        }
+.left-content {
+    max-width: 520px;
+}
 
-        input[type="text"],
-        input[type="email"],
-        input[type="password"] {
-            width: 100%;
-            padding: 13px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            font-size: 15px;
-            outline: none;
-        }
+.tag {
+    display: inline-block;
+    background: #1b5842;
+    color: #a9dbb5;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
 
-        input:focus {
-            border-color: #43a047;
-            box-shadow: 0 0 0 3px rgba(67,160,71,0.12);
-        }
+.left h1 {
+    font-size: 48px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
 
-        .terms {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-            margin: 5px 0 20px;
-            font-size: 13px;
-            color: #666;
-            line-height: 1.5;
-        }
+.left h1 span {
+    color: #8bcf9b;
+}
 
-        .terms input {
-            margin-top: 3px;
-        }
+.left p {
+    color: #c4d9ce;
+    font-size: 16px;
+    line-height: 1.8;
+}
 
-        button {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 10px;
-            background: #2e7d32;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+.benefits {
+    margin-top: 35px;
+    display: grid;
+    gap: 14px;
+}
 
-        button:hover {
-            background: #1b5e20;
-        }
+.benefit {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #dcebe2;
+    font-size: 14px;
+}
 
-        button:disabled {
-            background: #9e9e9e;
-            cursor: not-allowed;
-        }
+.check {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #1c5742;
+    color: #8bcf9b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
 
-        .message {
-            text-align: center;
-            margin-top: 15px;
-            font-size: 14px;
-            min-height: 20px;
-        }
+/* RIGHT */
 
-        .login-text {
-            text-align: center;
-            margin-top: 20px;
-            color: #666;
-        }
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: #f7faf8;
+}
 
-        .login-text a {
-            color: #2e7d32;
-            font-weight: bold;
-            text-decoration: none;
-        }
+.signup-card {
+    width: 100%;
+    max-width: 480px;
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(18, 60, 46, 0.10);
+    border: 1px solid #dfe9e2;
+}
 
-        .login-text a:hover {
-            text-decoration: underline;
-        }
+.signup-card h2 {
+    color: #173f30;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
 
-        @media (max-width: 700px) {
-            .container {
-                flex-direction: column;
-            }
+.subtitle {
+    color: #718078;
+    font-size: 14px;
+    margin-bottom: 28px;
+}
 
-            .left,
-            .right {
-                width: 100%;
-            }
+.form-group {
+    margin-bottom: 17px;
+}
 
-            .left {
-                padding: 35px;
-            }
+.form-group label {
+    display: block;
+    color: #344d40;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
 
-            .right {
-                padding: 35px 30px;
-            }
-        }
-    </style>
+.form-group input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d5e1d9;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    border-color: #4a9b69;
+    box-shadow: 0 0 0 3px rgba(74,155,105,0.1);
+}
+
+.password-note {
+    color: #849189;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.terms {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin: 18px 0;
+    color: #697970;
+    font-size: 12px;
+}
+
+.terms input {
+    margin-top: 3px;
+}
+
+.signup-btn {
+    width: 100%;
+    border: none;
+    background: #196c47;
+    color: white;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.signup-btn:hover {
+    background: #125639;
+}
+
+.message {
+    display: none;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.success {
+    background: #e4f4e8;
+    color: #226a42;
+    display: block;
+}
+
+.error {
+    background: #fdeaea;
+    color: #a33131;
+    display: block;
+}
+
+.login-text {
+    text-align: center;
+    margin-top: 22px;
+    color: #718078;
+    font-size: 14px;
+}
+
+.login-text a {
+    color: #196c47;
+    font-weight: bold;
+}
+
+.back-home {
+    display: block;
+    text-align: center;
+    margin-top: 18px;
+    color: #718078;
+    font-size: 13px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+
+    .page {
+        grid-template-columns: 1fr;
+    }
+
+    .left {
+        padding: 40px 30px;
+    }
+
+    .logo {
+        margin-bottom: 30px;
+    }
+
+    .left h1 {
+        font-size: 38px;
+    }
+
+    .right {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .left {
+        padding: 30px 20px;
+    }
+
+    .left h1 {
+        font-size: 32px;
+    }
+
+    .signup-card {
+        padding: 28px 22px;
+    }
+
+    .signup-card h2 {
+        font-size: 26px;
+    }
+}
+
+</style>
+
 </head>
 
 <body>
 
-<div class="container">
+<div class="page">
 
-    <div class="left">
-        <h1>CommunityConnect</h1>
+    <!-- LEFT -->
 
-        <p>
-            Create your account and get access to
-            community resources, educational opportunities,
-            government services and awareness information.
-        </p>
+    <section class="left">
 
-        <ul class="features">
-            <li>Community Resources</li>
-            <li>Educational Opportunities</li>
-            <li>Government Services</li>
-            <li>Awareness & Information</li>
-        </ul>
-    </div>
+        <a href="index.html" class="logo">
 
-    <div class="right">
-
-        <h2>Create Account</h2>
-
-        <p class="subtitle">
-            Join CommunityConnect today
-        </p>
-
-        <form id="signupForm">
-
-            <div class="form-group">
-                <label for="name">Full Name</label>
-
-                <input
-                    type="text"
-                    id="name"
-                    placeholder="Enter your full name"
-                    required
-                >
+            <div class="logo-icon">
+                C
             </div>
 
-            <div class="form-group">
-                <label for="email">Email Address</label>
-
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="Enter your email"
-                    required
-                >
+            <div>
+                <h2>CommunityConnect</h2>
+                <span>Connect. Discover. Empower.</span>
             </div>
 
-            <div class="form-group">
-                <label for="password">Password</label>
+        </a>
 
-                <input
-                    type="password"
-                    id="password"
-                    placeholder="Minimum 6 characters"
-                    minlength="6"
-                    required
-                >
+
+        <div class="left-content">
+
+            <div class="tag">
+                JOIN OUR COMMUNITY
             </div>
 
-            <div class="form-group">
-                <label for="confirmPassword">Confirm Password</label>
+            <h1>
+                Connect with your
+                <span>Community.</span>
+            </h1>
 
-                <input
-                    type="password"
-                    id="confirmPassword"
-                    placeholder="Re-enter your password"
-                    minlength="6"
-                    required
-                >
+            <p>
+                Create your CommunityConnect account and get access
+                to personalised community resources, saved resources,
+                applications and your profile.
+            </p>
+
+
+            <div class="benefits">
+
+                <div class="benefit">
+                    <div class="check">✓</div>
+                    Explore useful community resources
+                </div>
+
+                <div class="benefit">
+                    <div class="check">✓</div>
+                    Save resources for later
+                </div>
+
+                <div class="benefit">
+                    <div class="check">✓</div>
+                    Manage your personal profile
+                </div>
+
+                <div class="benefit">
+                    <div class="check">✓</div>
+                    Track your applications
+                </div>
+
             </div>
 
-            <label class="terms">
-                <input type="checkbox" id="terms" required>
-                <span>
-                    I agree to the terms and conditions.
-                </span>
-            </label>
+        </div>
 
-            <button type="submit" id="signupButton">
-                Create Account
-            </button>
+    </section>
 
-            <div class="message" id="message"></div>
 
-        </form>
+    <!-- RIGHT -->
 
-        <p class="login-text">
-            Already have an account?
-            <a href="login.html">Login</a>
-        </p>
+    <section class="right">
 
-    </div>
+        <div class="signup-card">
+
+            <h2>Create Account</h2>
+
+            <p class="subtitle">
+                Sign up to start using CommunityConnect.
+            </p>
+
+
+            <form id="signupForm">
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Create a password"
+                        minlength="6"
+                        required
+                    >
+
+                    <div class="password-note">
+                        Use at least 6 characters.
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Re-enter your password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="terms">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required
+                    >
+
+                    <label for="terms">
+                        I agree to use CommunityConnect responsibly
+                        and provide accurate information.
+                    </label>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="signup-btn"
+                >
+                    Create Account
+                </button>
+
+
+                <div
+                    id="successMessage"
+                    class="message"
+                ></div>
+
+                <div
+                    id="errorMessage"
+                    class="message"
+                ></div>
+
+            </form>
+
+
+            <div class="login-text">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </div>
+
+
+            <a
+                href="index.html"
+                class="back-home"
+            >
+                ← Back to CommunityConnect
+            </a>
+
+        </div>
+
+    </section>
 
 </div>
 
 
+<!-- FIREBASE -->
+
 <script type="module">
 
-    import { initializeApp }
-        from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 
-    import {
-        getAuth,
-        createUserWithEmailAndPassword,
-        updateProfile
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    updateProfile
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+
+const firebaseConfig = {
+
+    apiKey: "AIzaSyDpm8pHtGj_6pTw_ltZqpbHDWu1F7GKgZ4",
+
+    authDomain: "community-resourses.firebaseapp.com",
+
+    projectId: "community-resourses",
+
+    storageBucket: "community-resourses.firebasestorage.app",
+
+    messagingSenderId: "556205954035",
+
+    appId: "1:556205954035:web:90c48e1ba4b241bc1ab886",
+
+    measurementId: "G-BSVB77GELT"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+
+const form =
+    document.getElementById("signupForm");
+
+const successMessage =
+    document.getElementById("successMessage");
+
+const errorMessage =
+    document.getElementById("errorMessage");
+
+
+form.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+
+    const name =
+        document.getElementById("name")
+        .value.trim();
+
+    const email =
+        document.getElementById("email")
+        .value.trim();
+
+    const password =
+        document.getElementById("password")
+        .value;
+
+    const confirmPassword =
+        document.getElementById("confirmPassword")
+        .value;
+
+
+    successMessage.style.display = "none";
+    errorMessage.style.display = "none";
+
+
+    /* CHECK PASSWORD */
+
+    if (password.length < 6) {
+
+        errorMessage.textContent =
+            "Password must contain at least 6 characters.";
+
+        errorMessage.style.display = "block";
+
+        return;
+
     }
-    from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
 
-    // Firebase configuration
-    const firebaseConfig = {
+    /* CHECK CONFIRM PASSWORD */
 
-        apiKey: "AIzaSyDpm8pHtGj_6pTw_ltZqpbHDWuF1G7KgZ4",
+    if (password !== confirmPassword) {
 
-        authDomain:
-            "community-resourses.firebaseapp.com",
+        errorMessage.textContent =
+            "Passwords do not match.";
 
-        projectId:
-            "community-resourses",
+        errorMessage.style.display = "block";
 
-        storageBucket:
-            "community-resourses.firebasestorage.app",
+        return;
 
-        messagingSenderId:
-            "556205954035",
-
-        appId:
-            "1:556205954035:web:90c48e1ba4b241bc1ab886",
-
-        measurementId:
-            "G-BSVB77GELT"
-    };
+    }
 
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
+    try {
 
-    const auth = getAuth(app);
+        /* CREATE FIREBASE ACCOUNT */
 
-
-    const signupForm =
-        document.getElementById("signupForm");
-
-    const nameInput =
-        document.getElementById("name");
-
-    const emailInput =
-        document.getElementById("email");
-
-    const passwordInput =
-        document.getElementById("password");
-
-    const confirmPasswordInput =
-        document.getElementById("confirmPassword");
-
-    const terms =
-        document.getElementById("terms");
-
-    const signupButton =
-        document.getElementById("signupButton");
-
-    const message =
-        document.getElementById("message");
+        const result =
+            await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
 
 
-    signupForm.addEventListener(
-        "submit",
-        async function(event) {
+        /* SAVE DISPLAY NAME */
 
-            event.preventDefault();
-
-
-            const name =
-                nameInput.value.trim();
-
-            const email =
-                emailInput.value.trim();
-
-            const password =
-                passwordInput.value;
-
-            const confirmPassword =
-                confirmPasswordInput.value;
-
-
-            message.textContent = "";
-            message.style.color = "#d32f2f";
-
-
-            // Check name
-            if (!name) {
-
-                message.textContent =
-                    "Please enter your full name.";
-
-                return;
+        await updateProfile(
+            result.user,
+            {
+                displayName: name
             }
+        );
 
 
-            // Check password length
-            if (password.length < 6) {
+        /* SAVE SESSION INFORMATION */
 
-                message.textContent =
-                    "Password must be at least 6 characters.";
+        localStorage.setItem(
+            "communityConnectLoggedIn",
+            "true"
+        );
 
-                return;
-            }
+        localStorage.setItem(
+            "communityConnectUID",
+            result.user.uid
+        );
 
-
-            // Check password match
-            if (password !== confirmPassword) {
-
-                message.textContent =
-                    "Passwords do not match.";
-
-                return;
-            }
+        localStorage.setItem(
+            "communityConnectEmail",
+            result.user.email
+        );
 
 
-            // Check terms
-            if (!terms.checked) {
+        successMessage.textContent =
+            "Account created successfully! Opening your dashboard...";
 
-                message.textContent =
-                    "Please agree to the terms and conditions.";
-
-                return;
-            }
+        successMessage.style.display = "block";
 
 
-            signupButton.disabled = true;
-            signupButton.textContent =
-                "Creating account...";
+        /* GO TO DASHBOARD */
+
+        setTimeout(function() {
+
+            window.location.href =
+                "dashboard.html";
+
+        }, 1000);
 
 
-            try {
+    } catch (error) {
 
-                const userCredential =
-                    await createUserWithEmailAndPassword(
-                        auth,
-                        email,
-                        password
-                    );
+        errorMessage.style.display = "block";
 
 
-                const user =
-                    userCredential.user;
+        if (
+            error.code ===
+            "auth/email-already-in-use"
+        ) {
 
-
-                // Save user's name
-                await updateProfile(user, {
-                    displayName: name
-                });
-
-
-                // Save login information
-                localStorage.setItem(
-                    "communityConnectLoggedIn",
-                    "true"
-                );
-
-                localStorage.setItem(
-                    "communityConnectUID",
-                    user.uid
-                );
-
-                localStorage.setItem(
-                    "communityConnectEmail",
-                    user.email || email
-                );
-
-
-                message.style.color = "#2e7d32";
-
-                message.textContent =
-                    "Account created successfully!";
-
-
-                setTimeout(function() {
-
-                    window.location.href =
-                        "dashboard.html";
-
-                }, 1000);
-
-
-            }
-            catch (error) {
-
-                console.error(error);
-
-                message.style.color = "#d32f2f";
-
-
-                if (error.code === "auth/email-already-in-use") {
-
-                    message.textContent =
-                        "This email already has an account.";
-
-                }
-                else if (error.code === "auth/invalid-email") {
-
-                    message.textContent =
-                        "Please enter a valid email address.";
-
-                }
-                else if (error.code === "auth/weak-password") {
-
-                    message.textContent =
-                        "Please choose a stronger password.";
-
-                }
-                else {
-
-                    message.textContent =
-                        "Account creation failed. Please try again.";
-
-                }
-
-
-                signupButton.disabled = false;
-                signupButton.textContent =
-                    "Create Account";
-
-            }
+            errorMessage.textContent =
+                "This email is already registered. Please login.";
 
         }
-    );
+
+        else if (
+            error.code ===
+            "auth/invalid-email"
+        ) {
+
+            errorMessage.textContent =
+                "Please enter a valid email address.";
+
+        }
+
+        else if (
+            error.code ===
+            "auth/weak-password"
+        ) {
+
+            errorMessage.textContent =
+                "Password is too weak. Use at least 6 characters.";
+
+        }
+
+        else {
+
+            errorMessage.textContent =
+                error.message;
+
+        }
+
+    }
+
+});
 
 </script>
 
