@@ -1,164 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Awareness | CommunityConnect</title>
+    <title>Awareness | CommunityConnect</title>
 
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #E8F5E9;
-    color: #263238;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background: #E8F5E9;
+            color: #263238;
+        }
 
-nav {
-    background: #2E7D32;
-    padding: 18px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
+        /* NAVIGATION */
+        nav {
+            background: #2E7D32;
+            padding: 18px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-.logo {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-}
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: bold;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 8px 12px;
+            font-weight: bold;
+        }
 
-nav a:hover {
-    text-decoration: underline;
-}
+        nav a:hover {
+            text-decoration: underline;
+        }
 
-.hero {
-    text-align: center;
-    padding: 60px 20px;
-    background: #F1F8E9;
-}
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: #F1F8E9;
+        }
 
-.hero h1 {
-    font-size: 40px;
-    color: #2E7D32;
-    margin-bottom: 15px;
-}
+        .hero h1 {
+            color: #2E7D32;
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
 
-.hero p {
-    font-size: 18px;
-    color: #546E7A;
-    max-width: 700px;
-    margin: auto;
-}
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #546E7A;
+        }
 
-.search-box {
-    text-align: center;
-    margin: 30px 20px;
-}
+        /* SEARCH */
+        .search {
+            text-align: center;
+            padding: 30px 20px 10px;
+        }
 
-.search-box input {
-    width: 90%;
-    max-width: 600px;
-    padding: 14px;
-    border: 1px solid #A5D6A7;
-    border-radius: 10px;
-    font-size: 16px;
-}
+        .search input {
+            width: 90%;
+            max-width: 600px;
+            padding: 14px;
+            border: 1px solid #A5D6A7;
+            border-radius: 10px;
+            font-size: 16px;
+        }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
-}
+        /* CONTENT */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 30px 20px;
+        }
 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-}
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
 
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-    transition: 0.3s;
-}
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+            transition: 0.3s;
+        }
 
-.card:hover {
-    transform: translateY(-5px);
-}
+        .card:hover {
+            transform: translateY(-5px);
+        }
 
-.card h2 {
-    color: #2E7D32;
-    margin-bottom: 12px;
-}
+        .card h2 {
+            color: #2E7D32;
+            margin-bottom: 12px;
+        }
 
-.card p {
-    color: #546E7A;
-    line-height: 1.6;
-}
+        .card p {
+            color: #546E7A;
+            line-height: 1.6;
+        }
 
-.card button {
-    margin-top: 18px;
-    padding: 11px 18px;
-    border: none;
-    border-radius: 8px;
-    background: #43A047;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-}
+        .card button {
+            margin-top: 18px;
+            padding: 11px 18px;
+            border: none;
+            border-radius: 8px;
+            background: #43A047;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-.card button:hover {
-    background: #1B5E20;
-}
+        .card button:hover {
+            background: #1B5E20;
+        }
 
-.info {
-    margin-top: 40px;
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
+        /* INFORMATION BOX */
+        .info {
+            background: white;
+            margin-top: 35px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
 
-.info h2 {
-    color: #2E7D32;
-    margin-bottom: 15px;
-}
+        .info h2 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+        }
 
-.info ul {
-    padding-left: 25px;
-    line-height: 2;
-}
+        .info li {
+            margin: 10px 0;
+            line-height: 1.5;
+        }
 
-footer {
-    margin-top: 50px;
-    background: #1B5E20;
-    color: white;
-    text-align: center;
-    padding: 25px;
-}
-</style>
+        /* FOOTER */
+        footer {
+            margin-top: 40px;
+            background: #1B5E20;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 700px) {
+
+            nav {
+                text-align: center;
+                justify-content: center;
+            }
+
+            .logo {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
 <nav>
-    <div class="logo">🌿 CommunityConnect</div>
+
+    <div class="logo">
+        🌿 CommunityConnect
+    </div>
 
     <div>
         <a href="index.html">Home</a>
@@ -168,139 +196,233 @@ footer {
         <a href="government.html">Government</a>
         <a href="contact.html">Contact</a>
     </div>
+
 </nav>
 
+
+<!-- HERO -->
 <section class="hero">
+
     <h1>Community Awareness</h1>
+
     <p>
-        Learn, understand and share important information
-        that can help build a safer, healthier and stronger community.
+        Stay informed about important community issues,
+        healthy practices, environmental protection, safety,
+        education and social responsibility.
     </p>
+
 </section>
 
-<div class="search-box">
+
+<!-- SEARCH -->
+<div class="search">
+
     <input
         type="text"
-        id="searchInput"
+        id="searchBox"
         placeholder="🔍 Search awareness topics..."
-        onkeyup="searchTopics()"
+        onkeyup="searchCards()"
     >
+
 </div>
 
+
+<!-- CARDS -->
 <div class="container">
 
-    <div class="cards" id="awarenessCards">
+    <div class="cards" id="cards">
+
 
         <div class="card">
+
             <h2>🌱 Environmental Awareness</h2>
+
             <p>
-                Learn about protecting nature, reducing waste,
-                saving water and keeping our surroundings clean.
+                Learn how to protect the environment,
+                reduce waste, save water and keep
+                your community clean.
             </p>
-            <button onclick="showMessage('Environmental awareness helps protect our planet.')">
+
+            <button onclick="showInfo(
+                'Environmental Awareness',
+                'Protect nature by reducing waste, saving water, planting trees and keeping public places clean.'
+            )">
                 Learn More
             </button>
+
         </div>
 
+
         <div class="card">
+
             <h2>❤️ Health Awareness</h2>
+
             <p>
-                Understand healthy habits, personal hygiene,
-                nutrition and the importance of seeking reliable health information.
+                Learn about healthy habits, hygiene,
+                nutrition and the importance of reliable
+                health information.
             </p>
-            <button onclick="showMessage('Taking care of your health helps create a healthier community.')">
+
+            <button onclick="showInfo(
+                'Health Awareness',
+                'Healthy habits, personal hygiene, balanced food and regular medical guidance can support community well-being.'
+            )">
                 Learn More
             </button>
+
         </div>
 
+
         <div class="card">
+
             <h2>📚 Educational Awareness</h2>
+
             <p>
-                Discover educational opportunities, learning resources,
-                scholarships and useful skills for students.
+                Discover learning opportunities,
+                scholarships, educational resources
+                and useful skills.
             </p>
-            <button onclick="showMessage('Education creates opportunities and strengthens communities.')">
+
+            <button onclick="showInfo(
+                'Educational Awareness',
+                'Education provides opportunities to learn new skills and improve future career possibilities.'
+            )">
                 Learn More
             </button>
+
         </div>
 
+
         <div class="card">
+
             <h2>🛡️ Safety Awareness</h2>
+
             <p>
-                Learn basic safety practices and how to stay aware
-                of risks in your home, school and community.
+                Learn basic safety practices for
+                homes, schools and public places.
             </p>
-            <button onclick="showMessage('Awareness and preparedness can help communities stay safer.')">
+
+            <button onclick="showInfo(
+                'Safety Awareness',
+                'Being alert, following safety rules and knowing where to seek help can make communities safer.'
+            )">
                 Learn More
             </button>
+
         </div>
 
+
         <div class="card">
+
             <h2>🏛️ Civic Awareness</h2>
+
             <p>
-                Understand community responsibilities, public services
-                and ways citizens can contribute positively.
+                Understand public services, community
+                responsibilities and ways to contribute
+                positively.
             </p>
-            <button onclick="showMessage('Being informed helps people participate positively in their communities.')">
+
+            <button onclick="showInfo(
+                'Civic Awareness',
+                'Civic awareness helps people understand their responsibilities and participate positively in their communities.'
+            )">
                 Learn More
             </button>
+
         </div>
 
+
         <div class="card">
+
             <h2>🤝 Social Awareness</h2>
+
             <p>
-                Learn about kindness, inclusion, respect and
-                supporting people in your community.
+                Promote kindness, respect, inclusion
+                and cooperation within the community.
             </p>
-            <button onclick="showMessage('Respect and cooperation help build stronger communities.')">
+
+            <button onclick="showInfo(
+                'Social Awareness',
+                'Respect, kindness and cooperation help create an inclusive and supportive community.'
+            )">
                 Learn More
             </button>
+
         </div>
+
 
     </div>
 
+
+    <!-- WHY AWARENESS MATTERS -->
     <div class="info">
-        <h2>💡 Why Awareness Matters</h2>
+
+        <h2>💡 Why Community Awareness Matters</h2>
 
         <ul>
+
             <li>Helps people make informed decisions</li>
-            <li>Encourages responsible community participation</li>
-            <li>Promotes health, safety and environmental responsibility</li>
+
+            <li>Promotes health and safety</li>
+
+            <li>Encourages environmental responsibility</li>
+
             <li>Connects people with useful information</li>
-            <li>Encourages cooperation and social responsibility</li>
+
+            <li>Encourages community participation</li>
+
+            <li>Builds a stronger and more responsible community</li>
+
         </ul>
+
     </div>
 
 </div>
 
+
+<!-- FOOTER -->
 <footer>
-    <p>© 2026 CommunityConnect | Community Resource and Awareness Portal</p>
+
+    <p>
+        © 2026 CommunityConnect |
+        Community Resource and Awareness Portal
+    </p>
+
 </footer>
+
 
 <script>
 
-function showMessage(message) {
-    alert(message);
-}
+function searchCards() {
 
-function searchTopics() {
+    let search =
+        document.getElementById("searchBox")
+        .value
+        .toLowerCase();
 
-    let input = document.getElementById("searchInput")
-        .value.toLowerCase();
-
-    let cards = document.querySelectorAll(".card");
+    let cards =
+        document.querySelectorAll(".card");
 
     cards.forEach(function(card) {
 
-        let text = card.innerText.toLowerCase();
+        let text =
+            card.innerText.toLowerCase();
 
-        if (text.includes(input)) {
+        if (text.includes(search)) {
             card.style.display = "block";
         } else {
             card.style.display = "none";
         }
 
     });
+
+}
+
+
+function showInfo(title, message) {
+
+    alert(title + "\n\n" + message);
+
 }
 
 </script>
