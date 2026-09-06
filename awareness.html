@@ -3,203 +3,659 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Awareness | CommunityConnect</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ================================
+           AWARENESS PAGE
+        ================================= */
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5faf7;
+            color: #26352d;
+        }
+
+        /* HEADER */
+        header {
+            background: #123d2b;
+            color: white;
+            padding: 16px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo span {
+            color: #7ee2a8;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #7ee2a8;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 80px 7%;
+            text-align: center;
+            background: linear-gradient(
+                135deg,
+                #e7f8ed,
+                #f7fcf8
+            );
+        }
+
+        .hero small {
+            color: #238b57;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            margin: 18px 0;
+            color: #123d2b;
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 17px;
+            color: #53635a;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 65px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: #123d2b;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #66756c;
+        }
+
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(18, 61, 43, 0.08);
+            transition: 0.3s;
+            border: 1px solid #e3eee7;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 30px rgba(18, 61, 43, 0.13);
+        }
+
+        .icon {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: #e7f8ed;
+            font-size: 25px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            color: #123d2b;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #66756c;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* GREEN COMMUNITY */
+        .green-section {
+            padding: 65px 7%;
+            background: #123d2b;
+            color: white;
+        }
+
+        .green-section .section-title h2 {
+            color: white;
+        }
+
+        .green-section .section-title p {
+            color: #c9ded2;
+        }
+
+        .green-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .green-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 30px;
+            border-radius: 16px;
+        }
+
+        .green-card h3 {
+            margin-top: 0;
+            color: #7ee2a8;
+        }
+
+        .green-card p {
+            color: #d5e5dc;
+            line-height: 1.7;
+        }
+
+        /* CTA */
+        .cta {
+            margin: 60px 7%;
+            padding: 50px 30px;
+            text-align: center;
+            border-radius: 20px;
+            background: linear-gradient(
+                135deg,
+                #dff6e8,
+                #f5fcf7
+            );
+        }
+
+        .cta h2 {
+            color: #123d2b;
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: #5d6d64;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            background: #176b43;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #0f5132;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0d2d20;
+            color: white;
+            padding: 45px 7% 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        footer h3 {
+            margin-top: 0;
+            color: #7ee2a8;
+        }
+
+        footer p {
+            color: #c5d4cc;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        footer a {
+            display: block;
+            color: #c5d4cc;
+            text-decoration: none;
+            margin: 9px 0;
+            font-size: 14px;
+        }
+
+        footer a:hover {
+            color: #7ee2a8;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 30px;
+            padding-top: 20px;
+            color: #9db2a7;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 1000px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .green-cards {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-    <nav>
-        <div class="logo">🌿 CommunityConnect</div>
+    <!-- ================================
+         HEADER
+    ================================= -->
 
-        <div class="nav-links">
+    <header>
+
+        <a href="index.html" class="logo">
+            Community<span>Connect</span>
+        </a>
+
+        <nav>
             <a href="index.html">Home</a>
-            <a href="community.html">Community</a>
-            <a href="government.html">Government</a>
+            <a href="community.html">Community Profile</a>
+            <a href="government.html">Government Schemes</a>
             <a href="resources.html">Resources</a>
-            <a href="awareness.html">Awareness</a>
+
+            <a href="environment.html" class="active">
+                Awareness
+            </a>
+
             <a href="contact.html">Contact</a>
-            <a href="dashboard.html" class="login">Dashboard</a>
-        </div>
-    </nav>
-</header>
+            <a href="login.html">Login</a>
+        </nav>
+
+    </header>
 
 
-<section class="hero">
-    <div class="hero-content">
+    <!-- ================================
+         HERO
+    ================================= -->
 
-        <h1>Awareness</h1>
+    <section class="hero">
+
+        <small>AWARENESS & COMMUNITY</small>
+
+        <h1>
+            Small Actions. Big Change.
+        </h1>
 
         <p>
-            Learn about important health, environmental,
-            safety and social awareness topics.
+            Awareness is the first step toward creating healthier,
+            safer, greener, and stronger communities. Learn simple
+            ways to make a positive difference around you.
         </p>
 
-    </div>
-</section>
+    </section>
 
 
-<section class="features-section">
+    <!-- ================================
+         AWARENESS TOPICS
+    ================================= -->
 
-    <h2>Awareness Topics</h2>
+    <section class="section">
 
-    <p class="section-description">
-        Stay informed and learn useful information
-        that can help you and your community.
-    </p>
+        <div class="section-title">
 
-
-    <div class="feature-container">
-
-        <div class="feature-card">
-            <div class="feature-icon">❤️</div>
-
-            <h3>Health Awareness</h3>
+            <h2>
+                Awareness for Everyone
+            </h2>
 
             <p>
-                Learn about healthy habits,
-                wellbeing and important health information.
+                Learn, understand, and take meaningful action.
             </p>
+
         </div>
 
 
-        <div class="feature-card">
-            <div class="feature-icon">🌱</div>
+        <div class="cards">
 
-            <h3>Environmental Awareness</h3>
+            <!-- CARD 1 -->
+
+            <div class="card">
+
+                <div class="icon">
+                    🌱
+                </div>
+
+                <h3>
+                    Environmental Awareness
+                </h3>
+
+                <p>
+                    Learn about protecting nature, reducing waste,
+                    conserving resources, and creating a cleaner
+                    environment for future generations.
+                </p>
+
+            </div>
+
+
+            <!-- CARD 2 -->
+
+            <div class="card">
+
+                <div class="icon">
+                    ❤️
+                </div>
+
+                <h3>
+                    Health Awareness
+                </h3>
+
+                <p>
+                    Understand the importance of healthy habits,
+                    preventive care, hygiene, nutrition, and
+                    accessible health information.
+                </p>
+
+            </div>
+
+
+            <!-- CARD 3 -->
+
+            <div class="card">
+
+                <div class="icon">
+                    🚨
+                </div>
+
+                <h3>
+                    Emergency Awareness
+                </h3>
+
+                <p>
+                    Know how to respond during emergencies and
+                    understand important safety information that
+                    can help protect your community.
+                </p>
+
+            </div>
+
+
+            <!-- CARD 4 -->
+
+            <div class="card">
+
+                <div class="icon">
+                    🤝
+                </div>
+
+                <h3>
+                    Community Participation
+                </h3>
+
+                <p>
+                    Get involved in local activities, support
+                    community programs, share useful information,
+                    and help build a stronger community.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         GREEN COMMUNITY
+    ================================= -->
+
+    <section class="green-section">
+
+        <div class="section-title">
+
+            <h2>
+                Building a Greener Community
+            </h2>
 
             <p>
-                Learn about protecting our environment,
-                reducing waste and caring for nature.
+                Simple everyday actions can create meaningful
+                changes in our environment.
             </p>
+
         </div>
 
 
-        <div class="feature-card">
-            <div class="feature-icon">🛡️</div>
+        <div class="green-cards">
 
-            <h3>Safety Awareness</h3>
+            <div class="green-card">
 
-            <p>
-                Learn useful safety practices
-                for everyday situations.
-            </p>
+                <h3>
+                    ♻️ Reduce Waste
+                </h3>
+
+                <p>
+                    Reduce unnecessary waste, reuse useful items,
+                    and separate recyclable materials whenever
+                    possible.
+                </p>
+
+            </div>
+
+
+            <div class="green-card">
+
+                <h3>
+                    💧 Save Water
+                </h3>
+
+                <p>
+                    Avoid wasting water and encourage responsible
+                    water use at home, school, and in the community.
+                </p>
+
+            </div>
+
+
+            <div class="green-card">
+
+                <h3>
+                    🌳 Protect Nature
+                </h3>
+
+                <p>
+                    Protect plants, trees, animals, and natural
+                    spaces while encouraging others to care for
+                    the environment.
+                </p>
+
+            </div>
+
         </div>
 
-
-        <div class="feature-card">
-            <div class="feature-icon">🤝</div>
-
-            <h3>Social Awareness</h3>
-
-            <p>
-                Discover information that encourages
-                a supportive and responsible community.
-            </p>
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
 
-<section class="cta">
+    <!-- ================================
+         CTA
+    ================================= -->
 
-    <h2>Knowledge Creates Awareness</h2>
+    <section class="cta">
 
-    <p>
-        Stay informed and share useful information
-        with your community.
-    </p>
+        <h2>
+            Together, We Can Make a Difference
+        </h2>
 
-    <a href="resources.html">
-        Explore Resources
-    </a>
-
-</section>
-
-
-<footer>
-
-    <div class="footer-content">
-
-        <h3>🌿 CommunityConnect</h3>
-
-        <p>Connect. Discover. Empower.</p>
-
-        <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="community.html">Community</a>
-            <a href="government.html">Government</a>
-            <a href="resources.html">Resources</a>
-            <a href="awareness.html">Awareness</a>
-            <a href="contact.html">Contact</a>
-            <a href="dashboard.html">Dashboard</a>
-        </div>
-
-        <p class="copyright">
-            © 2026 CommunityConnect. All rights reserved.
+        <p>
+            Stay informed, spread awareness, and take small
+            steps toward a better community.
         </p>
 
-    </div>
+        <a href="index.html" class="btn">
+            Back to Home
+        </a>
 
-</footer>
-
-
-<!-- FIREBASE LOGIN PROTECTION -->
-
-<script type="module">
-
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-
-import {
-    getAuth,
-    onAuthStateChanged
-}
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+    </section>
 
 
-const firebaseConfig = {
+    <!-- ================================
+         FOOTER
+    ================================= -->
 
-    apiKey:
-        "AIzaSyDpm8pHtGj_6pTw_ltZqpbHDWuF1GKgZ4",
+    <footer>
 
-    authDomain:
-        "community-resourses.firebaseapp.com",
+        <div class="footer-content">
 
-    projectId:
-        "community-resourses",
+            <div>
 
-    storageBucket:
-        "community-resourses.firebasestorage.app",
+                <h3>
+                    CommunityConnect
+                </h3>
 
-    messagingSenderId:
-        "556205954035",
+                <p>
+                    Connect. Discover. Empower.
+                    A platform dedicated to connecting people
+                    with useful community information, resources,
+                    and opportunities.
+                </p>
 
-    appId:
-        "1:556205954035:web:90c48e1ba4b241bc1ab886",
-
-    measurementId:
-        "G-BSVB77GELT"
-};
-
-
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth(app);
+            </div>
 
 
-onAuthStateChanged(auth, function(user) {
+            <div>
 
-    if (!user) {
-        window.location.href = "login.html";
-    }
+                <h3>
+                    Explore
+                </h3>
 
-});
+                <a href="community.html">
+                    Community
+                </a>
 
-</script>
+                <a href="government.html">
+                    Government Schemes
+                </a>
+
+                <a href="environment.html">
+                    Awareness
+                </a>
+
+                <a href="educational.html">
+                    Education
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Support
+                </h3>
+
+                <a href="health.html">
+                    Health
+                </a>
+
+                <a href="emergency.html">
+                    Emergency
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 CommunityConnect.
+            Built for community awareness and empowerment.
+
+        </div>
+
+    </footer>
 
 </body>
 </html>
