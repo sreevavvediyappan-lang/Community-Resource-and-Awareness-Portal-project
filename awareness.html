@@ -14,7 +14,7 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: #f5f7fb;
+            background: #E8F5E9;
             color: #1f2937;
         }
 
@@ -55,10 +55,10 @@
         }
 
         .hero {
-            background: white;
+            background: #F1F8E9;
             padding: 35px;
             border-radius: 18px;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #d7e8d1;
             margin-bottom: 25px;
         }
 
@@ -96,6 +96,7 @@
             border-radius: 10px;
             font-size: 14px;
             outline: none;
+            background: white;
         }
 
         #search:focus {
@@ -406,7 +407,6 @@
 
         </div>
 
-
         <div class="card"
              data-category="Digital Safety & Scams"
              data-search="digital safety scam online fraud cyber security">
@@ -426,7 +426,6 @@
             </button>
 
         </div>
-
 
         <div class="card"
              data-category="Civic Rights"
@@ -448,7 +447,6 @@
             </button>
 
         </div>
-
 
         <div class="card"
              data-category="Health & Hygiene"
@@ -483,7 +481,6 @@
     © 2026 CommunityConnect | Community Resource and Awareness Portal
 </footer>
 
-
 <!-- ARTICLE MODAL -->
 
 <div class="modal" id="articleModal">
@@ -510,7 +507,6 @@
 
             </div>
 
-
             <div class="checklist">
 
                 <h3>✅ Personal Action Checklist</h3>
@@ -532,23 +528,27 @@
 
             </div>
 
-
             <div class="quiz">
 
                 <h3>🧠 Quick Knowledge Check</h3>
 
                 <p id="quizQuestion"></p>
 
-                <button class="quiz-option" onclick="checkAnswer(0)" id="option0"></button>
+                <button class="quiz-option"
+                        onclick="checkAnswer(0)"
+                        id="option0"></button>
 
-                <button class="quiz-option" onclick="checkAnswer(1)" id="option1"></button>
+                <button class="quiz-option"
+                        onclick="checkAnswer(1)"
+                        id="option1"></button>
 
-                <button class="quiz-option" onclick="checkAnswer(2)" id="option2"></button>
+                <button class="quiz-option"
+                        onclick="checkAnswer(2)"
+                        id="option2"></button>
 
                 <div class="quiz-result" id="quizResult"></div>
 
             </div>
-
 
             <div class="contacts">
 
@@ -566,11 +566,9 @@
 
 </div>
 
-
 <script>
 
 let selectedCategory = "All";
-
 
 const articles = {
 
@@ -632,7 +630,6 @@ const articles = {
 
 };
 
-
 function openArticle(id) {
 
     const article = articles[id];
@@ -665,13 +662,11 @@ function openArticle(id) {
     window.currentAnswer = article.answer;
 }
 
-
 function closeArticle() {
 
     document.getElementById("articleModal").style.display = "none";
 
 }
-
 
 function checkAnswer(option) {
 
@@ -689,7 +684,6 @@ function checkAnswer(option) {
 
 }
 
-
 function selectCategory(category, button) {
 
     selectedCategory = category;
@@ -703,7 +697,6 @@ function selectCategory(category, button) {
     filterArticles();
 
 }
-
 
 function filterArticles() {
 
@@ -747,7 +740,6 @@ function filterArticles() {
         visibleCount === 0 ? "block" : "none";
 
 }
-
 
 window.onclick = function(event) {
 
