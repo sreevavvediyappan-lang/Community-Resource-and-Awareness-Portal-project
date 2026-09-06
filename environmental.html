@@ -1,224 +1,539 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Environmental Resources | CommunityConnect</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awareness | CommunityConnect</title>
 
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-body {
-    background: #f5f8f6;
-    color: #263238;
-}
+        body {
+            background: #f5faf7;
+            color: #26352d;
+            line-height: 1.6;
+        }
 
-header {
-    background: #176b4d;
-    color: white;
-    padding: 18px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .navbar {
+            background: #123d2b;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 18px;
-    font-size: 14px;
-}
+        .logo span {
+            color: #8bd8a9;
+        }
 
-nav a:hover {
-    text-decoration: underline;
-}
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
 
-.container {
-    max-width: 1000px;
-    margin: 45px auto;
-    padding: 20px;
-}
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
 
-h1 {
-    text-align: center;
-    color: #176b4d;
-    margin-bottom: 10px;
-}
+        .nav-links a:hover {
+            color: #8bd8a9;
+        }
 
-.subtitle {
-    text-align: center;
-    color: #667085;
-    margin-bottom: 30px;
-}
+        .login-btn {
+            background: #79d69a;
+            color: #123d2b !important;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-decoration: none;
+        }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-}
+        .hero {
+            padding: 80px 7%;
+            background: linear-gradient(135deg, #e7f8ed, #f7fcf8);
+        }
 
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-}
+        .hero-content {
+            max-width: 850px;
+        }
 
-.icon {
-    font-size: 35px;
-    margin-bottom: 15px;
-}
+        .small-title {
+            color: #25834c;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
 
-.card h2 {
-    color: #176b4d;
-    margin-bottom: 10px;
-}
+        .hero h1 {
+            font-size: 50px;
+            line-height: 1.15;
+            color: #123d2b;
+            margin-bottom: 20px;
+        }
 
-.card p {
-    color: #667085;
-    line-height: 1.6;
-}
+        .hero h1 span {
+            color: #2e9d5a;
+        }
 
-footer {
-    text-align: center;
-    padding: 25px;
-    color: #667085;
-}
-</style>
+        .hero p {
+            max-width: 700px;
+            color: #5d6d63;
+            font-size: 17px;
+        }
+
+        .container {
+            width: 86%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            color: #123d2b;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #68776e;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid #e2eee6;
+            box-shadow: 0 8px 30px rgba(30, 80, 50, 0.06);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(30, 80, 50, 0.12);
+        }
+
+        .icon {
+            width: 58px;
+            height: 58px;
+            background: #e5f7eb;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            color: #174e35;
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .card p {
+            color: #68776e;
+            font-size: 14px;
+        }
+
+        .green-section {
+            background: #eef8f2;
+        }
+
+        .green-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .green-card {
+            background: white;
+            padding: 28px;
+            border-radius: 18px;
+            text-align: center;
+            border: 1px solid #e2eee6;
+        }
+
+        .green-card h3 {
+            color: #174e35;
+            margin: 15px 0 8px;
+        }
+
+        .green-card p {
+            color: #68776e;
+            font-size: 14px;
+        }
+
+        .green-icon {
+            font-size: 38px;
+        }
+
+        .cta {
+            background: #dff5e6;
+            padding: 50px;
+            border-radius: 22px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: #123d2b;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: #5f7066;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #257c49;
+            color: white;
+            text-decoration: none;
+            padding: 13px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #185d36;
+        }
+
+        footer {
+            margin-top: 70px;
+            background: #123d2b;
+            color: white;
+            padding: 45px 7%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        footer h3 {
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #c9ddd0;
+            max-width: 500px;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #315b46;
+            color: #b8cdbf;
+            font-size: 13px;
+        }
+
+        @media (max-width: 850px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .grid,
+            .green-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
+<nav class="navbar">
 
-    <div class="logo">🌿 CommunityConnect</div>
+    <div class="logo">
+        Community<span>Connect</span>
+    </div>
 
-    <nav>
+    <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="community.html">Community</a>
-        <a href="government.html">Government</a>
-        <a href="resources.html">Resources</a>
-        <a href="awareness.html">Awareness</a>
-        <a href="dashboard.html">Dashboard</a>
-    </nav>
+        <a href="community.html">Community Profile</a>
+        <a href="government.html">Government Schemes</a>
+        <a href="education.html">Resources</a>
+        <a href="environment.html">Awareness</a>
+        <a href="contact.html">Contact</a>
+    </div>
 
-</header>
+    <a href="login.html" class="login-btn">Login</a>
 
-
-<div class="container">
-
-    <h1>Environmental Resources</h1>
-
-    <p class="subtitle">
-        Learn how we can protect our environment and build a greener community.
-    </p>
+</nav>
 
 
-    <div class="grid">
+<section class="hero">
 
-        <div class="card">
-            <div class="icon">🌱</div>
+    <div class="hero-content">
 
-            <h2>Green Living</h2>
+        <div class="small-title">
+            Awareness & Community Well-being
+        </div>
+
+        <h1>
+            Small Actions. <span>Big Change.</span>
+        </h1>
+
+        <p>
+            Learn about important environmental, health, emergency
+            and community awareness topics that can help create
+            safer, healthier and stronger communities.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Awareness Topics</h2>
 
             <p>
-                Learn simple ways to reduce waste,
-                save resources and live more sustainably.
+                Important information everyone should know.
             </p>
+
         </div>
 
 
-        <div class="card">
-            <div class="icon">♻️</div>
+        <div class="grid">
 
-            <h2>Waste Management</h2>
+            <div class="card">
 
-            <p>
-                Understand recycling, waste segregation
-                and responsible disposal practices.
-            </p>
-        </div>
+                <div class="icon">🌱</div>
 
+                <h3>Environmental Awareness</h3>
 
-        <div class="card">
-            <div class="icon">💧</div>
+                <p>
+                    Learn about protecting nature, reducing waste,
+                    saving water and building an environmentally
+                    responsible community.
+                </p>
 
-            <h2>Water Conservation</h2>
-
-            <p>
-                Discover simple ways to conserve water
-                and protect this important natural resource.
-            </p>
-        </div>
+            </div>
 
 
-        <div class="card">
-            <div class="icon">🌳</div>
+            <div class="card">
 
-            <h2>Nature Protection</h2>
+                <div class="icon">❤️</div>
 
-            <p>
-                Explore ways to protect trees, wildlife
-                and natural spaces in our communities.
-            </p>
+                <h3>Health Awareness</h3>
+
+                <p>
+                    Understand healthy habits, preventive care and
+                    the importance of reliable health information.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🚨</div>
+
+                <h3>Emergency Awareness</h3>
+
+                <p>
+                    Learn what to do during emergencies and where
+                    to find important emergency services.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🤝</div>
+
+                <h3>Community Participation</h3>
+
+                <p>
+                    Take part in community activities, awareness
+                    programs and initiatives that make a positive
+                    difference.
+                </p>
+
+            </div>
+
         </div>
 
     </div>
 
-</div>
+</section>
+
+
+<section class="section green-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Green Community</h2>
+
+            <p>
+                Simple steps can help protect our environment.
+            </p>
+
+        </div>
+
+
+        <div class="green-grid">
+
+            <div class="green-card">
+
+                <div class="green-icon">♻️</div>
+
+                <h3>Reduce Waste</h3>
+
+                <p>
+                    Reduce unnecessary waste and reuse materials
+                    whenever possible.
+                </p>
+
+            </div>
+
+
+            <div class="green-card">
+
+                <div class="green-icon">💧</div>
+
+                <h3>Save Water</h3>
+
+                <p>
+                    Use water responsibly and avoid unnecessary
+                    wastage in daily activities.
+                </p>
+
+            </div>
+
+
+            <div class="green-card">
+
+                <div class="green-icon">🌳</div>
+
+                <h3>Protect Nature</h3>
+
+                <p>
+                    Protect trees, plants, wildlife and natural
+                    spaces in the community.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="cta">
+
+            <h2>
+                Together, We Can Make a Difference
+            </h2>
+
+            <p>
+                Awareness begins with learning and becomes powerful
+                when people take positive action.
+            </p>
+
+            <a href="index.html" class="btn">
+                Back to Home
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
 
 
 <footer>
-    © 2026 CommunityConnect | Community Resource and Awareness Portal
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>CommunityConnect</h3>
+
+            <p>
+                Connecting communities with useful information,
+                resources and opportunities.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>Community Portal</h3>
+
+            <p>
+                Community • Education • Health • Environment
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+        © 2026 CommunityConnect. All Rights Reserved.
+    </div>
+
 </footer>
-
-
-<script type="module">
-
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-
-import {
-    getAuth,
-    onAuthStateChanged
-}
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-
-
-const firebaseConfig = {
-    apiKey: "AIzaSyDpm8pHtGj_6pTw_ltZqpbHDWu1F7GKgZ4",
-    authDomain: "community-resourses.firebaseapp.com",
-    projectId: "community-resourses",
-    storageBucket: "community-resourses.firebasestorage.app",
-    messagingSenderId: "556205954035",
-    appId: "1:556205954035:web:90c48e1ba4b241bc1ab886",
-    measurementId: "G-BSVB77GELT"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-
-// 🔐 Only logged-in users can access this page
-onAuthStateChanged(auth, (user) => {
-
-    if (!user) {
-        window.location.href = "login.html";
-    }
-
-});
-
-</script>
 
 </body>
 </html>
