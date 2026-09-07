@@ -1,1 +1,2141 @@
+Pasted text(6).txt
+Document
 
+Yes 👍 I can see your current signup.html. It currently stores the password in localStorage, so we should replace that with Firebase Authentication. Your existing design can stay the same.
+
+Step 7 — Replace your signup.html
+
+Replace the entire contents of your current signup.html with the code below.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up | CommunityConnect</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #eef6f0;
+            color: #24352d;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        /* LEFT SIDE */
+
+        .left {
+            background: #0c3b2e;
+            color: white;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 55px;
+        }
+
+        .logo-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: #8bcf9b;
+            color: #0c3b2e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo h2 {
+            font-size: 21px;
+        }
+
+        .logo span {
+            display: block;
+            color: #b9d8c4;
+            font-size: 11px;
+            margin-top: 2px;
+        }
+
+        .left-content {
+            max-width: 520px;
+        }
+
+        .left-content .tag {
+            display: inline-block;
+            background: #1b5842;
+            color: #a9dbb5;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .left h1 {
+            font-size: 48px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .left h1 span {
+            color: #8bcf9b;
+        }
+
+        .left p {
+            color: #c4d9ce;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .benefits {
+            margin-top: 35px;
+            display: grid;
+            gap: 14px;
+        }
+
+        .benefit {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #dcebe2;
+            font-size: 14px;
+        }
+
+        .check {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #1c5742;
+            color: #8bcf9b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* RIGHT SIDE */
+
+        .right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            background: #f7faf8;
+        }
+
+        .signup-card {
+            width: 100%;
+            max-width: 480px;
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 20px 50px rgba(18, 60, 46, 0.10);
+            border: 1px solid #dfe9e2;
+        }
+
+        .signup-card h2 {
+            color: #173f30;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #718078;
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #344d40;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d5e1d9;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .form-group input:focus {
+            border-color: #4a9b69;
+            box-shadow: 0 0 0 3px rgba(74,155,105,0.1);
+        }
+
+        .password-note {
+            color: #849189;
+            font-size: 11px;
+            margin-top: 5px;
+        }
+
+        .terms {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            margin: 18px 0;
+            color: #697970;
+            font-size: 12px;
+        }
+
+        .terms input {
+            margin-top: 3px;
+        }
+
+        .signup-btn {
+            width: 100%;
+            border: none;
+            background: #196c47;
+            color: white;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .signup-btn:hover {
+            background: #125639;
+        }
+
+        .signup-btn:disabled {
+            background: #8aa99a;
+            cursor: not-allowed;
+        }
+
+        .message {
+            display: none;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .success {
+            background: #e4f4e8;
+            color: #226a42;
+        }
+
+        .error {
+            background: #fdeaea;
+            color: #a33131;
+        }
+
+        .login-text {
+            text-align: center;
+            margin-top: 22px;
+            color: #718078;
+            font-size: 14px;
+        }
+
+        .login-text a {
+            color: #196c47;
+            font-weight: bold;
+        }
+
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            color: #718078;
+            font-size: 13px;
+        }
+
+        .back-home:hover {
+            color: #196c47;
+        }
+
+        @media (max-width: 850px) {
+
+            .page {
+                grid-template-columns: 1fr;
+            }
+
+            .left {
+                padding: 40px 30px;
+            }
+
+            .logo {
+                margin-bottom: 30px;
+            }
+
+            .left h1 {
+                font-size: 38px;
+            }
+
+            .benefits {
+                margin-top: 25px;
+            }
+
+            .right {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .left {
+                padding: 30px 20px;
+            }
+
+            .left h1 {
+                font-size: 32px;
+            }
+
+            .signup-card {
+                padding: 28px 22px;
+            }
+
+            .signup-card h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- LEFT SIDE -->
+
+    <section class="left">
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-icon">
+                C
+            </div>
+
+            <div>
+                <h2>CommunityConnect</h2>
+                <span>Connect. Discover. Empower.</span>
+            </div>
+
+        </a>
+
+        <div class="left-content">
+
+            <div class="tag">
+                JOIN OUR COMMUNITY
+            </div>
+
+            <h1>
+                Connect with your
+                <span>Community.</span>
+            </h1>
+
+            <p>
+                Create your CommunityConnect account and get access
+                to personalised community resources, saved resources,
+                applications and your profile.
+            </p>
+
+            <div class="benefits">
+
+                <div class="benefit">
+                    <div class="check">✓</div>
+                    Explore useful community resources
+                </div>
+
+                <div class="benefit">
+                    <div class="check">✓</div>
+                    Save resources for later
+                </div>
+
+                <div class="benefit">
+                    <div class="check">✓</div>
+                    Manage your personal profile
+                </div>
+
+                <div class="benefit">
+                    <div class="check">✓</div>
+                    Track your applications
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RIGHT SIDE -->
+
+    <section class="right">
+
+        <div class="signup-card">
+
+            <h2>Create Account</h2>
+
+            <p class="subtitle">
+                Sign up to start using CommunityConnect.
+            </p>
+
+            <form id="signupForm">
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Create a password"
+                        minlength="6"
+                        required
+                    >
+
+                    <div class="password-note">
+                        Use at least 6 characters.
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Re-enter your password"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="terms">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required
+                    >
+
+                    <label for="terms">
+                        I agree to use CommunityConnect responsibly
+                        and provide accurate information.
+                    </label>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="signup-btn"
+                    id="signupButton"
+                >
+                    Create Account
+                </button>
+
+
+                <div
+                    id="successMessage"
+                    class="message success">
+                </div>
+
+
+                <div
+                    id="errorMessage"
+                    class="message error">
+                </div>
+
+            </form>
+
+
+            <div class="login-text">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </div>
+
+
+            <a href="index.html" class="back-home">
+                ← Back to CommunityConnect
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- FIREBASE SIGN UP -->
+
+<script type="module">
+
+    import { initializeApp }
+        from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+
+    import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        updateProfile
+    }
+        from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+
+    // =========================================
+    // YOUR FIREBASE CONFIG
+    // =========================================
+
+    const firebaseConfig = {
+
+        apiKey: "YOUR_API_KEY",
+
+        authDomain:
+            "YOUR_PROJECT_ID.firebaseapp.com",
+
+        projectId:
+            "YOUR_PROJECT_ID",
+
+        storageBucket:
+            "YOUR_PROJECT_ID.firebasestorage.app",
+
+        messagingSenderId:
+            "YOUR_MESSAGING_SENDER_ID",
+
+        appId:
+            "YOUR_APP_ID"
+    };
+
+
+    // Initialize Firebase
+
+    const app = initializeApp(firebaseConfig);
+
+    const auth = getAuth(app);
+
+
+    // =========================================
+    // FORM ELEMENTS
+    // =========================================
+
+    const signupForm =
+        document.getElementById("signupForm");
+
+    const nameInput =
+        document.getElementById("name");
+
+    const emailInput =
+        document.getElementById("email");
+
+    const passwordInput =
+        document.getElementById("password");
+
+    const confirmPasswordInput =
+        document.getElementById("confirmPassword");
+
+    const signupButton =
+        document.getElementById("signupButton");
+
+    const successMessage =
+        document.getElementById("successMessage");
+
+    const errorMessage =
+        document.getElementById("errorMessage");
+
+
+    // =========================================
+    // SIGN UP
+    // =========================================
+
+    signupForm.addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+
+        // Hide old messages
+
+        successMessage.style.display = "none";
+        errorMessage.style.display = "none";
+
+
+        const name =
+            nameInput.value.trim();
+
+        const email =
+            emailInput.value.trim();
+
+        const password =
+            passwordInput.value;
+
+        const confirmPassword =
+            confirmPasswordInput.value;
+
+
+        // =========================================
+        // VALIDATION
+        // =========================================
+
+        if (name.length < 2) {
+
+            showError(
+                "Please enter your full name."
+            );
+
+            return;
+        }
+
+
+        if (password.length < 6) {
+
+            showError(
+                "Password must contain at least 6 characters."
+            );
+
+            return;
+        }
+
+
+        if (password !== confirmPassword) {
+
+            showError(
+                "Passwords do not match."
+            );
+
+            return;
+        }
+
+
+        // Disable button
+
+        signupButton.disabled = true;
+
+        signupButton.textContent =
+            "Creating Account...";
+
+
+        try {
+
+            // =========================================
+            // CREATE FIREBASE ACCOUNT
+            // =========================================
+
+            const userCredential =
+                await createUserWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
+
+
+            const user =
+                userCredential.user;
+
+
+            // =========================================
+            // SAVE DISPLAY NAME IN FIREBASE
+            // =========================================
+
+            await updateProfile(user, {
+
+                displayName: name
+
+            });
+
+
+            // We DO NOT save the password
+            // in localStorage.
+
+
+            // =========================================
+            // SUCCESS
+            // =========================================
+
+            successMessage.textContent =
+                "Account created successfully! Redirecting to Login...";
+
+            successMessage.style.display =
+                "block";
+
+
+            signupForm.reset();
+
+
+            setTimeout(function() {
+
+                window.location.href =
+                    "login.html";
+
+            }, 1500);
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            // =========================================
+            // FIREBASE ERROR HANDLING
+            // =========================================
+
+            let message =
+                "Unable to create your account. Please try again.";
+
+
+            if (
+                error.code ===
+                "auth/email-already-in-use"
+            ) {
+
+                message =
+                    "An account with this email already exists. Please login.";
+
+            }
+
+            else if (
+                error.code ===
+                "auth/invalid-email"
+            ) {
+
+                message =
+                    "Please enter a valid email address.";
+
+            }
+
+            else if (
+                error.code ===
+                "auth/weak-password"
+            ) {
+
+                message =
+                    "Password is too weak. Please use at least 6 characters.";
+
+            }
+
+            else if (
+                error.code ===
+                "auth/network-request-failed"
+            ) {
+
+                message =
+                    "Network error. Please check your internet connection.";
+
+            }
+
+
+            showError(message);
+
+
+            signupButton.disabled = false;
+
+            signupButton.textContent =
+                "Create Account";
+        }
+
+    });
+
+
+    // =========================================
+    // SHOW ERROR
+    // =========================================
+
+    function showError(message) {
+
+        errorMessage.textContent =
+            message;
+
+        errorMessage.style.display =
+            "block";
+    }
+
+</script>
+
+</body>
+</html>
+⚠️ One important thing
+
+In the code, you will see:
+
+apiKey: "YOUR_API_KEY",
+authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+projectId: "YOUR_PROJECT_ID",
+
+Do not leave these as they are.
+
+Use the same Firebase configuration values you already used in your new login.html.
+
+Then do this
+Open your GitHub repository.
+Open signup.html.
+Click the pencil/edit button.
+Select all the old code.
+Paste the code above.
+Replace the Firebase config with your actual config.
+Click Commit changes.
+Wait a minute for GitHub Pages to update.
+Open your Sign Up page.
+Create a test account.
+
+If it works, the account should appear in Firebase Console → Authentication → Users.
+
+Also, unlike your old code, the new version does not save the user's password in localStorage. Your old file explicitly stored the password there.
+
+After this, our next step will be protecting dashboard.html with Firebase, so users can't simply open the dashboard without logging in.
+
+next
+
+Great 👍 Next step: protect your dashboard.html with Firebase.
+
+This is important because currently someone could type:
+
+dashboard.html
+
+directly into the browser without actually logging in.
+
+Step 8 — Open dashboard.html
+
+Please send/paste your current dashboard.html code here.
+
+I’ll modify your existing dashboard, keeping its design, and add Firebase authentication so:
+
+✅ Logged-in users → can open Dashboard
+❌ Not logged in → automatically sent to login.html
+🚪 Logout → signs the user out of Firebase
+🔐 Dashboard checks Firebase itself, instead of trusting localStorage
+
+Don't send any passwords or private credentials. Just send the dashboard.html code.
+
+Pasted text(7).txt
+Document
+
+Perfect 👍 I can see your dashboard.html. It currently checks localStorage for login and displays the locally saved user information.
+
+Now we’ll replace only the bottom JavaScript with Firebase authentication. Your dashboard design and all the cards/sections stay the same.
+
+Step 8 — Replace the bottom <script>
+
+In your dashboard.html, go to the very bottom.
+
+Find this part:
+
+<script>
+
+    /* CHECK LOGIN */
+
+    const loggedIn =
+        localStorage.getItem("communityConnectLoggedIn");
+
+    ...
+
+</script>
+
+It starts around line 919 and ends around line 994.
+
+Delete that entire <script>...</script>
+
+Then paste this instead:
+
+<script type="module">
+
+    // =========================================
+    // FIREBASE IMPORTS
+    // =========================================
+
+    import { initializeApp }
+        from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+
+    import {
+        getAuth,
+        onAuthStateChanged,
+        signOut
+    }
+        from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+
+    // =========================================
+    // FIREBASE CONFIG
+    // =========================================
+
+    const firebaseConfig = {
+
+        apiKey: "YOUR_API_KEY",
+
+        authDomain:
+            "YOUR_PROJECT_ID.firebaseapp.com",
+
+        projectId:
+            "YOUR_PROJECT_ID",
+
+        storageBucket:
+            "YOUR_PROJECT_ID.firebasestorage.app",
+
+        messagingSenderId:
+            "YOUR_MESSAGING_SENDER_ID",
+
+        appId:
+            "YOUR_APP_ID"
+    };
+
+
+    // =========================================
+    // INITIALIZE FIREBASE
+    // =========================================
+
+    const app =
+        initializeApp(firebaseConfig);
+
+    const auth =
+        getAuth(app);
+
+
+    // =========================================
+    // CHECK FIREBASE LOGIN
+    // =========================================
+
+    onAuthStateChanged(auth, function(user) {
+
+        // -----------------------------------------
+        // USER IS NOT LOGGED IN
+        // -----------------------------------------
+
+        if (!user) {
+
+            window.location.href =
+                "login.html";
+
+            return;
+        }
+
+
+        // -----------------------------------------
+        // USER IS LOGGED IN
+        // -----------------------------------------
+
+        const name =
+            user.displayName ||
+            "User";
+
+        const email =
+            user.email ||
+            "";
+
+
+        // =========================================
+        // DISPLAY USER NAME
+        // =========================================
+
+        document.getElementById("userName")
+            .textContent = name;
+
+        document.getElementById("profileName")
+            .textContent = name;
+
+        document.getElementById("profileEmail")
+            .textContent = email;
+
+
+        // =========================================
+        // AVATAR
+        // =========================================
+
+        const firstLetter =
+            name.charAt(0).toUpperCase();
+
+        document.getElementById("avatar")
+            .textContent = firstLetter;
+
+
+        // =========================================
+        // PROFILE INFORMATION
+        // =========================================
+
+        document.getElementById("phone")
+            .textContent = "Not added";
+
+        document.getElementById("location")
+            .textContent = "Not added";
+
+        document.getElementById("occupation")
+            .textContent = "Not added";
+
+        document.getElementById("education")
+            .textContent = "Not added";
+
+    });
+
+
+    // =========================================
+    // LOGOUT
+    // =========================================
+
+    window.logout = async function() {
+
+        try {
+
+            await signOut(auth);
+
+            // Remove old prototype login data
+            localStorage.removeItem(
+                "communityConnectLoggedIn"
+            );
+
+            localStorage.removeItem(
+                "communityConnectUser"
+            );
+
+            localStorage.removeItem(
+                "communityConnectUID"
+            );
+
+            localStorage.removeItem(
+                "communityConnectEmail"
+            );
+
+
+            // Go to login
+
+            window.location.href =
+                "login.html";
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Logout error:",
+                error
+            );
+
+            alert(
+                "Unable to logout. Please try again."
+            );
+
+        }
+
+    };
+
+</script>
+⚠️ Very important
+
+Use the same Firebase config that you put in your login.html and signup.html.
+
+For example:
+
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
+};
+
+Don't use the words YOUR_API_KEY literally.
+
+Then test it
+
+After committing the change to GitHub:
+
+Test 1: Open dashboard.html while logged out.
+
+➡️ It should automatically send you to login.html.
+
+Test 2: Sign up with your Firebase account.
+
+➡️ Go to Login.
+
+➡️ Login.
+
+➡️ You should reach Dashboard.
+
+➡️ Your Firebase account name/email should appear on the dashboard.
+
+Test 3: Click Logout.
+
+➡️ You should return to login.html.
+
+Your existing dashboard already has the Logout button connected to logout(), so we don't need to change the button itself.
+
+After this works, we'll do the Profile page, so the user's profile information can be connected to their Firebase account instead of the old localStorage system.
+
+Pasted code(1).ts
+TypeScript
+this my code for awarness 
+
+Don't worry 😭❤️ Deployment failed doesn't mean your website is lost. Your files are still in GitHub.
+
+Since we just replaced index.html, the first thing is to find why GitHub Pages failed.
+
+Do this:
+Open your GitHub repository.
+Click Actions at the top.
+Look for the latest workflow with a red ❌.
+Click that failed workflow.
+Click the step that has the red ❌.
+Send me a screenshot of that error.
+
+Don't change or delete anything yet. Once I see the error, I'll give you the exact replacement/fix instead of making you redo the whole website.
+
+I can see the problem 👍
+
+Your screenshot shows:
+
+✅ build — successful
+✅ report-build-status — successful
+❌ deploy — failed
+
+So your HTML code is building correctly. The failure is happening specifically when GitHub tries to publish the site.
+
+Do this now — only one thing
+
+On the left side, click the red ❌ deploy.
+
+Then you'll see the deployment log/error message.
+
+Send me a screenshot of that error. I need that exact message to tell you the correct fix.
+
+⚠️ Don't re-run the deployment and don't delete anything yet. We'll fix the actual deployment error first.
+
+404
+
+There isn't a GitHub Pages site here.
+
+If you're trying to publish one, read the full documentation to learn how to set up GitHub Pages for your repository, organization, or user account.
+
+GitHub Status — @githubstatus
+
+Ahh, okay 😭 I understand now. The 404 page means GitHub Pages is not successfully publishing the repository. Your index.html itself is not the problem because the build step passed.
+
+Let's fix the Pages setting first. Don't change any code.
+
+Step 1 — Open Pages settings
+
+In your GitHub repository:
+
+Settings → Pages
+
+Find Build and deployment.
+
+Under Source, choose:
+
+Deploy from a branch
+
+Then set:
+
+Branch: main
+Folder: / (root)
+
+Click Save.
+
+Step 2 — Wait a little
+
+After saving, wait about 1–3 minutes.
+
+Then go to:
+
+Actions
+
+and see whether a new pages build and deployment appears.
+
+Important
+
+Do not choose GitHub Actions for now.
+
+Your project is a normal HTML/CSS/JS website, so:
+
+Deploy from a branch → main → / (root)
+
+is the simplest setup.
+
+After you do this, send me a screenshot of your Settings → Pages screen before changing anything else. I'll check it with you.
+
+<!DOCTYPE html>
+
+<html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | CommunityConnect</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+        background: #f4f8f5;
+        color: #25372e;
+    }
+
+    /* NAVBAR */
+
+    .navbar {
+        height: 72px;
+        background: #123d2a;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 7%;
+        color: white;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 21px;
+        font-weight: 800;
+    }
+
+    .logo-icon {
+        width: 40px;
+        height: 40px;
+        background: #5ab878;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .nav-links a {
+        color: #d9e8df;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .nav-links a:hover {
+        color: #6dcc88;
+    }
+
+    .logout-btn {
+        border: 1px solid #6dcc88;
+        background: transparent;
+        color: white;
+        padding: 10px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+    }
+
+    .logout-btn:hover {
+        background: #6dcc88;
+        color: #123d2a;
+    }
+
+    /* PAGE */
+
+    .container {
+        width: 86%;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .dashboard-header {
+        padding: 55px 0 35px;
+    }
+
+    .dashboard-header p {
+        color: #6c7c73;
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+
+    .dashboard-header h1 {
+        color: #183b2a;
+        font-size: 38px;
+        margin-bottom: 12px;
+    }
+
+    .dashboard-header h1 span {
+        color: #329657;
+    }
+
+    .dashboard-header .subtitle {
+        color: #708078;
+        line-height: 1.7;
+        max-width: 650px;
+    }
+
+    /* QUICK CARDS */
+
+    .quick-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .quick-card {
+        background: white;
+        border-radius: 16px;
+        padding: 25px;
+        border: 1px solid #e1eae4;
+        transition: 0.3s;
+    }
+
+    .quick-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(20, 70, 45, 0.09);
+    }
+
+    .card-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: #e9f6ed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin-bottom: 18px;
+    }
+
+    .quick-card h3 {
+        color: #244536;
+        font-size: 17px;
+        margin-bottom: 8px;
+    }
+
+    .quick-card p {
+        color: #77857d;
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 16px;
+    }
+
+    .quick-card a {
+        color: #287a48;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    /* MAIN GRID */
+
+    .main-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 25px;
+        margin-bottom: 50px;
+    }
+
+    .panel {
+        background: white;
+        border: 1px solid #e1eae4;
+        border-radius: 18px;
+        padding: 30px;
+    }
+
+    .panel-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 25px;
+    }
+
+    .panel-header h2 {
+        color: #183b2a;
+        font-size: 21px;
+    }
+
+    .panel-header a {
+        color: #287a48;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    /* PROFILE */
+
+    .profile-box {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #edf1ee;
+    }
+
+    .avatar {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: #287a48;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 27px;
+        font-weight: bold;
+    }
+
+    .profile-info h3 {
+        color: #203e30;
+        margin-bottom: 6px;
+    }
+
+    .profile-info p {
+        color: #7a867f;
+        font-size: 13px;
+    }
+
+    .profile-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        margin-top: 25px;
+    }
+
+    .detail {
+        background: #f7faf8;
+        padding: 16px;
+        border-radius: 10px;
+    }
+
+    .detail small {
+        display: block;
+        color: #849087;
+        margin-bottom: 5px;
+        font-size: 11px;
+    }
+
+    .detail strong {
+        color: #30493b;
+        font-size: 13px;
+    }
+
+    /* ACTIVITY */
+
+    .activity-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 13px;
+        padding: 15px 0;
+        border-bottom: 1px solid #edf1ee;
+    }
+
+    .activity-item:last-child {
+        border-bottom: none;
+    }
+
+    .activity-icon {
+        width: 36px;
+        height: 36px;
+        background: #eaf6ed;
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .activity-item h4 {
+        color: #30483b;
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
+
+    .activity-item p {
+        color: #87928c;
+        font-size: 11px;
+    }
+
+    /* RESOURCE SECTION */
+
+    .resource-section {
+        margin-bottom: 60px;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+        color: #183b2a;
+        font-size: 28px;
+        margin-bottom: 8px;
+    }
+
+    .section-title p {
+        color: #748078;
+        font-size: 14px;
+    }
+
+    .resource-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .resource-card {
+        background: white;
+        border: 1px solid #e1eae4;
+        border-radius: 15px;
+        padding: 25px;
+    }
+
+    .resource-card h3 {
+        color: #244536;
+        font-size: 17px;
+        margin: 12px 0 8px;
+    }
+
+    .resource-card p {
+        color: #78857e;
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .resource-card a {
+        color: #287a48;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    /* CTA */
+
+    .cta {
+        background: #123d2a;
+        border-radius: 20px;
+        padding: 45px;
+        color: white;
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .cta h2 {
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+
+    .cta p {
+        color: #c7dbce;
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .cta a {
+        display: inline-block;
+        background: #6dcc88;
+        color: #123d2a;
+        text-decoration: none;
+        padding: 13px 25px;
+        border-radius: 9px;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    /* FOOTER */
+
+    footer {
+        background: #0c2c1e;
+        color: white;
+        padding: 30px 7%;
+        text-align: center;
+    }
+
+    footer p {
+        color: #a9c1b2;
+        font-size: 12px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 950px) {
+
+        .nav-links {
+            display: none;
+        }
+
+        .quick-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .main-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .resource-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .container {
+            width: 92%;
+        }
+
+        .dashboard-header h1 {
+            font-size: 30px;
+        }
+
+        .quick-grid,
+        .resource-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .profile-details {
+            grid-template-columns: 1fr;
+        }
+
+        .dashboard-header {
+            padding-top: 35px;
+        }
+
+        .panel {
+            padding: 22px;
+        }
+
+        .cta {
+            padding: 35px 20px;
+        }
+    }
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="logo">
+    <div class="logo-icon">CC</div>
+    <span>CommunityConnect</span>
+</div>
+
+<div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="community.html">Community</a>
+    <a href="government.html">Government</a>
+    <a href="education.html">Education</a>
+    <a href="health.html">Health</a>
+    <a href="contact.html">Contact</a>
+</div>
+
+<button class="logout-btn" onclick="logout()">
+    Logout
+</button>
+
+</nav>
+
+<!-- DASHBOARD -->
+
+<main class="container">
+
+<section class="dashboard-header">
+
+    <p>Welcome to your personal dashboard</p>
+
+    <h1>
+        Hello, <span id="userName">User</span> 👋
+    </h1>
+
+    <p class="subtitle">
+        Manage your CommunityConnect account, discover useful
+        resources and keep track of the opportunities that matter
+        to you.
+    </p>
+
+</section>
+
+
+<!-- QUICK ACTIONS -->
+
+<section class="quick-grid">
+
+    <div class="quick-card">
+
+        <div class="card-icon">👤</div>
+
+        <h3>My Profile</h3>
+
+        <p>
+            View and update your personal information.
+        </p>
+
+        <a href="profile.html">
+            View Profile →
+        </a>
+
+    </div>
+
+
+    <div class="quick-card">
+
+        <div class="card-icon">🔖</div>
+
+        <h3>Saved Resources</h3>
+
+        <p>
+            Access the community resources you saved.
+        </p>
+
+        <a href="saved-resources.html">
+            View Saved →
+        </a>
+
+    </div>
+
+
+    <div class="quick-card">
+
+        <div class="card-icon">📋</div>
+
+        <h3>My Applications</h3>
+
+        <p>
+            Keep track of your saved applications.
+        </p>
+
+        <a href="applications.html">
+            View Applications →
+        </a>
+
+    </div>
+
+
+    <div class="quick-card">
+
+        <div class="card-icon">🌱</div>
+
+        <h3>Explore Resources</h3>
+
+        <p>
+            Discover education, health and community resources.
+        </p>
+
+        <a href="community.html">
+            Explore Now →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- PROFILE + ACTIVITY -->
+
+<section class="main-grid">
+
+    <div class="panel">
+
+        <div class="panel-header">
+
+            <h2>Account Overview</h2>
+
+            <a href="profile.html">
+                Edit Profile
+            </a>
+
+        </div>
+
+
+        <div class="profile-box">
+
+            <div class="avatar" id="avatar">
+                U
+            </div>
+
+            <div class="profile-info">
+
+                <h3 id="profileName">
+                    User
+                </h3>
+
+                <p id="profileEmail">
+                    email@example.com
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-details">
+
+            <div class="detail">
+
+                <small>PHONE</small>
+
+                <strong id="phone">
+                    Not added
+                </strong>
+
+            </div>
+
+
+            <div class="detail">
+
+                <small>LOCATION</small>
+
+                <strong id="location">
+                    Not added
+                </strong>
+
+            </div>
+
+
+            <div class="detail">
+
+                <small>OCCUPATION</small>
+
+                <strong id="occupation">
+                    Not added
+                </strong>
+
+            </div>
+
+
+            <div class="detail">
+
+                <small>EDUCATION</small>
+
+                <strong id="education">
+                    Not added
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ACTIVITY -->
+
+    <div class="panel">
+
+        <div class="panel-header">
+
+            <h2>Recent Activity</h2>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-icon">
+                👤
+            </div>
+
+            <div>
+
+                <h4>Account Created</h4>
+
+                <p>
+                    Welcome to CommunityConnect
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-icon">
+                🔎
+            </div>
+
+            <div>
+
+                <h4>Explore Resources</h4>
+
+                <p>
+                    Find resources that help your community
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-icon">
+                📚
+            </div>
+
+            <div>
+
+                <h4>Learning Resources</h4>
+
+                <p>
+                    Explore educational opportunities
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-icon">
+                💚
+            </div>
+
+            <div>
+
+                <h4>CommunityConnect</h4>
+
+                <p>
+                    Connect. Discover. Empower.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPLORE -->
+
+<section class="resource-section">
+
+    <div class="section-title">
+
+        <h2>Explore What Matters</h2>
+
+        <p>
+            Quick access to important CommunityConnect sections.
+        </p>
+
+    </div>
+
+
+    <div class="resource-grid">
+
+        <div class="resource-card">
+
+            <div class="card-icon">🏘️</div>
+
+            <h3>Community Resources</h3>
+
+            <p>
+                Discover information about community facilities,
+                services and local opportunities.
+            </p>
+
+            <a href="community.html">
+                Explore Community →
+            </a>
+
+        </div>
+
+
+        <div class="resource-card">
+
+            <div class="card-icon">🏛️</div>
+
+            <h3>Government Schemes</h3>
+
+            <p>
+                Find information about government schemes and
+                official application portals.
+            </p>
+
+            <a href="government.html">
+                View Schemes →
+            </a>
+
+        </div>
+
+
+        <div class="resource-card">
+
+            <div class="card-icon">🎓</div>
+
+            <h3>Education</h3>
+
+            <p>
+                Access learning platforms, scholarships and
+                career development resources.
+            </p>
+
+            <a href="education.html">
+                Explore Education →
+            </a>
+
+        </div>
+
+
+        <div class="resource-card">
+
+            <div class="card-icon">❤️</div>
+
+            <h3>Health</h3>
+
+            <p>
+                Find useful health information and official
+                healthcare resources.
+            </p>
+
+            <a href="health.html">
+                Explore Health →
+            </a>
+
+        </div>
+
+
+        <div class="resource-card">
+
+            <div class="card-icon">🌿</div>
+
+            <h3>Environment</h3>
+
+            <p>
+                Learn simple ways to protect the environment
+                and build greener communities.
+            </p>
+
+            <a href="environment.html">
+                Learn More →
+            </a>
+
+        </div>
+
+
+        <div class="resource-card">
+
+            <div class="card-icon">🚨</div>
+
+            <h3>Emergency Support</h3>
+
+            <p>
+                Quickly access important emergency numbers and
+                safety information.
+            </p>
+
+            <a href="emergency.html">
+                Emergency Help →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <h2>Make Your Community Stronger</h2>
+
+    <p>
+        Explore information, discover opportunities and stay
+        connected with resources that can make a difference.
+    </p>
+
+    <a href="contact.html">
+        Get in Touch
+    </a>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+    © 2026 CommunityConnect. Connect. Discover. Empower.
+</p>
+
+</footer>
+
+<script> /* CHECK LOGIN */ const loggedIn = localStorage.getItem("communityConnectLoggedIn"); const savedUser = JSON.parse(localStorage.getItem("communityConnectUser")); if (loggedIn !== "true" || !savedUser) { window.location.href = "login.html"; } /* DISPLAY USER */ if (savedUser) { document.getElementById("userName").textContent = savedUser.name; document.getElementById("profileName").textContent = savedUser.name; document.getElementById("profileEmail").textContent = savedUser.email; /* AVATAR */ const firstLetter = savedUser.name.charAt(0).toUpperCase(); document.getElementById("avatar").textContent = firstLetter; /* PROFILE DATA */ if (savedUser.profile) { document.getElementById("phone").textContent = savedUser.profile.phone || "Not added"; document.getElementById("location").textContent = savedUser.profile.location || "Not added"; document.getElementById("occupation").textContent = savedUser.profile.occupation || "Not added"; document.getElementById("education").textContent = savedUser.profile.education || "Not added"; } } /* LOGOUT */ function logout() { localStorage.setItem( "communityConnectLoggedIn", "false" ); window.location.href = "login.html"; } </script>
+
+</body> </html>
+
+Close
