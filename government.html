@@ -1,1 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Government Schemes | CommunityConnect</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #E3F2FD;
+            color: #26352d;
+            line-height: 1.6;
+        }
+
+        nav {
+            background: white;
+            padding: 16px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #dbeafe;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #374151;
+            margin-left: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 35px auto;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #E3F2FD, #F5FAFF);
+            padding: 55px 35px;
+            border-radius: 20px;
+            border: 1px solid #cfe5f7;
+            margin-bottom: 30px;
+        }
+
+        .small-title {
+            color: #2563eb;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-size: 34px;
+            margin-bottom: 12px;
+            color: #172554;
+        }
+
+        .hero p {
+            color: #64748b;
+            max-width: 750px;
+        }
+
+        .info-section {
+            background: #DCEEFF;
+            padding: 30px;
+            border-radius: 18px;
+            margin-bottom: 30px;
+            border: 1px solid #c7e2fa;
+        }
+
+        .info-section h2 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        .info-section p {
+            color: #475569;
+        }
+
+        .schemes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .scheme-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid #dbeafe;
+            transition: 0.2s;
+        }
+
+        .scheme-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .scheme-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .scheme-card h2 {
+            color: #172554;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .scheme-card p {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .scheme-tag {
+            display: inline-block;
+            background: #eff6ff;
+            color: #2563eb;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background: #2563eb;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+
+            .schemes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                margin-left: 8px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .hero {
+                padding: 35px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        🌿 CommunityConnect
+    </div>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="resources.html">Resources</a>
+        <a href="awarness.html">Awareness</a>
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <section class="hero">
+
+        <div class="small-title">
+            🏛️ Government Support
+        </div>
+
+        <h1>
+            Government Schemes & Services
+        </h1>
+
+        <p>
+            Explore useful government schemes and public
+            services designed to support students, families,
+            workers and communities.
+        </p>
+
+    </section>
+
+
+    <section class="info-section">
+
+        <h2>
+            About Government Schemes
+        </h2>
+
+        <p>
+            Government schemes provide support in areas such
+            as education, healthcare, employment, housing and
+            social welfare. Always check the official government
+            website for the latest eligibility and application
+            information.
+        </p>
+
+    </section>
+
+
+    <div class="schemes-grid">
+
+
+        <div class="scheme-card">
+
+            <div class="scheme-icon">🎓</div>
+
+            <span class="scheme-tag">
+                EDUCATION
+            </span>
+
+            <h2>
+                Education Support
+            </h2>
+
+            <p>
+                Information about scholarships, educational
+                assistance and opportunities for students.
+            </p>
+
+            <a href="educational.html" class="btn">
+                Learn More →
+            </a>
+
+        </div>
+
+
+        <div class="scheme-card">
+
+            <div class="scheme-icon">🏥</div>
+
+            <span class="scheme-tag">
+                HEALTH
+            </span>
+
+            <h2>
+                Health Services
+            </h2>
+
+            <p>
+                Explore information about public healthcare
+                services and community health support.
+            </p>
+
+            <a href="health.html" class="btn">
+                Explore →
+            </a>
+
+        </div>
+
+
+        <div class="scheme-card">
+
+            <div class="scheme-icon">💼</div>
+
+            <span class="scheme-tag">
+                EMPLOYMENT
+            </span>
+
+            <h2>
+                Employment Support
+            </h2>
+
+            <p>
+                Find information about employment opportunities,
+                skill development and career support.
+            </p>
+
+            <a href="community.html" class="btn">
+                Explore →
+            </a>
+
+        </div>
+
+
+        <div class="scheme-card">
+
+            <div class="scheme-icon">🏠</div>
+
+            <span class="scheme-tag">
+                SOCIAL WELFARE
+            </span>
+
+            <h2>
+                Social Welfare
+            </h2>
+
+            <p>
+                Learn about welfare services and support
+                available to eligible communities.
+            </p>
+
+            <a href="community.html" class="btn">
+                Learn More →
+            </a>
+
+        </div>
+
+
+        <div class="scheme-card">
+
+            <div class="scheme-icon">🌱</div>
+
+            <span class="scheme-tag">
+                ENVIRONMENT
+            </span>
+
+            <h2>
+                Environmental Programs
+            </h2>
+
+            <p>
+                Discover environmental initiatives and
+                opportunities for community participation.
+            </p>
+
+            <a href="environmental.html" class="btn">
+                Explore →
+            </a>
+
+        </div>
+
+
+        <div class="scheme-card">
+
+            <div class="scheme-icon">👨‍👩‍👧‍👦</div>
+
+            <span class="scheme-tag">
+                COMMUNITY
+            </span>
+
+            <h2>
+                Community Services
+            </h2>
+
+            <p>
+                Find useful public services and community
+                support information.
+            </p>
+
+            <a href="community.html" class="btn">
+                Explore →
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    © 2026 CommunityConnect |
+    Community Resource and Awareness Portal
+
+</footer>
+
+</body>
+</html>
